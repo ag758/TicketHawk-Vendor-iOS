@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5656DA3922C060710079920C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656DA3822C060710079920C /* AppDelegate.swift */; };
+		5656DA3B22C060710079920C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656DA3A22C060710079920C /* ViewController.swift */; };
+		5656DA3E22C060710079920C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5656DA3C22C060710079920C /* Main.storyboard */; };
+		5656DA4022C060730079920C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5656DA3F22C060730079920C /* Assets.xcassets */; };
+		5656DA4322C060730079920C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5656DA4122C060730079920C /* LaunchScreen.storyboard */; };
+		5656DA4E22C060730079920C /* TicketHawkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656DA4D22C060730079920C /* TicketHawkTests.swift */; };
+		5656DA5922C060730079920C /* TicketHawkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656DA5822C060730079920C /* TicketHawkUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5656DA4A22C060730079920C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5656DA2D22C060710079920C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5656DA3422C060710079920C;
+			remoteInfo = TicketHawk;
+		};
+		5656DA5522C060730079920C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5656DA2D22C060710079920C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5656DA3422C060710079920C;
+			remoteInfo = TicketHawk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5656DA3522C060710079920C /* TicketHawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketHawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5656DA3822C060710079920C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5656DA3A22C060710079920C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5656DA3D22C060710079920C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5656DA3F22C060730079920C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5656DA4222C060730079920C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5656DA4422C060730079920C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5656DA4922C060730079920C /* TicketHawkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketHawkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5656DA4D22C060730079920C /* TicketHawkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketHawkTests.swift; sourceTree = "<group>"; };
+		5656DA4F22C060730079920C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5656DA5422C060730079920C /* TicketHawkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketHawkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5656DA5822C060730079920C /* TicketHawkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketHawkUITests.swift; sourceTree = "<group>"; };
+		5656DA5A22C060730079920C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5656DA3222C060710079920C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5656DA4622C060730079920C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5656DA5122C060730079920C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5656DA2C22C060710079920C = {
+			isa = PBXGroup;
+			children = (
+				5656DA3722C060710079920C /* TicketHawk */,
+				5656DA4C22C060730079920C /* TicketHawkTests */,
+				5656DA5722C060730079920C /* TicketHawkUITests */,
+				5656DA3622C060710079920C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5656DA3622C060710079920C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5656DA3522C060710079920C /* TicketHawk.app */,
+				5656DA4922C060730079920C /* TicketHawkTests.xctest */,
+				5656DA5422C060730079920C /* TicketHawkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5656DA3722C060710079920C /* TicketHawk */ = {
+			isa = PBXGroup;
+			children = (
+				5656DA3822C060710079920C /* AppDelegate.swift */,
+				5656DA3A22C060710079920C /* ViewController.swift */,
+				5656DA3C22C060710079920C /* Main.storyboard */,
+				5656DA3F22C060730079920C /* Assets.xcassets */,
+				5656DA4122C060730079920C /* LaunchScreen.storyboard */,
+				5656DA4422C060730079920C /* Info.plist */,
+			);
+			path = TicketHawk;
+			sourceTree = "<group>";
+		};
+		5656DA4C22C060730079920C /* TicketHawkTests */ = {
+			isa = PBXGroup;
+			children = (
+				5656DA4D22C060730079920C /* TicketHawkTests.swift */,
+				5656DA4F22C060730079920C /* Info.plist */,
+			);
+			path = TicketHawkTests;
+			sourceTree = "<group>";
+		};
+		5656DA5722C060730079920C /* TicketHawkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5656DA5822C060730079920C /* TicketHawkUITests.swift */,
+				5656DA5A22C060730079920C /* Info.plist */,
+			);
+			path = TicketHawkUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5656DA3422C060710079920C /* TicketHawk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5656DA5D22C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawk" */;
+			buildPhases = (
+				5656DA3122C060710079920C /* Sources */,
+				5656DA3222C060710079920C /* Frameworks */,
+				5656DA3322C060710079920C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TicketHawk;
+			productName = TicketHawk;
+			productReference = 5656DA3522C060710079920C /* TicketHawk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5656DA4822C060730079920C /* TicketHawkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5656DA6022C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawkTests" */;
+			buildPhases = (
+				5656DA4522C060730079920C /* Sources */,
+				5656DA4622C060730079920C /* Frameworks */,
+				5656DA4722C060730079920C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5656DA4B22C060730079920C /* PBXTargetDependency */,
+			);
+			name = TicketHawkTests;
+			productName = TicketHawkTests;
+			productReference = 5656DA4922C060730079920C /* TicketHawkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5656DA5322C060730079920C /* TicketHawkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5656DA6322C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawkUITests" */;
+			buildPhases = (
+				5656DA5022C060730079920C /* Sources */,
+				5656DA5122C060730079920C /* Frameworks */,
+				5656DA5222C060730079920C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5656DA5622C060730079920C /* PBXTargetDependency */,
+			);
+			name = TicketHawkUITests;
+			productName = TicketHawkUITests;
+			productReference = 5656DA5422C060730079920C /* TicketHawkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5656DA2D22C060710079920C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Austin Gao";
+				TargetAttributes = {
+					5656DA3422C060710079920C = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					5656DA4822C060730079920C = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 5656DA3422C060710079920C;
+					};
+					5656DA5322C060730079920C = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 5656DA3422C060710079920C;
+					};
+				};
+			};
+			buildConfigurationList = 5656DA3022C060710079920C /* Build configuration list for PBXProject "TicketHawk" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5656DA2C22C060710079920C;
+			productRefGroup = 5656DA3622C060710079920C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5656DA3422C060710079920C /* TicketHawk */,
+				5656DA4822C060730079920C /* TicketHawkTests */,
+				5656DA5322C060730079920C /* TicketHawkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5656DA3322C060710079920C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5656DA4322C060730079920C /* LaunchScreen.storyboard in Resources */,
+				5656DA4022C060730079920C /* Assets.xcassets in Resources */,
+				5656DA3E22C060710079920C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5656DA4722C060730079920C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5656DA5222C060730079920C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5656DA3122C060710079920C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5656DA3B22C060710079920C /* ViewController.swift in Sources */,
+				5656DA3922C060710079920C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5656DA4522C060730079920C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5656DA4E22C060730079920C /* TicketHawkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5656DA5022C060730079920C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5656DA5922C060730079920C /* TicketHawkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5656DA4B22C060730079920C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5656DA3422C060710079920C /* TicketHawk */;
+			targetProxy = 5656DA4A22C060730079920C /* PBXContainerItemProxy */;
+		};
+		5656DA5622C060730079920C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5656DA3422C060710079920C /* TicketHawk */;
+			targetProxy = 5656DA5522C060730079920C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5656DA3C22C060710079920C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5656DA3D22C060710079920C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5656DA4122C060730079920C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5656DA4222C060730079920C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5656DA5B22C060730079920C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5656DA5C22C060730079920C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5656DA5E22C060730079920C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XQ4BKPX7ME;
+				INFOPLIST_FILE = TicketHawk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ap.TicketHawk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5656DA5F22C060730079920C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XQ4BKPX7ME;
+				INFOPLIST_FILE = TicketHawk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ap.TicketHawk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5656DA6122C060730079920C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XQ4BKPX7ME;
+				INFOPLIST_FILE = TicketHawkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ap.TicketHawkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TicketHawk.app/TicketHawk";
+			};
+			name = Debug;
+		};
+		5656DA6222C060730079920C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XQ4BKPX7ME;
+				INFOPLIST_FILE = TicketHawkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ap.TicketHawkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TicketHawk.app/TicketHawk";
+			};
+			name = Release;
+		};
+		5656DA6422C060730079920C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XQ4BKPX7ME;
+				INFOPLIST_FILE = TicketHawkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ap.TicketHawkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TicketHawk;
+			};
+			name = Debug;
+		};
+		5656DA6522C060730079920C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XQ4BKPX7ME;
+				INFOPLIST_FILE = TicketHawkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ap.TicketHawkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TicketHawk;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5656DA3022C060710079920C /* Build configuration list for PBXProject "TicketHawk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5656DA5B22C060730079920C /* Debug */,
+				5656DA5C22C060730079920C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5656DA5D22C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5656DA5E22C060730079920C /* Debug */,
+				5656DA5F22C060730079920C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5656DA6022C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5656DA6122C060730079920C /* Debug */,
+				5656DA6222C060730079920C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5656DA6322C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5656DA6422C060730079920C /* Debug */,
+				5656DA6522C060730079920C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5656DA2D22C060710079920C /* Project object */;
+}
