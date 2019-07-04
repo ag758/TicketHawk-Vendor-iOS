@@ -55,7 +55,8 @@ class SplitViewController: UIViewController {
     }
     
     @IBAction func customerPressed(_ sender: Any) {
-        
+        let next = self.storyboard!.instantiateViewController(withIdentifier: "customerViewController1") as! CustomerViewController1
+        self.present(next, animated: true, completion: nil)
     }
     
 }

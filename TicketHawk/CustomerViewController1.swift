@@ -1,8 +1,8 @@
 //
-//  VendorViewController1.swift
+//  CustomerViewController1.swift
 //  TicketHawk
 //
-//  Created by Austin Gao on 6/29/19.
+//  Created by Austin Gao on 7/4/19.
 //  Copyright © 2019 Austin Gao. All rights reserved.
 //
 
@@ -12,20 +12,19 @@ import FBSDKCoreKit
 import Firebase
 import FirebaseUI
 
-class VendorViewController1: UIViewController {
-    
-    var ref: DatabaseReference?
+class CustomerViewController1: UIViewController {
 
+    var ref: DatabaseReference?
+    
     @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         ref = SplitViewController.ref
         view.backgroundColor = UIColor.black
-        
         setCosmetics()
         
         //logOut()
@@ -41,24 +40,25 @@ class VendorViewController1: UIViewController {
         loginButton.setTitleColor(UIColor.white, for: .normal)
         
         loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.semibold)
-        loginButton.setTitle("Vendor Login", for: .normal)
+        loginButton.setTitle("Customer Login", for: .normal)
     }
-
-    @IBAction func goBack(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    
+    @IBAction func backPressed(_ sender: Any) {
+         dismiss(animated: true, completion: nil)
     }
     
     func logOut(){
         do {
             try Auth.auth().signOut()
         } catch {
+            
         }
     }
     
     func checkLoggedIn(){
         Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil {
-                self.vendorLogin()
+                self.customerLogin()
             } else {
                 self.attemptLogin()
             }
@@ -76,7 +76,7 @@ class VendorViewController1: UIViewController {
         let providers: [FUIAuthProvider] = [
             FUIGoogleAuth(),
             FUIFacebookAuth(),
-            ]
+        ]
         authUI?.providers = providers
         let authViewController = authUI?.authViewController()
         
@@ -85,7 +85,7 @@ class VendorViewController1: UIViewController {
         self.present(authViewController!, animated: true, completion: nil)
     }
     
-    func vendorLogin(){
+    func customerLogin(){
         ref = Database.database().reference()
         let user = Auth.auth().currentUser
         
@@ -94,13 +94,13 @@ class VendorViewController1: UIViewController {
         
         //Values that will not change
         
-        ref?.child("vendors/\(userID)/contactName").setValue(userName)
-        ref?.child("vendors/\(userID)/contactEmail").setValue(user?.email)
+        ref?.child("customers/\(userID)/contactName").setValue(userName)
+        ref?.child("customers/\(userID)/contactEmail").setValue(user?.email)
         
-        let vendorRef : DatabaseReference? = ref?.child("vendors").child(userID)
+        let customerRef : DatabaseReference? = ref?.child("customers").child(userID)
         
         // Attach a listener to read the data at our posts reference
-        vendorRef?.observeSingleEvent(of: .value, with: { (snapshot) in
+        customerRef?.observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             
@@ -109,13 +109,13 @@ class VendorViewController1: UIViewController {
             
             if (!didFinishProfile){
                 //Either they did not finish making their profile or this is their first time creating their profile
-                self.ref?.child("vendors/\(userID)/didFinishSigningUp").setValue(false)
+                self.ref?.child("customers/\(userID)/didFinishSigningUp").setValue(false)
                 
                 
                 //Continue editing their profile...
                 
-                let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorViewController2") as! VendorViewController2
-                self.present(next, animated: true, completion: nil)
+                //let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorViewController2") as! VendorViewController2
+                //self.present(next, animated: true, completion: nil)
                 
                 
             } else {
@@ -134,8 +134,8 @@ class VendorViewController1: UIViewController {
                 } else {
                     //allow, transition to main vendor activity
                     
-                    let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorMainViewController") as! VendorMainViewController
-                    self.present(next, animated: true, completion: nil)
+                    //let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorMainViewController") as! VendorMainViewController
+                    //self.present(next, animated: true, completion: nil)
                 }
                 
             }
@@ -145,7 +145,8 @@ class VendorViewController1: UIViewController {
         }
         
         
-       
+        
     }
     
 }
+

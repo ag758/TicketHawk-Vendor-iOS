@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -81,6 +81,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="212" y="31"/>
+        </scene>
+        <!--Customer View Controller1-->
+        <scene sceneID="ObI-8u-D4p">
+            <objects>
+                <viewController storyboardIdentifier="customerViewController1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AR7-dW-rKf" customClass="CustomerViewController1" customModule="TicketHawk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jOp-PO-IXV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thawk_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="p1P-Fu-wTU">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="7vJ-PK-dZD"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="t3d-i8-kkk"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I'm a Customer" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S57-ZF-gxC">
+                                <rect key="frame" x="20" y="120" width="300" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="jGc-6w-Li1"/>
+                                </constraints>
+                                <color key="textColor" red="0.46666666670000001" green="1" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TV-gT-PVl">
+                                <rect key="frame" x="80" y="478" width="210" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="FW3-GG-xyz"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="loginPressed:" destination="AR7-dW-rKf" eventType="touchUpInside" id="DV6-NX-IPK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ds6-wy-DVw">
+                                <rect key="frame" x="30" y="488" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9gB-uA-tG9"/>
+                                    <constraint firstAttribute="width" constant="40" id="Poy-Zy-BMX"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="button_back"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="AR7-dW-rKf" eventType="touchUpInside" id="WoF-Rc-8Mx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4TV-gT-PVl" firstAttribute="leading" secondItem="Ds6-wy-DVw" secondAttribute="trailing" constant="10" id="0Jb-NU-1zo"/>
+                            <constraint firstItem="CCf-Q3-gMF" firstAttribute="bottom" secondItem="4TV-gT-PVl" secondAttribute="bottom" constant="30" id="Lu9-z4-qoi"/>
+                            <constraint firstItem="CCf-Q3-gMF" firstAttribute="trailing" secondItem="4TV-gT-PVl" secondAttribute="trailing" constant="30" id="Nes-Go-XQ1"/>
+                            <constraint firstItem="p1P-Fu-wTU" firstAttribute="leading" secondItem="CCf-Q3-gMF" secondAttribute="leading" id="Ocd-sj-NfQ"/>
+                            <constraint firstItem="p1P-Fu-wTU" firstAttribute="top" secondItem="jOp-PO-IXV" secondAttribute="top" id="aXe-r3-YoE"/>
+                            <constraint firstItem="4TV-gT-PVl" firstAttribute="centerY" secondItem="Ds6-wy-DVw" secondAttribute="centerY" id="fPn-Gu-CEC"/>
+                            <constraint firstItem="S57-ZF-gxC" firstAttribute="leading" secondItem="CCf-Q3-gMF" secondAttribute="leading" constant="20" id="qT4-ab-xpS"/>
+                            <constraint firstItem="S57-ZF-gxC" firstAttribute="top" secondItem="p1P-Fu-wTU" secondAttribute="bottom" id="sx2-Ij-rk7"/>
+                            <constraint firstAttribute="trailing" secondItem="S57-ZF-gxC" secondAttribute="trailing" id="wYO-9N-HkN"/>
+                            <constraint firstItem="Ds6-wy-DVw" firstAttribute="leading" secondItem="CCf-Q3-gMF" secondAttribute="leading" constant="30" id="zmk-50-gmS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CCf-Q3-gMF"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="4TV-gT-PVl" id="fev-iL-8ox"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3sT-sp-Lrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="990" y="468"/>
         </scene>
         <!--Vendor View Controller1-->
         <scene sceneID="rBu-Kr-NYm">
@@ -461,8 +530,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="button_back" width="138.46153259277344" height="138.46153259277344"/>
-        <image name="button_next" width="138.46153259277344" height="138.46153259277344"/>
-        <image name="thawk_transparent" width="1000" height="1000"/>
+        <image name="button_back" width="50" height="50"/>
+        <image name="button_next" width="50" height="50"/>
+        <image name="thawk_transparent" width="500" height="500"/>
     </resources>
 </document>
