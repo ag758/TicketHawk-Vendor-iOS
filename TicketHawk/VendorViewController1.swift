@@ -1,0 +1,152 @@
+//
+//  VendorViewController1.swift
+//  TicketHawk
+//
+//  Created by Austin Gao on 6/29/19.
+//  Copyright © 2019 Austin Gao. All rights reserved.
+//
+
+import UIKit
+import FBSDKLoginKit
+import FBSDKCoreKit
+import Firebase
+import FirebaseUI
+
+class VendorViewController1: UIViewController {
+    
+    var ref: DatabaseReference?
+
+    @IBOutlet weak var loginButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        
+        ref = SplitViewController.ref
+        view.backgroundColor = UIColor.black
+        
+        setCosmetics()
+        
+        //logOut()
+        checkLoggedIn()
+    }
+    
+    func setCosmetics(){
+        loginButton.backgroundColor = .clear
+        loginButton.layer.cornerRadius = 30
+        loginButton.layer.borderWidth = 3
+        loginButton.layer.borderColor = UIColor.white.cgColor
+        
+        loginButton.setTitleColor(UIColor.white, for: .normal)
+        
+        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.semibold)
+        loginButton.setTitle("Vendor Login", for: .normal)
+    }
+
+    @IBAction func goBack(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func logOut(){
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("The file could not be loaded")
+        }
+    }
+    
+    func checkLoggedIn(){
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                self.vendorLogin()
+            } else {
+                self.attemptLogin()
+            }
+        }
+    }
+    
+    @IBAction func loginPressed(_ sender: Any) {
+        checkLoggedIn()
+    }
+    
+    func attemptLogin(){
+        let authUI = FUIAuth.defaultAuthUI()
+        authUI?.delegate = self as? FUIAuthDelegate
+        
+        let providers: [FUIAuthProvider] = [
+            FUIGoogleAuth(),
+            FUIFacebookAuth(),
+            ]
+        authUI?.providers = providers
+        let authViewController = authUI?.authViewController()
+        
+        authViewController?.navigationBar.topItem!.title = "TicketHawk"
+        
+        self.present(authViewController!, animated: true, completion: nil)
+    }
+    
+    func vendorLogin(){
+        ref = Database.database().reference()
+        let user = Auth.auth().currentUser
+        
+        let userID: String = (user?.uid)!
+        let userName: String = (user?.displayName)!
+        
+        //Values that will not change
+        
+        ref?.child("vendors/\(userID)/contactName").setValue(userName)
+        ref?.child("vendors/\(userID)/contactEmail").setValue(user?.email)
+        
+        let vendorRef : DatabaseReference? = ref?.child("vendors").child(userID)
+        
+        // Attach a listener to read the data at our posts reference
+        vendorRef?.observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            
+            ///If no value exists -- means false
+            let didFinishProfile = value?["didFinishSigningUp"] as? Bool ?? false
+            
+            if (!didFinishProfile){
+                //Either they did not finish making their profile or this is their first time creating their profile
+                self.ref?.child("vendors/\(userID)/didFinishSigningUp").setValue(false)
+                
+                
+                //Continue editing their profile...
+                
+                let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorViewController2") as! VendorViewController2
+                self.present(next, animated: true, completion: nil)
+                
+                
+            } else {
+                
+                //If they did finish making their profile
+                //Check if banned
+                let isBanned = value?["banned"] as? Bool ?? false
+                if (isBanned){
+                    //don't allow
+                    
+                    let alert = UIAlertController(title: "You have been banned.", message: "If you believe this is a mistake, please contact TicketHawk support.", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                    
+                } else {
+                    //allow, transition to main vendor activity
+                    
+                    let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorMainViewController") as! VendorMainViewController
+                    self.present(next, animated: true, completion: nil)
+                }
+                
+            }
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        
+       
+    }
+    
+}
