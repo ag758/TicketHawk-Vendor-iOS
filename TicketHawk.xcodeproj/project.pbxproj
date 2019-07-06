@@ -11,6 +11,8 @@
 		4CF360271271B8D48E7F0601 /* Pods_TicketHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B8BEAB34F9A9BE3609C027 /* Pods_TicketHawk.framework */; };
 		561B1F5722C06DD4001A0968 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */; };
 		5651F39322CEA73E009BEF73 /* CustomerViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651F39222CEA73E009BEF73 /* CustomerViewController1.swift */; };
+		5651F39522D144B3009BEF73 /* CustomerViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651F39422D144B3009BEF73 /* CustomerViewController2.swift */; };
+		5651F39722D14BF2009BEF73 /* CustomerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651F39622D14BF2009BEF73 /* CustomerMainViewController.swift */; };
 		5656DA3922C060710079920C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656DA3822C060710079920C /* AppDelegate.swift */; };
 		5656DA3B22C060710079920C /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656DA3A22C060710079920C /* SplitViewController.swift */; };
 		5656DA3E22C060710079920C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5656DA3C22C060710079920C /* Main.storyboard */; };
@@ -46,6 +48,8 @@
 		3969C30CADAD07557E19F956 /* Pods-TicketHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawk/Pods-TicketHawk.debug.xcconfig"; sourceTree = "<group>"; };
 		561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5651F39222CEA73E009BEF73 /* CustomerViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController1.swift; sourceTree = "<group>"; };
+		5651F39422D144B3009BEF73 /* CustomerViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController2.swift; sourceTree = "<group>"; };
+		5651F39622D14BF2009BEF73 /* CustomerMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerMainViewController.swift; sourceTree = "<group>"; };
 		5656DA3522C060710079920C /* TicketHawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketHawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5656DA3822C060710079920C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5656DA3A22C060710079920C /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
@@ -133,7 +137,9 @@
 				569D445C22C81F20001353CB /* VendorViewController2.swift */,
 				56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */,
 				5651F39222CEA73E009BEF73 /* CustomerViewController1.swift */,
+				5651F39422D144B3009BEF73 /* CustomerViewController2.swift */,
 				56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */,
+				5651F39622D14BF2009BEF73 /* CustomerMainViewController.swift */,
 				5656DA3C22C060710079920C /* Main.storyboard */,
 				5656DA3F22C060730079920C /* Assets.xcassets */,
 				5656DA4422C060730079920C /* Info.plist */,
@@ -459,9 +465,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5651F39722D14BF2009BEF73 /* CustomerMainViewController.swift in Sources */,
 				5656DA3B22C060710079920C /* SplitViewController.swift in Sources */,
 				569D445D22C81F20001353CB /* VendorViewController2.swift in Sources */,
 				569D445B22C7FCC2001353CB /* VendorViewController1.swift in Sources */,
+				5651F39522D144B3009BEF73 /* CustomerViewController2.swift in Sources */,
 				56D7F2EF22CE85BD0086AA5C /* VendorMainViewController.swift in Sources */,
 				56D7F2ED22CE6AA30086AA5C /* VendorViewController3.swift in Sources */,
 				5656DA3922C060710079920C /* AppDelegate.swift in Sources */,

@@ -94,8 +94,7 @@ class CustomerViewController1: UIViewController {
         
         //Values that will not change
         
-        ref?.child("customers/\(userID)/contactName").setValue(userName)
-        ref?.child("customers/\(userID)/contactEmail").setValue(user?.email)
+        
         
         let customerRef : DatabaseReference? = ref?.child("customers").child(userID)
         
@@ -111,11 +110,14 @@ class CustomerViewController1: UIViewController {
                 //Either they did not finish making their profile or this is their first time creating their profile
                 self.ref?.child("customers/\(userID)/didFinishSigningUp").setValue(false)
                 
+                self.ref?.child("customers/\(userID)/contactName").setValue(userName)
+                self.ref?.child("customers/\(userID)/contactEmail").setValue(user?.email)
+                
                 
                 //Continue editing their profile...
                 
-                //let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorViewController2") as! VendorViewController2
-                //self.present(next, animated: true, completion: nil)
+                let next = self.storyboard!.instantiateViewController(withIdentifier: "customerViewController2") as! CustomerViewController2
+                self.present(next, animated: true, completion: nil)
                 
                 
             } else {
@@ -134,8 +136,8 @@ class CustomerViewController1: UIViewController {
                 } else {
                     //allow, transition to main vendor activity
                     
-                    //let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorMainViewController") as! VendorMainViewController
-                    //self.present(next, animated: true, completion: nil)
+                    let next = self.storyboard!.instantiateViewController(withIdentifier: "customerMainViewController") as! CustomerMainViewController
+                    self.present(next, animated: true, completion: nil)
                 }
                 
             }

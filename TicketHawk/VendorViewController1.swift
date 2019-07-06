@@ -94,8 +94,7 @@ class VendorViewController1: UIViewController {
         
         //Values that will not change
         
-        ref?.child("vendors/\(userID)/contactName").setValue(userName)
-        ref?.child("vendors/\(userID)/contactEmail").setValue(user?.email)
+        
         
         let vendorRef : DatabaseReference? = ref?.child("vendors").child(userID)
         
@@ -111,6 +110,8 @@ class VendorViewController1: UIViewController {
                 //Either they did not finish making their profile or this is their first time creating their profile
                 self.ref?.child("vendors/\(userID)/didFinishSigningUp").setValue(false)
                 
+                self.ref?.child("vendors/\(userID)/contactName").setValue(userName)
+                self.ref?.child("vendors/\(userID)/contactEmail").setValue(user?.email)
                 
                 //Continue editing their profile...
                 
