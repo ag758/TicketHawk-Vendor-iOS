@@ -22,6 +22,8 @@
 		5665A2EF22C7F16B00148ADD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5665A2EE22C7F16B00148ADD /* GoogleService-Info.plist */; };
 		569D445B22C7FCC2001353CB /* VendorViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D445A22C7FCC2001353CB /* VendorViewController1.swift */; };
 		569D445D22C81F20001353CB /* VendorViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D445C22C81F20001353CB /* VendorViewController2.swift */; };
+		56CFF16C22D18C6600459985 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CFF16B22D18C6600459985 /* CreateEventViewController.swift */; };
+		56CFF17022D1965E00459985 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CFF16F22D1965E00459985 /* CustomUITextField.swift */; };
 		56D7F2ED22CE6AA30086AA5C /* VendorViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */; };
 		56D7F2EF22CE85BD0086AA5C /* VendorMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */; };
 		8958DD8721F136875CFBE242 /* Pods_TicketHawkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C7D2CC57718B723C1D2A04 /* Pods_TicketHawkUITests.framework */; };
@@ -65,6 +67,8 @@
 		5665A2EE22C7F16B00148ADD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		569D445A22C7FCC2001353CB /* VendorViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController1.swift; sourceTree = "<group>"; };
 		569D445C22C81F20001353CB /* VendorViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController2.swift; sourceTree = "<group>"; };
+		56CFF16B22D18C6600459985 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		56CFF16F22D1965E00459985 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController3.swift; sourceTree = "<group>"; };
 		56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorMainViewController.swift; sourceTree = "<group>"; };
 		59E060D80D33B362D934E335 /* Pods_TicketHawkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketHawkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,9 +145,11 @@
 				56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */,
 				5651F39622D14BF2009BEF73 /* CustomerMainViewController.swift */,
 				5656DA3C22C060710079920C /* Main.storyboard */,
+				56CFF16B22D18C6600459985 /* CreateEventViewController.swift */,
 				5656DA3F22C060730079920C /* Assets.xcassets */,
 				5656DA4422C060730079920C /* Info.plist */,
 				561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */,
+				56CFF16F22D1965E00459985 /* CustomUITextField.swift */,
 			);
 			path = TicketHawk;
 			sourceTree = "<group>";
@@ -472,7 +478,9 @@
 				5651F39522D144B3009BEF73 /* CustomerViewController2.swift in Sources */,
 				56D7F2EF22CE85BD0086AA5C /* VendorMainViewController.swift in Sources */,
 				56D7F2ED22CE6AA30086AA5C /* VendorViewController3.swift in Sources */,
+				56CFF16C22D18C6600459985 /* CreateEventViewController.swift in Sources */,
 				5656DA3922C060710079920C /* AppDelegate.swift in Sources */,
+				56CFF17022D1965E00459985 /* CustomUITextField.swift in Sources */,
 				5651F39322CEA73E009BEF73 /* CustomerViewController1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

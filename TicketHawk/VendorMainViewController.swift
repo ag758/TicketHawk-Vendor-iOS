@@ -45,6 +45,12 @@ class VendorMainViewController: UIViewController {
         }
     }
     
+    @IBAction func createPressed(_ sender: Any) {
+        let vc = storyboard!.instantiateViewController(withIdentifier: "createEventViewController") as! CreateEventViewController
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
 
     func setCosmetics(){
         logOutButton.backgroundColor = .clear
