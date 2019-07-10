@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thawk_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="Xxm-sc-YTN">
-                                <rect key="frame" x="100" y="124" width="120" height="120"/>
+                                <rect key="frame" x="152" y="176" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="FW4-1N-5cM"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="JTa-gB-l11"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="TicketHawk" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOY-Mf-Ppg">
-                                <rect key="frame" x="10" y="264" width="300" height="120"/>
+                                <rect key="frame" x="10" y="212" width="300" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="s28-Q8-feo"/>
                                 </constraints>
@@ -91,14 +91,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thawk_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="p1P-Fu-wTU">
-                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="7vJ-PK-dZD"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="t3d-i8-kkk"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I'm a Customer" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S57-ZF-gxC">
-                                <rect key="frame" x="20" y="120" width="300" height="60"/>
+                                <rect key="frame" x="20" y="16" width="300" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="jGc-6w-Li1"/>
                                 </constraints>
@@ -160,14 +160,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thawk_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="T6D-O4-qi1">
-                                <rect key="frame" x="0.0" y="20" width="120" height="120"/>
+                                <rect key="frame" x="0.0" y="20" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="Z3b-gT-7b7"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="ah2-sP-xji"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I'm a Customer" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrC-t6-3Jq">
-                                <rect key="frame" x="20" y="140" width="300" height="60"/>
+                                <rect key="frame" x="20" y="36" width="300" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="LLA-TN-8F4"/>
                                 </constraints>
@@ -176,7 +176,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="My name is" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ee1-jw-ZA2">
-                                <rect key="frame" x="20" y="210" width="280" height="30"/>
+                                <rect key="frame" x="20" y="106" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="mkc-ds-kLy"/>
                                 </constraints>
@@ -185,7 +185,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Joel Hindergarden" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aCT-N6-4kr">
-                                <rect key="frame" x="20" y="250" width="280" height="30"/>
+                                <rect key="frame" x="20" y="146" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Icg-LM-igR"/>
                                 </constraints>
@@ -194,7 +194,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="name"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="My email address is" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNR-wC-jia">
-                                <rect key="frame" x="20" y="290" width="280" height="30"/>
+                                <rect key="frame" x="20" y="186" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="fMg-yM-ZsB"/>
                                 </constraints>
@@ -203,7 +203,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="joelhindergarden@yahoo.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K0q-1o-4lJ">
-                                <rect key="frame" x="20" y="330" width="280" height="30"/>
+                                <rect key="frame" x="20" y="226" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0Eu-Ae-jLv"/>
                                 </constraints>
@@ -212,11 +212,11 @@
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4kC-Sj-dIz">
-                                <rect key="frame" x="20" y="410" width="280" height="78"/>
+                                <rect key="frame" x="20" y="306" width="280" height="182"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I'm primarily interested in events at" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvn-u5-nWD">
-                                <rect key="frame" x="20" y="370" width="280" height="30"/>
+                                <rect key="frame" x="20" y="266" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="oXg-er-gDA"/>
                                 </constraints>
@@ -289,14 +289,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thawk_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="hBE-6t-DBE">
-                                <rect key="frame" x="0.0" y="20" width="120" height="120"/>
+                                <rect key="frame" x="0.0" y="20" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="AEk-3c-RkC"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="Fl8-TZ-DYa"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I'm a Vendor" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u82-cN-xr3">
-                                <rect key="frame" x="20" y="140" width="300" height="60"/>
+                                <rect key="frame" x="20" y="36" width="300" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="7kz-EP-gJv"/>
                                 </constraints>
@@ -358,7 +358,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I'm a Vendor" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5f-a5-VsT">
-                                <rect key="frame" x="20" y="140" width="300" height="60"/>
+                                <rect key="frame" x="20" y="36" width="300" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="9oc-fD-EIF"/>
                                     <constraint firstAttribute="height" constant="60" id="uR1-fX-Au9"/>
@@ -368,14 +368,14 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thawk_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="JfC-bG-uAd">
-                                <rect key="frame" x="0.0" y="20" width="120" height="120"/>
+                                <rect key="frame" x="0.0" y="20" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="2vA-2Z-YUL"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="nN5-0d-F2T"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="My organization's name is" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzK-zn-Kmg">
-                                <rect key="frame" x="20" y="210" width="280" height="30"/>
+                                <rect key="frame" x="20" y="106" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="UYv-ji-JDo"/>
                                 </constraints>
@@ -384,7 +384,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="We primarily sell" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiN-wc-dkj">
-                                <rect key="frame" x="20" y="290" width="280" height="30"/>
+                                <rect key="frame" x="20" y="186" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="TpX-aW-gdl"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="nry-k8-T8M"/>
@@ -394,7 +394,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Our customer support can be contacted at" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2o-L6-lCL">
-                                <rect key="frame" x="20" y="370" width="280" height="30"/>
+                                <rect key="frame" x="20" y="266" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="8bb-ug-USy"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="TZa-Uq-6Bt"/>
@@ -405,7 +405,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dutch Rock Band" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mrt-zk-RF0">
-                                <rect key="frame" x="20" y="250" width="280" height="30"/>
+                                <rect key="frame" x="20" y="146" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ReN-iN-R7A"/>
                                 </constraints>
@@ -414,7 +414,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Music Tickets" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7xL-ZZ-h2T">
-                                <rect key="frame" x="20" y="330" width="280" height="30"/>
+                                <rect key="frame" x="20" y="226" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="oTd-Do-Jls"/>
                                     <constraint firstAttribute="height" constant="30" id="vfQ-O8-Otc"/>
@@ -424,7 +424,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1234567890" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="INZ-6G-7XC">
-                                <rect key="frame" x="20" y="410" width="280" height="30"/>
+                                <rect key="frame" x="20" y="306" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="0Ki-sF-Uh8"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="BZr-Jl-QgP"/>
@@ -435,7 +435,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="support@cheaptickets.org" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edv-CM-Kw1">
-                                <rect key="frame" x="20" y="450" width="280" height="30"/>
+                                <rect key="frame" x="20" y="346" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="aWd-Tr-Rvh"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="g0G-Kh-gJx"/>
@@ -511,14 +511,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thawk_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="eW3-Fi-HC0">
-                                <rect key="frame" x="0.0" y="20" width="120" height="120"/>
+                                <rect key="frame" x="0.0" y="20" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="l4V-Ly-Rbe"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="net-gh-H61"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I'm a Vendor" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ht-Qx-HoB">
-                                <rect key="frame" x="20" y="140" width="300" height="60"/>
+                                <rect key="frame" x="20" y="36" width="300" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="DNH-8J-nrB"/>
                                     <constraint firstAttribute="width" constant="300" id="pCG-fG-gre"/>
@@ -528,7 +528,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="https://my_company_image.com/image" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SZE-CM-rmC">
-                                <rect key="frame" x="20" y="250" width="280" height="30"/>
+                                <rect key="frame" x="20" y="146" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="yQr-Oi-qKD"/>
                                 </constraints>
@@ -537,7 +537,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="A URL for my organization's profile picture is" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bb2-xG-urF">
-                                <rect key="frame" x="20" y="210" width="280" height="30"/>
+                                <rect key="frame" x="20" y="106" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="DWc-hb-zuL"/>
                                 </constraints>
@@ -546,7 +546,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I will be listed in the following community" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8g-aG-tYn">
-                                <rect key="frame" x="20" y="400" width="280" height="30"/>
+                                <rect key="frame" x="20" y="296" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="BUg-tr-ldv"/>
                                 </constraints>
@@ -555,14 +555,14 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xb5-xi-d3n">
-                                <rect key="frame" x="130" y="290" width="170" height="100"/>
+                                <rect key="frame" x="130" y="186" width="170" height="100"/>
                                 <string key="text">Your organization's profile image should automatically show to the left. If it does not, please correct or enter a new picture URL.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QHk-gm-u33">
-                                <rect key="frame" x="20" y="290" width="100" height="100"/>
+                                <rect key="frame" x="20" y="186" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="nPd-IK-KIM"/>
                                     <constraint firstAttribute="width" constant="100" id="xG4-0g-8a7"/>
@@ -595,7 +595,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="asM-EE-B75">
-                                <rect key="frame" x="20" y="440" width="280" height="48"/>
+                                <rect key="frame" x="20" y="336" width="280" height="152"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -651,14 +651,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thawk_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="YP4-Vb-NQk">
-                                <rect key="frame" x="0.0" y="20" width="80" height="80"/>
+                                <rect key="frame" x="0.0" y="20" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="DD7-tW-Yug"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="OxA-f3-RP8"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2Q-Dd-0LR">
-                                <rect key="frame" x="80" y="20" width="120" height="35"/>
+                                <rect key="frame" x="16" y="20" width="152" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="XWM-hi-SZj"/>
                                 </constraints>
@@ -668,14 +668,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4k-uL-d0F">
-                                <rect key="frame" x="80" y="65" width="120" height="35"/>
+                                <rect key="frame" x="16" y="65" width="152" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="nIa-Ap-5Pk"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gan-H5-OqZ">
-                                <rect key="frame" x="200" y="40" width="120" height="40"/>
+                                <rect key="frame" x="168" y="40" width="152" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="DDV-t9-w8q"/>
                                 </constraints>
@@ -755,6 +755,51 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Max. Tickets per User" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDa-n6-yOq">
+                                <rect key="frame" x="20" y="210" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ASF-gS-gGq"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Total Venue Capacity" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYX-cM-x5A">
+                                <rect key="frame" x="20" y="270" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CoP-Ci-dIb"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Dress Code" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOd-M4-WmK">
+                                <rect key="frame" x="20" y="240" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="raj-sG-Oef"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Description" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="On1-yS-ud7">
+                                <rect key="frame" x="20" y="300" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="grK-Hb-0Rz"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Ticket Types" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvO-ag-Zft">
+                                <rect key="frame" x="20" y="350" width="280" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5L0-6F-lrD"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Premiere Concert" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="acA-dM-Nls">
                                 <rect key="frame" x="120" y="20" width="180" height="30"/>
                                 <nil key="textColor"/>
@@ -773,45 +818,172 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="122 Garrison Ln, California, USA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uKR-aG-Ax7" customClass="CustomUITextField" customModule="TicketHawk" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="5" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uvq-fQ-nhy" customClass="CustomUITextField" customModule="TicketHawk" customModuleProvider="target">
+                                <rect key="frame" x="120" y="210" width="180" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EaI-zQ-4q9" customClass="CustomUITextField" customModule="TicketHawk" customModuleProvider="target">
+                                <rect key="frame" x="120" y="270" width="180" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="122 Garrison Ln, California, USA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uKR-aG-Ax7">
                                 <rect key="frame" x="119.5" y="110" width="180.5" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="street-address"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Semiformal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7QX-TV-gev">
+                                <rect key="frame" x="120" y="240" width="180" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="street-address"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Regular" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yuv-zO-lc2">
+                                <rect key="frame" x="20" y="390" width="93.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="street-address"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="&lt;500 characters" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YdG-k9-5iE">
+                                <rect key="frame" x="120" y="300" width="180" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="street-address"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="https:// event_image_here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eng-PL-zfJ">
+                                <rect key="frame" x="120" y="140" width="180" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="url"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GYB-Ct-TLG">
+                                <rect key="frame" x="20" y="140" width="90" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="g63-Am-bj2"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Image should appear above" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="30g-bq-Xy8">
+                                <rect key="frame" x="20" y="190" width="280" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="UDP-FK-xNH"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Mr-OU-wSq">
+                                <rect key="frame" x="20" y="440" width="280" height="108"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="owD-eD-1Qu" customClass="CustomUITextField" customModule="TicketHawk" customModuleProvider="target">
+                                <rect key="frame" x="113.5" y="390" width="93" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfy-1J-a3q">
+                                <rect key="frame" x="206.5" y="390" width="93.5" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addTicketTypePressed:" destination="tL5-Cr-pP2" eventType="touchUpInside" id="dES-66-8XX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Lfs-0q-e15" firstAttribute="leading" secondItem="KSa-yI-cnu" secondAttribute="leading" constant="20" id="43f-h1-oTO"/>
+                            <constraint firstItem="owD-eD-1Qu" firstAttribute="top" secondItem="DvO-ag-Zft" secondAttribute="bottom" constant="10" id="4bs-SE-boh"/>
+                            <constraint firstItem="eng-PL-zfJ" firstAttribute="top" secondItem="uKR-aG-Ax7" secondAttribute="bottom" id="59i-KE-isd"/>
                             <constraint firstItem="acA-dM-Nls" firstAttribute="top" secondItem="KSa-yI-cnu" secondAttribute="top" id="5Oq-IU-FNE"/>
+                            <constraint firstItem="EaI-zQ-4q9" firstAttribute="width" secondItem="gYX-cM-x5A" secondAttribute="width" multiplier="2" id="5no-Vp-Lni"/>
                             <constraint firstItem="ecQ-SD-GYK" firstAttribute="leading" secondItem="KSa-yI-cnu" secondAttribute="leading" constant="20" id="5t4-7v-m4a"/>
+                            <constraint firstItem="6Mr-OU-wSq" firstAttribute="top" secondItem="yuv-zO-lc2" secondAttribute="bottom" constant="20" id="60C-fd-8G0"/>
                             <constraint firstItem="m3x-1b-oiZ" firstAttribute="top" secondItem="acA-dM-Nls" secondAttribute="bottom" id="7Oh-iO-p9b"/>
                             <constraint firstItem="jpV-xj-Lhs" firstAttribute="top" secondItem="KSa-yI-cnu" secondAttribute="top" id="7kf-GA-YyV"/>
+                            <constraint firstItem="owD-eD-1Qu" firstAttribute="leading" secondItem="yuv-zO-lc2" secondAttribute="trailing" id="7nC-2y-Sz8"/>
                             <constraint firstItem="Oam-16-Br0" firstAttribute="top" secondItem="jpV-xj-Lhs" secondAttribute="bottom" id="9Kd-kE-tDO"/>
+                            <constraint firstItem="GYB-Ct-TLG" firstAttribute="leading" secondItem="KSa-yI-cnu" secondAttribute="leading" constant="20" id="9jh-e6-Zkp"/>
+                            <constraint firstItem="KSa-yI-cnu" firstAttribute="trailing" secondItem="30g-bq-Xy8" secondAttribute="trailing" constant="20" id="9oq-QP-UvY"/>
+                            <constraint firstItem="KSa-yI-cnu" firstAttribute="trailing" secondItem="YdG-k9-5iE" secondAttribute="trailing" constant="20" id="B7K-SU-z0C"/>
+                            <constraint firstItem="On1-yS-ud7" firstAttribute="leading" secondItem="KSa-yI-cnu" secondAttribute="leading" constant="20" id="C8L-W6-hxo"/>
                             <constraint firstItem="jpV-xj-Lhs" firstAttribute="leading" secondItem="KSa-yI-cnu" secondAttribute="leading" constant="20" id="CbP-We-MFR"/>
+                            <constraint firstItem="Uvq-fQ-nhy" firstAttribute="leading" secondItem="dDa-n6-yOq" secondAttribute="trailing" constant="10" id="Cf9-Xl-JKh"/>
+                            <constraint firstItem="dDa-n6-yOq" firstAttribute="leading" secondItem="KSa-yI-cnu" secondAttribute="leading" constant="20" id="DK8-gy-5Iw"/>
                             <constraint firstItem="acA-dM-Nls" firstAttribute="leading" secondItem="jpV-xj-Lhs" secondAttribute="trailing" constant="10" id="DeF-IY-4oh"/>
+                            <constraint firstItem="eng-PL-zfJ" firstAttribute="leading" secondItem="GYB-Ct-TLG" secondAttribute="trailing" constant="10" id="E5P-Ui-qog"/>
+                            <constraint firstItem="KSa-yI-cnu" firstAttribute="trailing" secondItem="7QX-TV-gev" secondAttribute="trailing" constant="20" id="Ex3-cf-Qfl"/>
                             <constraint firstItem="uKR-aG-Ax7" firstAttribute="leading" secondItem="Lfs-0q-e15" secondAttribute="trailing" constant="10" id="GaC-kw-zc4"/>
+                            <constraint firstItem="YdG-k9-5iE" firstAttribute="leading" secondItem="On1-yS-ud7" secondAttribute="trailing" constant="10" id="GeQ-m3-i8Z"/>
+                            <constraint firstItem="EaI-zQ-4q9" firstAttribute="top" secondItem="7QX-TV-gev" secondAttribute="bottom" id="Hkh-x6-BwY"/>
+                            <constraint firstItem="yuv-zO-lc2" firstAttribute="top" secondItem="DvO-ag-Zft" secondAttribute="bottom" constant="10" id="KyQ-6d-FQ4"/>
                             <constraint firstItem="KSa-yI-cnu" firstAttribute="trailing" secondItem="gtf-n8-VbM" secondAttribute="trailing" constant="20" id="L8u-Ty-WM0"/>
+                            <constraint firstItem="vOd-M4-WmK" firstAttribute="top" secondItem="dDa-n6-yOq" secondAttribute="bottom" id="LC1-hr-r6K"/>
                             <constraint firstItem="KSa-yI-cnu" firstAttribute="trailing" secondItem="uKR-aG-Ax7" secondAttribute="trailing" constant="20" id="LQT-u9-t3J"/>
+                            <constraint firstItem="KSa-yI-cnu" firstAttribute="trailing" secondItem="EaI-zQ-4q9" secondAttribute="trailing" constant="20" id="M4o-8b-mWJ"/>
                             <constraint firstItem="m3x-1b-oiZ" firstAttribute="width" secondItem="Oam-16-Br0" secondAttribute="width" multiplier="2" id="MJl-Q7-HNr"/>
+                            <constraint firstItem="7QX-TV-gev" firstAttribute="width" secondItem="vOd-M4-WmK" secondAttribute="width" multiplier="2" id="Mbk-xw-9Bu"/>
+                            <constraint firstItem="On1-yS-ud7" firstAttribute="top" secondItem="gYX-cM-x5A" secondAttribute="bottom" id="Mp0-Qf-loz"/>
+                            <constraint firstItem="eng-PL-zfJ" firstAttribute="width" secondItem="GYB-Ct-TLG" secondAttribute="width" multiplier="2" id="NNB-Ct-suw"/>
                             <constraint firstItem="m3x-1b-oiZ" firstAttribute="leading" secondItem="Oam-16-Br0" secondAttribute="trailing" constant="10" id="NZA-DF-hsv"/>
+                            <constraint firstItem="KSa-yI-cnu" firstAttribute="trailing" secondItem="6Mr-OU-wSq" secondAttribute="trailing" constant="20" id="Nwh-0w-4Ho"/>
                             <constraint firstItem="acA-dM-Nls" firstAttribute="width" secondItem="jpV-xj-Lhs" secondAttribute="width" multiplier="2" id="QDZ-7F-bMg"/>
+                            <constraint firstItem="gYX-cM-x5A" firstAttribute="top" secondItem="vOd-M4-WmK" secondAttribute="bottom" id="RAV-qi-cnI"/>
                             <constraint firstItem="KSa-yI-cnu" firstAttribute="trailing" secondItem="m3x-1b-oiZ" secondAttribute="trailing" constant="20" id="THI-FX-YMQ"/>
                             <constraint firstItem="Lfs-0q-e15" firstAttribute="top" secondItem="ecQ-SD-GYK" secondAttribute="bottom" id="U9H-uK-giz"/>
                             <constraint firstItem="KSa-yI-cnu" firstAttribute="trailing" secondItem="acA-dM-Nls" secondAttribute="trailing" constant="20" id="Uin-Gg-yyS"/>
+                            <constraint firstItem="YdG-k9-5iE" firstAttribute="width" secondItem="On1-yS-ud7" secondAttribute="width" multiplier="2" id="UvZ-bI-wc7"/>
+                            <constraint firstItem="owD-eD-1Qu" firstAttribute="width" secondItem="yuv-zO-lc2" secondAttribute="width" id="V9Y-Fp-TnT"/>
                             <constraint firstItem="uKR-aG-Ax7" firstAttribute="width" secondItem="Lfs-0q-e15" secondAttribute="width" multiplier="2" constant="1" id="W1P-bd-0SO"/>
+                            <constraint firstItem="6Mr-OU-wSq" firstAttribute="leading" secondItem="KSa-yI-cnu" secondAttribute="leading" constant="20" id="WiV-ET-jp0"/>
+                            <constraint firstItem="GYB-Ct-TLG" firstAttribute="top" secondItem="Lfs-0q-e15" secondAttribute="bottom" id="Z8N-DD-AMU"/>
+                            <constraint firstItem="KSa-yI-cnu" firstAttribute="bottom" secondItem="6Mr-OU-wSq" secondAttribute="bottom" constant="20" id="Ze3-Gx-QV0"/>
                             <constraint firstItem="gtf-n8-VbM" firstAttribute="width" secondItem="ecQ-SD-GYK" secondAttribute="width" multiplier="2" id="ZrE-ww-eSt"/>
+                            <constraint firstItem="YdG-k9-5iE" firstAttribute="top" secondItem="EaI-zQ-4q9" secondAttribute="bottom" id="a5R-7K-SQi"/>
                             <constraint firstItem="gtf-n8-VbM" firstAttribute="top" secondItem="m3x-1b-oiZ" secondAttribute="bottom" id="aqY-EE-ZaK"/>
+                            <constraint firstItem="kfy-1J-a3q" firstAttribute="width" secondItem="yuv-zO-lc2" secondAttribute="width" id="chb-Cz-5Fr"/>
+                            <constraint firstItem="KSa-yI-cnu" firstAttribute="trailing" secondItem="kfy-1J-a3q" secondAttribute="trailing" constant="20" id="d9u-ME-cef"/>
+                            <constraint firstItem="30g-bq-Xy8" firstAttribute="leading" secondItem="KSa-yI-cnu" secondAttribute="leading" constant="20" id="dZr-Nx-2Tb"/>
+                            <constraint firstItem="EaI-zQ-4q9" firstAttribute="leading" secondItem="gYX-cM-x5A" secondAttribute="trailing" constant="10" id="fJT-rA-G7k"/>
+                            <constraint firstItem="KSa-yI-cnu" firstAttribute="trailing" secondItem="DvO-ag-Zft" secondAttribute="trailing" constant="20" id="fZM-hP-2zU"/>
                             <constraint firstItem="gtf-n8-VbM" firstAttribute="leading" secondItem="ecQ-SD-GYK" secondAttribute="trailing" constant="10" id="h0Z-gK-DXn"/>
+                            <constraint firstItem="vOd-M4-WmK" firstAttribute="leading" secondItem="KSa-yI-cnu" secondAttribute="leading" constant="20" id="hKq-q8-Afk"/>
+                            <constraint firstItem="30g-bq-Xy8" firstAttribute="top" secondItem="GYB-Ct-TLG" secondAttribute="bottom" id="i8V-4x-xpm"/>
                             <constraint firstItem="Oam-16-Br0" firstAttribute="leading" secondItem="KSa-yI-cnu" secondAttribute="leading" constant="20" id="jzf-zT-ub5"/>
+                            <constraint firstItem="kfy-1J-a3q" firstAttribute="leading" secondItem="owD-eD-1Qu" secondAttribute="trailing" id="kIk-2Z-dVV"/>
+                            <constraint firstItem="KSa-yI-cnu" firstAttribute="trailing" secondItem="Uvq-fQ-nhy" secondAttribute="trailing" constant="20" id="mF6-e3-NBE"/>
+                            <constraint firstItem="dDa-n6-yOq" firstAttribute="top" secondItem="30g-bq-Xy8" secondAttribute="bottom" id="ofs-QS-gAJ"/>
                             <constraint firstItem="uKR-aG-Ax7" firstAttribute="top" secondItem="gtf-n8-VbM" secondAttribute="bottom" id="pt4-2Z-MLT"/>
+                            <constraint firstItem="DvO-ag-Zft" firstAttribute="leading" secondItem="KSa-yI-cnu" secondAttribute="leading" constant="20" id="pu2-Og-6RR"/>
+                            <constraint firstItem="7QX-TV-gev" firstAttribute="leading" secondItem="vOd-M4-WmK" secondAttribute="trailing" constant="10" id="q1I-KK-PGc"/>
+                            <constraint firstItem="yuv-zO-lc2" firstAttribute="leading" secondItem="KSa-yI-cnu" secondAttribute="leading" constant="20" id="qsJ-SZ-ERi"/>
+                            <constraint firstItem="Uvq-fQ-nhy" firstAttribute="width" secondItem="dDa-n6-yOq" secondAttribute="width" multiplier="2" id="s3M-XZ-CB4"/>
+                            <constraint firstItem="DvO-ag-Zft" firstAttribute="top" secondItem="On1-yS-ud7" secondAttribute="bottom" constant="20" id="tsP-g8-dL9"/>
+                            <constraint firstItem="7QX-TV-gev" firstAttribute="top" secondItem="Uvq-fQ-nhy" secondAttribute="bottom" id="vj5-jw-rKO"/>
+                            <constraint firstItem="KSa-yI-cnu" firstAttribute="trailing" secondItem="eng-PL-zfJ" secondAttribute="trailing" constant="20" id="wvf-8E-oNX"/>
+                            <constraint firstItem="kfy-1J-a3q" firstAttribute="top" secondItem="DvO-ag-Zft" secondAttribute="bottom" constant="10" id="x6h-2g-8Qg"/>
+                            <constraint firstItem="gYX-cM-x5A" firstAttribute="leading" secondItem="KSa-yI-cnu" secondAttribute="leading" constant="20" id="xgl-Jt-Pei"/>
+                            <constraint firstItem="Uvq-fQ-nhy" firstAttribute="top" secondItem="30g-bq-Xy8" secondAttribute="bottom" id="yKN-h5-aTl"/>
                             <constraint firstItem="ecQ-SD-GYK" firstAttribute="top" secondItem="Oam-16-Br0" secondAttribute="bottom" id="zgt-dc-bhQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KSa-yI-cnu"/>
                     </view>
                     <connections>
+                        <outlet property="addressField" destination="uKR-aG-Ax7" id="Nx7-WS-u6P"/>
+                        <outlet property="dressCodeTextField" destination="7QX-TV-gev" id="qrk-el-u3t"/>
                         <outlet property="endDateAndTimeField" destination="gtf-n8-VbM" id="L5k-2g-E0y"/>
+                        <outlet property="eventDescription" destination="YdG-k9-5iE" id="gez-9M-lNi"/>
+                        <outlet property="imageURLImageView" destination="GYB-Ct-TLG" id="z88-PN-eqT"/>
+                        <outlet property="imageURLTextField" destination="eng-PL-zfJ" id="6rl-SS-65c"/>
+                        <outlet property="maxTickets" destination="Uvq-fQ-nhy" id="XNL-bo-CQR"/>
+                        <outlet property="maxVenueCapacity" destination="EaI-zQ-4q9" id="MQx-md-ftX"/>
                         <outlet property="startDateAndTimeField" destination="m3x-1b-oiZ" id="8f7-Pd-Ttf"/>
+                        <outlet property="ticketTypeCost" destination="owD-eD-1Qu" id="ukI-PX-UAr"/>
+                        <outlet property="ticketTypeName" destination="yuv-zO-lc2" id="vxE-NG-HUi"/>
+                        <outlet property="ticketTypeTableView" destination="6Mr-OU-wSq" id="GXP-it-heO"/>
                         <outlet property="titleTextField" destination="acA-dM-Nls" id="she-ut-iCk"/>
                     </connections>
                 </viewController>

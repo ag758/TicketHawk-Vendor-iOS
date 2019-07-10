@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		081B0C0ACD96D04FBEDC5D59 /* Pods_TicketHawkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E060D80D33B362D934E335 /* Pods_TicketHawkTests.framework */; };
 		4CF360271271B8D48E7F0601 /* Pods_TicketHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B8BEAB34F9A9BE3609C027 /* Pods_TicketHawk.framework */; };
+		560CD18122D56CA600DCEA7C /* TicketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560CD18022D56CA600DCEA7C /* TicketType.swift */; };
 		561B1F5722C06DD4001A0968 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */; };
 		5651F39322CEA73E009BEF73 /* CustomerViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651F39222CEA73E009BEF73 /* CustomerViewController1.swift */; };
 		5651F39522D144B3009BEF73 /* CustomerViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651F39422D144B3009BEF73 /* CustomerViewController2.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		3969C30CADAD07557E19F956 /* Pods-TicketHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawk/Pods-TicketHawk.debug.xcconfig"; sourceTree = "<group>"; };
+		560CD18022D56CA600DCEA7C /* TicketType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketType.swift; sourceTree = "<group>"; };
 		561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5651F39222CEA73E009BEF73 /* CustomerViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController1.swift; sourceTree = "<group>"; };
 		5651F39422D144B3009BEF73 /* CustomerViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController2.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				5665A2EE22C7F16B00148ADD /* GoogleService-Info.plist */,
+				560CD18022D56CA600DCEA7C /* TicketType.swift */,
 				5656DA3822C060710079920C /* AppDelegate.swift */,
 				5656DA3A22C060710079920C /* SplitViewController.swift */,
 				569D445A22C7FCC2001353CB /* VendorViewController1.swift */,
@@ -476,6 +479,7 @@
 				569D445D22C81F20001353CB /* VendorViewController2.swift in Sources */,
 				569D445B22C7FCC2001353CB /* VendorViewController1.swift in Sources */,
 				5651F39522D144B3009BEF73 /* CustomerViewController2.swift in Sources */,
+				560CD18122D56CA600DCEA7C /* TicketType.swift in Sources */,
 				56D7F2EF22CE85BD0086AA5C /* VendorMainViewController.swift in Sources */,
 				56D7F2ED22CE6AA30086AA5C /* VendorViewController3.swift in Sources */,
 				56CFF16C22D18C6600459985 /* CreateEventViewController.swift in Sources */,
