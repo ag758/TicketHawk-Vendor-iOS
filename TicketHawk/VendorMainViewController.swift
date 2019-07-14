@@ -92,7 +92,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.costView.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
         
         cell.backgroundColor = UIColor.black
-      
+        
         
         
         
@@ -146,7 +146,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
                 let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id)
                 
                 self.events.append(eventInstance)
-                //self.markers? = self.sortTableViewByTime(markers: (self.markers!))
+                self.events = self.sortTableViewByTime(events: self.events)
                 
                 self.eventsTableView.reloadData()
             }
@@ -195,7 +195,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
                     }
                 }
                 self.events[index] = eventInstance
-                //self.markers? = self.sortTableViewByTime(markers: (self.markers!))
+                self.events = self.sortTableViewByTime(events: self.events)
                 
                 self.eventsTableView.reloadData()
             }
@@ -238,6 +238,39 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         let vc = storyboard!.instantiateViewController(withIdentifier: "createEventViewController") as! CreateEventViewController
         self.present(vc, animated: true, completion: nil)
     }
+    
+    func sortTableViewByTime(events: [Event]) -> [Event] {
+        var eventsMut = events
+        var x = 0
+        while (x < events.count-1) {
+            var closestInt = x
+            for y in x+1...events.count-1 {
+                if compareDates(date1: events[x].dateAndTime!, date2: events[y].dateAndTime!) == true{
+                    closestInt = y
+                }
+            }
+            //swap shortest and x
+            eventsMut.swapAt(x, closestInt)
+            x = x+1
+        }
+        
+        return eventsMut
+    }
+    
+    func compareDates (date1: String, date2: String) -> Bool {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM dd h:mm a"
+        
+        let d1: Date = dateFormatter.date(from: date1)!
+        let d2: Date = dateFormatter.date(from: date2)!
+        
+        if (d1 > d2){
+            return true
+        }
+        return false
+    }
+    
     
     
 

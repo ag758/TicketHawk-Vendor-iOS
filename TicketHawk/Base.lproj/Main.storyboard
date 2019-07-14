@@ -696,11 +696,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5U5-XZ-2aB">
-                                                    <rect key="frame" x="0.0" y="17" width="300" height="75"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
                                                 </imageView>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7nj-n1-bil">
                                                     <rect key="frame" x="0.0" y="92" width="150" height="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -711,24 +711,24 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jBb-mc-GEc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="17"/>
+                                                    <rect key="frame" x="0.0" y="75" width="300" height="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="7nj-n1-bil" firstAttribute="top" secondItem="5U5-XZ-2aB" secondAttribute="bottom" id="938-bz-VwN"/>
                                                 <constraint firstAttribute="trailing" secondItem="lCa-qC-7vh" secondAttribute="trailing" id="9dc-cE-bHZ"/>
                                                 <constraint firstItem="lCa-qC-7vh" firstAttribute="width" secondItem="7nj-n1-bil" secondAttribute="width" id="Ilj-Ir-Brp"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="lCa-qC-7vh" secondAttribute="bottom" id="Jek-gO-w0g"/>
                                                 <constraint firstItem="lCa-qC-7vh" firstAttribute="leading" secondItem="7nj-n1-bil" secondAttribute="trailing" id="M3X-bf-pZR"/>
+                                                <constraint firstItem="7nj-n1-bil" firstAttribute="top" secondItem="jBb-mc-GEc" secondAttribute="bottom" id="QZ4-Rs-JjM"/>
                                                 <constraint firstAttribute="trailing" secondItem="jBb-mc-GEc" secondAttribute="trailing" id="QdJ-qo-345"/>
+                                                <constraint firstItem="jBb-mc-GEc" firstAttribute="top" secondItem="5U5-XZ-2aB" secondAttribute="bottom" constant="5" id="aE6-Nh-rj7"/>
+                                                <constraint firstItem="5U5-XZ-2aB" firstAttribute="top" secondItem="jUa-Nf-Wd4" secondAttribute="top" id="cTl-pU-nwk"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="7nj-n1-bil" secondAttribute="bottom" id="ckc-b7-z3r"/>
-                                                <constraint firstItem="5U5-XZ-2aB" firstAttribute="top" secondItem="jBb-mc-GEc" secondAttribute="bottom" id="ctt-0m-z4Y"/>
                                                 <constraint firstItem="jBb-mc-GEc" firstAttribute="leading" secondItem="jUa-Nf-Wd4" secondAttribute="leading" id="hwT-Gs-wVY"/>
                                                 <constraint firstItem="7nj-n1-bil" firstAttribute="leading" secondItem="jUa-Nf-Wd4" secondAttribute="leading" id="mOM-1h-2AB"/>
-                                                <constraint firstItem="jBb-mc-GEc" firstAttribute="top" secondItem="jUa-Nf-Wd4" secondAttribute="top" id="utM-t9-KWk"/>
                                                 <constraint firstItem="5U5-XZ-2aB" firstAttribute="leading" secondItem="jUa-Nf-Wd4" secondAttribute="leading" id="wjo-F2-2vN"/>
                                                 <constraint firstAttribute="trailing" secondItem="5U5-XZ-2aB" secondAttribute="trailing" id="xhl-WJ-tfV"/>
                                             </constraints>
