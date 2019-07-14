@@ -333,6 +333,7 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
                 "description" : String(eventDescription.text!) ?? nil,
                 
                 "going" : 0,
+                "totalSales" : 0,
                 
                 "key" : key!
                 
@@ -349,6 +350,8 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
             
             let update2 =  ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/ticketTypes/": ticketDictionary]
             ref?.updateChildValues(update2)
+            
+            self.dismiss(animated: true, completion: nil)
             
             
         }

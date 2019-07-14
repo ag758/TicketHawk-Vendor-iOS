@@ -27,6 +27,7 @@
 		56CFF17022D1965E00459985 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CFF16F22D1965E00459985 /* CustomUITextField.swift */; };
 		56D7F2ED22CE6AA30086AA5C /* VendorViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */; };
 		56D7F2EF22CE85BD0086AA5C /* VendorMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */; };
+		56EE89D422DB8A2700A5267E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EE89D322DB8A2700A5267E /* Event.swift */; };
 		8958DD8721F136875CFBE242 /* Pods_TicketHawkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C7D2CC57718B723C1D2A04 /* Pods_TicketHawkUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		56CFF16F22D1965E00459985 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController3.swift; sourceTree = "<group>"; };
 		56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorMainViewController.swift; sourceTree = "<group>"; };
+		56EE89D322DB8A2700A5267E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		59E060D80D33B362D934E335 /* Pods_TicketHawkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketHawkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91FF55E2F726E8A24434CCA0 /* Pods-TicketHawk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawk.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawk/Pods-TicketHawk.release.xcconfig"; sourceTree = "<group>"; };
 		9BAEB6E82CA17B1C8DDAB1F0 /* Pods-TicketHawkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawkTests/Pods-TicketHawkTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				5665A2EE22C7F16B00148ADD /* GoogleService-Info.plist */,
+				56EE89D322DB8A2700A5267E /* Event.swift */,
 				560CD18022D56CA600DCEA7C /* TicketType.swift */,
 				5656DA3822C060710079920C /* AppDelegate.swift */,
 				5656DA3A22C060710079920C /* SplitViewController.swift */,
@@ -486,6 +489,7 @@
 				5656DA3922C060710079920C /* AppDelegate.swift in Sources */,
 				56CFF17022D1965E00459985 /* CustomUITextField.swift in Sources */,
 				5651F39322CEA73E009BEF73 /* CustomerViewController1.swift in Sources */,
+				56EE89D422DB8A2700A5267E /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
