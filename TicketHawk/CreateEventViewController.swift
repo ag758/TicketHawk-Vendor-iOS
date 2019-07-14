@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import FBSDKLoginKit
+import FBSDKCoreKit
+import Firebase
+import FirebaseUI
+
 
 class CreateEventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var dateAndTimePicker: UIDatePicker?
     private var dateAndTimePicker2: UIDatePicker?
+    
+    var ref: DatabaseReference?
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var startDateAndTimeField: CustomUITextField!
@@ -30,12 +37,17 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var ticketTypeTableView: UITableView!
     
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
+    
+    
     var ticketTypes: [TicketType] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black
         
+        ref = SplitViewController.ref
         
         dateAndTimePicker = UIDatePicker()
         dateAndTimePicker?.datePickerMode = .dateAndTime
@@ -58,28 +70,60 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
         ticketTypeTableView.dataSource = self
         ticketTypeTableView.reloadData()
         
+        cancelButton.backgroundColor = .clear
+        cancelButton.layer.cornerRadius = 17.5
+        cancelButton.layer.borderWidth = 2
+        cancelButton.layer.borderColor = UIColor.white.cgColor
+        
+        cancelButton.setTitleColor(UIColor.white, for: .normal)
+        
+        cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
+        cancelButton.setTitle("Cancel Event", for: .normal)
+        
+        confirmButton.backgroundColor = .clear
+        confirmButton.layer.cornerRadius = 17.5
+        confirmButton.layer.borderWidth = 2
+        confirmButton.layer.borderColor = SplitViewController.greenColor.cgColor
+        confirmButton.setTitleColor(SplitViewController.greenColor, for: .normal)
+        
+        confirmButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
+        confirmButton.setTitle("Confirm Event", for: .normal)
+        
     }
     
     @IBAction func addTicketTypePressed(_ sender: Any) {
+        
         if (ticketTypeName.text?.isEmpty == false && ticketTypeCost.text?.isEmpty == false){
             
-            let str = "$" + ticketTypeCost.text!
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .currency
-            formatter.locale = Locale(identifier: "en_US")
+            let currencyFormatter = NumberFormatter()
+            currencyFormatter.usesGroupingSeparator = true
+            currencyFormatter.numberStyle = .currency
+            // localize to your grouping and decimal separator
+            currencyFormatter.locale = Locale.current
+            currencyFormatter.maximumFractionDigits = 2
             
-            if let number = formatter.number(from: str) {
-                let amount = number.decimalValue
-                
-                //add the type to the tableview
-                let newTicketType = TicketType(name: ticketTypeName.text!, price: amount)
-                ticketTypes.append(newTicketType)
-                
-                ticketTypeTableView.reloadData()
-                
-                
+            // We'll force unwrap with the !, if you've got defined data you may need more error checking
+            
+            if let double = Double(ticketTypeCost.text!) {
+                if (double >= 1){
+                    ticketTypeCost.layer.borderWidth = 0
+                    let priceString = currencyFormatter.string(from: double as NSNumber)!
+                    
+                    if let number = currencyFormatter.number(from: priceString) {
+                        //add the type to the tableview
+                        let newTicketType = TicketType(name: ticketTypeName.text!, price: number)
+                        ticketTypes.append(newTicketType)
+                        
+                        ticketTypeName.text = ""
+                        ticketTypeCost.text = ""
+                        
+                        ticketTypeTableView.reloadData()
+                    }
+                } else {
+                    ticketTypeCost.layer.borderWidth = 1
+                    ticketTypeCost.layer.borderColor = UIColor.red.cgColor
+                }
             }
-            
         }
         
     }
@@ -107,13 +151,14 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         cell!.textLabel?.text = ticketTypes[indexPath.row].name
-        cell!.detailTextLabel?.text = NSDecimalNumber(decimal: ticketTypes[indexPath.row].price).stringValue
+        
+        let double = ticketTypes[indexPath.row].price as! Double
+        
+        
+        cell!.detailTextLabel?.text = String(double)
+        
         
         return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //intendedCommunity = communities[indexPath.row]
     }
     
     
@@ -164,15 +209,154 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func cancelPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
+    func checkCorrectNess() -> Bool {
+        
+        var shouldUpload: Bool = true
+        
+        if (titleTextField.text!.isEmpty){
+            shouldUpload = false
+            titleTextField.layer.borderWidth = 1
+            titleTextField.layer.borderColor = UIColor.red.cgColor
+        } else {
+            titleTextField.layer.borderWidth = 0
+        }
+        
+        if (startDateAndTimeField.text!.isEmpty){
+            shouldUpload = false
+            startDateAndTimeField.layer.borderWidth = 1
+            startDateAndTimeField.layer.borderColor = UIColor.red.cgColor
+        } else {
+            endDateAndTimeField.layer.borderWidth = 0
+        }
+        
+        if (endDateAndTimeField.text!.isEmpty){
+            shouldUpload = false
+            endDateAndTimeField.layer.borderWidth = 1
+            endDateAndTimeField.layer.borderColor = UIColor.red.cgColor
+        } else {
+            endDateAndTimeField.layer.borderWidth = 0
+        }
+        
+        if (addressField.text!.isEmpty){
+            shouldUpload = false
+            addressField.layer.borderWidth = 1
+            addressField.layer.borderColor = UIColor.red.cgColor
+        } else {
+            addressField.layer.borderWidth = 0
+        }
+        
+        if (imageURLTextField.text!.isEmpty){
+            shouldUpload = false
+            imageURLTextField.layer.borderWidth = 1
+            imageURLTextField.layer.borderColor = UIColor.red.cgColor
+        } else {
+            imageURLTextField.layer.borderWidth = 0
+        }
+        
+        if (ticketTypes.count == 0){
+            shouldUpload = false
+            ticketTypeTableView.layer.borderWidth = 1
+            ticketTypeTableView.layer.borderColor = UIColor.red.cgColor
+        } else {
+            ticketTypeTableView.layer.borderWidth = 0
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        endDateAndTimeField.layer.borderWidth = 0
+        startDateAndTimeField.layer.borderWidth = 0
+        
+        if let d1 = dateFormatter.date(from: startDateAndTimeField.text!){
+            if let d2 = dateFormatter.date(from: endDateAndTimeField.text!){
+                
+                
+                
+                if (d1 < Date()) {shouldUpload = false
+                    startDateAndTimeField.layer.borderWidth = 1
+                    startDateAndTimeField.layer.borderColor = UIColor.red.cgColor
+                }
+                if (d2 < Date()) {shouldUpload = false
+                    endDateAndTimeField.layer.borderWidth = 1
+                    endDateAndTimeField.layer.borderColor = UIColor.red.cgColor
+                }
+                
+                if (d1 > d2) {shouldUpload = false
+                    startDateAndTimeField.layer.borderWidth = 1
+                    startDateAndTimeField.layer.borderColor = UIColor.red.cgColor
+                    endDateAndTimeField.layer.borderWidth = 1
+                    endDateAndTimeField.layer.borderColor = UIColor.red.cgColor
+                }
+                
+            }else {
+                shouldUpload = false
+                endDateAndTimeField.layer.borderWidth = 1
+                endDateAndTimeField.layer.borderColor = UIColor.red.cgColor
+            }
+        } else {
+            shouldUpload = false
+            startDateAndTimeField.layer.borderWidth = 1
+            startDateAndTimeField.layer.borderColor = UIColor.red.cgColor
+        }
+        
+        return shouldUpload
+    }
+    
+    @IBAction func confirmPressed(_ sender: Any) {
+        
+        //Write to Firebase Database
+        
+        //Check for correctness constraints
+        
+        var shouldUpload: Bool = checkCorrectNess()
+        
+        if (shouldUpload){
+            //Upload the event using required and optional fields
+            
+            let key = ref?.child("vendors").child(Auth.auth().currentUser!.uid).child("events").childByAutoId().key
+            
+            
+            
+            let post = ["eventTitle": titleTextField.text!,
+                "startDateAndTime": startDateAndTimeField.text!,
+                "endDateAndTime": endDateAndTimeField.text!,
+                "location": addressField.text!,
+                "pictureURL": imageURLTextField.text!,
+            
+                "maxTickets": Int(maxTickets.text!) ?? nil,
+                "dressCode": String(dressCodeTextField.text!) ?? nil,
+                "totalVenueCapacity": Int(maxVenueCapacity.text!) ?? nil,
+                "description" : String(eventDescription.text!) ?? nil,
+                
+                "going" : 0,
+                
+                "key" : key!
+                
+                ] as [String : Any]
+            
+            let update1 = ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/": post]
+            ref?.updateChildValues(update1)
+            
+            var ticketDictionary: Dictionary = [:] as [String: Any]
+        
+            for t in ticketTypes {
+                ticketDictionary[t.name] = t.price
+            }
+            
+            let update2 =  ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/ticketTypes/": ticketDictionary]
+            ref?.updateChildValues(update2)
+            
+            
+        }
+        
+        
+        
+        
+    }
+    
+    
 }

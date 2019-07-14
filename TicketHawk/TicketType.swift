@@ -11,9 +11,9 @@ import Foundation
 
 class TicketType {
     var name = ""
-    var price: Decimal = 0.00
+    var price: NSNumber = 0.00
     
-    init (name: String, price: Decimal){
+    init (name: String, price: NSNumber){
         self.name = name
         self.price = price
     }
