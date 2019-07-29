@@ -116,7 +116,7 @@ class CustomerViewController2: UIViewController,UITableViewDelegate, UITableView
             
             //allow, transition to main vendor activity
             
-            let next = self.storyboard!.instantiateViewController(withIdentifier: "customerMainViewController") as! CustomerMainViewController
+            let next = self.storyboard!.instantiateViewController(withIdentifier: "customerTabController") as! UITabBarController
             self.present(next, animated: true, completion: nil)
             
             

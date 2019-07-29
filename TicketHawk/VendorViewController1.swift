@@ -16,7 +16,6 @@ class VendorViewController1: UIViewController {
     
     var ref: DatabaseReference?
 
-    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +32,6 @@ class VendorViewController1: UIViewController {
     }
     
     func setCosmetics(){
-        loginButton.backgroundColor = .clear
-        loginButton.layer.cornerRadius = 30
-        loginButton.layer.borderWidth = 3
-        loginButton.layer.borderColor = UIColor.white.cgColor
-        
-        loginButton.setTitleColor(UIColor.white, for: .normal)
-        
-        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.semibold)
-        loginButton.setTitle("Vendor Login", for: .normal)
     }
 
     @IBAction func goBack(_ sender: Any) {
@@ -63,10 +53,6 @@ class VendorViewController1: UIViewController {
                 self.attemptLogin()
             }
         }
-    }
-    
-    @IBAction func loginPressed(_ sender: Any) {
-        checkLoggedIn()
     }
     
     func attemptLogin(){

@@ -16,8 +16,6 @@ class CustomerViewController1: UIViewController {
 
     var ref: DatabaseReference?
     
-    @IBOutlet weak var loginButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,15 +30,6 @@ class CustomerViewController1: UIViewController {
     }
     
     func setCosmetics(){
-        loginButton.backgroundColor = .clear
-        loginButton.layer.cornerRadius = 30
-        loginButton.layer.borderWidth = 3
-        loginButton.layer.borderColor = UIColor.white.cgColor
-        
-        loginButton.setTitleColor(UIColor.white, for: .normal)
-        
-        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.semibold)
-        loginButton.setTitle("Customer Login", for: .normal)
     }
     
     @IBAction func backPressed(_ sender: Any) {
@@ -63,10 +52,6 @@ class CustomerViewController1: UIViewController {
                 self.attemptLogin()
             }
         }
-    }
-    
-    @IBAction func loginPressed(_ sender: Any) {
-        checkLoggedIn()
     }
     
     func attemptLogin(){
@@ -136,7 +121,7 @@ class CustomerViewController1: UIViewController {
                 } else {
                     //allow, transition to main vendor activity
                     
-                    let next = self.storyboard!.instantiateViewController(withIdentifier: "customerMainViewController") as! CustomerMainViewController
+                    let next = self.storyboard!.instantiateViewController(withIdentifier: "customerTabController") as! UITabBarController
                     self.present(next, animated: true, completion: nil)
                 }
                 

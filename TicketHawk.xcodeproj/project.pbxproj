@@ -11,6 +11,7 @@
 		4CF360271271B8D48E7F0601 /* Pods_TicketHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B8BEAB34F9A9BE3609C027 /* Pods_TicketHawk.framework */; };
 		560CD18122D56CA600DCEA7C /* TicketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560CD18022D56CA600DCEA7C /* TicketType.swift */; };
 		561B1F5722C06DD4001A0968 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */; };
+		5622A97C22EE822A00F0A806 /* CustomerTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622A97B22EE822A00F0A806 /* CustomerTicketViewController.swift */; };
 		5651F39322CEA73E009BEF73 /* CustomerViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651F39222CEA73E009BEF73 /* CustomerViewController1.swift */; };
 		5651F39522D144B3009BEF73 /* CustomerViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651F39422D144B3009BEF73 /* CustomerViewController2.swift */; };
 		5651F39722D14BF2009BEF73 /* CustomerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651F39622D14BF2009BEF73 /* CustomerMainViewController.swift */; };
@@ -52,6 +53,7 @@
 		3969C30CADAD07557E19F956 /* Pods-TicketHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawk/Pods-TicketHawk.debug.xcconfig"; sourceTree = "<group>"; };
 		560CD18022D56CA600DCEA7C /* TicketType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketType.swift; sourceTree = "<group>"; };
 		561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		5622A97B22EE822A00F0A806 /* CustomerTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTicketViewController.swift; sourceTree = "<group>"; };
 		5651F39222CEA73E009BEF73 /* CustomerViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController1.swift; sourceTree = "<group>"; };
 		5651F39422D144B3009BEF73 /* CustomerViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController2.swift; sourceTree = "<group>"; };
 		5651F39622D14BF2009BEF73 /* CustomerMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerMainViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				5656DA4422C060730079920C /* Info.plist */,
 				561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */,
 				56CFF16F22D1965E00459985 /* CustomUITextField.swift */,
+				5622A97B22EE822A00F0A806 /* CustomerTicketViewController.swift */,
 			);
 			path = TicketHawk;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				56D7F2ED22CE6AA30086AA5C /* VendorViewController3.swift in Sources */,
 				56CFF16C22D18C6600459985 /* CreateEventViewController.swift in Sources */,
 				5656DA3922C060710079920C /* AppDelegate.swift in Sources */,
+				5622A97C22EE822A00F0A806 /* CustomerTicketViewController.swift in Sources */,
 				56CFF17022D1965E00459985 /* CustomUITextField.swift in Sources */,
 				5651F39322CEA73E009BEF73 /* CustomerViewController1.swift in Sources */,
 				56EE89D422DB8A2700A5267E /* Event.swift in Sources */,
