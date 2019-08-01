@@ -14,13 +14,15 @@ class Event: Equatable {
     var lowestPrice: String?
     var imageURL: String?
     var id: String?
+    var creatorId: String?
     
-    init (title: String, dateAndTime: String, lowestPrice: String, imageURL: String, id: String){
+    init (title: String, dateAndTime: String, lowestPrice: String, imageURL: String, id: String, creatorId: String){
         self.title = title
         self.dateAndTime = dateAndTime
         self.lowestPrice = lowestPrice
         self.imageURL = imageURL
         self.id = id
+        self.creatorId = creatorId
     }
     
     static func ==(lhs: Event, rhs: Event) -> Bool {

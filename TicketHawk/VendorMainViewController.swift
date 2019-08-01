@@ -143,7 +143,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             if let number = formatter.string(from: NSNumber(value: minimumprice)) {
                 print(number)
                 
-                let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id)
+                let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: Auth.auth().currentUser!.uid)
                 
                 self.events.append(eventInstance)
                 self.events = self.sortTableViewByTime(events: self.events)
@@ -187,7 +187,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             if let number = formatter.string(from: NSNumber(value: minimumprice)) {
                 print(number)
                 
-                let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id)
+                let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: Auth.auth().currentUser!.uid)
                 var index = 0
                 for e in self.events{
                     if (e.id == id){

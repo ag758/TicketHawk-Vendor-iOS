@@ -684,22 +684,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5U5-XZ-2aB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="70"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
                                                 </imageView>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7nj-n1-bil">
-                                                    <rect key="frame" x="0.0" y="92" width="197" height="17"/>
+                                                    <rect key="frame" x="0.0" y="92" width="150" height="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lCa-qC-7vh">
-                                                    <rect key="frame" x="197" y="92" width="197" height="17"/>
+                                                    <rect key="frame" x="150" y="92" width="150" height="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jBb-mc-GEc">
-                                                    <rect key="frame" x="0.0" y="75" width="394" height="17"/>
+                                                    <rect key="frame" x="0.0" y="75" width="300" height="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1102,6 +1102,9 @@
                                 <state key="normal" title="Community">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="communityButtonIsPressed:" destination="O8C-md-U3I" eventType="touchUpInside" id="HzT-dO-sOe"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Featured" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I34-B7-viX">
                                 <rect key="frame" x="10" y="42" width="300" height="40"/>
@@ -1132,7 +1135,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="All Vendors" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lv3-PX-ak7">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Vendors" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lv3-PX-ak7">
                                 <rect key="frame" x="10" y="233.5" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="qQu-Lt-Qwh"/>
@@ -1180,6 +1183,9 @@
                         <viewLayoutGuide key="safeArea" id="tax-Ao-rhT"/>
                     </view>
                     <navigationItem key="navigationItem" id="4lE-xW-adk"/>
+                    <connections>
+                        <outlet property="communityTitle" destination="Xyk-xB-Zi8" id="vZH-dB-x6a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lC5-Gv-TVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
