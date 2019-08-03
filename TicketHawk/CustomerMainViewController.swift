@@ -130,6 +130,18 @@ UICollectionViewDelegateFlowLayout {
         cell.priceView.text = loadedEvents[indexPath.row].lowestPrice
         cell.sellerView.text = loadedEvents[indexPath.row].creatorName
         
+        cell.eventTitleView.textContainer.maximumNumberOfLines = 1
+        cell.eventTitleView.textContainer.lineBreakMode = .byTruncatingTail
+        
+        cell.dateView.textContainer.maximumNumberOfLines = 1
+        cell.dateView.textContainer.lineBreakMode = .byTruncatingTail
+        
+        cell.priceView.textContainer.maximumNumberOfLines = 1
+        cell.priceView.textContainer.lineBreakMode = .byTruncatingTail
+        
+        cell.sellerView.textContainer.maximumNumberOfLines = 1
+        cell.sellerView.textContainer.lineBreakMode = .byTruncatingTail
+        
         let url = URL(string: loadedEvents[indexPath.row].imageURL!)!
         
         downloadImage(from: url, iv: cell.eventImageView)
@@ -316,16 +328,20 @@ UICollectionViewDelegateFlowLayout {
     
     func downloadImage(from url: URL, iv: UIImageView) {
         print("Download Started")
-        getData(from: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
-            
-            
-            DispatchQueue.main.async() {
-                iv.image = UIImage(data: data)
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.getData(from: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                print(response?.suggestedFilename ?? url.lastPathComponent)
+                print("Download Finished")
+                
+                
+                DispatchQueue.main.async() {
+                    iv.image = UIImage(data: data)
+                }
             }
         }
+        
     }
     
     @IBAction func communityButtonIsPressed(_ sender: Any) {

@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="JTa-gB-l11"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="TicketHawk" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOY-Mf-Ppg">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="TicketHawk" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOY-Mf-Ppg">
                                 <rect key="frame" x="10" y="313.5" width="355" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="s28-Q8-feo"/>
@@ -90,7 +90,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I'm a Customer" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S57-ZF-gxC">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="I'm a Customer" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S57-ZF-gxC">
                                 <rect key="frame" x="20" y="140" width="355" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="jGc-6w-Li1"/>
@@ -160,7 +160,7 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="ah2-sP-xji"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I'm a Customer" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrC-t6-3Jq">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="I'm a Customer" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrC-t6-3Jq">
                                 <rect key="frame" x="20" y="140" width="355" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="LLA-TN-8F4"/>
@@ -289,7 +289,7 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="Fl8-TZ-DYa"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I'm a Vendor" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u82-cN-xr3">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="I'm a Vendor" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u82-cN-xr3">
                                 <rect key="frame" x="20" y="140" width="355" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="7kz-EP-gJv"/>
@@ -345,10 +345,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I'm a Vendor" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5f-a5-VsT">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="I'm a Vendor" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5f-a5-VsT">
                                 <rect key="frame" x="20" y="140" width="355" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="9oc-fD-EIF"/>
                                     <constraint firstAttribute="height" constant="60" id="uR1-fX-Au9"/>
                                 </constraints>
                                 <color key="textColor" red="0.46666666670000001" green="1" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -505,7 +504,7 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="net-gh-H61"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I'm a Vendor" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ht-Qx-HoB">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="I'm a Vendor" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ht-Qx-HoB">
                                 <rect key="frame" x="20" y="140" width="355" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="DNH-8J-nrB"/>
@@ -639,14 +638,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thawk_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="YP4-Vb-NQk">
-                                <rect key="frame" x="0.0" y="20" width="80" height="80"/>
+                                <rect key="frame" x="0.0" y="20" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="DD7-tW-Yug"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="OxA-f3-RP8"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2Q-Dd-0LR">
-                                <rect key="frame" x="80" y="20" width="147.5" height="35"/>
+                                <rect key="frame" x="16" y="20" width="179.5" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="XWM-hi-SZj"/>
                                 </constraints>
@@ -656,14 +655,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4k-uL-d0F">
-                                <rect key="frame" x="80" y="65" width="147.5" height="35"/>
+                                <rect key="frame" x="16" y="65" width="179.5" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="nIa-Ap-5Pk"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gan-H5-OqZ">
-                                <rect key="frame" x="227.5" y="40" width="147.5" height="40"/>
+                                <rect key="frame" x="195.5" y="40" width="179.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="DDV-t9-w8q"/>
                                 </constraints>
@@ -673,7 +672,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eVI-7n-3Dm">
-                                <rect key="frame" x="10" y="110" width="355" height="547"/>
+                                <rect key="frame" x="10" y="46" width="355" height="611"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="120" id="x17-wh-Pev" customClass="EventCustomClass" customModule="TicketHawk" customModuleProvider="target">
@@ -684,22 +683,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5U5-XZ-2aB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="70"/>
                                                 </imageView>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7nj-n1-bil">
-                                                    <rect key="frame" x="0.0" y="92" width="150" height="17"/>
+                                                    <rect key="frame" x="0.0" y="92" width="177.5" height="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lCa-qC-7vh">
-                                                    <rect key="frame" x="150" y="92" width="150" height="17"/>
+                                                    <rect key="frame" x="177.5" y="92" width="177.5" height="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jBb-mc-GEc">
-                                                    <rect key="frame" x="0.0" y="75" width="300" height="17"/>
+                                                    <rect key="frame" x="0.0" y="75" width="355" height="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1106,7 +1105,7 @@
                                     <action selector="communityButtonIsPressed:" destination="O8C-md-U3I" eventType="touchUpInside" id="HzT-dO-sOe"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Featured" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I34-B7-viX">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Featured" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I34-B7-viX">
                                 <rect key="frame" x="10" y="42" width="355" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="xCu-Lt-nVQ"/>
@@ -1116,7 +1115,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OOg-vb-y0v">
-                                <rect key="frame" x="15" y="82" width="345" height="175"/>
+                                <rect key="frame" x="15" y="82" width="345" height="236.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KVQ-lY-5em">
                                     <size key="itemSize" width="270" height="151"/>
@@ -1126,34 +1125,31 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="eventCollectionCell" id="gVK-rp-Jc5" customClass="FeaturedEventCollectionViewCell" customModule="TicketHawk" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="12" width="270" height="151"/>
+                                        <rect key="frame" x="0.0" y="43" width="270" height="151"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="270" height="151"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Event" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZD-jr-Eu4">
-                                                    <rect key="frame" x="5" y="85" width="127.5" height="25"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Event" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZD-jr-Eu4">
+                                                    <rect key="frame" x="5" y="61" width="260" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="i6w-rA-jFL"/>
+                                                        <constraint firstAttribute="height" constant="30" id="i6w-rA-jFL"/>
                                                     </constraints>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Price" textAlignment="right" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3n-iR-Coh">
-                                                    <rect key="frame" x="180" y="115" width="85" height="26"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="26" id="rap-mp-Xbv"/>
-                                                    </constraints>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Price" textAlignment="right" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3n-iR-Coh">
+                                                    <rect key="frame" x="180" y="106" width="85" height="35"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O6l-V6-GU5">
-                                                    <rect key="frame" x="5" y="10" width="260" height="75"/>
+                                                    <rect key="frame" x="5" y="10" width="260" height="51"/>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Date" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAe-s7-epi">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Date" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAe-s7-epi">
                                                     <rect key="frame" x="5" y="116" width="170" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="6b7-kb-vDd"/>
@@ -1162,8 +1158,8 @@
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Seller" textAlignment="right" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZT-e5-2Sw">
-                                                    <rect key="frame" x="137.5" y="88" width="127.5" height="25"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Seller" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZT-e5-2Sw">
+                                                    <rect key="frame" x="5" y="91" width="170" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="1RQ-HW-mWg"/>
                                                     </constraints>
@@ -1175,21 +1171,23 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="e3n-iR-Coh" firstAttribute="width" secondItem="aAe-s7-epi" secondAttribute="width" multiplier="0.5" id="0OY-0m-tEh"/>
-                                            <constraint firstItem="e3n-iR-Coh" firstAttribute="top" secondItem="hZD-jr-Eu4" secondAttribute="bottom" constant="5" id="1e7-RO-iIz"/>
-                                            <constraint firstItem="FZT-e5-2Sw" firstAttribute="width" secondItem="hZD-jr-Eu4" secondAttribute="width" id="5tL-kX-5PE"/>
-                                            <constraint firstItem="e3n-iR-Coh" firstAttribute="top" secondItem="FZT-e5-2Sw" secondAttribute="bottom" constant="2" id="Cb1-Kh-LQC"/>
-                                            <constraint firstItem="hZD-jr-Eu4" firstAttribute="top" secondItem="O6l-V6-GU5" secondAttribute="bottom" id="JNG-hn-clE"/>
+                                            <constraint firstItem="aAe-s7-epi" firstAttribute="top" secondItem="FZT-e5-2Sw" secondAttribute="bottom" id="3mT-Xl-Ubp"/>
+                                            <constraint firstItem="e3n-iR-Coh" firstAttribute="leading" secondItem="FZT-e5-2Sw" secondAttribute="trailing" constant="5" id="5pD-qN-WcM"/>
+                                            <constraint firstItem="FZT-e5-2Sw" firstAttribute="leading" secondItem="gVK-rp-Jc5" secondAttribute="leading" constant="5" id="ND5-nE-prc"/>
                                             <constraint firstItem="aAe-s7-epi" firstAttribute="leading" secondItem="gVK-rp-Jc5" secondAttribute="leading" constant="5" id="P6z-Gu-B96"/>
                                             <constraint firstAttribute="trailing" secondItem="O6l-V6-GU5" secondAttribute="trailing" constant="5" id="PAx-nm-LB7"/>
                                             <constraint firstAttribute="trailing" secondItem="e3n-iR-Coh" secondAttribute="trailing" constant="5" id="PUa-mT-LNv"/>
-                                            <constraint firstAttribute="trailing" secondItem="FZT-e5-2Sw" secondAttribute="trailing" constant="5" id="TEa-F1-QR4"/>
+                                            <constraint firstItem="FZT-e5-2Sw" firstAttribute="top" secondItem="hZD-jr-Eu4" secondAttribute="bottom" id="V66-nB-g7F"/>
                                             <constraint firstAttribute="bottom" secondItem="e3n-iR-Coh" secondAttribute="bottom" constant="10" id="Y6A-3y-dtV"/>
                                             <constraint firstItem="e3n-iR-Coh" firstAttribute="leading" secondItem="aAe-s7-epi" secondAttribute="trailing" constant="5" id="bLe-t6-REm"/>
                                             <constraint firstAttribute="bottom" secondItem="aAe-s7-epi" secondAttribute="bottom" constant="10" id="e1Q-zR-bgD"/>
                                             <constraint firstItem="O6l-V6-GU5" firstAttribute="top" secondItem="gVK-rp-Jc5" secondAttribute="top" constant="10" id="erI-vy-dYX"/>
+                                            <constraint firstItem="hZD-jr-Eu4" firstAttribute="top" secondItem="O6l-V6-GU5" secondAttribute="bottom" id="gFV-46-xgS"/>
                                             <constraint firstItem="O6l-V6-GU5" firstAttribute="leading" secondItem="gVK-rp-Jc5" secondAttribute="leading" constant="5" id="jTo-2V-l9i"/>
-                                            <constraint firstItem="FZT-e5-2Sw" firstAttribute="leading" secondItem="hZD-jr-Eu4" secondAttribute="trailing" constant="5" id="mp8-mw-yMr"/>
+                                            <constraint firstItem="e3n-iR-Coh" firstAttribute="top" secondItem="hZD-jr-Eu4" secondAttribute="bottom" constant="15" id="kJw-91-Q6N"/>
+                                            <constraint firstItem="hZD-jr-Eu4" firstAttribute="leading" secondItem="gVK-rp-Jc5" secondAttribute="leading" constant="5" id="msM-5p-pUQ"/>
                                             <constraint firstItem="hZD-jr-Eu4" firstAttribute="leading" secondItem="gVK-rp-Jc5" secondAttribute="leading" constant="5" id="tTd-7m-nKe"/>
+                                            <constraint firstAttribute="trailing" secondItem="hZD-jr-Eu4" secondAttribute="trailing" constant="5" id="vGj-FF-92S"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dateView" destination="aAe-s7-epi" id="37a-hT-Rmd"/>
@@ -1201,8 +1199,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Vendors" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lv3-PX-ak7">
-                                <rect key="frame" x="10" y="257" width="355" height="40"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Vendors" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lv3-PX-ak7">
+                                <rect key="frame" x="10" y="318.5" width="355" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="qQu-Lt-Qwh"/>
                                 </constraints>
@@ -1211,7 +1209,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kJK-sg-GWY">
-                                <rect key="frame" x="15" y="337" width="345" height="227"/>
+                                <rect key="frame" x="15" y="398.5" width="345" height="165.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="vendorCell" rowHeight="70" id="KMI-cr-Kp7" customClass="VendorTableViewCell" customModule="TicketHawk" customModuleProvider="target">
@@ -1221,17 +1219,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="345" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ggb-OW-oxR">
-                                                    <rect key="frame" x="5" y="5" width="91.5" height="59.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ggb-OW-oxR">
+                                                    <rect key="frame" x="5" y="5" width="110" height="59.5"/>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Vendor" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJu-qC-UZU">
-                                                    <rect key="frame" x="101.5" y="5" width="183.5" height="27.5"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Vendor" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJu-qC-UZU">
+                                                    <rect key="frame" x="120" y="5" width="220" height="27.5"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Vendor" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQl-nj-twq">
-                                                    <rect key="frame" x="101.5" y="37.5" width="183.5" height="27"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Vendor" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQl-nj-twq">
+                                                    <rect key="frame" x="120" y="37.5" width="220" height="27"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1261,7 +1259,7 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="g5h-XQ-3I3">
-                                <rect key="frame" x="6" y="297" width="363" height="40"/>
+                                <rect key="frame" x="6" y="358.5" width="363" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Zw9-KP-7mB"/>
                                 </constraints>
@@ -1281,7 +1279,7 @@
                             <constraint firstItem="g5h-XQ-3I3" firstAttribute="top" secondItem="lv3-PX-ak7" secondAttribute="bottom" id="JFU-ky-fhC"/>
                             <constraint firstItem="kJK-sg-GWY" firstAttribute="bottom" secondItem="tax-Ao-rhT" secondAttribute="bottom" constant="10" id="JT2-Yu-uHK"/>
                             <constraint firstItem="OOg-vb-y0v" firstAttribute="leading" secondItem="tax-Ao-rhT" secondAttribute="leading" constant="15" id="JiP-BV-CPy"/>
-                            <constraint firstItem="kJK-sg-GWY" firstAttribute="height" secondItem="OOg-vb-y0v" secondAttribute="height" multiplier="1.3" id="MoO-rS-S90"/>
+                            <constraint firstItem="kJK-sg-GWY" firstAttribute="height" secondItem="OOg-vb-y0v" secondAttribute="height" multiplier="0.7" id="MoO-rS-S90"/>
                             <constraint firstItem="I34-B7-viX" firstAttribute="leading" secondItem="tax-Ao-rhT" secondAttribute="leading" constant="10" id="PqE-tc-trA"/>
                             <constraint firstItem="tax-Ao-rhT" firstAttribute="trailing" secondItem="kJK-sg-GWY" secondAttribute="trailing" constant="15" id="W1m-fz-P6z"/>
                             <constraint firstItem="g5h-XQ-3I3" firstAttribute="leading" secondItem="tax-Ao-rhT" secondAttribute="leading" constant="6" id="Xva-xl-RrU"/>
