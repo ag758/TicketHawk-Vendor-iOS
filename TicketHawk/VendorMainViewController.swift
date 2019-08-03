@@ -106,6 +106,10 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func loadEvents(){
+        
+        
+        
+            
         let query = ref?.child("vendors").child(Auth.auth().currentUser!.uid).child("events")
         
         query?.observe(.childAdded, with: { (snapshot) in
@@ -143,12 +147,23 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             if let number = formatter.string(from: NSNumber(value: minimumprice)) {
                 print(number)
                 
-                let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: Auth.auth().currentUser!.uid)
+                self.ref?.child("vendors").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: {(snapshot) in
+                    
+                    let value = snapshot.value as? NSDictionary
+                    let ownName = value!["organizationName"] as? String ?? ""
+                    
+                    let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: Auth.auth().currentUser!.uid,
+                                              creatorName: ownName
+                                              )
+                    
+                    self.events.append(eventInstance)
+                    self.events = self.sortTableViewByTime(events: self.events)
+                    
+                    self.eventsTableView.reloadData()
+                    
+                })
                 
-                self.events.append(eventInstance)
-                self.events = self.sortTableViewByTime(events: self.events)
                 
-                self.eventsTableView.reloadData()
             }
             
         })
@@ -187,17 +202,26 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             if let number = formatter.string(from: NSNumber(value: minimumprice)) {
                 print(number)
                 
-                let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: Auth.auth().currentUser!.uid)
-                var index = 0
-                for e in self.events{
-                    if (e.id == id){
-                        index = self.events.index(of: e) ?? 0
+                self.ref?.child("vendors").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: {(snapshot) in
+                    
+                    let value = snapshot.value as? NSDictionary
+                    let ownName = value!["organizationName"] as? String ?? ""
+                    
+                    let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: Auth.auth().currentUser!.uid, creatorName: ownName)
+                    var index = 0
+                    for e in self.events{
+                        if (e.id == id){
+                            index = self.events.index(of: e) ?? 0
+                        }
                     }
-                }
-                self.events[index] = eventInstance
-                self.events = self.sortTableViewByTime(events: self.events)
+                    self.events[index] = eventInstance
+                    self.events = self.sortTableViewByTime(events: self.events)
+                    
+                    self.eventsTableView.reloadData()
+                    
+                })
                 
-                self.eventsTableView.reloadData()
+                
             }
         })
         query?.observe(.childRemoved, with: { (snapshot) in
