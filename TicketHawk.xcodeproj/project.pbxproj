@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		081B0C0ACD96D04FBEDC5D59 /* Pods_TicketHawkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E060D80D33B362D934E335 /* Pods_TicketHawkTests.framework */; };
 		4CF360271271B8D48E7F0601 /* Pods_TicketHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B8BEAB34F9A9BE3609C027 /* Pods_TicketHawk.framework */; };
+		560193EC22F672DC00700A8E /* CustomerAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560193EB22F672DC00700A8E /* CustomerAccountViewController.swift */; };
 		560CD18122D56CA600DCEA7C /* TicketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560CD18022D56CA600DCEA7C /* TicketType.swift */; };
 		561B1F5722C06DD4001A0968 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */; };
 		5622A97C22EE822A00F0A806 /* CustomerTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622A97B22EE822A00F0A806 /* CustomerTicketViewController.swift */; };
@@ -22,6 +23,7 @@
 		5656DA4E22C060730079920C /* TicketHawkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656DA4D22C060730079920C /* TicketHawkTests.swift */; };
 		5656DA5922C060730079920C /* TicketHawkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656DA5822C060730079920C /* TicketHawkUITests.swift */; };
 		5665A2EF22C7F16B00148ADD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5665A2EE22C7F16B00148ADD /* GoogleService-Info.plist */; };
+		5679117922F7309000B28677 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5679117822F7309000B28677 /* EventViewController.swift */; };
 		569D445B22C7FCC2001353CB /* VendorViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D445A22C7FCC2001353CB /* VendorViewController1.swift */; };
 		569D445D22C81F20001353CB /* VendorViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D445C22C81F20001353CB /* VendorViewController2.swift */; };
 		56B00EC922F10A6800D4FC26 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B00EC822F10A6800D4FC26 /* Vendor.swift */; };
@@ -52,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		3969C30CADAD07557E19F956 /* Pods-TicketHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawk/Pods-TicketHawk.debug.xcconfig"; sourceTree = "<group>"; };
+		560193EB22F672DC00700A8E /* CustomerAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAccountViewController.swift; sourceTree = "<group>"; };
 		560CD18022D56CA600DCEA7C /* TicketType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketType.swift; sourceTree = "<group>"; };
 		561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5622A97B22EE822A00F0A806 /* CustomerTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTicketViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		5656DA5822C060730079920C /* TicketHawkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketHawkUITests.swift; sourceTree = "<group>"; };
 		5656DA5A22C060730079920C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5665A2EE22C7F16B00148ADD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5679117822F7309000B28677 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		569D445A22C7FCC2001353CB /* VendorViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController1.swift; sourceTree = "<group>"; };
 		569D445C22C81F20001353CB /* VendorViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController2.swift; sourceTree = "<group>"; };
 		56B00EC822F10A6800D4FC26 /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 				56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */,
 				5651F39622D14BF2009BEF73 /* CustomerMainViewController.swift */,
 				5656DA3C22C060710079920C /* Main.storyboard */,
+				5679117822F7309000B28677 /* EventViewController.swift */,
+				560193EB22F672DC00700A8E /* CustomerAccountViewController.swift */,
 				56CFF16B22D18C6600459985 /* CreateEventViewController.swift */,
 				5656DA3F22C060730079920C /* Assets.xcassets */,
 				5656DA4422C060730079920C /* Info.plist */,
@@ -495,9 +501,11 @@
 				5656DA3922C060710079920C /* AppDelegate.swift in Sources */,
 				5622A97C22EE822A00F0A806 /* CustomerTicketViewController.swift in Sources */,
 				56CFF17022D1965E00459985 /* CustomUITextField.swift in Sources */,
+				560193EC22F672DC00700A8E /* CustomerAccountViewController.swift in Sources */,
 				56B00EC922F10A6800D4FC26 /* Vendor.swift in Sources */,
 				5651F39322CEA73E009BEF73 /* CustomerViewController1.swift in Sources */,
 				56EE89D422DB8A2700A5267E /* Event.swift in Sources */,
+				5679117922F7309000B28677 /* EventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

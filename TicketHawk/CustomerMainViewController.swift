@@ -68,6 +68,8 @@ UICollectionViewDelegateFlowLayout {
         imageView.contentMode = .scaleAspectFit
         self.navigationItem.titleView = imageView
         
+        self.navigationItem.title = ""
+        
         // Do any additional setup after loading the view.
         ref = SplitViewController.ref
         
@@ -107,6 +109,10 @@ UICollectionViewDelegateFlowLayout {
         
         downloadImage(from: url, iv: cell.vendorProfileImageView)
         
+        for view in cell.subviews {
+            view.isUserInteractionEnabled = false
+        }
+        
         
         
         return cell
@@ -118,8 +124,6 @@ UICollectionViewDelegateFlowLayout {
     // In this function is the code you must implement to your code project if you want to change size of Collection view
         
         return CGSize(width: eventsCollectionView.bounds.width * 5/6, height: eventsCollectionView.bounds.height)
-        
-        //return CGSize(width: collectionViewLayout.collectionViewContentSize.height * 1.5, height: collectionViewLayout.collectionViewContentSize.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -155,7 +159,26 @@ UICollectionViewDelegateFlowLayout {
         
         downloadImage(from: url, iv: cell.eventImageView)
         
+        for view in cell.subviews {
+            view.isUserInteractionEnabled = false
+        }
+        
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        //var cell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
+        
+        let next = self.storyboard!.instantiateViewController(withIdentifier: "eventViewController") as! EventViewController
+        
+       next.eventID = loadedEvents[indexPath.row].id
+       next.vendorID = loadedEvents[indexPath.row].creatorId
+        
+    self.navigationController!.pushViewController(next, animated: true)
+        
+        //self.present(next, animated: true, completion: nil)
     }
     
     func loadCommunity(){
