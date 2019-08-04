@@ -17,6 +17,7 @@ class SplitViewController: UIViewController {
     @IBOutlet weak var customerButton: UIButton!
     
     static var greenColor: UIColor = UIColor.black
+    static var almostBlack: UIColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()

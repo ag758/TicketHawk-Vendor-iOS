@@ -81,6 +81,7 @@ UICollectionViewDelegateFlowLayout {
         eventsCollectionView.reloadData()
         
         
+        
         loadCommunity()
     }
     
@@ -92,6 +93,10 @@ UICollectionViewDelegateFlowLayout {
         
         let cell = self.vendorsTableView
             .dequeueReusableCell(withIdentifier: "vendorCell") as! VendorTableViewCell
+        
+        cell.backgroundColor = SplitViewController.almostBlack
+        cell.layer.cornerRadius = 5
+        cell.vendorProfileImageView.layer.cornerRadius = 5
         
         cell.vendorTitleView.text = vendors[indexPath.row].name
         cell.vendorCategoryView.text = vendors[indexPath.row].ticketCategory
@@ -124,6 +129,10 @@ UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCollectionCell", for: indexPath) as! FeaturedEventCollectionViewCell
+        
+        cell.backgroundColor = SplitViewController.almostBlack
+        cell.layer.cornerRadius = 5
+        cell.eventImageView.layer.cornerRadius = 5
         
         cell.eventTitleView.text = loadedEvents[indexPath.row].title
         cell.dateView.text = loadedEvents[indexPath.row].dateAndTime
@@ -242,7 +251,7 @@ UICollectionViewDelegateFlowLayout {
                 let dateFormatter2 = DateFormatter()
                 dateFormatter2.amSymbol = "AM"
                 dateFormatter2.pmSymbol = "PM"
-                dateFormatter2.dateFormat = "MMM d, h:mm a"
+                dateFormatter2.dateFormat = "MMM d h:mm a"
                 
                 startDateAndTime = dateFormatter2.string(from: d1)
                 
