@@ -241,6 +241,22 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
             endDateAndTimeField.layer.borderWidth = 0
         }
         
+        if (Float(maxVenueCapacity.text!) ?? 1000 <= 0){
+            shouldUpload = false
+            maxVenueCapacity.layer.borderWidth = 1
+            maxVenueCapacity.layer.borderColor = UIColor.red.cgColor
+        } else {
+            maxVenueCapacity.layer.borderWidth = 0
+        }
+        
+        if (Float(maxTickets.text!) ?? 1000 <= 0){
+            shouldUpload = false
+            maxTickets.layer.borderWidth = 1
+            maxTickets.layer.borderColor = UIColor.red.cgColor
+        } else {
+            maxTickets.layer.borderWidth = 0
+        }
+        
         if (addressField.text!.isEmpty){
             shouldUpload = false
             addressField.layer.borderWidth = 1

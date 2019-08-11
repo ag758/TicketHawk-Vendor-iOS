@@ -31,11 +31,12 @@ internal class FeaturedEventCollectionViewCell: UICollectionViewCell {
 
 class CustomerMainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
 UICollectionViewDelegate, UICollectionViewDataSource,
-UICollectionViewDelegateFlowLayout {
+UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     
     
     
+    @IBOutlet weak var vendorsSearchBar: UISearchBar!
     
     var communityKey: String?
     
@@ -46,6 +47,8 @@ UICollectionViewDelegateFlowLayout {
     var loadedEvents: [Event] = []
     
     var loadedEventsStringIDs: [String] = []
+    
+    var filteredVendors: [Vendor] = []
     
     @IBOutlet weak var eventsCollectionView: UICollectionView!
     
@@ -82,13 +85,45 @@ UICollectionViewDelegateFlowLayout {
         eventsCollectionView.dataSource = self
         eventsCollectionView.reloadData()
         
+        vendorsSearchBar.delegate = self
         
+        
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        tapGesture.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGesture)
         
         loadCommunity()
     }
     
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        self.vendorsSearchBar.endEditing(true)
+    }
+    
+    // This method updates filteredData based on the text in the Search Box
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // When there is no text, filteredData is the same as the original data
+        // When user has entered text into the search box
+        // Use the filter method to iterate over all items in the data array
+        // For each item, return true if the item should be included and false if the
+        // item should NOT be included
+        filteredVendors = searchText.isEmpty ? vendors : vendors.filter({(v: Vendor) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            return ((v.name ?? "").range(of: searchText, options: .caseInsensitive) != nil || (v.ticketCategory ?? "").range(of: searchText, options: .caseInsensitive) != nil )
+        })
+        
+        vendorsTableView.reloadData()
+        
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        self.vendorsSearchBar.endEditing(true)
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vendors.count
+        return filteredVendors.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,12 +135,12 @@ UICollectionViewDelegateFlowLayout {
         cell.layer.cornerRadius = 5
         cell.vendorProfileImageView.layer.cornerRadius = 5
         
-        cell.vendorTitleView.text = vendors[indexPath.row].name
-        cell.vendorCategoryView.text = vendors[indexPath.row].ticketCategory
+        cell.vendorTitleView.text = filteredVendors[indexPath.row].name
+        cell.vendorCategoryView.text = filteredVendors[indexPath.row].ticketCategory
         
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
-        let url = URL(string: vendors[indexPath.row].pictureURL!)!
+        let url = URL(string: filteredVendors[indexPath.row].pictureURL!)!
         
         downloadImage(from: url, iv: cell.vendorProfileImageView)
         
@@ -176,6 +211,7 @@ UICollectionViewDelegateFlowLayout {
        next.eventID = loadedEvents[indexPath.row].id
        next.vendorID = loadedEvents[indexPath.row].creatorId
         
+        
     self.navigationController!.pushViewController(next, animated: true)
         
         //self.present(next, animated: true, completion: nil)
@@ -207,41 +243,57 @@ UICollectionViewDelegateFlowLayout {
         
         ref?.child("communities").child(communityKey!).child("vendors").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            let value = snapshot.value as? NSDictionary
-            let keys = value?.allKeys
+                let value = snapshot.value as? NSDictionary
+                let keys = value?.allKeys
             
-            for _ in 1..<10 {
-                let vendorIndex = Int.random(in: 0..<(keys?.count ?? 0))
-                
-                let vendorId = keys?[vendorIndex] as? String ?? ""
-                
-                self.ref?.child("vendors").child(vendorId).child("events").observeSingleEvent(of: .value, with: { (snapshot) in
-                    
-                    let value = snapshot.value as? NSDictionary
-                    let keys = value?.allKeys
-                    
-                    let eventIndex = Int.random(in: 0..<(keys?.count ?? 0))
-                    
-                    let eventId = keys?[eventIndex] as? String ?? ""
-                    
-                    var isAlreadyAdded = false
-                    
-                    for e in self.loadedEventsStringIDs {
-                        if e == eventId{
-                            isAlreadyAdded = true
-                        }
+            
+                    for k in keys ?? [] {
+                        
+                        let vendorId = k as? String ?? ""
+                        
+                        self.ref?.child("vendors").child(vendorId).child("events").observeSingleEvent(of: .value, with: { (snapshot) in
+                            
+                            let value = snapshot.value as? NSDictionary
+                            let keys = value?.allKeys
+                            
+                            let range = (0..<(keys?.count ?? 0))
+                            if !range.isEmpty{
+                                let eventIndex = Int.random(in: range)
+                                
+                                let eventId = keys?[eventIndex] as? String ?? ""
+                                
+                                var isAlreadyAdded = false
+                                
+                                for e in self.loadedEventsStringIDs {
+                                    if e == eventId{
+                                        isAlreadyAdded = true
+                                    }
+                                }
+                                
+                                self.ref?.child("vendors").child(vendorId).child("events").child(eventId).observeSingleEvent(of: .value, with: {(snapshot) in
+                                    
+                                        let value = snapshot.value as? NSDictionary
+                                    
+                                        let dateFormatter = DateFormatter()
+                                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+                                    
+                                    let eventDate = dateFormatter.date(from: value?["endDateAndTime"] as? String ?? "")
+                                    
+                                    if !isAlreadyAdded{
+                                        self.loadedEventsStringIDs.append(eventId)
+                                        self.loadEvent(vendorID: vendorId, eventID: eventId)
+                                    }
+                                    
+                                    })
+                            }
+                        })
                     }
-                    
-                    if !isAlreadyAdded{
-                        self.loadedEventsStringIDs.append(eventId)
-                        self.loadEvent(vendorID: vendorId, eventID: eventId)
-                    }
+            
                     
                     
                     
-                    
-                })
-            }
+                  
+                
             
             
             
@@ -274,7 +326,7 @@ UICollectionViewDelegateFlowLayout {
                 let dateFormatter2 = DateFormatter()
                 dateFormatter2.amSymbol = "AM"
                 dateFormatter2.pmSymbol = "PM"
-                dateFormatter2.dateFormat = "MMM d h:mm a"
+                dateFormatter2.dateFormat = "MMM d, h:mm a"
                 
                 startDateAndTime = dateFormatter2.string(from: d1)
                 
@@ -291,10 +343,13 @@ UICollectionViewDelegateFlowLayout {
                 if let number = formatter.string(from: NSNumber(value: minimumprice)) {
                     print(number)
                     
-                    let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: Auth.auth().currentUser!.uid, creatorName: vendorName)
+                    let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: vendorID, creatorName: vendorName)
                     
                     self.loadedEvents.append(eventInstance)
+                    self.loadedEvents.shuffle()
                     print(self.loadedEvents.count)
+                    
+                    
                     
                     self.eventsCollectionView.reloadData()
                 }
@@ -346,6 +401,10 @@ UICollectionViewDelegateFlowLayout {
             
             let vendorToBeAdded = Vendor(id: vendorid, name: orgName, pictureURL: pictureURL, ticketCategory: ticketCategory)
             self.vendors.append(vendorToBeAdded)
+            
+            self.vendors.shuffle()
+            
+            self.filteredVendors = self.vendors
             
             self.vendorsTableView.reloadData()
             //print(self.vendors.count)
