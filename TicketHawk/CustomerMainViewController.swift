@@ -81,6 +81,8 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
         vendorsTableView.reloadData()
         vendorsTableView.rowHeight = 70
         
+        vendorsTableView.layer.cornerRadius = 5
+        
         eventsCollectionView.delegate = self
         eventsCollectionView.dataSource = self
         eventsCollectionView.reloadData()
@@ -132,7 +134,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
             .dequeueReusableCell(withIdentifier: "vendorCell") as! VendorTableViewCell
         
         cell.backgroundColor = SplitViewController.almostBlack
-        cell.layer.cornerRadius = 5
+        //cell.layer.cornerRadius = 5
         cell.vendorProfileImageView.layer.cornerRadius = 5
         
         cell.vendorTitleView.text = filteredVendors[indexPath.row].name
@@ -277,9 +279,9 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
                                         let dateFormatter = DateFormatter()
                                         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
                                     
-                                    let eventDate = dateFormatter.date(from: value?["endDateAndTime"] as? String ?? "")
+                                    let endDate = dateFormatter.date(from: value?["endDateAndTime"] as? String ?? "")
                                     
-                                    if !isAlreadyAdded{
+                                    if !isAlreadyAdded && endDate ?? Date() >= Date(){
                                         self.loadedEventsStringIDs.append(eventId)
                                         self.loadEvent(vendorID: vendorId, eventID: eventId)
                                     }

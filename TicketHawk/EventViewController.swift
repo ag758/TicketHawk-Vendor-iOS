@@ -49,9 +49,22 @@ class EventViewController: UIViewController {
         purchaseTickets.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.medium)
         purchaseTickets.setTitle("Purchase Tickets", for: .normal)
         
+        //Back bar title = ""
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
     }
     
     func loadEventDetails(){
+        
+            ref?.child("vendors").child(self.vendorID!).observeSingleEvent(of: .value, with: {(snapshot) in
+                
+                let value = snapshot.value as? NSDictionary
+                
+                self.vendorName.text = value?["organizationName"] as? String ?? ""
+                
+                self.downloadImage(from: URL(string : value?["organizationProfileImage"] as? String ?? "") ?? URL(string: "www.apple.com")!, iv: self.vendorImageView)
+                
+            })
         ref?.child("vendors").child(self.vendorID!).child("events").child(self.eventID!).observeSingleEvent(of: .value, with:
             {(snapshot) in
                 
@@ -83,15 +96,7 @@ class EventViewController: UIViewController {
                 
                 self.descriptionView.text = value?["description"] as? String ?? "No Description"
                 
-                self.ref?.child("vendors").child(self.vendorID!).observeSingleEvent(of: .value, with: {(snapshot) in
-                    
-                    let value = snapshot.value as? NSDictionary
-                    
-                        self.vendorName.text = value?["organizationName"] as? String ?? ""
-                    
-                    self.downloadImage(from: URL(string : value?["organizationProfileImage"] as? String ?? "") ?? URL(string: "www.apple.com")!, iv: self.vendorImageView)
-                    
-                    })
+                
                 
                 
                 
@@ -119,6 +124,18 @@ class EventViewController: UIViewController {
                 }
             }
         }
+        
+    }
+    
+    
+    @IBAction func purchaseTicketsPressed(_ sender: Any) {
+        
+        let next = self.storyboard!.instantiateViewController(withIdentifier: "eventTicketNumberViewController") as! EventTicketNumberViewController
+        
+        next.eventID = self.eventID
+        next.vendorID = self.vendorID
+        
+    self.navigationController!.pushViewController(next, animated: true)
         
     }
     
