@@ -1237,14 +1237,14 @@
                                                     <rect key="frame" x="5" y="5" width="110" height="60"/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Vendor" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJu-qC-UZU">
-                                                    <rect key="frame" x="120" y="3" width="220" height="29"/>
+                                                    <rect key="frame" x="120" y="0.0" width="220" height="36"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Vendor" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQl-nj-twq">
-                                                    <rect key="frame" x="120" y="37" width="220" height="23"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <rect key="frame" x="120" y="36" width="220" height="29"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -1254,10 +1254,10 @@
                                                 <constraint firstItem="ZQl-nj-twq" firstAttribute="leading" secondItem="ggb-OW-oxR" secondAttribute="trailing" constant="5" id="1di-8W-XlR"/>
                                                 <constraint firstItem="ggb-OW-oxR" firstAttribute="top" secondItem="THR-HM-xph" secondAttribute="top" constant="5" id="KHV-yV-QiO"/>
                                                 <constraint firstItem="eJu-qC-UZU" firstAttribute="leading" secondItem="ggb-OW-oxR" secondAttribute="trailing" constant="5" id="NEn-1K-WyI"/>
-                                                <constraint firstAttribute="bottom" secondItem="ZQl-nj-twq" secondAttribute="bottom" constant="10" id="PEL-TP-kfA"/>
-                                                <constraint firstItem="ZQl-nj-twq" firstAttribute="top" secondItem="eJu-qC-UZU" secondAttribute="bottom" constant="5" id="TQe-6L-rep"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZQl-nj-twq" secondAttribute="bottom" constant="5" id="PEL-TP-kfA"/>
+                                                <constraint firstItem="ZQl-nj-twq" firstAttribute="top" secondItem="eJu-qC-UZU" secondAttribute="bottom" id="TQe-6L-rep"/>
                                                 <constraint firstItem="eJu-qC-UZU" firstAttribute="width" secondItem="ggb-OW-oxR" secondAttribute="width" multiplier="2" id="X6F-Gt-l4Z"/>
-                                                <constraint firstItem="eJu-qC-UZU" firstAttribute="top" secondItem="THR-HM-xph" secondAttribute="top" constant="3" id="cdm-Sa-5TZ"/>
+                                                <constraint firstItem="eJu-qC-UZU" firstAttribute="top" secondItem="THR-HM-xph" secondAttribute="top" id="cdm-Sa-5TZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZQl-nj-twq" secondAttribute="trailing" constant="5" id="eRW-ys-gpR"/>
                                                 <constraint firstAttribute="bottom" secondItem="ggb-OW-oxR" secondAttribute="bottom" constant="5" id="ep9-3m-FnQ"/>
                                                 <constraint firstItem="ZQl-nj-twq" firstAttribute="height" secondItem="eJu-qC-UZU" secondAttribute="height" multiplier="0.8" id="jQf-di-6Kg"/>
@@ -1352,7 +1352,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Jk2-bg-ZEn"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1361,7 +1361,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="CHd-c0-J5B"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1370,13 +1370,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="ipd-b6-veQ"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Description" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiU-cd-Mx0">
                                 <rect key="frame" x="30" y="402.5" width="315" height="174.5"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1404,7 +1404,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="lOO-kI-1Gj"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

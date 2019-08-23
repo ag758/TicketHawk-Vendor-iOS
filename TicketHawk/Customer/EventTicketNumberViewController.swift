@@ -17,14 +17,10 @@ internal class TicketTypeTableViewCell: UITableViewCell{
     @IBOutlet weak var ticketTitle: UITextView!
     @IBOutlet weak var ticketPrice: UITextView!
     @IBOutlet weak var quantity: CustomUITextField!
-    
-    
-    
 }
 
 class EventTicketNumberViewController: UIViewController
 , UITableViewDelegate, UITableViewDataSource{
-    
     
    
     
@@ -100,6 +96,7 @@ class EventTicketNumberViewController: UIViewController
         
         cell.quantity.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         return cell
     }
     

@@ -348,12 +348,26 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
                     let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: vendorID, creatorName: vendorName)
                     
                     self.loadedEvents.append(eventInstance)
-                    self.loadedEvents.shuffle()
-                    print(self.loadedEvents.count)
+                    
+                    DispatchQueue.global(qos: .background).async {
+                        print("This is run on the background queue")
+                        
+                        self.loadedEvents.shuffle()
+                        print(self.loadedEvents.count)
+                        
+                        DispatchQueue.main.async {
+                            print("This is run on the main queue, after the previous code in outer block")
+                            self.eventsCollectionView.reloadData()
+                        }
+                        
+                        
+                    }
                     
                     
                     
-                    self.eventsCollectionView.reloadData()
+                    
+                    
+                    
                 }
                 
             })
@@ -404,11 +418,23 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
             let vendorToBeAdded = Vendor(id: vendorid, name: orgName, pictureURL: pictureURL, ticketCategory: ticketCategory)
             self.vendors.append(vendorToBeAdded)
             
-            self.vendors.shuffle()
+            DispatchQueue.global(qos: .background).async {
+                print("This is run on the background queue")
+                
+                self.vendors.shuffle()
+                
+                DispatchQueue.main.async {
+                    print("This is run on the main queue, after the previous code in outer block")
+                    
+                    self.filteredVendors = self.vendors
+                    
+                    self.vendorsTableView.reloadData()
+                }
+            }
             
-            self.filteredVendors = self.vendors
             
-            self.vendorsTableView.reloadData()
+            
+            
             //print(self.vendors.count)
             })
             // ...
