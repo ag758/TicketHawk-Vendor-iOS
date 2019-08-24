@@ -11,6 +11,7 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import Firebase
 import FirebaseUI
+import Stripe
 
 internal class TicketTypeTableViewCell: UITableViewCell{
     
@@ -31,6 +32,8 @@ class EventTicketNumberViewController: UIViewController
     var ref: DatabaseReference?
     
     var ticketTypes: [TicketType] = []
+    
+    var paymentTotal: Int?
 
     @IBOutlet weak var quantityTableView: UITableView!
     @IBOutlet weak var confirmButton: UIButton!
@@ -109,6 +112,17 @@ class EventTicketNumberViewController: UIViewController
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         
+        var total = calculateItemTotal()
+        
+        self.subtotalTextView.text = "Subtotal: " + (formatter.string(from: NSNumber(value: total)) ?? "$0.00")
+        
+        
+    }
+    
+    func calculateItemTotal() -> Double {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
         var total = 0.00
         for cell in self.quantityTableView.visibleCells {
             let c = cell as! TicketTypeTableViewCell
@@ -122,13 +136,28 @@ class EventTicketNumberViewController: UIViewController
             
             total = total + Double(q ?? 0) * (priceDouble ?? 0)
         }
-        
-        self.subtotalTextView.text = "Subtotal: " + (formatter.string(from: NSNumber(value: total)) ?? "$0.00")
-        
-        
+        return total
     }
     
     @IBAction func confirmPressed(_ sender: Any) {
+        
+        let total = calculateItemTotal()
+        paymentTotal = (Int)(total*100)
+        
+        // 1
+        guard total > 0 else {
+            let alertController = UIAlertController(title: "No Items",
+                                                    message: "You haven't selected any tickets.",
+                                                    preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true)
+            return
+        }
+        // 2
+        let addCardViewController = STPAddCardViewController()
+        addCardViewController.delegate = self
+        navigationController?.pushViewController(addCardViewController, animated: true)
         
         //check if quantity is below max indiv
         //purchase quantity
@@ -147,4 +176,35 @@ class EventTicketNumberViewController: UIViewController
     }
     
 
+}
+
+extension EventTicketNumberViewController: STPAddCardViewControllerDelegate {
+    
+    func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func addCardViewController(_ addCardViewController: STPAddCardViewController,
+                               didCreateToken token: STPToken,
+                               completion: @escaping STPErrorBlock) {
+        StripeClient.shared.completeCharge(with: token, amount: paymentTotal ?? 0) { result in
+            switch result {
+            // 1
+            case .success:
+                completion(nil)
+                
+                let alertController = UIAlertController(title: "Congratulations",
+                                                        message: "Your payment was successful!",
+                                                        preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    self.navigationController?.popViewController(animated: true)
+                })
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true)
+            // 2
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
 }

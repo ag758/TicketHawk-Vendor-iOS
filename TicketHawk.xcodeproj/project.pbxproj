@@ -30,10 +30,12 @@
 		56D7F2ED22CE6AA30086AA5C /* VendorViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */; };
 		56D7F2EF22CE85BD0086AA5C /* VendorMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */; };
 		56E54168230D872C00203B92 /* EventTicketNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E54167230D872C00203B92 /* EventTicketNumberViewController.swift */; };
+		56EAB8D82311C4FC0053A460 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAB8D72311C4FC0053A460 /* Constants.swift */; };
+		56EAB8DB2311C6F80053A460 /* StripeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAB8DA2311C6F80053A460 /* StripeClient.swift */; };
 		56EE89D422DB8A2700A5267E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EE89D322DB8A2700A5267E /* Event.swift */; };
-		875AD317EBFB9C3D08406D21 /* Pods_TicketHawkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086205E9C43A847F2D4CC240 /* Pods_TicketHawkTests.framework */; };
-		E8861FC898E2D6E93273EA20 /* Pods_TicketHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792369421FF229C066D7DF49 /* Pods_TicketHawk.framework */; };
-		F39771C82A596AECCBACD2DA /* Pods_TicketHawkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E7B31E76034F1D3D3F4E2D /* Pods_TicketHawkUITests.framework */; };
+		788963510EF4538E25CC8513 /* Pods_TicketHawkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24D9A0581BFCF22A1B295E6 /* Pods_TicketHawkTests.framework */; };
+		C9E316081B303C4FC8B3F128 /* Pods_TicketHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1971A542F9C9C2788EEB58D4 /* Pods_TicketHawk.framework */; };
+		FAD440D9B5919F6C7DDAFA3F /* Pods_TicketHawkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B609E2A29CC0150F242625B /* Pods_TicketHawkUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,10 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		086205E9C43A847F2D4CC240 /* Pods_TicketHawkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketHawkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		17F132EFD651CB64E848683F /* Pods-TicketHawk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawk.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawk/Pods-TicketHawk.release.xcconfig"; sourceTree = "<group>"; };
-		39E7B31E76034F1D3D3F4E2D /* Pods_TicketHawkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketHawkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		43ADD3645261418BCA7B50B0 /* Pods-TicketHawkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawkTests/Pods-TicketHawkTests.release.xcconfig"; sourceTree = "<group>"; };
+		1971A542F9C9C2788EEB58D4 /* Pods_TicketHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		288BBF43CDDD9E44485932A7 /* Pods-TicketHawk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawk.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawk/Pods-TicketHawk.release.xcconfig"; sourceTree = "<group>"; };
+		2B1C4EF5736ED016588B28C2 /* Pods-TicketHawkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawkTests/Pods-TicketHawkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B609E2A29CC0150F242625B /* Pods_TicketHawkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketHawkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		560193EB22F672DC00700A8E /* CustomerAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAccountViewController.swift; sourceTree = "<group>"; };
 		560CD18022D56CA600DCEA7C /* TicketType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketType.swift; sourceTree = "<group>"; };
 		561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -87,12 +89,14 @@
 		56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController3.swift; sourceTree = "<group>"; };
 		56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorMainViewController.swift; sourceTree = "<group>"; };
 		56E54167230D872C00203B92 /* EventTicketNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTicketNumberViewController.swift; sourceTree = "<group>"; };
+		56EAB8D72311C4FC0053A460 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		56EAB8DA2311C6F80053A460 /* StripeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeClient.swift; sourceTree = "<group>"; };
 		56EE89D322DB8A2700A5267E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		792369421FF229C066D7DF49 /* Pods_TicketHawk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketHawk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		87BE7E0AEA1A497BD31F149F /* Pods-TicketHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawk/Pods-TicketHawk.debug.xcconfig"; sourceTree = "<group>"; };
-		9306D6A887361A173BB15041 /* Pods-TicketHawkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawkUITests/Pods-TicketHawkUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D08069CC45A84308E3DE42E0 /* Pods-TicketHawkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawkUITests/Pods-TicketHawkUITests.release.xcconfig"; sourceTree = "<group>"; };
-		E64C678607CFDEA26473E229 /* Pods-TicketHawkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawkTests/Pods-TicketHawkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7A13F8C1253FD50AF1B003C9 /* Pods-TicketHawkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawkUITests/Pods-TicketHawkUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D0C1B53D4BDD8EAC251277C3 /* Pods-TicketHawkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawkTests/Pods-TicketHawkTests.release.xcconfig"; sourceTree = "<group>"; };
+		F24D9A0581BFCF22A1B295E6 /* Pods_TicketHawkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketHawkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3E00C3E88EAC66C71A4F6A7 /* Pods-TicketHawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawk/Pods-TicketHawk.debug.xcconfig"; sourceTree = "<group>"; };
+		FFE6E8E5D59C17104357E606 /* Pods-TicketHawkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawkUITests/Pods-TicketHawkUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8861FC898E2D6E93273EA20 /* Pods_TicketHawk.framework in Frameworks */,
+				C9E316081B303C4FC8B3F128 /* Pods_TicketHawk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				875AD317EBFB9C3D08406D21 /* Pods_TicketHawkTests.framework in Frameworks */,
+				788963510EF4538E25CC8513 /* Pods_TicketHawkTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,13 +120,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F39771C82A596AECCBACD2DA /* Pods_TicketHawkUITests.framework in Frameworks */,
+				FAD440D9B5919F6C7DDAFA3F /* Pods_TicketHawkUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E0093070AEBC110F6768AF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1971A542F9C9C2788EEB58D4 /* Pods_TicketHawk.framework */,
+				F24D9A0581BFCF22A1B295E6 /* Pods_TicketHawkTests.framework */,
+				3B609E2A29CC0150F242625B /* Pods_TicketHawkUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5656DA2C22C060710079920C = {
 			isa = PBXGroup;
 			children = (
@@ -130,8 +144,8 @@
 				5656DA4C22C060730079920C /* TicketHawkTests */,
 				5656DA5722C060730079920C /* TicketHawkUITests */,
 				5656DA3622C060710079920C /* Products */,
-				E566E9F988831CAC9DDC526F /* Pods */,
-				741C1087D2C1DC11810051EA /* Frameworks */,
+				BC1877C1AC88E0D745AFE239 /* Pods */,
+				0E0093070AEBC110F6768AF3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,6 +162,7 @@
 		5656DA3722C060710079920C /* TicketHawk */ = {
 			isa = PBXGroup;
 			children = (
+				56EAB8D92311C6650053A460 /* StripeClasses */,
 				5656DA3822C060710079920C /* AppDelegate.swift */,
 				56A6FDB4230F9DBF00825DD4 /* Vendor */,
 				56A6FDB3230F9D7D00825DD4 /* Customer */,
@@ -209,25 +224,24 @@
 			path = Vendor;
 			sourceTree = "<group>";
 		};
-		741C1087D2C1DC11810051EA /* Frameworks */ = {
+		56EAB8D92311C6650053A460 /* StripeClasses */ = {
 			isa = PBXGroup;
 			children = (
-				792369421FF229C066D7DF49 /* Pods_TicketHawk.framework */,
-				086205E9C43A847F2D4CC240 /* Pods_TicketHawkTests.framework */,
-				39E7B31E76034F1D3D3F4E2D /* Pods_TicketHawkUITests.framework */,
+				56EAB8DA2311C6F80053A460 /* StripeClient.swift */,
+				56EAB8D72311C4FC0053A460 /* Constants.swift */,
 			);
-			name = Frameworks;
+			path = StripeClasses;
 			sourceTree = "<group>";
 		};
-		E566E9F988831CAC9DDC526F /* Pods */ = {
+		BC1877C1AC88E0D745AFE239 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				87BE7E0AEA1A497BD31F149F /* Pods-TicketHawk.debug.xcconfig */,
-				17F132EFD651CB64E848683F /* Pods-TicketHawk.release.xcconfig */,
-				E64C678607CFDEA26473E229 /* Pods-TicketHawkTests.debug.xcconfig */,
-				43ADD3645261418BCA7B50B0 /* Pods-TicketHawkTests.release.xcconfig */,
-				9306D6A887361A173BB15041 /* Pods-TicketHawkUITests.debug.xcconfig */,
-				D08069CC45A84308E3DE42E0 /* Pods-TicketHawkUITests.release.xcconfig */,
+				F3E00C3E88EAC66C71A4F6A7 /* Pods-TicketHawk.debug.xcconfig */,
+				288BBF43CDDD9E44485932A7 /* Pods-TicketHawk.release.xcconfig */,
+				2B1C4EF5736ED016588B28C2 /* Pods-TicketHawkTests.debug.xcconfig */,
+				D0C1B53D4BDD8EAC251277C3 /* Pods-TicketHawkTests.release.xcconfig */,
+				7A13F8C1253FD50AF1B003C9 /* Pods-TicketHawkUITests.debug.xcconfig */,
+				FFE6E8E5D59C17104357E606 /* Pods-TicketHawkUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -239,12 +253,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5656DA5D22C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawk" */;
 			buildPhases = (
-				2F953F4C12DCE3AF6A2E9FB7 /* [CP] Check Pods Manifest.lock */,
+				5996CBD2DA381E28541531C0 /* [CP] Check Pods Manifest.lock */,
 				5656DA3122C060710079920C /* Sources */,
 				5656DA3222C060710079920C /* Frameworks */,
 				5656DA3322C060710079920C /* Resources */,
-				E6A1B314203207E54AC4EC68 /* [CP] Embed Pods Frameworks */,
-				DDA92E06FD7B2993FC86D7B9 /* [CP] Copy Pods Resources */,
+				B81E93C1D0719740846E2B94 /* [CP] Embed Pods Frameworks */,
+				2467810C8DDAE0016BE4E99A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,7 +273,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5656DA6022C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawkTests" */;
 			buildPhases = (
-				CE6477ECB056754776B8626A /* [CP] Check Pods Manifest.lock */,
+				38416F6DF11E0AFDA2DDDF42 /* [CP] Check Pods Manifest.lock */,
 				5656DA4522C060730079920C /* Sources */,
 				5656DA4622C060730079920C /* Frameworks */,
 				5656DA4722C060730079920C /* Resources */,
@@ -278,7 +292,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5656DA6322C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawkUITests" */;
 			buildPhases = (
-				242425F99C196EDDD9F51B00 /* [CP] Check Pods Manifest.lock */,
+				D4A389C68EE6EC25C6459123 /* [CP] Check Pods Manifest.lock */,
 				5656DA5022C060730079920C /* Sources */,
 				5656DA5122C060730079920C /* Frameworks */,
 				5656DA5222C060730079920C /* Resources */,
@@ -365,61 +379,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		242425F99C196EDDD9F51B00 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TicketHawkUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2F953F4C12DCE3AF6A2E9FB7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TicketHawk-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CE6477ECB056754776B8626A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TicketHawkTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DDA92E06FD7B2993FC86D7B9 /* [CP] Copy Pods Resources */ = {
+		2467810C8DDAE0016BE4E99A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -453,7 +413,43 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketHawk/Pods-TicketHawk-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E6A1B314203207E54AC4EC68 /* [CP] Embed Pods Frameworks */ = {
+		38416F6DF11E0AFDA2DDDF42 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TicketHawkTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5996CBD2DA381E28541531C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TicketHawk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B81E93C1D0719740846E2B94 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -471,6 +467,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -491,6 +488,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -503,6 +501,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketHawk/Pods-TicketHawk-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D4A389C68EE6EC25C6459123 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TicketHawkUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -511,7 +527,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5651F39722D14BF2009BEF73 /* CustomerMainViewController.swift in Sources */,
+				56EAB8D82311C4FC0053A460 /* Constants.swift in Sources */,
 				5656DA3B22C060710079920C /* SplitViewController.swift in Sources */,
+				56EAB8DB2311C6F80053A460 /* StripeClient.swift in Sources */,
 				569D445D22C81F20001353CB /* VendorViewController2.swift in Sources */,
 				569D445B22C7FCC2001353CB /* VendorViewController1.swift in Sources */,
 				5651F39522D144B3009BEF73 /* CustomerViewController2.swift in Sources */,
@@ -692,7 +710,7 @@
 		};
 		5656DA5E22C060730079920C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87BE7E0AEA1A497BD31F149F /* Pods-TicketHawk.debug.xcconfig */;
+			baseConfigurationReference = F3E00C3E88EAC66C71A4F6A7 /* Pods-TicketHawk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -711,7 +729,7 @@
 		};
 		5656DA5F22C060730079920C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17F132EFD651CB64E848683F /* Pods-TicketHawk.release.xcconfig */;
+			baseConfigurationReference = 288BBF43CDDD9E44485932A7 /* Pods-TicketHawk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -730,7 +748,7 @@
 		};
 		5656DA6122C060730079920C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E64C678607CFDEA26473E229 /* Pods-TicketHawkTests.debug.xcconfig */;
+			baseConfigurationReference = 2B1C4EF5736ED016588B28C2 /* Pods-TicketHawkTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -752,7 +770,7 @@
 		};
 		5656DA6222C060730079920C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43ADD3645261418BCA7B50B0 /* Pods-TicketHawkTests.release.xcconfig */;
+			baseConfigurationReference = D0C1B53D4BDD8EAC251277C3 /* Pods-TicketHawkTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -774,7 +792,7 @@
 		};
 		5656DA6422C060730079920C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9306D6A887361A173BB15041 /* Pods-TicketHawkUITests.debug.xcconfig */;
+			baseConfigurationReference = 7A13F8C1253FD50AF1B003C9 /* Pods-TicketHawkUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -795,7 +813,7 @@
 		};
 		5656DA6522C060730079920C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D08069CC45A84308E3DE42E0 /* Pods-TicketHawkUITests.release.xcconfig */;
+			baseConfigurationReference = FFE6E8E5D59C17104357E606 /* Pods-TicketHawkUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

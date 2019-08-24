@@ -193,6 +193,7 @@ PODS:
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
+  - Stripe (15.0.0)
   - TwitterCore (3.2.0)
   - TwitterKit (3.4.2):
     - TwitterCore (>= 3.2.0)
@@ -208,6 +209,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - FirebaseUI
   - IQKeyboardManagerSwift
+  - Stripe
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -240,6 +242,7 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - SDWebImage
+    - Stripe
     - TwitterCore
     - TwitterKit
 
@@ -273,9 +276,10 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  Stripe: 312b22a67af9fa55c246d26148b3f3a9636a0ff2
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 3c93da43b28c16ed13c65a4b00c005aba5af6b2a
+PODFILE CHECKSUM: 8e2a8958fbdf0f96b330b0bcc348993f88b8f62f
 
 COCOAPODS: 1.5.3
