@@ -155,7 +155,14 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
         let double = ticketTypes[indexPath.row].price as! Double
         
         
-        cell!.detailTextLabel?.text = String(double)
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
+        if let number = formatter.string(from:  NSNumber(value: double)) {
+            cell!.detailTextLabel?.text = number
+        }
+        
+        
         
         
         return cell!

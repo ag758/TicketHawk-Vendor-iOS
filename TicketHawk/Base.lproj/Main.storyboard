@@ -1482,7 +1482,7 @@
                                     <action selector="confirmPressed:" destination="f1q-3C-g6v" eventType="touchUpInside" id="cGU-CC-vUR"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Subtotal: $0" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EN0-Ta-dVf">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Subtotal: $0.00" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EN0-Ta-dVf">
                                 <rect key="frame" x="10" y="527" width="355" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="iY1-bj-R3i"/>
@@ -1492,7 +1492,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f5u-3V-ffc">
-                                <rect key="frame" x="30" y="30" width="315" height="477"/>
+                                <rect key="frame" x="30" y="30" width="315" height="437"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ticketTypeTableViewCell" rowHeight="100" id="t8F-am-PgA" customClass="TicketTypeTableViewCell" customModule="TicketHawk" customModuleProvider="target">
@@ -1503,19 +1503,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="TicketType" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGU-ti-93c">
-                                                    <rect key="frame" x="15" y="11" width="142.5" height="39"/>
+                                                    <rect key="frame" x="15" y="11" width="190" height="39"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Price" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZu-1X-Nxa">
-                                                    <rect key="frame" x="15" y="50" width="142.5" height="39"/>
+                                                    <rect key="frame" x="15" y="50" width="190" height="39"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qo-3X-HMC" customClass="CustomUITextField" customModule="TicketHawk" customModuleProvider="target">
-                                                    <rect key="frame" x="157.5" y="35" width="142.5" height="30"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qo-3X-HMC" customClass="CustomUITextField" customModule="TicketHawk" customModuleProvider="target">
+                                                    <rect key="frame" x="205" y="35" width="95" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -1523,7 +1523,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="sZu-1X-Nxa" firstAttribute="bottom" secondItem="UDb-ws-sB0" secondAttribute="bottomMargin" id="6UH-x8-Ox0"/>
-                                                <constraint firstItem="4qo-3X-HMC" firstAttribute="width" secondItem="uGU-ti-93c" secondAttribute="width" id="Bh1-w5-8iI"/>
+                                                <constraint firstItem="4qo-3X-HMC" firstAttribute="width" secondItem="uGU-ti-93c" secondAttribute="width" multiplier="0.5" id="Bh1-w5-8iI"/>
                                                 <constraint firstItem="sZu-1X-Nxa" firstAttribute="leading" secondItem="UDb-ws-sB0" secondAttribute="leadingMargin" id="KGn-7J-Ycb"/>
                                                 <constraint firstItem="uGU-ti-93c" firstAttribute="top" secondItem="UDb-ws-sB0" secondAttribute="topMargin" id="S5C-Fx-mnH"/>
                                                 <constraint firstItem="uGU-ti-93c" firstAttribute="leading" secondItem="UDb-ws-sB0" secondAttribute="leadingMargin" id="bkP-bE-IZf"/>
@@ -1543,13 +1543,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Fees: $0.00" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKc-Ub-tEm">
+                                <rect key="frame" x="10" y="477" width="355" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Tn8-if-RGr"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="k4p-Ui-y2w" firstAttribute="trailing" secondItem="bKc-Ub-tEm" secondAttribute="trailing" constant="10" id="326-11-rL3"/>
                             <constraint firstItem="k4p-Ui-y2w" firstAttribute="trailing" secondItem="EN0-Ta-dVf" secondAttribute="trailing" constant="10" id="5VD-f7-nVE"/>
-                            <constraint firstItem="EN0-Ta-dVf" firstAttribute="top" secondItem="f5u-3V-ffc" secondAttribute="bottom" constant="20" id="8Pa-kP-uSv"/>
+                            <constraint firstItem="bKc-Ub-tEm" firstAttribute="top" secondItem="f5u-3V-ffc" secondAttribute="bottom" constant="10" id="6Wl-aV-wdV"/>
+                            <constraint firstItem="bKc-Ub-tEm" firstAttribute="leading" secondItem="k4p-Ui-y2w" secondAttribute="leading" constant="10" id="FPS-hH-dtc"/>
                             <constraint firstItem="f5u-3V-ffc" firstAttribute="top" secondItem="k4p-Ui-y2w" secondAttribute="top" constant="10" id="RGi-s1-KjP"/>
                             <constraint firstItem="k4p-Ui-y2w" firstAttribute="trailing" secondItem="f5u-3V-ffc" secondAttribute="trailing" constant="30" id="TnA-nf-04V"/>
+                            <constraint firstItem="EN0-Ta-dVf" firstAttribute="top" secondItem="bKc-Ub-tEm" secondAttribute="bottom" constant="10" id="U62-SQ-1Bv"/>
                             <constraint firstItem="ZIG-nP-aKU" firstAttribute="leading" secondItem="k4p-Ui-y2w" secondAttribute="leading" constant="30" id="WYL-NI-WO3"/>
                             <constraint firstItem="EN0-Ta-dVf" firstAttribute="leading" secondItem="k4p-Ui-y2w" secondAttribute="leading" constant="10" id="ZJA-vk-dOC"/>
                             <constraint firstItem="k4p-Ui-y2w" firstAttribute="bottom" secondItem="ZIG-nP-aKU" secondAttribute="bottom" constant="30" id="flF-hV-Hdo"/>
@@ -1561,6 +1573,7 @@
                     </view>
                     <connections>
                         <outlet property="confirmButton" destination="ZIG-nP-aKU" id="Y4x-XK-WT1"/>
+                        <outlet property="feeTextView" destination="bKc-Ub-tEm" id="CBJ-bY-Mi9"/>
                         <outlet property="quantityTableView" destination="f5u-3V-ffc" id="YT7-Jx-kG6"/>
                         <outlet property="subtotalTextView" destination="EN0-Ta-dVf" id="ltz-T3-cmU"/>
                     </connections>
@@ -1667,4 +1680,5 @@
         <image name="thawk_transparent" width="500" height="500"/>
         <image name="tickets" width="25" height="25"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

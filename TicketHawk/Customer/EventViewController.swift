@@ -86,7 +86,11 @@ class EventViewController: UIViewController {
                 
                 self.dateAndTime.text = "🕑 " + dateFormatter2.string(from: d1) + " to " + dateFormatter2.string(from: d2)
                 self.location.text = "🗺 " + (value?["location"] as? String ?? "")
-                self.dressCode.text = "🎩 " + (value?["dressCode"] as? String ?? "No Dress Code")
+                self.dressCode.text = "🎩 " + (value?["dressCode"] as? String ?? "")
+                
+                if (self.dressCode.text == "🎩 "){
+                    self.dressCode.text = "🎩 No Dress Code"
+                }
                 
                 if let i = value?["maxTickets"] as? Int {
                     self.maxNumTickets.text = String(i) + " Max Tickets / Person"

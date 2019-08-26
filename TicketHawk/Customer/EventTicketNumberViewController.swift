@@ -33,10 +33,13 @@ class EventTicketNumberViewController: UIViewController
     
     var ticketTypes: [TicketType] = []
     
-    var paymentTotal: Int?
+    var fees: Double?
+    var paymentTotal: Double?
+    var paymentTotalInt: Int?
 
     @IBOutlet weak var quantityTableView: UITableView!
     @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var feeTextView: UITextView!
     @IBOutlet weak var subtotalTextView: UITextView!
     
     override func viewDidLoad() {
@@ -48,6 +51,8 @@ class EventTicketNumberViewController: UIViewController
         self.quantityTableView.dataSource = self
         
         self.quantityTableView.rowHeight = 100
+        
+        self.quantityTableView.layer.cornerRadius = 15
         
         confirmButton.backgroundColor = .clear
         confirmButton.layer.cornerRadius = 25
@@ -108,18 +113,18 @@ class EventTicketNumberViewController: UIViewController
     }
     
     func updateTotalPrice(){
+        calculateItemTotal()
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         
-        var total = calculateItemTotal()
-        
-        self.subtotalTextView.text = "Subtotal: " + (formatter.string(from: NSNumber(value: total)) ?? "$0.00")
+        self.feeTextView.text = "Fees: " + (formatter.string(from: NSNumber(value: self.fees ?? 0)) ?? "$0.00")
+        self.subtotalTextView.text = "Total: " + (formatter.string(from: NSNumber(value: self.paymentTotal ?? 0)) ?? "$0.00")
         
         
     }
     
-    func calculateItemTotal() -> Double {
+    func calculateItemTotal(){
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         
@@ -127,25 +132,29 @@ class EventTicketNumberViewController: UIViewController
         for cell in self.quantityTableView.visibleCells {
             let c = cell as! TicketTypeTableViewCell
             let q = Int(c.quantity.text ?? "0")
-            
-            
-            
             let p = formatter.number(from: c.ticketPrice.text)
             
             let priceDouble = Double(exactly: p!)
             
             total = total + Double(q ?? 0) * (priceDouble ?? 0)
         }
-        return total
+        
+        if (total > 0){
+            self.fees = (total * 0.05 + 0.30)
+            self.paymentTotal = (self.fees ?? 0) + total
+        } else {
+            self.fees = 0
+            self.paymentTotal = 0
+        }
     }
     
     @IBAction func confirmPressed(_ sender: Any) {
         
-        let total = calculateItemTotal()
-        paymentTotal = (Int)(total*100)
+        calculateItemTotal()
+        self.paymentTotalInt = (Int)((self.paymentTotal ?? 0) * 100)
         
         // 1
-        guard total > 0 else {
+        guard self.paymentTotalInt ?? 0 > 0 else {
             let alertController = UIAlertController(title: "No Items",
                                                     message: "You haven't selected any tickets.",
                                                     preferredStyle: .alert)
@@ -155,7 +164,9 @@ class EventTicketNumberViewController: UIViewController
             return
         }
         // 2
-        let addCardViewController = STPAddCardViewController()
+        let theme = STPTheme()
+        theme.accentColor = SplitViewController.greenColor
+        let addCardViewController = STPAddCardViewController(configuration: STPPaymentConfiguration.shared(), theme: theme)
         addCardViewController.delegate = self
         navigationController?.pushViewController(addCardViewController, animated: true)
         
@@ -187,7 +198,7 @@ extension EventTicketNumberViewController: STPAddCardViewControllerDelegate {
     func addCardViewController(_ addCardViewController: STPAddCardViewController,
                                didCreateToken token: STPToken,
                                completion: @escaping STPErrorBlock) {
-        StripeClient.shared.completeCharge(with: token, amount: paymentTotal ?? 0) { result in
+        StripeClient.shared.completeCharge(with: token, amount: paymentTotalInt ?? 0) { result in
             switch result {
             // 1
             case .success:
