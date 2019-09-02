@@ -142,7 +142,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
         
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
-        let url = URL(string: filteredVendors[indexPath.row].pictureURL!)!
+        let url = URL(string: filteredVendors[indexPath.row].pictureURL!) ?? URL(string: "www.apple.com")!
         
         downloadImage(from: url, iv: cell.vendorProfileImageView)
         
@@ -192,7 +192,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
         cell.sellerView.textContainer.maximumNumberOfLines = 1
         cell.sellerView.textContainer.lineBreakMode = .byTruncatingTail
         
-        let url = URL(string: loadedEvents[indexPath.row].imageURL!)!
+        let url = URL(string: loadedEvents[indexPath.row].imageURL!) ?? URL(string: "www.apple.com")!
         
         downloadImage(from: url, iv: cell.eventImageView)
         
@@ -412,6 +412,10 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
             ///If no value exists -- means false
             let orgName = value?["organizationName"] as? String ?? ""
             let pictureURL = value?["organizationProfileImage"] as? String ?? ""
+            
+            
+            print("pURL " + pictureURL)
+            
             let ticketCategory = value?["ticketCategory"] as? String ?? ""
             
             

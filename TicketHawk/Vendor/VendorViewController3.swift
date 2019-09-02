@@ -45,7 +45,7 @@ class VendorViewController3: UIViewController ,UITableViewDelegate, UITableViewD
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         if (textField.text?.isEmpty == false){
-            let url = URL(string: pictureURLTextField.text!)!
+            let url = URL(string: pictureURLTextField.text!) ?? URL(string: "www.apple.com")!
             downloadImage(from: url)
         }
     }

@@ -15,6 +15,8 @@ import Stripe
 
 internal class TicketTypeTableViewCell: UITableViewCell{
     
+    var ticketType: TicketType! = TicketType(name : "", price: 0)
+    
     @IBOutlet weak var ticketTitle: UITextView!
     @IBOutlet weak var ticketPrice: UITextView!
     @IBOutlet weak var quantity: CustomUITextField!
@@ -36,6 +38,9 @@ class EventTicketNumberViewController: UIViewController
     var fees: Double?
     var paymentTotal: Double?
     var paymentTotalInt: Int?
+    
+    //TicketMap to be Added
+    var map = [TicketType: Int]()
 
     @IBOutlet weak var quantityTableView: UITableView!
     @IBOutlet weak var confirmButton: UIButton!
@@ -92,6 +97,7 @@ class EventTicketNumberViewController: UIViewController
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ticketTypeTableViewCell", for: indexPath) as! TicketTypeTableViewCell
         
+        cell.ticketType = ticketTypes[indexPath.row]
         
         cell.ticketTitle.text = ticketTypes[indexPath.row].name
         
@@ -134,13 +140,15 @@ class EventTicketNumberViewController: UIViewController
             let q = Int(c.quantity.text ?? "0")
             let p = formatter.number(from: c.ticketPrice.text)
             
+            map[c.ticketType] = q
+            
             let priceDouble = Double(exactly: p!)
             
             total = total + Double(q ?? 0) * (priceDouble ?? 0)
         }
         
         if (total > 0){
-            self.fees = (total * 0.05 + 0.30)
+            self.fees = (total * 0.08 + 0.30)
             self.paymentTotal = (self.fees ?? 0) + total
         } else {
             self.fees = 0
@@ -204,14 +212,18 @@ extension EventTicketNumberViewController: STPAddCardViewControllerDelegate {
             case .success:
                 completion(nil)
                 
-                let alertController = UIAlertController(title: "Congratulations",
-                                                        message: "Your payment was successful!",
-                                                        preferredStyle: .alert)
-                let alertAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
-                    self.navigationController?.popViewController(animated: true)
-                })
-                alertController.addAction(alertAction)
-                self.present(alertController, animated: true)
+               
+                
+                
+                //Transition to Ticket Generation
+                let next = self.storyboard!.instantiateViewController(withIdentifier: "customerTicketGenerationViewController") as! CustomerTicketGenerationViewController
+                
+                next.map = self.map
+                next.vendorID = self.vendorID
+                next.eventID = self.eventID
+                
+            
+                self.navigationController!.pushViewController(next, animated: true)
             // 2
             case .failure(let error):
                 completion(error)

@@ -171,7 +171,7 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         if (textField.text?.isEmpty == false){
-            let url = URL(string: imageURLTextField.text!)!
+            let url = URL(string: imageURLTextField.text!) ?? URL(string: "www.apple.com")!
             downloadImage(from: url)
         }
     }

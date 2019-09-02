@@ -81,7 +81,8 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         
          cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
-        let url = URL(string: events[indexPath.row].imageURL!)!
+        let url = URL(string: events[indexPath.row].imageURL!) ??
+            URL(string: "www.apple.com")!
         
         downloadImage(from: url, iv: cell.backgroundImageView)
         

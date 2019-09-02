@@ -1582,6 +1582,54 @@
             </objects>
             <point key="canvasLocation" x="7944.8000000000002" y="28.335832083958024"/>
         </scene>
+        <!--Customer Ticket Generation View Controller-->
+        <scene sceneID="FaM-cM-b6L">
+            <objects>
+                <viewController storyboardIdentifier="customerTicketGenerationViewController" id="OHc-rq-O6M" customClass="CustomerTicketGenerationViewController" customModule="TicketHawk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MOc-Si-009">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="gzL-sS-Frb">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Generating your Tickets" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frB-sf-6vH">
+                                <rect key="frame" x="10" y="273.5" width="355" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LNY-Ym-TVR"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Do Not Close this Tab and maintain Internet Connectivity" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsn-rR-INK">
+                                <rect key="frame" x="10" y="353.5" width="355" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="RHc-D5-F3k"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ujP-Yu-KaH" firstAttribute="trailing" secondItem="Lsn-rR-INK" secondAttribute="trailing" constant="10" id="BI0-jk-bAH"/>
+                            <constraint firstItem="ujP-Yu-KaH" firstAttribute="trailing" secondItem="frB-sf-6vH" secondAttribute="trailing" constant="10" id="Tjd-iA-1uF"/>
+                            <constraint firstItem="frB-sf-6vH" firstAttribute="leading" secondItem="ujP-Yu-KaH" secondAttribute="leading" constant="10" id="ZcV-4J-cgR"/>
+                            <constraint firstItem="Lsn-rR-INK" firstAttribute="top" secondItem="gzL-sS-Frb" secondAttribute="bottom" constant="10" id="ZuT-eD-tFo"/>
+                            <constraint firstItem="gzL-sS-Frb" firstAttribute="centerY" secondItem="MOc-Si-009" secondAttribute="centerY" id="dqy-71-PGJ"/>
+                            <constraint firstItem="Lsn-rR-INK" firstAttribute="leading" secondItem="ujP-Yu-KaH" secondAttribute="leading" constant="10" id="ebS-Pn-Miv"/>
+                            <constraint firstItem="gzL-sS-Frb" firstAttribute="centerX" secondItem="MOc-Si-009" secondAttribute="centerX" id="kUb-3w-K7r"/>
+                            <constraint firstItem="gzL-sS-Frb" firstAttribute="top" secondItem="frB-sf-6vH" secondAttribute="bottom" constant="10" id="rWd-vX-2O3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ujP-Yu-KaH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="En5-Gf-nec" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8727" y="28"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="h8H-YW-rVy">
             <objects>
