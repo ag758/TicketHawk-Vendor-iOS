@@ -30,6 +30,7 @@
 		56CFF17022D1965E00459985 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CFF16F22D1965E00459985 /* CustomUITextField.swift */; };
 		56D7F2ED22CE6AA30086AA5C /* VendorViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */; };
 		56D7F2EF22CE85BD0086AA5C /* VendorMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */; };
+		56E24FF3231DF1730084950C /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E24FF2231DF1730084950C /* Ticket.swift */; };
 		56E54168230D872C00203B92 /* EventTicketNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E54167230D872C00203B92 /* EventTicketNumberViewController.swift */; };
 		56EAB8D82311C4FC0053A460 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAB8D72311C4FC0053A460 /* Constants.swift */; };
 		56EAB8DB2311C6F80053A460 /* StripeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAB8DA2311C6F80053A460 /* StripeClient.swift */; };
@@ -90,6 +91,7 @@
 		56CFF16F22D1965E00459985 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController3.swift; sourceTree = "<group>"; };
 		56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorMainViewController.swift; sourceTree = "<group>"; };
+		56E24FF2231DF1730084950C /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		56E54167230D872C00203B92 /* EventTicketNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTicketNumberViewController.swift; sourceTree = "<group>"; };
 		56EAB8D72311C4FC0053A460 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		56EAB8DA2311C6F80053A460 /* StripeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeClient.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				56EE89D322DB8A2700A5267E /* Event.swift */,
 				56B00EC822F10A6800D4FC26 /* Vendor.swift */,
 				560CD18022D56CA600DCEA7C /* TicketType.swift */,
+				56E24FF2231DF1730084950C /* Ticket.swift */,
 				5656DA3A22C060710079920C /* SplitViewController.swift */,
 				5656DA3C22C060710079920C /* Main.storyboard */,
 				5656DA3F22C060730079920C /* Assets.xcassets */,
@@ -540,6 +543,7 @@
 				560CD18122D56CA600DCEA7C /* TicketType.swift in Sources */,
 				56D7F2EF22CE85BD0086AA5C /* VendorMainViewController.swift in Sources */,
 				56D7F2ED22CE6AA30086AA5C /* VendorViewController3.swift in Sources */,
+				56E24FF3231DF1730084950C /* Ticket.swift in Sources */,
 				56CFF16C22D18C6600459985 /* CreateEventViewController.swift in Sources */,
 				5656DA3922C060710079920C /* AppDelegate.swift in Sources */,
 				5622A97C22EE822A00F0A806 /* CustomerTicketViewController.swift in Sources */,

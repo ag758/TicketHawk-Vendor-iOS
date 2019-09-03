@@ -44,14 +44,12 @@ class CustomerTicketGenerationViewController: UIViewController {
                     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
                     
                     let d1: Date = dateFormatter.date(from: value?["startDateAndTime"] as? String ?? "") ?? Date()
-                    let d2: Date = dateFormatter.date(from: value?["endDateAndTime"] as? String ?? "") ?? Date()
-                    
                     let dateFormatter2 = DateFormatter()
                     dateFormatter2.amSymbol = "AM"
                     dateFormatter2.pmSymbol = "PM"
                     dateFormatter2.dateFormat = "MMM d, h:mm a"
                     
-                    let dateAndTime = dateFormatter2.string(from: d1) + " to " + dateFormatter2.string(from: d2)
+                    let dateAndTime = dateFormatter2.string(from: d1)
                     let location = (value?["location"] as? String ?? "")
                     let dressCodeString = (value?["dressCode"] as? String ?? "")
                     
