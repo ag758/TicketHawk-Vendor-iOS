@@ -18,6 +18,8 @@ internal class TicketCustomClass: UITableViewCell {
     @IBOutlet weak var userName: UITextView!
     @IBOutlet weak var dateAndTime: UITextView!
     @IBOutlet weak var location: UITextView!
+    
+    @IBOutlet weak var bottomRounded: UIImageView!
 }
 
 class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
@@ -70,9 +72,17 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
             
             let ticketInstance = Ticket(key: key, eventTitle: eventTitle, ticketType: ticketType, userName: userName, dateAndTime: dateAndTime, location: location)
             self.tickets.append(ticketInstance)
-            //self.events = self.sortTableViewByTime(events: self.events)
-            
-            self.ticketsMasterTableView.reloadData()
+            DispatchQueue.global(qos: .background).async {
+                print("This is run on the background queue")
+                
+                self.tickets = self.sortTableViewByTime(tickets: self.tickets)
+                
+                DispatchQueue.main.async {
+                    print("This is run on the main queue, after the previous code in outer block")
+                    
+                    self.ticketsMasterTableView.reloadData()
+                }
+            }
                  
             
         })
@@ -102,6 +112,8 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
         
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.layer.cornerRadius = 20
+        
+        cell.bottomRounded.layer.cornerRadius = 20
         
         encodeKeyAsQRCode(imageView: cell.qrCodeView, key: tickets[indexPath.row].key)
         
@@ -150,6 +162,41 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
        
         
      
+    }
+    
+    func sortTableViewByTime(tickets: [Ticket]) -> [Ticket] {
+        var ticketsMut = tickets
+        var x = 0
+        while (x < ticketsMut.count-1) {
+            var closestInt = x
+            for y in x+1...ticketsMut.count-1 {
+                if compareDates(date1: tickets[x].dateAndTime, date2: tickets[y].dateAndTime) == true{
+                    closestInt = y
+                }
+            }
+            //swap shortest and x
+            ticketsMut.swapAt(x, closestInt)
+            x = x+1
+        }
+        
+        return ticketsMut
+    }
+    
+    func compareDates (date1: String, date2: String) -> Bool {
+        
+        print("d1" + date1)
+        print("d2" + date2)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, h:mm a"
+        
+        let d1: Date = dateFormatter.date(from: date1)!
+        let d2: Date = dateFormatter.date(from: date2)!
+        
+        if (d1 > d2){
+            return true
+        }
+        return false
     }
     
 
