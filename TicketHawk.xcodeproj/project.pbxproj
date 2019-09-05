@@ -11,6 +11,7 @@
 		560CD18122D56CA600DCEA7C /* TicketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560CD18022D56CA600DCEA7C /* TicketType.swift */; };
 		561B1F5722C06DD4001A0968 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */; };
 		5622A97C22EE822A00F0A806 /* CustomerTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622A97B22EE822A00F0A806 /* CustomerTicketViewController.swift */; };
+		563A1FDA23208EE400ED9156 /* CustomerVendorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A1FD923208EE400ED9156 /* CustomerVendorListViewController.swift */; };
 		5651F39322CEA73E009BEF73 /* CustomerViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651F39222CEA73E009BEF73 /* CustomerViewController1.swift */; };
 		5651F39522D144B3009BEF73 /* CustomerViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651F39422D144B3009BEF73 /* CustomerViewController2.swift */; };
 		5651F39722D14BF2009BEF73 /* CustomerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651F39622D14BF2009BEF73 /* CustomerMainViewController.swift */; };
@@ -66,6 +67,7 @@
 		560CD18022D56CA600DCEA7C /* TicketType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketType.swift; sourceTree = "<group>"; };
 		561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5622A97B22EE822A00F0A806 /* CustomerTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTicketViewController.swift; sourceTree = "<group>"; };
+		563A1FD923208EE400ED9156 /* CustomerVendorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerVendorListViewController.swift; sourceTree = "<group>"; };
 		5651F39222CEA73E009BEF73 /* CustomerViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController1.swift; sourceTree = "<group>"; };
 		5651F39422D144B3009BEF73 /* CustomerViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController2.swift; sourceTree = "<group>"; };
 		5651F39622D14BF2009BEF73 /* CustomerMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerMainViewController.swift; sourceTree = "<group>"; };
@@ -166,8 +168,8 @@
 		5656DA3722C060710079920C /* TicketHawk */ = {
 			isa = PBXGroup;
 			children = (
-				56EAB8D92311C6650053A460 /* StripeClasses */,
 				5656DA3822C060710079920C /* AppDelegate.swift */,
+				56EAB8D92311C6650053A460 /* StripeClasses */,
 				56A6FDB4230F9DBF00825DD4 /* Vendor */,
 				56A6FDB3230F9D7D00825DD4 /* Customer */,
 				5665A2EE22C7F16B00148ADD /* GoogleService-Info.plist */,
@@ -214,6 +216,7 @@
 				56E54167230D872C00203B92 /* EventTicketNumberViewController.swift */,
 				5651F39622D14BF2009BEF73 /* CustomerMainViewController.swift */,
 				56A2B27F231D76FA005A82CB /* CustomerTicketGenerationViewController.swift */,
+				563A1FD923208EE400ED9156 /* CustomerVendorListViewController.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				563A1FDA23208EE400ED9156 /* CustomerVendorListViewController.swift in Sources */,
 				5651F39722D14BF2009BEF73 /* CustomerMainViewController.swift in Sources */,
 				56EAB8D82311C4FC0053A460 /* Constants.swift in Sources */,
 				5656DA3B22C060710079920C /* SplitViewController.swift in Sources */,

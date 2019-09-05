@@ -144,6 +144,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
         
         let url = URL(string: filteredVendors[indexPath.row].pictureURL!) ?? URL(string: "www.apple.com")!
         
+        cell.vendorProfileImageView.image = UIImage()
         downloadImage(from: url, iv: cell.vendorProfileImageView)
         
         for view in cell.subviews {
@@ -194,6 +195,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
         
         let url = URL(string: loadedEvents[indexPath.row].imageURL!) ?? URL(string: "www.apple.com")!
         
+        cell.eventImageView.image = UIImage()
         downloadImage(from: url, iv: cell.eventImageView)
         
         for view in cell.subviews {
@@ -206,17 +208,21 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        //var cell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
-        
         let next = self.storyboard!.instantiateViewController(withIdentifier: "eventViewController") as! EventViewController
         
-       next.eventID = loadedEvents[indexPath.row].id
-       next.vendorID = loadedEvents[indexPath.row].creatorId
+        next.vendorID = self.loadedEvents[indexPath.row].creatorId
+        next.eventID = self.loadedEvents[indexPath.row].id
+        self.navigationController!.pushViewController(next, animated: true)
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //Transition to Ticket Generation
+        let next = self.storyboard!.instantiateViewController(withIdentifier: "customerVendorListViewController") as! CustomerVendorListViewController
         
-        
-    self.navigationController!.pushViewController(next, animated: true)
-        
-        //self.present(next, animated: true, completion: nil)
+        next.vendorID = self.filteredVendors[indexPath.row].id
+        self.navigationController!.pushViewController(next, animated: true)
     }
     
     func loadCommunity(){
