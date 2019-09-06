@@ -193,7 +193,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
         cell.sellerView.textContainer.maximumNumberOfLines = 1
         cell.sellerView.textContainer.lineBreakMode = .byTruncatingTail
         
-        let url = URL(string: loadedEvents[indexPath.row].imageURL!) ?? URL(string: "www.apple.com")!
+        let url = URL(string: loadedEvents[indexPath.row].imageURL ?? "www.apple.com") ?? URL(string: "www.apple.com")!
         
         cell.eventImageView.image = UIImage()
         downloadImage(from: url, iv: cell.eventImageView)
@@ -228,13 +228,13 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     func loadCommunity(){
         
         let userID = Auth.auth().currentUser?.uid
-        ref!.child("customers").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+        ref?.child("customers").child(userID ?? "").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             let cKey = value!["primaryCommunity"] as? String ?? ""
             self.communityKey = cKey
             
-            self.communityTitle.setTitle(self.communityKey!, for: UIControl.State.normal)
+            self.communityTitle.setTitle(self.communityKey ?? "", for: UIControl.State.normal)
             
             
             //Load Events and vendors things using Community Key
@@ -249,7 +249,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     func loadCommunityEvents(){
         
-        ref?.child("communities").child(communityKey!).child("vendors").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref?.child("communities").child(communityKey ?? "").child("vendors").observeSingleEvent(of: .value, with: { (snapshot) in
             
                 let value = snapshot.value as? NSDictionary
                 let keys = value?.allKeys
@@ -320,7 +320,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
                 
                 let event = snapshot.value as? NSDictionary
                 
-                let title = event!["eventTitle"] as! String
+                let title = event!["eventTitle"] as? String ?? ""
                 var startDateAndTime = event!["startDateAndTime"] as? String ?? "No Date Found"
                 let pictureURL = event!["pictureURL"] as? String ?? ""
                 let tickets = event!["ticketTypes"] as? Dictionary ?? [:]
@@ -329,7 +329,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
                 
-                let d1: Date = dateFormatter.date(from: startDateAndTime)!
+                let d1: Date = dateFormatter.date(from: startDateAndTime) ?? Date()
                 
                 let dateFormatter2 = DateFormatter()
                 dateFormatter2.amSymbol = "AM"
@@ -340,8 +340,8 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
                 
                 var minimumprice: Double = Double.greatestFiniteMagnitude
                 for (_, ticketprice) in tickets {
-                    if ((ticketprice as! Double) < minimumprice){
-                        minimumprice = ticketprice as! Double
+                    if ((ticketprice as? Double ?? 0) < minimumprice){
+                        minimumprice = ticketprice as? Double ?? 0
                     }
                 }
                 
@@ -432,6 +432,8 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
                 print("This is run on the background queue")
                 
                 self.vendors.shuffle()
+                
+                
                 
                 DispatchQueue.main.async {
                     print("This is run on the main queue, after the previous code in outer block")
