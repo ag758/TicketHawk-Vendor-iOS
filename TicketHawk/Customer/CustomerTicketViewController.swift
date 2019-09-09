@@ -108,23 +108,62 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ticketCustomClass", for: indexPath) as! TicketCustomClass
         
-        cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        cell.layer.cornerRadius = 20
+        if (indexPath.row < self.tickets.count){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ticketCustomClass", for: indexPath) as! TicketCustomClass
+            
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            cell.layer.cornerRadius = 20
+            
+            cell.bottomRounded.layer.cornerRadius = 20
+            
+            encodeKeyAsQRCode(imageView: cell.qrCodeView, key: tickets[indexPath.row].key)
+            
+            cell.dateAndTime.text = tickets[indexPath.row].dateAndTime
+            cell.eventTitle.text = tickets[indexPath.row].eventTitle
+            cell.location.text = tickets[indexPath.row].location
+            cell.ticketType.text = tickets[indexPath.row].ticketType
+            cell.userName.text = tickets[indexPath.row].userName
+            
+            
+            return cell
+        } else {
+            return UITableViewCell()
+        }
         
-        cell.bottomRounded.layer.cornerRadius = 20
-        
-        encodeKeyAsQRCode(imageView: cell.qrCodeView, key: tickets[indexPath.row].key)
-        
-        cell.dateAndTime.text = tickets[indexPath.row].dateAndTime
-        cell.eventTitle.text = tickets[indexPath.row].eventTitle
-        cell.location.text = tickets[indexPath.row].location
-        cell.ticketType.text = tickets[indexPath.row].ticketType
-        cell.userName.text = tickets[indexPath.row].userName
-        
+    }
     
-        return cell
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let archive = UITableViewRowAction(style: .normal, title: "Archive") { action, index in
+            
+            //Add node to archivedTickets
+            
+            let ticket = self.tickets[indexPath.row]
+            
+            let post = ["userName": ticket.userName,
+                        "title": ticket.eventTitle,
+                        "dateAndTime": ticket.dateAndTime,
+                        "location": ticket.location,
+                        "ticketType": ticket.ticketType,
+                        "key": ticket.key
+                ] as [String : Any]
+            
+            let update1 = ["/customers/\(Auth.auth().currentUser?.uid ?? "")/archivedTickets/\(ticket.key)": post]
+            self.ref?.updateChildValues(update1)
+            
+            //Remove node from activeTickets
+            
+            self.ref?.child("customers").child(Auth.auth().currentUser?.uid ?? "").child("activeTickets").child(ticket.key).removeValue()
+            
+            
+            
+            
+        }
+        archive.backgroundColor = UIColor.black
+        
+        
+        return [archive]
     }
     
     func encodeKeyAsQRCode(imageView: UIImageView, key: String){

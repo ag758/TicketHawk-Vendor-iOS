@@ -130,30 +130,38 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = self.vendorsTableView
-            .dequeueReusableCell(withIdentifier: "vendorCell") as! VendorTableViewCell
-        
-        cell.backgroundColor = SplitViewController.almostBlack
-        //cell.layer.cornerRadius = 5
-        cell.vendorProfileImageView.layer.cornerRadius = 5
-        
-        cell.vendorTitleView.text = filteredVendors[indexPath.row].name
-        cell.vendorCategoryView.text = filteredVendors[indexPath.row].ticketCategory
-        
-        cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        
-        let url = URL(string: filteredVendors[indexPath.row].pictureURL!) ?? URL(string: "www.apple.com")!
-        
-        cell.vendorProfileImageView.image = UIImage()
-        downloadImage(from: url, iv: cell.vendorProfileImageView)
-        
-        for view in cell.subviews {
-            view.isUserInteractionEnabled = false
+        if (indexPath.row < filteredVendors.count){
+            let cell = self.vendorsTableView
+                .dequeueReusableCell(withIdentifier: "vendorCell") as! VendorTableViewCell
+            
+            cell.backgroundColor = SplitViewController.almostBlack
+            //cell.layer.cornerRadius = 5
+            cell.vendorProfileImageView.layer.cornerRadius = 5
+            
+            cell.vendorTitleView.text = filteredVendors[indexPath.row].name
+            cell.vendorCategoryView.text = filteredVendors[indexPath.row].ticketCategory
+            
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            
+            let url = URL(string: filteredVendors[indexPath.row].pictureURL!) ?? URL(string: "www.apple.com")!
+            
+            cell.vendorProfileImageView.image = UIImage()
+            downloadImage(from: url, iv: cell.vendorProfileImageView)
+            
+            for view in cell.subviews {
+                view.isUserInteractionEnabled = false
+            }
+            return cell
+        }
+        else {
+            return UITableViewCell()
         }
         
+       
         
         
-        return cell
+        
+        
         
     }
     
@@ -170,40 +178,46 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCollectionCell", for: indexPath) as! FeaturedEventCollectionViewCell
-        
-        cell.backgroundColor = SplitViewController.almostBlack
-        cell.layer.cornerRadius = 5
-        cell.eventImageView.layer.cornerRadius = 5
-        
-        cell.eventTitleView.text = loadedEvents[indexPath.row].title
-        cell.dateView.text = loadedEvents[indexPath.row].dateAndTime
-        cell.priceView.text = loadedEvents[indexPath.row].lowestPrice
-        cell.sellerView.text = loadedEvents[indexPath.row].creatorName
-        
-        cell.eventTitleView.textContainer.maximumNumberOfLines = 1
-        cell.eventTitleView.textContainer.lineBreakMode = .byTruncatingTail
-        
-        cell.dateView.textContainer.maximumNumberOfLines = 1
-        cell.dateView.textContainer.lineBreakMode = .byTruncatingTail
-        
-        cell.priceView.textContainer.maximumNumberOfLines = 1
-        cell.priceView.textContainer.lineBreakMode = .byTruncatingTail
-        
-        cell.sellerView.textContainer.maximumNumberOfLines = 1
-        cell.sellerView.textContainer.lineBreakMode = .byTruncatingTail
-        
-        let url = URL(string: loadedEvents[indexPath.row].imageURL ?? "www.apple.com") ?? URL(string: "www.apple.com")!
-        
-        cell.eventImageView.image = UIImage()
-        downloadImage(from: url, iv: cell.eventImageView)
-        
-        for view in cell.subviews {
-            view.isUserInteractionEnabled = false
+        if (indexPath.row < loadedEvents.count){
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCollectionCell", for: indexPath) as! FeaturedEventCollectionViewCell
+            
+            cell.backgroundColor = SplitViewController.almostBlack
+            cell.layer.cornerRadius = 5
+            cell.eventImageView.layer.cornerRadius = 5
+            
+            cell.eventTitleView.text = loadedEvents[indexPath.row].title
+            cell.dateView.text = loadedEvents[indexPath.row].dateAndTime
+            cell.priceView.text = loadedEvents[indexPath.row].lowestPrice
+            cell.sellerView.text = loadedEvents[indexPath.row].creatorName
+            
+            cell.eventTitleView.textContainer.maximumNumberOfLines = 1
+            cell.eventTitleView.textContainer.lineBreakMode = .byTruncatingTail
+            
+            cell.dateView.textContainer.maximumNumberOfLines = 1
+            cell.dateView.textContainer.lineBreakMode = .byTruncatingTail
+            
+            cell.priceView.textContainer.maximumNumberOfLines = 1
+            cell.priceView.textContainer.lineBreakMode = .byTruncatingTail
+            
+            cell.sellerView.textContainer.maximumNumberOfLines = 1
+            cell.sellerView.textContainer.lineBreakMode = .byTruncatingTail
+            
+            let url = URL(string: loadedEvents[indexPath.row].imageURL ?? "www.apple.com") ?? URL(string: "www.apple.com")!
+            
+            cell.eventImageView.image = UIImage()
+            downloadImage(from: url, iv: cell.eventImageView)
+            
+            for view in cell.subviews {
+                view.isUserInteractionEnabled = false
+            }
+            
+            
+            return cell
+        } else {
+            return UICollectionViewCell()
         }
         
         
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

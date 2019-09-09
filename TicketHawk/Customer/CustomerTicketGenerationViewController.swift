@@ -65,10 +65,7 @@ class CustomerTicketGenerationViewController: UIViewController {
                                         "title": eventTitle,
                                         "dateAndTime": dateAndTime,
                                         "location": location,
-                                        "dressCode": dressCodeString,
                                         "ticketType": t.name,
-                                        "vendorID" : self.vendorID,
-                                        "eventID" : self.eventID,
                                         "key": key
                                 
                                 ] as [String : Any]
