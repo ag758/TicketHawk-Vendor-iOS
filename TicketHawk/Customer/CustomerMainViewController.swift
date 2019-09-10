@@ -55,7 +55,6 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     @IBOutlet weak var vendorsTableView: UITableView!
     
     @IBOutlet weak var communityTitle: UIButton!
-    
     //
     
     
@@ -94,6 +93,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         tapGesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGesture)
+        
         
         loadCommunity()
     }
