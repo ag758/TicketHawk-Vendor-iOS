@@ -12,6 +12,8 @@ import Firebase
 class SplitViewController: UIViewController {
     
     static var ref: DatabaseReference?
+    
+    static var customerMainVC: CustomerMainViewController?
 
     @IBOutlet weak var vendorButton: UIButton!
     @IBOutlet weak var customerButton: UIButton!

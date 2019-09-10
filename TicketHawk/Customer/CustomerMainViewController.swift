@@ -62,6 +62,8 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SplitViewController.customerMainVC = self
 
         self.navigationController!.navigationBar.barTintColor = UIColor.black
         
@@ -87,13 +89,10 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
         eventsCollectionView.reloadData()
         
         vendorsSearchBar.delegate = self
-        
-        
-        
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         tapGesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGesture)
-        
         
         loadCommunity()
     }
@@ -240,6 +239,15 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     }
     
     func loadCommunity(){
+        
+        print("communityloaded")
+        
+        
+        //Reset State
+        self.vendors = []
+        self.loadedEvents = []
+        self.loadedEventsStringIDs = []
+        self.filteredVendors = []
         
         let userID = Auth.auth().currentUser?.uid
         ref?.child("customers").child(userID ?? "").observeSingleEvent(of: .value, with: { (snapshot) in

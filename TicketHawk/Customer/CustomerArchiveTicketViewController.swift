@@ -40,11 +40,16 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "archiveCell")
-        cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        cell.textLabel?.text = tickets[indexPath.row].eventTitle
-        cell.detailTextLabel?.text = tickets[indexPath.row].ticketType + " | " + tickets[indexPath.row].dateAndTime
-        return cell
+        if (indexPath.row < tickets.count){
+            let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "archiveCell")
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            cell.textLabel?.text = tickets[indexPath.row].eventTitle
+            cell.detailTextLabel?.text = tickets[indexPath.row].ticketType + " | " + tickets[indexPath.row].dateAndTime
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

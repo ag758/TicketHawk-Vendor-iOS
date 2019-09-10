@@ -244,6 +244,8 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func goToArchiveViewController(_ sender: Any) {
         
+        SplitViewController.customerMainVC?.loadCommunity()
+        
         let next = self.storyboard!.instantiateViewController(withIdentifier: "customerArchiveTicketViewController") as! CustomerArchiveTicketViewController
         
         self.navigationController!.pushViewController(next, animated: true)
