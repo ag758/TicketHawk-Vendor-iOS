@@ -10,6 +10,7 @@
 		560193EC22F672DC00700A8E /* CustomerAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560193EB22F672DC00700A8E /* CustomerAccountViewController.swift */; };
 		560CD18122D56CA600DCEA7C /* TicketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560CD18022D56CA600DCEA7C /* TicketType.swift */; };
 		561B1F5722C06DD4001A0968 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */; };
+		561F91622326983B00194AA3 /* CustomerArchiveTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561F91612326983B00194AA3 /* CustomerArchiveTicketViewController.swift */; };
 		5622A97C22EE822A00F0A806 /* CustomerTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622A97B22EE822A00F0A806 /* CustomerTicketViewController.swift */; };
 		563A1FDA23208EE400ED9156 /* CustomerVendorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A1FD923208EE400ED9156 /* CustomerVendorListViewController.swift */; };
 		5651F39322CEA73E009BEF73 /* CustomerViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651F39222CEA73E009BEF73 /* CustomerViewController1.swift */; };
@@ -66,6 +67,7 @@
 		560193EB22F672DC00700A8E /* CustomerAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAccountViewController.swift; sourceTree = "<group>"; };
 		560CD18022D56CA600DCEA7C /* TicketType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketType.swift; sourceTree = "<group>"; };
 		561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		561F91612326983B00194AA3 /* CustomerArchiveTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerArchiveTicketViewController.swift; sourceTree = "<group>"; };
 		5622A97B22EE822A00F0A806 /* CustomerTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTicketViewController.swift; sourceTree = "<group>"; };
 		563A1FD923208EE400ED9156 /* CustomerVendorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerVendorListViewController.swift; sourceTree = "<group>"; };
 		5651F39222CEA73E009BEF73 /* CustomerViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController1.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				5651F39622D14BF2009BEF73 /* CustomerMainViewController.swift */,
 				56A2B27F231D76FA005A82CB /* CustomerTicketGenerationViewController.swift */,
 				563A1FD923208EE400ED9156 /* CustomerVendorListViewController.swift */,
+				561F91612326983B00194AA3 /* CustomerArchiveTicketViewController.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				56CFF17022D1965E00459985 /* CustomUITextField.swift in Sources */,
 				56E54168230D872C00203B92 /* EventTicketNumberViewController.swift in Sources */,
 				560193EC22F672DC00700A8E /* CustomerAccountViewController.swift in Sources */,
+				561F91622326983B00194AA3 /* CustomerArchiveTicketViewController.swift in Sources */,
 				56B00EC922F10A6800D4FC26 /* Vendor.swift in Sources */,
 				5651F39322CEA73E009BEF73 /* CustomerViewController1.swift in Sources */,
 				56EE89D422DB8A2700A5267E /* Event.swift in Sources */,

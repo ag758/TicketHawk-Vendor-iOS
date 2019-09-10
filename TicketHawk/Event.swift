@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Event: Equatable {
+class Event: NSObject {
     var title: String?
     var dateAndTime: String?
     var lowestPrice: String?

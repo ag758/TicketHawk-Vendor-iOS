@@ -53,6 +53,9 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
         self.ticketsMasterTableView.delegate = self
         
         loadTickets()
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
     }
     
     func loadTickets(){
@@ -236,6 +239,15 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
             return true
         }
         return false
+    }
+    
+    
+    @IBAction func goToArchiveViewController(_ sender: Any) {
+        
+        let next = self.storyboard!.instantiateViewController(withIdentifier: "customerArchiveTicketViewController") as! CustomerArchiveTicketViewController
+        
+        self.navigationController!.pushViewController(next, animated: true)
+        
     }
     
 

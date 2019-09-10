@@ -367,12 +367,13 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
                     
                     let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: vendorID, creatorName: vendorName)
                     
-                    self.loadedEvents.append(eventInstance)
+                    //self.loadedEvents.append(eventInstance)
+                    self.loadedEvents = self.randomAppend(array: self.loadedEvents, object: eventInstance) as! [Event]
                     
                     DispatchQueue.global(qos: .background).async {
                         print("This is run on the background queue")
                         
-                        self.loadedEvents.shuffle()
+                        //self.loadedEvents.shuffle()
                         print(self.loadedEvents.count)
                         
                         DispatchQueue.main.async {
@@ -440,12 +441,13 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
             
             
             let vendorToBeAdded = Vendor(id: vendorid, name: orgName, pictureURL: pictureURL, ticketCategory: ticketCategory)
-            self.vendors.append(vendorToBeAdded)
+            //self.vendors.append(vendorToBeAdded)
+            self.vendors = self.randomAppend(array: self.vendors, object: vendorToBeAdded) as! [Vendor]
             
             DispatchQueue.global(qos: .background).async {
                 print("This is run on the background queue")
                 
-                self.vendors.shuffle()
+                //self.vendors.shuffle()
                 
                 
                 
@@ -469,6 +471,12 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    func randomAppend(array: [NSObject], object: NSObject) -> [NSObject]{
+        var returnedArray = array
+        returnedArray.insert(object, at: Int.random(in: 0 ... returnedArray.count))
+        return returnedArray
     }
     
     func downloadImage(from url: URL, iv: UIImageView) {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Vendor: Equatable {
+class Vendor: NSObject {
     
     var id: String?
     var name: String?
