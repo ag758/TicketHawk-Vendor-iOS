@@ -362,8 +362,8 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
                 
                 var minimumprice: Double = Double.greatestFiniteMagnitude
                 for (_, ticketprice) in tickets {
-                    if ((ticketprice as? Double ?? 0) < minimumprice){
-                        minimumprice = ticketprice as? Double ?? 0
+                    if ((ticketprice as? Double ?? 0) / 100 < minimumprice){
+                        minimumprice = (ticketprice as? Double  ?? 0) / 100
                     }
                 }
                 

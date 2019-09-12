@@ -86,6 +86,9 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
     }
     
     func loadTickets(){
+        
+        tickets = []
+        
         let query = ref?.child("customers").child(Auth.auth().currentUser!.uid).child("archivedTickets")
         
         query?.observe(.childAdded, with: { (snapshot) in

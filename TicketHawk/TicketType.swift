@@ -19,9 +19,9 @@ class TicketType: Hashable{
     }
     
     var name = ""
-    var price: NSNumber = 0.00
+    var price: Int = 0
     
-    init (name: String, price: NSNumber){
+    init (name: String, price: Int){
         self.name = name
         self.price = price
     }

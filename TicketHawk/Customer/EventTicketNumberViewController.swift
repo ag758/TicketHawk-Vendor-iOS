@@ -39,6 +39,8 @@ class EventTicketNumberViewController: UIViewController
     var paymentTotal: Double?
     var paymentTotalInt: Int?
     
+    var purchaseQuantity: Int?
+    
     //TicketMap to be Added
     var map = [TicketType: Int]()
 
@@ -82,7 +84,7 @@ class EventTicketNumberViewController: UIViewController
             let tickets = event!["ticketTypes"] as? Dictionary ?? [:]
             
             for (ticketname, ticketprice) in tickets {
-                self.ticketTypes.append(TicketType(name: ticketname as! String, price: ticketprice as! NSNumber))
+                self.ticketTypes.append(TicketType(name: ticketname as! String, price: ticketprice as! Int))
                 self.quantityTableView.reloadData()
             }
         })
@@ -104,7 +106,7 @@ class EventTicketNumberViewController: UIViewController
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         
-        if let number = formatter.string(from:  ticketTypes[indexPath.row].price) {
+        if let number = formatter.string(from:  NSNumber(value: Float(ticketTypes[indexPath.row].price / 100))) {
             cell.ticketPrice.text = number
         }
         
@@ -135,10 +137,16 @@ class EventTicketNumberViewController: UIViewController
         formatter.numberStyle = .currency
         
         var total = 0.00
+        self.purchaseQuantity = 0
         for cell in self.quantityTableView.visibleCells {
             let c = cell as! TicketTypeTableViewCell
+            
             let q = Int(c.quantity.text ?? "0")
             let p = formatter.number(from: c.ticketPrice.text)
+            
+            print("q " + String(q ?? 0))
+            self.purchaseQuantity = (self.purchaseQuantity ?? 0) + (q ?? 0)
+            print("pQ " + String(self.purchaseQuantity ?? 0))
             
             map[c.ticketType] = q
             
@@ -147,6 +155,7 @@ class EventTicketNumberViewController: UIViewController
             total = total + Double(q ?? 0) * (priceDouble ?? 0)
         }
         
+        //Total = subtotal of items before tax and before TicketHawk Fees
         if (total > 0){
             self.fees = (total * 0.08 + 0.30)
             self.paymentTotal = (self.fees ?? 0) + total
@@ -154,12 +163,18 @@ class EventTicketNumberViewController: UIViewController
             self.fees = 0
             self.paymentTotal = 0
         }
+        
+        self.paymentTotalInt = (Int)((self.paymentTotal ?? 0) * 100)
+        self.paymentTotal = (Double)(paymentTotalInt ?? 0)/100
     }
     
     @IBAction func confirmPressed(_ sender: Any) {
         
         calculateItemTotal()
-        self.paymentTotalInt = (Int)((self.paymentTotal ?? 0) * 100)
+        
+        print(self.paymentTotal)
+        print(self.paymentTotalInt)
+        
         
         // 1
         guard self.paymentTotalInt ?? 0 > 0 else {
@@ -171,27 +186,63 @@ class EventTicketNumberViewController: UIViewController
             present(alertController, animated: true)
             return
         }
-        // 2
-        let theme = STPTheme()
-        theme.accentColor = SplitViewController.greenColor
-        let addCardViewController = STPAddCardViewController(configuration: STPPaymentConfiguration.shared(), theme: theme)
-        addCardViewController.delegate = self
-        navigationController?.pushViewController(addCardViewController, animated: true)
         
-        //check if quantity is below max indiv
-        //purchase quantity
+        self.ref?.child("vendors").child(vendorID ?? "").child("events").child(eventID ?? "").observeSingleEvent(of: .value, with: {(snapshot) in
+            
+            let event = snapshot.value as? NSDictionary
+            
+            let maxIndivCapacity = event?["maxTickets"] as? Int ?? Int.max
+            let going = event?["going"] as? Int ?? 0
+            let maxTotalCapacity = event?["totalVenueCapacity"] as? Int ?? Int.max
+            
+            print("maxIndivCapacity" + String(maxIndivCapacity))
+            print("going" + String(going))
+            print("maxTotalCapacity" + String(maxTotalCapacity))
+            print("purchaseQuantity" + String(self.purchaseQuantity ?? 0))
+            
+            if (self.purchaseQuantity ?? 0 > maxIndivCapacity) {
+                let alertController = UIAlertController(title: "Exceeds Individual Order Amount",
+                                                        message: "The vendor has set a limit of " + String(maxIndivCapacity) + " tickets.",
+                                                        preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true)
+                return
+            }
+            
+            else if (self.purchaseQuantity ?? 0 + going > maxTotalCapacity){
+                let alertController = UIAlertController(title: "Exceeds Capacity of Venue",
+                                                        message: "There are " + String(maxTotalCapacity - going) + " tickets available for purchase remaining.",
+                                                        preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true)
+                return
+            }
+            
+            else {
+                
+                //Send price to square
+                let theme = STPTheme()
+                theme.accentColor = SplitViewController.greenColor
+                let addCardViewController = STPAddCardViewController(configuration: STPPaymentConfiguration.shared(), theme: theme)
+                addCardViewController.delegate = self
+                self.navigationController?.pushViewController(addCardViewController, animated: true)
+                
+                //Upon success:
+                //add quantity to going
+                //add total sales price to total sales
+                //add tickets to customer's tickets
+                //copy tickets to vendor's tickets
+            }
+            
+            
+           
+            
+        })
+       
         
-        //check if quantity + going < totalVenueCapacity
         
-        //check if event exists
-        
-        //Send price to square
-        
-        //Upon success:
-            //add quantity to going
-            //add total sales price to total sales
-            //add tickets to customer's tickets
-            //copy tickets to vendor's tickets
     }
     
 
@@ -211,6 +262,30 @@ extension EventTicketNumberViewController: STPAddCardViewControllerDelegate {
             // 1
             case .success:
                 completion(nil)
+                
+                //Update Going and Total Sales using Transactions
+                
+                let goingRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("going")
+                let salesRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("totalSales")
+                
+                goingRef?.runTransactionBlock { (currentData: MutableData) -> TransactionResult in
+                    var value = currentData.value as? Int
+                    if value == nil {
+                        value = 0
+                    }
+                    currentData.value = value! + (self.purchaseQuantity ?? 0)
+                    return TransactionResult.success(withValue: currentData)
+                }
+                
+                salesRef?.runTransactionBlock { (currentData: MutableData) -> TransactionResult in
+                 
+                    let value = currentData.value as? Int ?? 0
+                    print("pT" + String(self.paymentTotalInt ?? 0))
+                    currentData.value = value + (Int(self.paymentTotalInt ?? 0 ) )
+                    return TransactionResult.success(withValue: currentData)
+                }
+                
+                
                 
                
                 

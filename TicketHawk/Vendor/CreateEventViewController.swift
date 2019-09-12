@@ -111,7 +111,10 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
                     
                     if let number = currencyFormatter.number(from: priceString) {
                         //add the type to the tableview
-                        let newTicketType = TicketType(name: ticketTypeName.text!, price: number)
+                        
+                        let f = Float(truncating: number) * 100
+                        
+                        let newTicketType = TicketType(name: ticketTypeName.text!, price: Int(exactly: f) ?? 0)
                         ticketTypes.append(newTicketType)
                         
                         ticketTypeName.text = ""
@@ -152,13 +155,16 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
         
         cell!.textLabel?.text = ticketTypes[indexPath.row].name
         
-        let double = ticketTypes[indexPath.row].price as! Double
+        let i = ticketTypes[indexPath.row].price
+        let d = Double(i) / 100
+        
+        print("d_value" + String(d))
         
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         
-        if let number = formatter.string(from:  NSNumber(value: double)) {
+        if let number = formatter.string(from:  NSNumber(value: d)) {
             cell!.detailTextLabel?.text = number
         }
         

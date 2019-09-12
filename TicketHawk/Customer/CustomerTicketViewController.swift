@@ -59,6 +59,9 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func loadTickets(){
+        
+        tickets = []
+        
         let query = ref?.child("customers").child(Auth.auth().currentUser!.uid).child("activeTickets")
         
         query?.observe(.childAdded, with: { (snapshot) in

@@ -137,8 +137,8 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             
             var minimumprice: Double = Double.greatestFiniteMagnitude
             for (_, ticketprice) in tickets {
-                if ((ticketprice as! Double) < minimumprice){
-                    minimumprice = ticketprice as! Double
+                if ((ticketprice as! Double) / 100 < minimumprice){
+                    minimumprice = ticketprice as! Double / 100
                 }
             }
             
