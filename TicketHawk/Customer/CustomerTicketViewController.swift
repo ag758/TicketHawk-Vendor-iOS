@@ -34,6 +34,8 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SplitViewController.ticketsVC = self
 
         // Do any additional setup after loading the view.
         
@@ -161,6 +163,9 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
             //Remove node from activeTickets
             
             self.ref?.child("customers").child(Auth.auth().currentUser?.uid ?? "").child("activeTickets").child(ticket.key).removeValue()
+            
+            //SplitViewController.ticketsVC?.loadTickets()
+            //SplitViewController.ticketsArchiveVC?.loadTickets()
             
             
             

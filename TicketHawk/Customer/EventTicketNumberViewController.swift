@@ -35,8 +35,7 @@ class EventTicketNumberViewController: UIViewController
     
     var ticketTypes: [TicketType] = []
     
-    var fees: Double?
-    var paymentTotal: Double?
+    var fees: Int?
     var paymentTotalInt: Int?
     
     var purchaseQuantity: Int?
@@ -106,7 +105,7 @@ class EventTicketNumberViewController: UIViewController
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         
-        if let number = formatter.string(from:  NSNumber(value: Float(ticketTypes[indexPath.row].price / 100))) {
+        if let number = formatter.string(from:  NSNumber(value: Float(ticketTypes[indexPath.row].price) / 100)) {
             cell.ticketPrice.text = number
         }
         
@@ -126,8 +125,8 @@ class EventTicketNumberViewController: UIViewController
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         
-        self.feeTextView.text = "Fees: " + (formatter.string(from: NSNumber(value: self.fees ?? 0)) ?? "$0.00")
-        self.subtotalTextView.text = "Total: " + (formatter.string(from: NSNumber(value: self.paymentTotal ?? 0)) ?? "$0.00")
+        self.feeTextView.text = "Taxes & Fees: " + (formatter.string(from: (NSNumber(value: Double(self.fees ?? 0) / 100))) ?? "")
+        self.subtotalTextView.text = "Total: " + (formatter.string(from: (NSNumber(value: Double(self.paymentTotalInt ?? 0) / 100))) ?? "")
         
         
     }
@@ -136,43 +135,37 @@ class EventTicketNumberViewController: UIViewController
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         
-        var total = 0.00
+        var total = 0
         self.purchaseQuantity = 0
         for cell in self.quantityTableView.visibleCells {
             let c = cell as! TicketTypeTableViewCell
             
             let q = Int(c.quantity.text ?? "0")
-            let p = formatter.number(from: c.ticketPrice.text)
-            
-            print("q " + String(q ?? 0))
-            self.purchaseQuantity = (self.purchaseQuantity ?? 0) + (q ?? 0)
-            print("pQ " + String(self.purchaseQuantity ?? 0))
+            let p = c.ticketType.price
             
             map[c.ticketType] = q
             
-            let priceDouble = Double(exactly: p!)
             
-            total = total + Double(q ?? 0) * (priceDouble ?? 0)
+            self.purchaseQuantity = (self.purchaseQuantity ?? 0) + (q ?? 0)
+            
+            total = total + (p ) * (q ?? 0)
         }
         
         //Total = subtotal of items before tax and before TicketHawk Fees
         if (total > 0){
-            self.fees = (total * 0.08 + 0.30)
-            self.paymentTotal = (self.fees ?? 0) + total
+            
+            self.fees = Int(ceil(Double(total) * 0.08 + 30.0 ))
+            
+            self.paymentTotalInt = (self.fees ?? 0) + total
         } else {
             self.fees = 0
-            self.paymentTotal = 0
+            self.paymentTotalInt = 0
         }
-        
-        self.paymentTotalInt = (Int)((self.paymentTotal ?? 0) * 100)
-        self.paymentTotal = (Double)(paymentTotalInt ?? 0)/100
     }
     
     @IBAction func confirmPressed(_ sender: Any) {
         
         calculateItemTotal()
-        
-        print(self.paymentTotal)
         print(self.paymentTotalInt)
         
         

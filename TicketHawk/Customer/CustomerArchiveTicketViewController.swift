@@ -23,6 +23,8 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SplitViewController.ticketsArchiveVC = self
+        
         self.ref = SplitViewController.ref
         
         loadTickets()
@@ -74,6 +76,9 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
             //Remove node from archivedTickets
             
         self.ref?.child("customers").child(Auth.auth().currentUser?.uid ?? "").child("archivedTickets").child(ticket.key).removeValue()
+            
+            //SplitViewController.ticketsVC?.loadTickets()
+            //SplitViewController.ticketsArchiveVC?.loadTickets()
             
             
             

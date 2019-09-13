@@ -107,9 +107,20 @@ class CustomerTicketGenerationViewController: UIViewController {
             totalQuantity = totalQuantity + i
         }
         
+       
+        
         if quantity == totalQuantity * 2 {
+            
+            
+            
+            
             let alert = UIAlertController(title: "Your Purchase was Successful!", message: "View your new tickets in the 'My Tickets' tab.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                
+                //Update Ticket VC and Archive VC
+                //SplitViewController.ticketsVC?.loadTickets()
+                //SplitViewController.ticketsArchiveVC?.loadTickets()
+                
                 self.navigationController?.popToRootViewController(animated: true)
             })
             alert.view.tintColor = SplitViewController.greenColor
