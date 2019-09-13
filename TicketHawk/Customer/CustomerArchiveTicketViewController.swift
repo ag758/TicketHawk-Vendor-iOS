@@ -21,6 +21,7 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
     var ref: DatabaseReference?
 
     override func viewDidLoad() {
+        print("debug_view_did_load")
         super.viewDidLoad()
         
         SplitViewController.ticketsArchiveVC = self
@@ -96,7 +97,10 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
         
         let query = ref?.child("customers").child(Auth.auth().currentUser!.uid).child("archivedTickets")
         
+        query?.removeAllObservers()
         query?.observe(.childAdded, with: { (snapshot) in
+            
+            print("debug_child_added" + String(self.tickets.count))
             
             let ticket = snapshot.value as? NSDictionary
             
@@ -110,17 +114,17 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
             
             let ticketInstance = Ticket(key: key, eventTitle: eventTitle, ticketType: ticketType, userName: userName, dateAndTime: dateAndTime, location: location)
             self.tickets.append(ticketInstance)
-            DispatchQueue.global(qos: .background).async {
-                print("This is run on the background queue")
+            //DispatchQueue.global(qos: .background).async {
+                //print("This is run on the background queue")
                 
                 self.tickets = self.sortTableViewByTime(tickets: self.tickets)
                 
-                DispatchQueue.main.async {
-                    print("This is run on the main queue, after the previous code in outer block")
+                //DispatchQueue.main.async {
+                    //print("This is run on the main queue, after the previous code in outer block")
                     
                     self.archivedTicketsTableView.reloadData()
-                }
-            }
+               // }
+            //}
             
             
         })

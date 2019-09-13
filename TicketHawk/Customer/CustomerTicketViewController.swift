@@ -66,6 +66,7 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
         
         let query = ref?.child("customers").child(Auth.auth().currentUser!.uid).child("activeTickets")
         
+        query?.removeAllObservers()
         query?.observe(.childAdded, with: { (snapshot) in
             
             let ticket = snapshot.value as? NSDictionary
@@ -252,7 +253,9 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func goToArchiveViewController(_ sender: Any) {
         
-        SplitViewController.customerMainVC?.loadCommunity()
+        //SplitViewController.customerMainVC?.loadCommunity()
+        
+        
         
         let next = self.storyboard!.instantiateViewController(withIdentifier: "customerArchiveTicketViewController") as! CustomerArchiveTicketViewController
         
