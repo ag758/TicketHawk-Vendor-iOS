@@ -114,17 +114,17 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
             
             let ticketInstance = Ticket(key: key, eventTitle: eventTitle, ticketType: ticketType, userName: userName, dateAndTime: dateAndTime, location: location)
             self.tickets.append(ticketInstance)
-            //DispatchQueue.global(qos: .background).async {
+            DispatchQueue.global(qos: .background).async {
                 //print("This is run on the background queue")
                 
                 self.tickets = self.sortTableViewByTime(tickets: self.tickets)
                 
-                //DispatchQueue.main.async {
+                DispatchQueue.main.async {
                     //print("This is run on the main queue, after the previous code in outer block")
                     
                     self.archivedTicketsTableView.reloadData()
-               // }
-            //}
+                }
+            }
             
             
         })

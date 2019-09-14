@@ -249,6 +249,10 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
         self.loadedEventsStringIDs = []
         self.filteredVendors = []
         
+        //Reset Table Views
+        self.vendorsTableView.reloadData()
+        self.eventsCollectionView.reloadData()
+        
         let userID = Auth.auth().currentUser?.uid
         ref?.child("customers").child(userID ?? "").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
