@@ -39,6 +39,8 @@ class CommunityEditViewController: UIViewController ,UITableViewDelegate, UITabl
         communitiesTableView.delegate = self
         communitiesTableView.dataSource = self
         
+        communitiesTableView.layer.cornerRadius = 25
+        
         fetchCommunities()
     }
     

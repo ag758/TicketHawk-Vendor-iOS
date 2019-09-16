@@ -113,18 +113,19 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
             
             
             let ticketInstance = Ticket(key: key, eventTitle: eventTitle, ticketType: ticketType, userName: userName, dateAndTime: dateAndTime, location: location)
-            self.tickets.append(ticketInstance)
-            DispatchQueue.global(qos: .background).async {
+            //self.tickets.append(ticketInstance)
+            //DispatchQueue.global(qos: .background).async {
                 //print("This is run on the background queue")
                 
-                self.tickets = self.sortTableViewByTime(tickets: self.tickets)
+                //self.tickets = self.sortTableViewByTime(tickets: self.tickets)
+                self.appendAfterDate(ticket: ticketInstance)
                 
-                DispatchQueue.main.async {
+                //DispatchQueue.main.async {
                     //print("This is run on the main queue, after the previous code in outer block")
                     
                     self.archivedTicketsTableView.reloadData()
-                }
-            }
+                //}
+            //}
             
             
         })
@@ -142,6 +143,18 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
             
             self.archivedTicketsTableView.reloadData()
         })
+    }
+    
+    func appendAfterDate(ticket: Ticket){
+        var index = 0;
+        while (index < tickets.count){
+            if compareDates(date1: self.tickets[index].dateAndTime, date2: ticket.dateAndTime) == false{
+                index+=1
+            } else {
+                break
+            }
+        }
+        self.tickets.insert(ticket, at: index)
     }
     
     func sortTableViewByTime(tickets: [Ticket]) -> [Ticket] {

@@ -36,6 +36,7 @@ class CustomerAccountViewController: UIViewController, UITableViewDataSource, UI
         settingsTableView.reloadData()
         settingsTableView.layer.cornerRadius = 20
         settingsTableView.backgroundColor = SplitViewController.almostBlack
+        settingsTableView.separatorColor = UIColor.black
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         

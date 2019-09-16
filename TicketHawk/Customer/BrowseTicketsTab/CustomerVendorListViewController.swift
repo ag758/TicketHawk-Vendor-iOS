@@ -143,10 +143,11 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
             
             var minimumprice: Double = Double.greatestFiniteMagnitude
             for (_, ticketprice) in tickets {
-                if ((ticketprice as! Double) < minimumprice){
-                    minimumprice = ticketprice as! Double
+                if ((ticketprice as? Double ?? 0) / 100 < minimumprice){
+                    minimumprice = (ticketprice as? Double  ?? 0) / 100
                 }
             }
+            
             
             let formatter = NumberFormatter()
             formatter.numberStyle = .currency
@@ -199,10 +200,11 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
             
             var minimumprice: Double = Double.greatestFiniteMagnitude
             for (_, ticketprice) in tickets {
-                if ((ticketprice as! Double) < minimumprice){
-                    minimumprice = ticketprice as! Double
+                if ((ticketprice as? Double ?? 0) / 100 < minimumprice){
+                    minimumprice = (ticketprice as? Double  ?? 0) / 100
                 }
             }
+            
             let formatter = NumberFormatter()
             formatter.numberStyle = .currency
             
