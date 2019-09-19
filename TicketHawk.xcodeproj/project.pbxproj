@@ -40,6 +40,8 @@
 		56EAB8D82311C4FC0053A460 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAB8D72311C4FC0053A460 /* Constants.swift */; };
 		56EAB8DB2311C6F80053A460 /* StripeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAB8DA2311C6F80053A460 /* StripeClient.swift */; };
 		56EE89D422DB8A2700A5267E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EE89D322DB8A2700A5267E /* Event.swift */; };
+		56F28D142332F98C005255D9 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F28D132332F98C005255D9 /* QRScannerView.swift */; };
+		56F28D172332F9DD005255D9 /* VendorEventQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F28D162332F9DD005255D9 /* VendorEventQRViewController.swift */; };
 		788963510EF4538E25CC8513 /* Pods_TicketHawkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24D9A0581BFCF22A1B295E6 /* Pods_TicketHawkTests.framework */; };
 		C9E316081B303C4FC8B3F128 /* Pods_TicketHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1971A542F9C9C2788EEB58D4 /* Pods_TicketHawk.framework */; };
 		FAD440D9B5919F6C7DDAFA3F /* Pods_TicketHawkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B609E2A29CC0150F242625B /* Pods_TicketHawkUITests.framework */; };
@@ -106,6 +108,8 @@
 		56EAB8D72311C4FC0053A460 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		56EAB8DA2311C6F80053A460 /* StripeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeClient.swift; sourceTree = "<group>"; };
 		56EE89D322DB8A2700A5267E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		56F28D132332F98C005255D9 /* QRScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
+		56F28D162332F9DD005255D9 /* VendorEventQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorEventQRViewController.swift; sourceTree = "<group>"; };
 		7A13F8C1253FD50AF1B003C9 /* Pods-TicketHawkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawkUITests/Pods-TicketHawkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0C1B53D4BDD8EAC251277C3 /* Pods-TicketHawkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawkTests/Pods-TicketHawkTests.release.xcconfig"; sourceTree = "<group>"; };
 		F24D9A0581BFCF22A1B295E6 /* Pods_TicketHawkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketHawkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +231,7 @@
 		56A6FDB4230F9DBF00825DD4 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				56F28D152332F9C9005255D9 /* VendorEvent */,
 				56DCCDAA232C7FD5008BD144 /* InitializeVendor */,
 				56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */,
 				56CFF16B22D18C6600459985 /* CreateEventViewController.swift */,
@@ -300,6 +305,23 @@
 				56EAB8D72311C4FC0053A460 /* Constants.swift */,
 			);
 			path = StripeClasses;
+			sourceTree = "<group>";
+		};
+		56F28D122332F967005255D9 /* QRCodeClasses */ = {
+			isa = PBXGroup;
+			children = (
+				56F28D132332F98C005255D9 /* QRScannerView.swift */,
+			);
+			path = QRCodeClasses;
+			sourceTree = "<group>";
+		};
+		56F28D152332F9C9005255D9 /* VendorEvent */ = {
+			isa = PBXGroup;
+			children = (
+				56F28D122332F967005255D9 /* QRCodeClasses */,
+				56F28D162332F9DD005255D9 /* VendorEventQRViewController.swift */,
+			);
+			path = VendorEvent;
 			sourceTree = "<group>";
 		};
 		BC1877C1AC88E0D745AFE239 /* Pods */ = {
@@ -613,6 +635,7 @@
 				56CFF16C22D18C6600459985 /* CreateEventViewController.swift in Sources */,
 				5656DA3922C060710079920C /* AppDelegate.swift in Sources */,
 				5622A97C22EE822A00F0A806 /* CustomerTicketViewController.swift in Sources */,
+				56F28D142332F98C005255D9 /* QRScannerView.swift in Sources */,
 				56CFF17022D1965E00459985 /* CustomUITextField.swift in Sources */,
 				56E54168230D872C00203B92 /* EventTicketNumberViewController.swift in Sources */,
 				56DCCDAE232C89A2008BD144 /* AccountEditViewController.swift in Sources */,
@@ -621,6 +644,7 @@
 				56B00EC922F10A6800D4FC26 /* Vendor.swift in Sources */,
 				5651F39322CEA73E009BEF73 /* CustomerViewController1.swift in Sources */,
 				56EE89D422DB8A2700A5267E /* Event.swift in Sources */,
+				56F28D172332F9DD005255D9 /* VendorEventQRViewController.swift in Sources */,
 				5679117922F7309000B28677 /* EventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

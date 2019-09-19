@@ -68,6 +68,8 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
+   
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = self.eventsTableView
@@ -103,6 +105,12 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorEventQRViewController") as! VendorEventQRViewController
+        
+        next.vendorID = self.events[indexPath.row].creatorId
+        next.eventID = self.events[indexPath.row].id
+        self.navigationController!.pushViewController(next, animated: true)
         
     }
     
@@ -337,9 +345,12 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     func downloadImage(from url: URL, iv: UIImageView) {
         print("Download Started")
         
+        
+        
         DispatchQueue.global(qos: .userInitiated).async {
             self.getData(from: url) { data, response, error in
                 guard let data = data, error == nil else { return }
+                //sleep(3)
                 print(response?.suggestedFilename ?? url.lastPathComponent)
                 print("Download Finished")
                 

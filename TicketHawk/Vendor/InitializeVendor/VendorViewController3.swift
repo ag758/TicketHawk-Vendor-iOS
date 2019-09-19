@@ -128,7 +128,7 @@ class VendorViewController3: UIViewController ,UITableViewDelegate, UITableViewD
             
             //allow, transition to main vendor activity
             
-            let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorMainViewController") as! VendorMainViewController
+            let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorNavigationController") as! UINavigationController
             self.present(next, animated: true, completion: nil)
             
             

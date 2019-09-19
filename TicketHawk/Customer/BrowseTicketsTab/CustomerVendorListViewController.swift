@@ -164,10 +164,15 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
                                               creatorName: ownName
                     )
                     
-                    self.events.append(eventInstance)
-                    self.events = self.sortTableViewByTime(events: self.events)
+                    //only if the date is greater than current
+                    if (d1 > Date()){
+                        
+                        self.events.append(eventInstance)
+                        self.events = self.sortTableViewByTime(events: self.events)
+                        
+                        self.vendorTableView.reloadData()
+                    }
                     
-                    self.vendorTableView.reloadData()
                     
                 })
                 
