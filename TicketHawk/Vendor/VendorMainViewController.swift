@@ -106,7 +106,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorEventQRViewController") as! VendorEventQRViewController
+        let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorEventViewController") as! VendorEventViewController
         
         next.vendorID = self.events[indexPath.row].creatorId
         next.eventID = self.events[indexPath.row].id

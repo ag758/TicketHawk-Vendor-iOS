@@ -33,4 +33,9 @@ enum Constants {
   static let baseURLString = "https://secure-coast-21802.herokuapp.com"
   static let defaultCurrency = "usd"
   static let defaultDescription = "Purchase from TicketHawk"
+    
+  static let privacyPolicyURL = ""
+  static let termsOfServiceURL = ""
+  static let howToGetPaid = ""
+
 }

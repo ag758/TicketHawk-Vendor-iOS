@@ -42,6 +42,7 @@
 		56EE89D422DB8A2700A5267E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EE89D322DB8A2700A5267E /* Event.swift */; };
 		56F28D142332F98C005255D9 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F28D132332F98C005255D9 /* QRScannerView.swift */; };
 		56F28D172332F9DD005255D9 /* VendorEventQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F28D162332F9DD005255D9 /* VendorEventQRViewController.swift */; };
+		56F28D1923330703005255D9 /* VendorEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F28D1823330703005255D9 /* VendorEventViewController.swift */; };
 		788963510EF4538E25CC8513 /* Pods_TicketHawkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24D9A0581BFCF22A1B295E6 /* Pods_TicketHawkTests.framework */; };
 		C9E316081B303C4FC8B3F128 /* Pods_TicketHawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1971A542F9C9C2788EEB58D4 /* Pods_TicketHawk.framework */; };
 		FAD440D9B5919F6C7DDAFA3F /* Pods_TicketHawkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B609E2A29CC0150F242625B /* Pods_TicketHawkUITests.framework */; };
@@ -110,6 +111,7 @@
 		56EE89D322DB8A2700A5267E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		56F28D132332F98C005255D9 /* QRScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		56F28D162332F9DD005255D9 /* VendorEventQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorEventQRViewController.swift; sourceTree = "<group>"; };
+		56F28D1823330703005255D9 /* VendorEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorEventViewController.swift; sourceTree = "<group>"; };
 		7A13F8C1253FD50AF1B003C9 /* Pods-TicketHawkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawkUITests/Pods-TicketHawkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0C1B53D4BDD8EAC251277C3 /* Pods-TicketHawkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketHawkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketHawkTests/Pods-TicketHawkTests.release.xcconfig"; sourceTree = "<group>"; };
 		F24D9A0581BFCF22A1B295E6 /* Pods_TicketHawkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketHawkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -320,6 +322,7 @@
 			children = (
 				56F28D122332F967005255D9 /* QRCodeClasses */,
 				56F28D162332F9DD005255D9 /* VendorEventQRViewController.swift */,
+				56F28D1823330703005255D9 /* VendorEventViewController.swift */,
 			);
 			path = VendorEvent;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 				56DCCDA5232C7E24008BD144 /* File.swift in Sources */,
 				563A1FDA23208EE400ED9156 /* CustomerVendorListViewController.swift in Sources */,
 				5651F39722D14BF2009BEF73 /* CustomerMainViewController.swift in Sources */,
+				56F28D1923330703005255D9 /* VendorEventViewController.swift in Sources */,
 				56EAB8D82311C4FC0053A460 /* Constants.swift in Sources */,
 				5656DA3B22C060710079920C /* SplitViewController.swift in Sources */,
 				56EAB8DB2311C6F80053A460 /* StripeClient.swift in Sources */,
