@@ -58,17 +58,23 @@ class VendorEventQRViewController: UIViewController, QRScannerViewDelegate {
             
             if existsKey {
                 
-                
-                
-                self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("scannedTickets").setValue(value){ (error, ref) -> Void in
+                self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("activeTickets").child(key).observeSingleEvent(of: .value, with: { (snapshot) in
                     
-                    self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("activeTickets").child(key).removeValue() { (error, ref) -> Void in
-                        
-                        AudioServicesPlaySystemSound(1054);
-                        self.setScannedAndTotal()
-                        self.qrScanner.startScanning()
-                    }
+                    let ticket = snapshot.value
+                
+                self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("scannedTickets").setValue(ticket){ (error, ref) -> Void in
+                
+                self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("activeTickets").child(key).removeValue() { (error, ref) -> Void in
+                
+                AudioServicesPlaySystemSound(1054);
+                self.setScannedAndTotal()
+                self.qrScanner.startScanning()
                 }
+                }
+                
+                })
+                
+                
                 
                 
                 
