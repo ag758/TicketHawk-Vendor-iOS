@@ -30,6 +30,7 @@ class VendorEventQRViewController: UIViewController, QRScannerViewDelegate {
         
         self.qrScanner.context = self
         ref = SplitViewController.ref
+        self.qrScanner.startScanning()
         
         qrScanner.delegate = self
         
@@ -92,9 +93,16 @@ class VendorEventQRViewController: UIViewController, QRScannerViewDelegate {
                 
                 self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("activeTickets").child(key).removeValue() { (error, ref) -> Void in
                 
+                    self.setTextStatus(s: "Valid Ticket", c: SplitViewController.greenColor)
                 AudioServicesPlaySystemSound(1054);
                 self.setScannedAndTotal()
-                self.qrScanner.startScanning()
+                    
+                    //DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // Change `2.0` to the desired number of seconds.
+                        // Code you want to be delayed
+                        
+                        self.qrScanner.startScanning()
+                    //}
+                
                 }
                 }
                 
@@ -106,7 +114,7 @@ class VendorEventQRViewController: UIViewController, QRScannerViewDelegate {
                 
             } else {
                 
-                self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("activeTickets").observeSingleEvent(of: .value, with: { (snapshot) in
+                self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("scannedTickets").observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     let value = snapshot.value as? NSDictionary
                     let keys = value?.allKeys
@@ -114,23 +122,27 @@ class VendorEventQRViewController: UIViewController, QRScannerViewDelegate {
                     //print(keys?.count)
                     
                     var key: String = ""
-                    var existsKey: Bool = false
+                    var existsKey2: Bool = false
                     for k in keys ?? [] {
                         if k as? String == str{
                             key = k as? String ?? ""
-                            existsKey = true
+                            existsKey2 = true
                         }
                     }
                     
-                    if (existsKey){
-                        self.setTextStatus(s: "Ticket Scanned Already")
+                    if (existsKey2){
+                        self.setTextStatus(s: "Ticket Scanned Already", c: UIColor.yellow)
                     } else {
-                        self.setTextStatus(s: "Not Valid Ticket")
+                        self.setTextStatus(s: "Not Valid Ticket", c: UIColor.red)
                     }
                     
                     //Check for already scanned
                     AudioServicesPlaySystemSound(1053);
-                    self.qrScanner.startScanning()
+                    //DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // Change `2.0` to the desired number of seconds.
+                        // Code you want to be delayed
+                        
+                        self.qrScanner.startScanning()
+                    //}
                     
                 })
                 
@@ -164,8 +176,14 @@ class VendorEventQRViewController: UIViewController, QRScannerViewDelegate {
         
     }
     
-    func setTextStatus(s: String){
-        
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.qrScanner.stopScanning()
+    }
+    
+    func setTextStatus(s: String, c: UIColor){
+        self.scanStatusView.text = s
+        self.scanStatusView.textColor = c
     }
     
     func qrScanningDidStop() {
