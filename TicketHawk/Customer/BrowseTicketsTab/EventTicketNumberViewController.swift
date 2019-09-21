@@ -266,7 +266,7 @@ extension EventTicketNumberViewController: STPAddCardViewControllerDelegate {
                     if value == nil {
                         value = 0
                     }
-                    currentData.value = value! + (self.purchaseQuantity ?? 0)
+                    currentData.value = (value ?? 0) + (self.purchaseQuantity ?? 0)
                     return TransactionResult.success(withValue: currentData)
                 }
                 

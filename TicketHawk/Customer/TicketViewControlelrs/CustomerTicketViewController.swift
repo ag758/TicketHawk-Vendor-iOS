@@ -22,6 +22,14 @@ internal class TicketCustomClass: UITableViewCell {
     @IBOutlet weak var bottomRounded: UIImageView!
 }
 
+extension NSLayoutConstraint {
+    
+    override open var description: String {
+        let id = identifier ?? ""
+        return "id: \(id), constant: \(constant)" //you may print whatever you want here
+    }
+}
+
 class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
   
 
@@ -105,10 +113,13 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
                 if t.key == key{
                     index = self.tickets.index(of: t) ?? 0
                     self.tickets.remove(at: index)
+                    
                 }
             }
             
             self.ticketsMasterTableView.reloadData()
+            
+            
         })
  
     }
@@ -148,6 +159,10 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
             cell.ticketType.text = tickets[indexPath.row].ticketType
             cell.userName.text = tickets[indexPath.row].userName
             
+            for view in cell.subviews{
+                view.isUserInteractionEnabled = false
+            }
+            
             
             return cell
         } else {
@@ -156,9 +171,9 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let archive = UITableViewRowAction(style: .normal, title: "Archive") { action, index in
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: "", message: self.tickets[indexPath.row].eventTitle, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Archive", comment: ""), style: .default, handler: { _ in
             
             //Add node to archivedTickets
             
@@ -182,14 +197,63 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
             //SplitViewController.ticketsVC?.loadTickets()
             //SplitViewController.ticketsArchiveVC?.loadTickets()
             
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .default, handler: { _ in
             
-            
-            
+        }))
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
         }
-        archive.backgroundColor = UIColor.black
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+            /**
+            let archive = UITableViewRowAction(style: .normal, title: "Archive") { action, index in
+                
+                //Add node to archivedTickets
+                
+                let ticket = self.tickets[indexPath.row]
+                
+                let post = ["userName": ticket.userName,
+                            "title": ticket.eventTitle,
+                            "dateAndTime": ticket.dateAndTime,
+                            "location": ticket.location,
+                            "ticketType": ticket.ticketType,
+                            "key": ticket.key
+                    ] as [String : Any]
+                
+                let update1 = ["/customers/\(Auth.auth().currentUser?.uid ?? "")/archivedTickets/\(ticket.key)": post]
+                self.ref?.updateChildValues(update1)
+                
+                //Remove node from activeTickets
+                
+                self.ref?.child("customers").child(Auth.auth().currentUser?.uid ?? "").child("activeTickets").child(ticket.key).removeValue()
+                
+                //SplitViewController.ticketsVC?.loadTickets()
+                //SplitViewController.ticketsArchiveVC?.loadTickets()
+                
+                
+                
+                
+            }
+        
+            archive.backgroundColor = UIColor.black
+            
+            
+            return [archive]
+ 
+ **/
+        return []
         
         
-        return [archive]
+    }
+    
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        //ticketsMasterTableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        //ticketsMasterTableView.reloadData()
     }
     
     func encodeKeyAsQRCode(imageView: UIImageView, key: String){

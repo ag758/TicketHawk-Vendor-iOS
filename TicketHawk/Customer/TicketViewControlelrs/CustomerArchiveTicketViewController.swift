@@ -55,8 +55,46 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
         
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let alert = UIAlertController(title: "", message: self.tickets[indexPath.row].eventTitle, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Un-archive", comment: ""), style: .default, handler: { _ in
+            
+            //Add node to activeTickets
+            
+            let ticket = self.tickets[indexPath.row]
+            
+            let post = ["userName": ticket.userName,
+                        "title": ticket.eventTitle,
+                        "dateAndTime": ticket.dateAndTime,
+                        "location": ticket.location,
+                        "ticketType": ticket.ticketType,
+                        "key": ticket.key
+                ] as [String : Any]
+            
+            let update1 = ["/customers/\(Auth.auth().currentUser?.uid ?? "")/activeTickets/\(ticket.key)": post]
+            self.ref?.updateChildValues(update1)
+            
+            //Remove node from archivedTickets
+            
+            self.ref?.child("customers").child(Auth.auth().currentUser?.uid ?? "").child("archivedTickets").child(ticket.key).removeValue()
+            
+            //SplitViewController.ticketsVC?.loadTickets()
+            //SplitViewController.ticketsArchiveVC?.loadTickets()
+            
+            
+            
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .default, handler: { _ in
+            
+        }))
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        /**
         let unarchive = UITableViewRowAction(style: .normal, title: "Unarchive") { action, index in
             
             //Add node to activeTickets
@@ -87,8 +125,11 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
         }
         unarchive.backgroundColor = SplitViewController.greenColor
         
-        
+ 
         return [unarchive]
+ 
+ **/
+        return []
     }
     
     func loadTickets(){
@@ -138,10 +179,13 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
                 if t.key == key{
                     index = self.tickets.index(of: t) ?? 0
                     self.tickets.remove(at: index)
+                    
                 }
             }
             
-            self.archivedTicketsTableView.reloadData()
+             self.archivedTicketsTableView.reloadData()
+            
+           
         })
     }
     
