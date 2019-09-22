@@ -47,7 +47,7 @@ class VendorViewController2: UIViewController {
             
             let user = Auth.auth().currentUser
             
-            let userID: String = (user?.uid)!
+            let userID: String = (user?.uid) ?? ""
             
             ref?.child("vendors/\(userID)/organizationName").setValue(orgNameTextView.text)
             ref?.child("vendors/\(userID)/ticketCategory").setValue(categoryTextView.text)

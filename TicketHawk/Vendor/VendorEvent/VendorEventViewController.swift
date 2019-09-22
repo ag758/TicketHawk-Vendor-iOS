@@ -37,5 +37,11 @@ class VendorEventViewController: UIViewController {
         next.eventID = self.eventID
         self.navigationController!.pushViewController(next, animated: true)
     }
+    @IBAction func editPressed(_ sender: Any) {
+        let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorEventEditViewController") as! VendorEventEditViewController
+        
+        next.eventID = self.eventID
+        self.navigationController!.pushViewController(next, animated: true)
+    }
     
 }

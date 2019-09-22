@@ -41,6 +41,8 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var eventsTableView: UITableView!
     
+    @IBOutlet weak var pastEvents: UIButton!
+    
     var ref: DatabaseReference?
     
     var events: [Event] = []
@@ -271,6 +273,15 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
+    @IBAction func editPressed(_ sender: Any) {
+        
+        if let storyboard = self.storyboard {
+            let vc = storyboard.instantiateViewController(withIdentifier: "vendorEditViewController") as! VendorEditViewController
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
+    }
+    
+    
     @IBAction func logOutPressed(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
@@ -278,7 +289,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             
             if let storyboard = self.storyboard {
                 let vc = storyboard.instantiateViewController(withIdentifier: "splitViewController") as! SplitViewController
-                self.present(vc, animated: true, completion: nil)
+                self.navigationController!.pushViewController(vc, animated: true)
             }
             
             
@@ -289,7 +300,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func createPressed(_ sender: Any) {
         let vc = storyboard!.instantiateViewController(withIdentifier: "createEventViewController") as! CreateEventViewController
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController!.pushViewController(vc, animated: true)
     }
     
     func sortTableViewByTime(events: [Event]) -> [Event] {
@@ -329,7 +340,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func setCosmetics(){
         logOutButton.backgroundColor = .clear
-        logOutButton.layer.cornerRadius = 17.5
+        logOutButton.layer.cornerRadius = 20
         logOutButton.layer.borderWidth = 2
         logOutButton.layer.borderColor = UIColor.white.cgColor
             
@@ -339,7 +350,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         logOutButton.setTitle("Log Out", for: .normal)
         
         editProfileButton.backgroundColor = .clear
-        editProfileButton.layer.cornerRadius = 17.5
+        editProfileButton.layer.cornerRadius = 20
         editProfileButton.layer.borderWidth = 2
         editProfileButton.layer.borderColor = UIColor.white.cgColor
         
@@ -356,6 +367,15 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         
         createEventButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
         createEventButton.setTitle("Create Event", for: .normal)
+        
+        pastEvents.backgroundColor = .clear
+        pastEvents.layer.cornerRadius = 20
+        pastEvents.layer.borderWidth = 2
+        pastEvents.layer.borderColor = UIColor.white.cgColor
+        pastEvents.setTitleColor(UIColor.white, for: .normal)
+        
+        pastEvents.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
+        pastEvents.setTitle("Past Events", for: .normal)
     }
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {

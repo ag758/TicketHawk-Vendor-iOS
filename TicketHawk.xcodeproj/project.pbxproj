@@ -22,6 +22,7 @@
 		5656DA4022C060730079920C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5656DA3F22C060730079920C /* Assets.xcassets */; };
 		5656DA4E22C060730079920C /* TicketHawkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656DA4D22C060730079920C /* TicketHawkTests.swift */; };
 		5656DA5922C060730079920C /* TicketHawkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656DA5822C060730079920C /* TicketHawkUITests.swift */; };
+		566005F82338349B00846FDA /* VendorEventEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566005F72338349B00846FDA /* VendorEventEditViewController.swift */; };
 		5665A2EF22C7F16B00148ADD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5665A2EE22C7F16B00148ADD /* GoogleService-Info.plist */; };
 		5679117922F7309000B28677 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5679117822F7309000B28677 /* EventViewController.swift */; };
 		569D445B22C7FCC2001353CB /* VendorViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D445A22C7FCC2001353CB /* VendorViewController1.swift */; };
@@ -32,6 +33,7 @@
 		56CFF17022D1965E00459985 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CFF16F22D1965E00459985 /* CustomUITextField.swift */; };
 		56D7F2ED22CE6AA30086AA5C /* VendorViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */; };
 		56D7F2EF22CE85BD0086AA5C /* VendorMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */; };
+		56D7F9D823380ACB00F8149B /* VendorEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7F9D723380ACB00F8149B /* VendorEditViewController.swift */; };
 		56DCCDA5232C7E24008BD144 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DCCDA4232C7E24008BD144 /* File.swift */; };
 		56DCCDAC232C8994008BD144 /* CommunityEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DCCDAB232C8994008BD144 /* CommunityEditViewController.swift */; };
 		56DCCDAE232C89A2008BD144 /* AccountEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DCCDAD232C89A2008BD144 /* AccountEditViewController.swift */; };
@@ -91,6 +93,7 @@
 		5656DA5422C060730079920C /* TicketHawkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketHawkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5656DA5822C060730079920C /* TicketHawkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketHawkUITests.swift; sourceTree = "<group>"; };
 		5656DA5A22C060730079920C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		566005F72338349B00846FDA /* VendorEventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorEventEditViewController.swift; sourceTree = "<group>"; };
 		5665A2EE22C7F16B00148ADD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5679117822F7309000B28677 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		569D445A22C7FCC2001353CB /* VendorViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController1.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		56CFF16F22D1965E00459985 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController3.swift; sourceTree = "<group>"; };
 		56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorMainViewController.swift; sourceTree = "<group>"; };
+		56D7F9D723380ACB00F8149B /* VendorEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorEditViewController.swift; sourceTree = "<group>"; };
 		56DCCDA4232C7E24008BD144 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		56DCCDAB232C8994008BD144 /* CommunityEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityEditViewController.swift; sourceTree = "<group>"; };
 		56DCCDAD232C89A2008BD144 /* AccountEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditViewController.swift; sourceTree = "<group>"; };
@@ -236,7 +240,9 @@
 				56F28D152332F9C9005255D9 /* VendorEvent */,
 				56DCCDAA232C7FD5008BD144 /* InitializeVendor */,
 				56D7F2EE22CE85BD0086AA5C /* VendorMainViewController.swift */,
+				56D7F9D723380ACB00F8149B /* VendorEditViewController.swift */,
 				56CFF16B22D18C6600459985 /* CreateEventViewController.swift */,
+				566005F72338349B00846FDA /* VendorEventEditViewController.swift */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -631,6 +637,7 @@
 				569D445D22C81F20001353CB /* VendorViewController2.swift in Sources */,
 				56DCCDAC232C8994008BD144 /* CommunityEditViewController.swift in Sources */,
 				569D445B22C7FCC2001353CB /* VendorViewController1.swift in Sources */,
+				566005F82338349B00846FDA /* VendorEventEditViewController.swift in Sources */,
 				5651F39522D144B3009BEF73 /* CustomerViewController2.swift in Sources */,
 				560CD18122D56CA600DCEA7C /* TicketType.swift in Sources */,
 				56D7F2EF22CE85BD0086AA5C /* VendorMainViewController.swift in Sources */,
@@ -642,6 +649,7 @@
 				56F28D142332F98C005255D9 /* QRScannerView.swift in Sources */,
 				56CFF17022D1965E00459985 /* CustomUITextField.swift in Sources */,
 				56E54168230D872C00203B92 /* EventTicketNumberViewController.swift in Sources */,
+				56D7F9D823380ACB00F8149B /* VendorEditViewController.swift in Sources */,
 				56DCCDAE232C89A2008BD144 /* AccountEditViewController.swift in Sources */,
 				560193EC22F672DC00700A8E /* CustomerAccountViewController.swift in Sources */,
 				561F91622326983B00194AA3 /* CustomerArchiveTicketViewController.swift in Sources */,

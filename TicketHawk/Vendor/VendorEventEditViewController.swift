@@ -1,25 +1,22 @@
 //
-//  CreateEventViewController.swift
+//  VendorEventEditViewController.swift
 //  TicketHawk
 //
-//  Created by Austin Gao on 7/6/19.
+//  Created by Austin Gao on 9/22/19.
 //  Copyright © 2019 Austin Gao. All rights reserved.
 //
 
 import UIKit
-import FBSDKLoginKit
-import FBSDKCoreKit
-import Firebase
-import FirebaseUI
+import FirebaseDatabase
+import FirebaseAuth
 
-
-class CreateEventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class VendorEventEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var dateAndTimePicker: UIDatePicker?
     private var dateAndTimePicker2: UIDatePicker?
     
     var ref: DatabaseReference?
-
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var startDateAndTimeField: CustomUITextField!
     @IBOutlet weak var endDateAndTimeField: CustomUITextField!
@@ -39,6 +36,8 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
+    
+    var eventID: String?
     
     
     var ticketTypes: [TicketType] = []
@@ -87,8 +86,41 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
         confirmButton.setTitleColor(SplitViewController.greenColor, for: .normal)
         
         confirmButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
-        confirmButton.setTitle("Confirm Event", for: .normal)
+        confirmButton.setTitle("Confirm Change", for: .normal)
         
+        fetchDefaults()
+        
+    }
+    
+    func fetchDefaults(){
+        self.ref?.child("vendors").child(Auth.auth().currentUser?.uid ?? "").child("events").child(self.eventID ?? "").observeSingleEvent(of: .value, with: {(snapshot) in
+            let value = snapshot.value as? NSDictionary ?? [:]
+            
+            self.titleTextField.text = value["eventTitle"] as? String ?? ""
+            self.startDateAndTimeField.text = value["startDateAndTime"] as? String ?? ""
+            self.endDateAndTimeField.text = value["endDateAndTime"] as? String ?? ""
+            self.addressField.text = value["location"] as? String ?? ""
+            self.imageURLTextField.text = value["pictureURL"] as? String ?? ""
+            
+            if (self.imageURLTextField.text?.isEmpty == false){
+                let url = URL(string: self.imageURLTextField.text!) ?? URL(string: "www.apple.com")!
+                self.downloadImage(from: url)
+            }
+        
+            self.maxTickets.text = value["maxTickets"] as? String ?? ""
+            self.dressCodeTextField.text = value["dressCode"] as? String ?? ""
+            self.maxVenueCapacity.text = value["totalVenueCapacity"] as? String ?? ""
+            self.eventDescription.text = value["description"] as? String ?? ""
+            
+            
+            
+            let ticketTypes = value["ticketTypes"] as? NSDictionary ?? [:]
+            
+            for k in ticketTypes {
+                self.ticketTypes.append(TicketType(name: k.key as? String ?? "", price: k.value as? Int ?? 0))
+                self.ticketTypeTableView.reloadData()
+            }
+            })
     }
     
     @IBAction func addTicketTypePressed(_ sender: Any) {
@@ -209,7 +241,7 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
         
         startDateAndTimeField.text = dateFormatter.string(from: dateAndTimePicker.date)
         //view.endEditing(true)
-    
+        
     }
     
     @objc func dateChanged2(dateAndTimePicker2: UIDatePicker){
@@ -346,41 +378,42 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
         if (shouldUpload){
             //Upload the event using required and optional fields
             
-            let key = ref?.child("vendors").child(Auth.auth().currentUser!.uid).child("events").childByAutoId().key
+            let key = self.eventID
+            
+            //Check if event exists
             
             
-            
-            let post = ["eventTitle": titleTextField.text!,
-                "startDateAndTime": startDateAndTimeField.text!,
-                "endDateAndTime": endDateAndTimeField.text!,
-                "location": addressField.text!,
-                "pictureURL": imageURLTextField.text!,
-            
-                "maxTickets": Int(maxTickets.text!) ?? nil,
-                "dressCode": String(dressCodeTextField.text!) ?? nil,
-                "totalVenueCapacity": Int(maxVenueCapacity.text!) ?? nil,
-                "description" : String(eventDescription.text!) ?? nil,
+            self.ref?.child("vendors").child(Auth.auth().currentUser?.uid ?? "").child("events").child(self.eventID ?? "").observeSingleEvent(of: .value, with: {(snapshot) in
                 
-                "going" : 0,
-                "totalSales" : 0,
+                let value = snapshot.value as? NSDictionary ?? [:]
                 
-                "key" : key!
-                
-                ] as [String : Any]
+                if (value != nil  && value != [:]){
+                    
+                    
+                    
+                    self.ref?.child("vendors").child(Auth.auth().currentUser?.uid ?? "").child("events").child(key ?? "").child("eventTitle").setValue(self.titleTextField.text!)
+                    self.ref?.child("vendors").child(Auth.auth().currentUser?.uid ?? "").child("events").child(key ?? "").child("startDateAndTime").setValue(self.startDateAndTimeField.text!)
+                    self.ref?.child("vendors").child(Auth.auth().currentUser?.uid ?? "").child("events").child(key ?? "").child("endDateAndTime").setValue(self.endDateAndTimeField.text!)
+                    self.ref?.child("vendors").child(Auth.auth().currentUser?.uid ?? "").child("events").child(key ?? "").child("location").setValue(self.addressField.text!)
+                    self.ref?.child("vendors").child(Auth.auth().currentUser?.uid ?? "").child("events").child(key ?? "").child("pictureURL").setValue(self.imageURLTextField.text!)
+                    self.ref?.child("vendors").child(Auth.auth().currentUser?.uid ?? "").child("events").child(key ?? "").child("maxTickets").setValue(Int(self.maxTickets.text!) ?? nil)
+                    self.ref?.child("vendors").child(Auth.auth().currentUser?.uid ?? "").child("events").child(key ?? "").child("dressCode").setValue(String(self.dressCodeTextField.text!) ?? nil)
+                    self.ref?.child("vendors").child(Auth.auth().currentUser?.uid ?? "").child("events").child(key ?? "").child("totalVenueCapacity").setValue(Int(self.maxVenueCapacity.text!) ?? nil)
+                    self.ref?.child("vendors").child(Auth.auth().currentUser?.uid ?? "").child("events").child(key ?? "").child("description").setValue(String(self.eventDescription.text!) ?? nil)
+                    
+                    var ticketDictionary: Dictionary = [:] as [String: Any]
+                    
+                    for t in self.ticketTypes {
+                        ticketDictionary[t.name] = t.price
+                    }
+                    
+                    let update2 =  ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/ticketTypes/": ticketDictionary]
+                    self.ref?.updateChildValues(update2)
+                    
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
             
-            let update1 = ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/": post]
-            ref?.updateChildValues(update1)
-            
-            var ticketDictionary: Dictionary = [:] as [String: Any]
-        
-            for t in ticketTypes {
-                ticketDictionary[t.name] = t.price
-            }
-            
-            let update2 =  ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/ticketTypes/": ticketDictionary]
-            ref?.updateChildValues(update2)
-            
-            self.navigationController?.popViewController(animated: true)
             
             
         }
@@ -392,3 +425,4 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
     
     
 }
+

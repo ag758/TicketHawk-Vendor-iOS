@@ -126,6 +126,8 @@ class VendorViewController3: UIViewController ,UITableViewDelegate, UITableViewD
             
             ref?.child("communities/\(intendedCommunity)/vendors/\(userID)/id").setValue(userID)
             
+            ref?.child("vendors/\(userID)/primaryCommunity").setValue(intendedCommunity)
+            
             //allow, transition to main vendor activity
             
             let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorNavigationController") as! UINavigationController
