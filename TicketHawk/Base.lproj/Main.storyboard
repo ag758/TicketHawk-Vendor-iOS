@@ -954,8 +954,10 @@
                         <viewLayoutGuide key="safeArea" id="8JP-5U-RI7"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="YM4-MG-00q" id="awU-Ad-gKb"/>
                         <outlet property="categoryTextView" destination="2a0-5H-dfW" id="GaH-Es-zXb"/>
                         <outlet property="communitiesTableView" destination="Jck-tU-87Y" id="nGr-Yy-cBU"/>
+                        <outlet property="confirmButton" destination="kYr-xg-98X" id="VQs-JG-1ur"/>
                         <outlet property="customerSupportEmail" destination="vdn-IA-FZA" id="6WS-Jw-ZFm"/>
                         <outlet property="customerSupportPhoneNumber" destination="Rdm-bJ-Zfg" id="QuZ-wc-ClL"/>
                         <outlet property="orgNameTextView" destination="dMd-qC-FcP" id="vZQ-Hb-wZI"/>

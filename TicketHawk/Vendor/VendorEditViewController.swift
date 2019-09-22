@@ -26,6 +26,10 @@ class VendorEditViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var communitiesTableView: UITableView!
     
+
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
+    
     var communities:[String] = []
     
     var intendedCommunity = ""
@@ -48,9 +52,24 @@ class VendorEditViewController: UIViewController, UITableViewDelegate, UITableVi
         
         fetchDefaults()
         
+        cancelButton.backgroundColor = .clear
+        cancelButton.layer.cornerRadius = 17.5
+        cancelButton.layer.borderWidth = 2
+        cancelButton.layer.borderColor = UIColor.white.cgColor
         
+        cancelButton.setTitleColor(UIColor.white, for: .normal)
         
+        cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
+        cancelButton.setTitle("Cancel Changes", for: .normal)
         
+        confirmButton.backgroundColor = .clear
+        confirmButton.layer.cornerRadius = 17.5
+        confirmButton.layer.borderWidth = 2
+        confirmButton.layer.borderColor = SplitViewController.greenColor.cgColor
+        confirmButton.setTitleColor(SplitViewController.greenColor, for: .normal)
+        
+        confirmButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
+        confirmButton.setTitle("Confirm Changes", for: .normal)
        
     }
     
