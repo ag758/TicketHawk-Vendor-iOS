@@ -20,7 +20,9 @@ internal class EventCustomClass: UITableViewCell {
     @IBOutlet weak var titleView: UITextField!
     
     @IBOutlet weak var dateView: UITextField!
-    @IBOutlet weak var costView: UITextField!
+   
+    @IBOutlet weak var earningsView: UITextField!
+    @IBOutlet weak var goingView: UITextField!
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -51,6 +53,11 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
 
         // Do any additional setup after loading the view.
         
+        let logo = UIImage(named: "thawk_transparent.png")
+        let imageView = UIImageView(image:logo)
+        imageView.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = imageView
+        
         view.backgroundColor = UIColor.black
         setCosmetics()
         
@@ -77,7 +84,25 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         
         cell.titleView.text = events[indexPath.row].title
         cell.dateView.text = events[indexPath.row].dateAndTime
-        cell.costView.text = events[indexPath.row].lowestPrice
+        
+        
+        
+        self.ref?.child("vendors").child(Auth.auth().currentUser!.uid).child("events").child(events[indexPath.row].id ?? "").observeSingleEvent(of: .value, with: {(snapshot) in
+            
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            
+            let value = snapshot.value as? NSDictionary
+            if let number = formatter.string(from:  NSNumber(value: Float(value?["totalSales"] as? Int ?? 0) / 100)) {
+                cell.earningsView.text = "Earnings: " + number
+            }
+            
+            let going = value?["going"] as? Int ?? 0
+            let s = "Going: " + String(going)
+            
+            cell.goingView.text = s
+            
+        })
         
         cell.backgroundImageView.layer.cornerRadius = 5
         
@@ -89,11 +114,6 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         downloadImage(from: url, iv: cell.backgroundImageView)
         
         cell.titleView.backgroundColor = UIColor.clear
-        cell.titleView.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.bold)
-        
-        cell.dateView.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
-        cell.costView.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
-        
         cell.backgroundColor = UIColor.black
         
         

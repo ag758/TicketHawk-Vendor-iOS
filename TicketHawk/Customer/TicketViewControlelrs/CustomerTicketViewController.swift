@@ -177,6 +177,28 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
             
             //Add node to archivedTickets
             
+            let ticketKey = self.tickets[indexPath.row].key
+            
+            //
+            
+            self.ref?.child("customers").child(Auth.auth().currentUser?.uid ?? "").child("activeTickets").child(ticketKey).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                let ticket = snapshot.value
+                
+                self.ref?.child("customers").child(Auth.auth().currentUser?.uid ?? "").child("archivedTickets").child(ticketKey).setValue(ticket){ (error, ref) -> Void in
+                    
+                    self.ref?.child("customers").child(Auth.auth().currentUser?.uid ?? "").child("activeTickets").child(ticketKey).removeValue() { (error, ref) -> Void in
+                        
+                        //Completed Succesfully
+                    }
+                }
+                
+            })
+            
+            //
+            
+            /**
+            
             let ticket = self.tickets[indexPath.row]
             
             let post = ["userName": ticket.userName,
@@ -196,6 +218,8 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
             
             //SplitViewController.ticketsVC?.loadTickets()
             //SplitViewController.ticketsArchiveVC?.loadTickets()
+ 
+            **/
             
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .default, handler: { _ in

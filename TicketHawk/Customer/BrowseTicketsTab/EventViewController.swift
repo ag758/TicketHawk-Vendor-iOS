@@ -21,9 +21,10 @@ class EventViewController: UIViewController {
     @IBOutlet weak var vendorImageView: UIImageView!
     @IBOutlet weak var vendorName: UITextView!
     @IBOutlet weak var dateAndTime: UITextView!
+    
+    @IBOutlet weak var going: UITextView!
     @IBOutlet weak var location: UITextView!
     @IBOutlet weak var dressCode: UITextView!
-    @IBOutlet weak var maxNumTickets: UITextView!
     @IBOutlet weak var descriptionView: UITextView!
     
     @IBOutlet weak var purchaseTickets: UIButton!
@@ -87,13 +88,18 @@ class EventViewController: UIViewController {
                 self.dateAndTime.text = "🕑 " + dateFormatter2.string(from: d1) + " to " + dateFormatter2.string(from: d2)
                 self.location.text = "🗺 " + (value?["location"] as? String ?? "")
                 
-                let dressCodeString = (value?["dressCode"] as? String ?? "")
+                var dressCodeString = (value?["dressCode"] as? String ?? "No Dress Code")
+                if dressCodeString == "" {
+                    dressCodeString = "No Dress Code"
+                }
                 self.dressCode.text = "🎩 " + dressCodeString
                 
-                if let i = value?["maxTickets"] as? Int {
-                    self.maxNumTickets.text = String(i) + " Max Tickets / Person"
+                if let i = value?["going"] as? Int {
+                    self.going.text = "№ " + String(i) + " going"
                 } else {
-                    self.maxNumTickets.text = "No Max Tickets / Person"
+                    self.going.text = ""
+                    
+                    
                 }
                 
                 self.descriptionView.text = value?["description"] as? String ?? "No Description"

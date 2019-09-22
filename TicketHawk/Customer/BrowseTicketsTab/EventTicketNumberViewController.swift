@@ -37,6 +37,7 @@ class EventTicketNumberViewController: UIViewController
     
     var fees: Int?
     var paymentTotalInt: Int?
+    var paymentTotalWithoutTaxInt: Int?
     
     var purchaseQuantity: Int?
     
@@ -150,6 +151,8 @@ class EventTicketNumberViewController: UIViewController
             
             total = total + (p ) * (q ?? 0)
         }
+        
+        self.paymentTotalWithoutTaxInt = total
         
         //Total = subtotal of items before tax and before TicketHawk Fees
         if (total > 0){
@@ -273,8 +276,8 @@ extension EventTicketNumberViewController: STPAddCardViewControllerDelegate {
                 salesRef?.runTransactionBlock { (currentData: MutableData) -> TransactionResult in
                  
                     let value = currentData.value as? Int ?? 0
-                    print("pT" + String(self.paymentTotalInt ?? 0))
-                    currentData.value = value + (Int(self.paymentTotalInt ?? 0 ) )
+                    print("pT" + String(self.paymentTotalWithoutTaxInt ?? 0))
+                    currentData.value = value + (Int(self.paymentTotalWithoutTaxInt ?? 0 ) )
                     return TransactionResult.success(withValue: currentData)
                 }
                 
