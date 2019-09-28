@@ -68,6 +68,30 @@ class SplitViewController: UIViewController {
         self.present(next, animated: true, completion: nil)
     }
     
+    @IBAction func tosPressed(_ sender: Any) {
+        guard let url = URL(string: Constants.termsOfServiceURL) else {
+            return //be safe
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
+    @IBAction func privacyPressed(_ sender: Any) {
+        guard let url = URL(string: Constants.privacyPolicyURL) else {
+            return //be safe
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         

@@ -362,7 +362,8 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
                 "description" : String(eventDescription.text!) ?? nil,
                 
                 "going" : 0,
-                "totalSales" : 0,
+                "netSales" : 0,
+                "grossSales" : 0,
                 
                 "key" : key!
                 

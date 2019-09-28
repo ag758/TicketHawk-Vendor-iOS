@@ -31,6 +31,12 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
     
     @IBOutlet weak var vendorTableView: UITableView!
     
+    @IBOutlet weak var phoneNumber: UIButton!
+    
+    @IBOutlet weak var email: UIButton!
+    
+    
+    
     var vendorID: String?
     
     var ref: DatabaseReference?
@@ -57,8 +63,12 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
         self.vendorNameView.setTitle(value?["organizationName"] as? String ?? "", for: UIControl.State.normal)
             
             self.downloadImage(from: URL(string : value?["organizationProfileImage"] as? String ?? "") ?? URL(string: "www.apple.com")!, iv: self.vendorImageView)
-            
+        
+        self.phoneNumber.setTitle(value?["custSuppPhoneNumber"] as? String ?? "", for: .normal)
+        self.email.setTitle(value?["custSupportEmail"] as? String ?? "", for: .normal)
         })
+        
+        
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
@@ -284,6 +294,20 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
             return true
         }
         return false
+    }
+    
+    
+    @IBAction func reportVendor(_ sender: Any) {
+        guard let url = URL(string: Constants.howToReportURL) else {
+            return //be safe
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+        
     }
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {

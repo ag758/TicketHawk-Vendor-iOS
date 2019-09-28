@@ -95,7 +95,7 @@ class EventViewController: UIViewController {
                 self.dressCode.text = "🎩 " + dressCodeString
                 
                 if let i = value?["going"] as? Int {
-                    self.going.text = "№ " + String(i) + " going"
+                    self.going.text = "😌 " + String(i) + " going"
                 } else {
                     self.going.text = ""
                     

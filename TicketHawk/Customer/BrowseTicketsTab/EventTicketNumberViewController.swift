@@ -262,7 +262,8 @@ extension EventTicketNumberViewController: STPAddCardViewControllerDelegate {
                 //Update Going and Total Sales using Transactions
                 
                 let goingRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("going")
-                let salesRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("totalSales")
+                let grossSalesRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("grossSales")
+                let netSalesRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("netSales")
                 
                 goingRef?.runTransactionBlock { (currentData: MutableData) -> TransactionResult in
                     var value = currentData.value as? Int
@@ -273,8 +274,15 @@ extension EventTicketNumberViewController: STPAddCardViewControllerDelegate {
                     return TransactionResult.success(withValue: currentData)
                 }
                 
-                salesRef?.runTransactionBlock { (currentData: MutableData) -> TransactionResult in
+                grossSalesRef?.runTransactionBlock { (currentData: MutableData) -> TransactionResult in
                  
+                    let value = currentData.value as? Int ?? 0
+                    print("pT" + String(self.paymentTotalWithoutTaxInt ?? 0))
+                    currentData.value = value + (Int(self.paymentTotalInt ?? 0 ) )
+                    return TransactionResult.success(withValue: currentData)
+                }
+                netSalesRef?.runTransactionBlock { (currentData: MutableData) -> TransactionResult in
+                    
                     let value = currentData.value as? Int ?? 0
                     print("pT" + String(self.paymentTotalWithoutTaxInt ?? 0))
                     currentData.value = value + (Int(self.paymentTotalWithoutTaxInt ?? 0 ) )

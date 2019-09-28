@@ -173,6 +173,7 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: "", message: self.tickets[indexPath.row].eventTitle, preferredStyle: .actionSheet)
+       
         alert.addAction(UIAlertAction(title: NSLocalizedString("Archive", comment: ""), style: .default, handler: { _ in
             
             //Add node to archivedTickets

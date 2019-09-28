@@ -95,7 +95,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             formatter.numberStyle = .currency
             
             let value = snapshot.value as? NSDictionary
-            if let number = formatter.string(from:  NSNumber(value: Float(value?["totalSales"] as? Int ?? 0) / 100)) {
+            if let number = formatter.string(from:  NSNumber(value: Float(value?["netSales"] as? Int ?? 0) / 100)) {
                 cell.earningsView.text = "Earnings: " + number
             }
             
@@ -129,6 +129,9 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorEventViewController") as! VendorEventViewController
+        
+        next.eventTitle = self.events[indexPath.row].title
+        next.pictureURL  = self.events[indexPath.row].imageURL
         
         next.vendorID = self.events[indexPath.row].creatorId
         next.eventID = self.events[indexPath.row].id
@@ -380,6 +383,12 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    
+    @IBAction func pastEventsPressed(_ sender: Any) {
+        let vc = storyboard!.instantiateViewController(withIdentifier: "vendorClosedViewController") as! VendorClosedViewController
+        self.navigationController!.pushViewController(vc, animated: true)
     }
     
     func downloadImage(from url: URL, iv: UIImageView) {

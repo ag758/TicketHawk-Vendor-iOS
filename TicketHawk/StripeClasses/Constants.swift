@@ -34,8 +34,9 @@ enum Constants {
   static let defaultCurrency = "usd"
   static let defaultDescription = "Purchase from TicketHawk"
     
-  static let privacyPolicyURL = ""
-  static let termsOfServiceURL = ""
-  static let howToGetPaid = ""
+  static let privacyPolicyURL = "http://www.apple.com"
+  static let termsOfServiceURL = "http://www.google.com"
+    static let howToGetPaidURL = "http://www.yahoo.com"
+  static let howToReportURL = "http://www.facebook.com"
 
 }
