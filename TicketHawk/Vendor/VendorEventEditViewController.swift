@@ -77,7 +77,7 @@ class VendorEventEditViewController: UIViewController, UITableViewDelegate, UITa
         cancelButton.setTitleColor(UIColor.white, for: .normal)
         
         cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
-        cancelButton.setTitle("Cancel Event", for: .normal)
+        cancelButton.setTitle("Cancel Change", for: .normal)
         
         confirmButton.backgroundColor = .clear
         confirmButton.layer.cornerRadius = 17.5

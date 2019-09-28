@@ -233,7 +233,7 @@
 			children = (
 				56DCCDA6232C7F34008BD144 /* InitializeCustomer */,
 				56DCCDA7232C7F4C008BD144 /* BrowseTicketsTab */,
-				56DCCDA8232C7F60008BD144 /* TicketViewControlelrs */,
+				56DCCDA8232C7F60008BD144 /* TicketViewControllers */,
 				56DCCDA9232C7F6E008BD144 /* AccountManagement */,
 			);
 			path = Customer;
@@ -282,13 +282,13 @@
 			path = BrowseTicketsTab;
 			sourceTree = "<group>";
 		};
-		56DCCDA8232C7F60008BD144 /* TicketViewControlelrs */ = {
+		56DCCDA8232C7F60008BD144 /* TicketViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				5622A97B22EE822A00F0A806 /* CustomerTicketViewController.swift */,
 				561F91612326983B00194AA3 /* CustomerArchiveTicketViewController.swift */,
 			);
-			path = TicketViewControlelrs;
+			path = TicketViewControllers;
 			sourceTree = "<group>";
 		};
 		56DCCDA9232C7F6E008BD144 /* AccountManagement */ = {

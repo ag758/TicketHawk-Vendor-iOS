@@ -838,9 +838,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOU-AJ-4VL">
-                                <rect key="frame" x="30" y="517" width="315" height="40"/>
+                                <rect key="frame" x="10" y="457" width="355" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="wOc-5p-BbE"/>
+                                    <constraint firstAttribute="height" constant="60" id="wOc-5p-BbE"/>
                                 </constraints>
                                 <state key="normal" title="Scan"/>
                                 <connections>
@@ -848,14 +848,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veg-nx-xFV">
-                                <rect key="frame" x="30" y="567" width="315" height="40"/>
+                                <rect key="frame" x="10" y="527" width="355" height="60"/>
                                 <state key="normal" title="Edit"/>
                                 <connections>
                                     <action selector="editPressed:" destination="Za8-vi-Ary" eventType="touchUpInside" id="UpB-cn-JTM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJL-M4-neH">
-                                <rect key="frame" x="30" y="617" width="315" height="40"/>
+                                <rect key="frame" x="10" y="597" width="355" height="60"/>
                                 <state key="normal" title="Close Out"/>
                                 <connections>
                                     <action selector="closeOutPressed:" destination="Za8-vi-Ary" eventType="touchUpInside" id="fVc-zJ-Hl1"/>
@@ -872,29 +872,29 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UUr-eA-h2u">
-                                <rect key="frame" x="30" y="120" width="315" height="367"/>
+                                <rect key="frame" x="20" y="120" width="335" height="307"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="veg-nx-xFV" firstAttribute="leading" secondItem="NhV-8V-mtx" secondAttribute="leading" constant="30" id="1jO-bI-Jr9"/>
+                            <constraint firstItem="veg-nx-xFV" firstAttribute="leading" secondItem="NhV-8V-mtx" secondAttribute="leading" constant="10" id="1jO-bI-Jr9"/>
                             <constraint firstItem="kJL-M4-neH" firstAttribute="height" secondItem="hOU-AJ-4VL" secondAttribute="height" id="Avs-4r-pYh"/>
                             <constraint firstItem="NhV-8V-mtx" firstAttribute="bottom" secondItem="kJL-M4-neH" secondAttribute="bottom" constant="10" id="BS6-2O-ZUY"/>
-                            <constraint firstItem="NhV-8V-mtx" firstAttribute="trailing" secondItem="veg-nx-xFV" secondAttribute="trailing" constant="30" id="Hu6-Ym-ene"/>
+                            <constraint firstItem="NhV-8V-mtx" firstAttribute="trailing" secondItem="veg-nx-xFV" secondAttribute="trailing" constant="10" id="Hu6-Ym-ene"/>
                             <constraint firstItem="1ru-KN-cd9" firstAttribute="leading" secondItem="NhV-8V-mtx" secondAttribute="leading" constant="10" id="Mpo-G1-Gix"/>
-                            <constraint firstItem="NhV-8V-mtx" firstAttribute="trailing" secondItem="hOU-AJ-4VL" secondAttribute="trailing" constant="30" id="Qcu-lP-U8N"/>
-                            <constraint firstItem="hOU-AJ-4VL" firstAttribute="leading" secondItem="NhV-8V-mtx" secondAttribute="leading" constant="30" id="SqP-cC-Nqy"/>
+                            <constraint firstItem="NhV-8V-mtx" firstAttribute="trailing" secondItem="hOU-AJ-4VL" secondAttribute="trailing" constant="10" id="Qcu-lP-U8N"/>
+                            <constraint firstItem="hOU-AJ-4VL" firstAttribute="leading" secondItem="NhV-8V-mtx" secondAttribute="leading" constant="10" id="SqP-cC-Nqy"/>
                             <constraint firstItem="veg-nx-xFV" firstAttribute="height" secondItem="hOU-AJ-4VL" secondAttribute="height" id="ZNa-2D-It5"/>
                             <constraint firstItem="NhV-8V-mtx" firstAttribute="trailing" secondItem="1ru-KN-cd9" secondAttribute="trailing" constant="10" id="fHD-sE-IOG"/>
-                            <constraint firstItem="UUr-eA-h2u" firstAttribute="leading" secondItem="NhV-8V-mtx" secondAttribute="leading" constant="30" id="gyw-gN-Ww0"/>
+                            <constraint firstItem="UUr-eA-h2u" firstAttribute="leading" secondItem="NhV-8V-mtx" secondAttribute="leading" constant="20" id="gyw-gN-Ww0"/>
                             <constraint firstItem="UUr-eA-h2u" firstAttribute="top" secondItem="1ru-KN-cd9" secondAttribute="bottom" constant="30" id="hQV-Vs-HMn"/>
                             <constraint firstItem="hOU-AJ-4VL" firstAttribute="top" secondItem="UUr-eA-h2u" secondAttribute="bottom" constant="30" id="mnX-39-TZS"/>
                             <constraint firstItem="1ru-KN-cd9" firstAttribute="top" secondItem="NhV-8V-mtx" secondAttribute="top" constant="10" id="mni-qb-szp"/>
                             <constraint firstItem="kJL-M4-neH" firstAttribute="top" secondItem="veg-nx-xFV" secondAttribute="bottom" constant="10" id="s1h-mQ-MBd"/>
                             <constraint firstItem="veg-nx-xFV" firstAttribute="top" secondItem="hOU-AJ-4VL" secondAttribute="bottom" constant="10" id="x9S-1B-DMp"/>
-                            <constraint firstItem="NhV-8V-mtx" firstAttribute="trailing" secondItem="kJL-M4-neH" secondAttribute="trailing" constant="30" id="xRR-zC-TLZ"/>
-                            <constraint firstItem="kJL-M4-neH" firstAttribute="leading" secondItem="NhV-8V-mtx" secondAttribute="leading" constant="30" id="yqD-g9-ryo"/>
-                            <constraint firstItem="NhV-8V-mtx" firstAttribute="trailing" secondItem="UUr-eA-h2u" secondAttribute="trailing" constant="30" id="zKe-r9-aPl"/>
+                            <constraint firstItem="NhV-8V-mtx" firstAttribute="trailing" secondItem="kJL-M4-neH" secondAttribute="trailing" constant="10" id="xRR-zC-TLZ"/>
+                            <constraint firstItem="kJL-M4-neH" firstAttribute="leading" secondItem="NhV-8V-mtx" secondAttribute="leading" constant="10" id="yqD-g9-ryo"/>
+                            <constraint firstItem="NhV-8V-mtx" firstAttribute="trailing" secondItem="UUr-eA-h2u" secondAttribute="trailing" constant="20" id="zKe-r9-aPl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NhV-8V-mtx"/>
                     </view>

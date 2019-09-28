@@ -42,7 +42,7 @@ class VendorEventViewController: UIViewController {
         
         for c in cosmeticButtons{
             c.backgroundColor = .clear
-            c.layer.cornerRadius = 20
+            c.layer.cornerRadius = 30
             c.layer.borderWidth = 2
             c.layer.borderColor = UIColor.white.cgColor
             
@@ -50,6 +50,9 @@ class VendorEventViewController: UIViewController {
             
             c.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
         }
+        
+        self.scanButton.layer.borderColor = SplitViewController.greenColor.cgColor
+        self.scanButton.setTitleColor(SplitViewController.greenColor, for: .normal)
         
         let url = URL(string: self.pictureURL ?? "www.apple.com") ?? URL(string: "www.apple.com")!
         downloadImage(from: url)
@@ -69,11 +72,15 @@ class VendorEventViewController: UIViewController {
     */
     @IBAction func scanPressed(_ sender: Any) {
         
-        let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorEventQRViewController") as! VendorEventQRViewController
         
-        next.vendorID = self.vendorID
-        next.eventID = self.eventID
-        self.navigationController!.pushViewController(next, animated: true)
+        DispatchQueue.main.async {
+            let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorEventQRViewController") as! VendorEventQRViewController
+            
+            next.vendorID = self.vendorID
+            next.eventID = self.eventID
+           self.navigationController!.pushViewController(next, animated: true)
+        }
+        
     }
     @IBAction func editPressed(_ sender: Any) {
         let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorEventEditViewController") as! VendorEventEditViewController
