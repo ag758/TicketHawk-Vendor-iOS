@@ -132,21 +132,26 @@ class VendorEventEditViewController: UIViewController, UITableViewDelegate, UITa
             currencyFormatter.numberStyle = .currency
             // localize to your grouping and decimal separator
             currencyFormatter.locale = Locale.current
-            currencyFormatter.maximumFractionDigits = 2
+            //currencyFormatter.maximumFractionDigits = 2
             
             // We'll force unwrap with the !, if you've got defined data you may need more error checking
             
             if let double = Double(ticketTypeCost.text!) {
+                print("double" + String(double))
                 if (double >= 1){
                     ticketTypeCost.layer.borderWidth = 0
                     let priceString = currencyFormatter.string(from: double as NSNumber)!
                     
+                    print("priceString" + priceString)
+                    
                     if let number = currencyFormatter.number(from: priceString) {
                         //add the type to the tableview
                         
-                        let f = Float(truncating: number) * 100
                         
-                        let newTicketType = TicketType(name: ticketTypeName.text!, price: Int(exactly: f) ?? 0)
+                        
+                        let f = Double(truncating: number) * 100
+                        
+                        let newTicketType = TicketType(name: ticketTypeName.text!, price: Int(exactly: f.rounded()) ?? 0)
                         ticketTypes.append(newTicketType)
                         
                         ticketTypeName.text = ""
