@@ -35,6 +35,7 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
     
     @IBOutlet weak var email: UIButton!
     
+    @IBOutlet weak var reportBottom: UIButton!
     
     
     var vendorID: String?
@@ -48,13 +49,21 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
         
         ref = SplitViewController.ref
         
-        vendorImageView.layer.cornerRadius = 30
         vendorTableView.dataSource = self
         vendorTableView.delegate = self
-        vendorTableView.rowHeight = vendorTableView.frame.height / 2.5
+        vendorTableView.rowHeight = vendorTableView.frame.height / 2
         //vendorTableView.layer.cornerRadius = 15
         vendorTableView.backgroundColor = UIColor.clear
+        
+        reportBottom.backgroundColor = .clear
+        reportBottom.layer.cornerRadius = 15
+        reportBottom.layer.borderWidth = 1
+        reportBottom.layer.borderColor = UIColor.lightGray.cgColor
 
+        reportBottom.setTitleColor(UIColor.lightGray, for: .normal)
+        
+        reportBottom.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
+        
         // Do any additional setup after loading the view.
     ref?.child("vendors").child(self.vendorID!).observeSingleEvent(of: .value, with: {(snapshot) in
             
@@ -64,8 +73,8 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
             
             self.downloadImage(from: URL(string : value?["organizationProfileImage"] as? String ?? "") ?? URL(string: "www.apple.com")!, iv: self.vendorImageView)
         
-        self.phoneNumber.setTitle(value?["custSuppPhoneNumber"] as? String ?? "", for: .normal)
-        self.email.setTitle(value?["custSupportEmail"] as? String ?? "", for: .normal)
+        self.phoneNumber.setTitle("📞 " + (value?["custSuppPhoneNumber"] as? String ?? ""), for: .normal)
+        self.email.setTitle("✉️ " + (value?["custSupportEmail"] as? String ?? ""), for: .normal)
         })
         
         

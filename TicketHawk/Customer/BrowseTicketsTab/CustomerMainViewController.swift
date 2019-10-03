@@ -95,6 +95,12 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
         self.view.addGestureRecognizer(tapGesture)
         
         loadCommunity()
+        
+        //Transparent Navigation Controller
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {

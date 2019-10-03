@@ -126,7 +126,7 @@ class EventTicketNumberViewController: UIViewController
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         
-        self.feeTextView.text = "Taxes & Fees: " + (formatter.string(from: (NSNumber(value: Double(self.fees ?? 0) / 100))) ?? "")
+        self.feeTextView.text = "Processing Fee: " + (formatter.string(from: (NSNumber(value: Double(self.fees ?? 0) / 100))) ?? "")
         self.subtotalTextView.text = "Total: " + (formatter.string(from: (NSNumber(value: Double(self.paymentTotalInt ?? 0) / 100))) ?? "")
         
         
