@@ -2432,7 +2432,7 @@
                                                         <constraint firstAttribute="height" constant="35" id="XDa-4B-Ujg"/>
                                                     </constraints>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Price" textAlignment="right" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndf-zK-qy6">
@@ -2593,7 +2593,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Jk2-bg-ZEn"/>
                                 </constraints>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -2602,7 +2602,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="CHd-c0-J5B"/>
                                 </constraints>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -2611,7 +2611,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="ipd-b6-veQ"/>
                                 </constraints>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -2645,7 +2645,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="lOO-kI-1Gj"/>
                                 </constraints>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -2723,8 +2723,8 @@
                                     <action selector="confirmPressed:" destination="f1q-3C-g6v" eventType="touchUpInside" id="cGU-CC-vUR"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Total: $0.00" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EN0-Ta-dVf">
-                                <rect key="frame" x="10" y="527" width="355" height="40"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Total: $0.00" textAlignment="right" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EN0-Ta-dVf">
+                                <rect key="frame" x="30" y="527" width="315" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="iY1-bj-R3i"/>
                                 </constraints>
@@ -2755,7 +2755,7 @@
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qo-3X-HMC" customClass="CustomUITextField" customModule="TicketHawk" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantity" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qo-3X-HMC" customClass="CustomUITextField" customModule="TicketHawk" customModuleProvider="target">
                                                     <rect key="frame" x="205" y="35" width="95" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2784,8 +2784,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Processing Fee: $0.00" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKc-Ub-tEm">
-                                <rect key="frame" x="10" y="477" width="355" height="40"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Processing Fee: $0.00" textAlignment="right" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKc-Ub-tEm">
+                                <rect key="frame" x="30" y="477" width="315" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Tn8-if-RGr"/>
                                 </constraints>
@@ -2796,15 +2796,15 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="k4p-Ui-y2w" firstAttribute="trailing" secondItem="bKc-Ub-tEm" secondAttribute="trailing" constant="10" id="326-11-rL3"/>
-                            <constraint firstItem="k4p-Ui-y2w" firstAttribute="trailing" secondItem="EN0-Ta-dVf" secondAttribute="trailing" constant="10" id="5VD-f7-nVE"/>
+                            <constraint firstItem="k4p-Ui-y2w" firstAttribute="trailing" secondItem="bKc-Ub-tEm" secondAttribute="trailing" constant="30" id="326-11-rL3"/>
+                            <constraint firstItem="k4p-Ui-y2w" firstAttribute="trailing" secondItem="EN0-Ta-dVf" secondAttribute="trailing" constant="30" id="5VD-f7-nVE"/>
                             <constraint firstItem="bKc-Ub-tEm" firstAttribute="top" secondItem="f5u-3V-ffc" secondAttribute="bottom" constant="10" id="6Wl-aV-wdV"/>
-                            <constraint firstItem="bKc-Ub-tEm" firstAttribute="leading" secondItem="k4p-Ui-y2w" secondAttribute="leading" constant="10" id="FPS-hH-dtc"/>
+                            <constraint firstItem="bKc-Ub-tEm" firstAttribute="leading" secondItem="k4p-Ui-y2w" secondAttribute="leading" constant="30" id="FPS-hH-dtc"/>
                             <constraint firstItem="f5u-3V-ffc" firstAttribute="top" secondItem="k4p-Ui-y2w" secondAttribute="top" constant="10" id="RGi-s1-KjP"/>
                             <constraint firstItem="k4p-Ui-y2w" firstAttribute="trailing" secondItem="f5u-3V-ffc" secondAttribute="trailing" constant="30" id="TnA-nf-04V"/>
                             <constraint firstItem="EN0-Ta-dVf" firstAttribute="top" secondItem="bKc-Ub-tEm" secondAttribute="bottom" constant="10" id="U62-SQ-1Bv"/>
                             <constraint firstItem="ZIG-nP-aKU" firstAttribute="leading" secondItem="k4p-Ui-y2w" secondAttribute="leading" constant="30" id="WYL-NI-WO3"/>
-                            <constraint firstItem="EN0-Ta-dVf" firstAttribute="leading" secondItem="k4p-Ui-y2w" secondAttribute="leading" constant="10" id="ZJA-vk-dOC"/>
+                            <constraint firstItem="EN0-Ta-dVf" firstAttribute="leading" secondItem="k4p-Ui-y2w" secondAttribute="leading" constant="30" id="ZJA-vk-dOC"/>
                             <constraint firstItem="k4p-Ui-y2w" firstAttribute="bottom" secondItem="ZIG-nP-aKU" secondAttribute="bottom" constant="30" id="flF-hV-Hdo"/>
                             <constraint firstItem="ZIG-nP-aKU" firstAttribute="top" secondItem="EN0-Ta-dVf" secondAttribute="bottom" constant="20" id="lSD-X1-3ud"/>
                             <constraint firstItem="f5u-3V-ffc" firstAttribute="leading" secondItem="k4p-Ui-y2w" secondAttribute="leading" constant="30" id="u29-Na-OeE"/>
