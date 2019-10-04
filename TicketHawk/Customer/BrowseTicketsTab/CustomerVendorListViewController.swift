@@ -134,129 +134,73 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
     }
     
     func loadEvents(){
-        let query = ref?.child("vendors").child(vendorID ?? "").child("events")
+        let query = ref?.child("vendors").child(vendorID ?? "")
         
-        query?.observe(.childAdded, with: { (snapshot) in
+        query?.observeSingleEvent(of: .value, with: {(snapshot) in
             
-            print("zoop")
+            let ownName = (snapshot.value as? NSDictionary ?? [:] )["organizationName"] as? String ?? ""
             
-            let event = snapshot.value as? NSDictionary
+            let eventsSnapshot = snapshot.childSnapshot(forPath: "events").value as? NSDictionary ?? [:]
+            let allKeys = eventsSnapshot.allKeys
             
-            let title = event!["eventTitle"] as! String
-            var startDateAndTime = event!["startDateAndTime"] as? String ?? "No Date Found"
-            let pictureURL = event!["pictureURL"] as? String ?? ""
-            let tickets = event!["ticketTypes"] as? Dictionary ?? [:]
-            let id = event!["key"] as? String ?? ""
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-            
-            let d1: Date = dateFormatter.date(from: startDateAndTime)!
-            
-            let dateFormatter2 = DateFormatter()
-            dateFormatter2.amSymbol = "AM"
-            dateFormatter2.pmSymbol = "PM"
-            dateFormatter2.dateFormat = "MMMM dd h:mm a"
-            
-            startDateAndTime = dateFormatter2.string(from: d1)
-            
-            var minimumprice: Double = Double.greatestFiniteMagnitude
-            for (_, ticketprice) in tickets {
-                if ((ticketprice as? Double ?? 0) / 100 < minimumprice){
-                    minimumprice = (ticketprice as? Double  ?? 0) / 100
-                }
-            }
-            
-            
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .currency
-            
-            if let number = formatter.string(from: NSNumber(value: minimumprice)) {
-                print(number)
+            for k in allKeys{
                 
-                self.ref?.child("vendors").child(self.vendorID ?? "").observeSingleEvent(of: .value, with: {(snapshot) in
-                    
-                    let value = snapshot.value as? NSDictionary
-                    let ownName = value!["organizationName"] as? String ?? ""
-                    
-                    let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: self.vendorID ?? "",
-                                              creatorName: ownName
-                    )
-                    
-                    //only if the date is greater than current
-                    if (d1 > Date()){
-                        
-                        self.events.append(eventInstance)
-                        self.events = self.sortTableViewByTime(events: self.events)
-                        
-                        self.vendorTableView.reloadData()
+                let event = snapshot.childSnapshot(forPath: "events").childSnapshot(forPath: k as? String ?? "").value as? NSDictionary ?? [:]
+                
+                let title = event["eventTitle"] as! String
+                var startDateAndTime = event["startDateAndTime"] as? String ?? "No Date Found"
+                let pictureURL = event["pictureURL"] as? String ?? ""
+                let tickets = event["ticketTypes"] as? Dictionary ?? [:]
+                let id = event["key"] as? String ?? ""
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+                
+                let d1: Date = dateFormatter.date(from: startDateAndTime)!
+                
+                let dateFormatter2 = DateFormatter()
+                dateFormatter2.amSymbol = "AM"
+                dateFormatter2.pmSymbol = "PM"
+                dateFormatter2.dateFormat = "MMMM dd h:mm a"
+                
+                startDateAndTime = dateFormatter2.string(from: d1)
+                
+                var minimumprice: Double = Double.greatestFiniteMagnitude
+                for (_, ticketprice) in tickets {
+                    if ((ticketprice as? Double ?? 0) / 100 < minimumprice){
+                        minimumprice = (ticketprice as? Double  ?? 0) / 100
                     }
-                    
-                    
-                })
-                
-                
-            }
-            
-        })
-        
-        query?.observe(.childChanged, with: { (snapshot) in
-            
-            let event = snapshot.value as? NSDictionary
-            
-            let title = event!["eventTitle"] as! String
-            var startDateAndTime = event!["startDateAndTime"] as? String ?? "No Date Found"
-            let pictureURL = event!["pictureURL"] as? String ?? ""
-            let tickets = event!["ticketTypes"] as? Dictionary ?? [:]
-            let id = event!["key"] as? String ?? ""
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-            
-            let d1: Date = dateFormatter.date(from: startDateAndTime)!
-            
-            let dateFormatter2 = DateFormatter()
-            dateFormatter2.amSymbol = "AM"
-            dateFormatter2.pmSymbol = "PM"
-            dateFormatter2.dateFormat = "MMMM dd h:mm a"
-            
-            startDateAndTime = dateFormatter2.string(from: d1)
-            
-            var minimumprice: Double = Double.greatestFiniteMagnitude
-            for (_, ticketprice) in tickets {
-                if ((ticketprice as? Double ?? 0) / 100 < minimumprice){
-                    minimumprice = (ticketprice as? Double  ?? 0) / 100
                 }
-            }
-            
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .currency
-            
-            if let number = formatter.string(from: NSNumber(value: minimumprice)) {
-                print(number)
                 
-                self.ref?.child("vendors").child(self.vendorID ?? "").observeSingleEvent(of: .value, with: {(snapshot) in
+                
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .currency
+                
+                if let number = formatter.string(from: NSNumber(value: minimumprice)) {
+                    print(number)
                     
-                    let value = snapshot.value as? NSDictionary
-                    let ownName = value!["organizationName"] as? String ?? ""
-                    
-                    let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: self.vendorID ?? "", creatorName: ownName)
-                    var index = 0
-                    for e in self.events{
-                        if (e.id == id){
-                            index = self.events.index(of: e) ?? 0
+                        let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: self.vendorID ?? "",
+                                                  creatorName: ownName
+                        )
+                        
+                        //only if the date is greater than current
+                        if (d1 > Date()){
+                            
+                            self.events.append(eventInstance)
+                            self.events = self.sortTableViewByTime(events: self.events)
+                            
+                            self.vendorTableView.reloadData()
                         }
-                    }
-                    self.events[index] = eventInstance
-                    self.events = self.sortTableViewByTime(events: self.events)
+                        
                     
-                    self.vendorTableView.reloadData()
                     
-                })
+                }
                 
                 
             }
+            
         })
+        
         query?.observe(.childRemoved, with: { (snapshot) in
             let event = snapshot.value as? NSDictionary
             let id = event!["key"] as? String ?? "key not found"
