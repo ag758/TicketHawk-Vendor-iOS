@@ -96,7 +96,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
         
         //Change height of content view
         
-        self.heightConstraint.constant = UIScreen.main.bounds.height
+        self.heightConstraint.constant = UIScreen.main.bounds.height * 1.5
         
         //Transparent Navigation Controller
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
