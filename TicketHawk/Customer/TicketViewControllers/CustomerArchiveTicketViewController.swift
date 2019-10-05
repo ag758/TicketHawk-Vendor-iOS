@@ -22,6 +22,11 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
 
     override func viewDidLoad() {
         print("debug_view_did_load")
+        
+        self.navigationItem.title = "Archive";
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
         super.viewDidLoad()
         
         SplitViewController.ticketsArchiveVC = self

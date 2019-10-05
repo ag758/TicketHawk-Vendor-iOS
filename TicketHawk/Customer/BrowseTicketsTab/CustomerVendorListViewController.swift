@@ -98,7 +98,7 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
         cell.priceView.text = events[indexPath.row].lowestPrice
         
         cell.bottomRound.backgroundColor = SplitViewController.almostBlack
-        cell.eventImageView.layer.cornerRadius = 5
+        //cell.eventImageView.layer.cornerRadius = 5
         cell.bottomRound.layer.cornerRadius = 5
         cell.layer.cornerRadius = 5
         

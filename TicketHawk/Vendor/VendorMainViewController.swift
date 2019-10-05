@@ -292,7 +292,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             
             if let storyboard = self.storyboard {
                 let vc = storyboard.instantiateViewController(withIdentifier: "splitViewController") as! SplitViewController
-                self.navigationController!.pushViewController(vc, animated: true)
+                self.present(vc, animated: true, completion: nil)
             }
             
             

@@ -188,7 +188,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
             
             cell.backgroundColor = SplitViewController.almostBlack
             cell.layer.cornerRadius = 5
-            cell.eventImageView.layer.cornerRadius = 5
+            //cell.eventImageView.layer.cornerRadius = 5
             
             cell.eventTitleView.text = loadedEvents[indexPath.row].title
             cell.dateView.text = loadedEvents[indexPath.row].dateAndTime
