@@ -55,10 +55,8 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     @IBOutlet weak var vendorsTableView: UITableView!
     
     @IBOutlet weak var communityTitle: UIButton!
-    //
     
-    
-    //
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +93,10 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
         self.view.addGestureRecognizer(tapGesture)
         
         loadCommunity()
+        
+        //Change height of content view
+        
+        self.heightConstraint.constant = UIScreen.main.bounds.height
         
         //Transparent Navigation Controller
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
