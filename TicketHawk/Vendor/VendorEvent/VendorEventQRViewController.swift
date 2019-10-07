@@ -138,7 +138,7 @@ class VendorEventQRViewController: UIViewController, QRScannerViewDelegate {
                     
                     //Check for already scanned
                     AudioServicesPlaySystemSound(1053);
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // Change `2.0` to the desired number of seconds.
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { // Change `2.0` to the desired number of seconds.
                         // Code you want to be delayed
                         
                         self.qrScanner.startScanning()
