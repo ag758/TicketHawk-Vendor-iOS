@@ -34,10 +34,6 @@ UICollectionViewDelegate, UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     
-    
-    
-    @IBOutlet weak var vendorsSearchBar: UISearchBar!
-    
     var communityKey: String?
     
     var ref: DatabaseReference?
@@ -49,6 +45,10 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     var loadedEventsStringIDs: [String] = []
     
     var filteredVendors: [Vendor] = []
+    
+    @IBOutlet var parentView: UIView!
+    
+    @IBOutlet weak var vendorsSearchBar: UISearchBar!
     
     @IBOutlet weak var eventsCollectionView: UICollectionView!
     
@@ -96,7 +96,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
         
         //Change height of content view
         
-        self.heightConstraint.constant = UIScreen.main.bounds.height * 1.5
+        self.heightConstraint.constant = self.parentView.bounds.height * 1.15
         
         //Transparent Navigation Controller
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -442,8 +442,9 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
             let pictureURL = value?["organizationProfileImage"] as? String ?? ""
             let ticketCategory = value?["ticketCategory"] as? String ?? ""
             let vendorToBeAdded = Vendor(id: vendorid, name: orgName, pictureURL: pictureURL, ticketCategory: ticketCategory)
-            self.vendors = self.randomAppend(array: self.vendors, object: vendorToBeAdded) as? [Vendor] ?? []
             
+            self.vendors = self.randomAppend(array: self.vendors, object: vendorToBeAdded) as? [Vendor] ?? []
+        
             DispatchQueue.global(qos: .background).async {
                 DispatchQueue.main.async {
                     self.filteredVendors = self.vendors

@@ -35,6 +35,8 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
 
     @IBOutlet weak var ticketsMasterTableView: UITableView!
     
+    @IBOutlet var parentView: UIView!
+    
     var tickets: [Ticket] = []
     
     var ref: DatabaseReference?
@@ -70,7 +72,6 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
         self.navigationController?.view.backgroundColor = .clear
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
     }
     
     func loadTickets(){

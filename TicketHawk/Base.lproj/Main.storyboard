@@ -1865,7 +1865,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="qrcodeview" translatesAutoresizingMaskIntoConstraints="NO" id="pxt-yc-oYQ">
-                                                    <rect key="frame" x="113" y="61" width="89" height="89"/>
+                                                    <rect key="frame" x="123" y="71" width="69" height="69"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="pxt-yc-oYQ" secondAttribute="height" multiplier="1:1" id="WdO-ho-ue9"/>
                                                     </constraints>
@@ -1874,7 +1874,7 @@
                                             <constraints>
                                                 <constraint firstItem="7hx-2g-1py" firstAttribute="top" secondItem="7oo-De-S4b" secondAttribute="bottom" id="0Qy-qk-ghb"/>
                                                 <constraint firstAttribute="trailing" secondItem="96K-Os-XMb" secondAttribute="trailing" id="3lF-DC-Jiu"/>
-                                                <constraint firstItem="nCS-l4-Cjd" firstAttribute="top" secondItem="pxt-yc-oYQ" secondAttribute="bottom" constant="30" id="4Ci-2O-JJv"/>
+                                                <constraint firstItem="nCS-l4-Cjd" firstAttribute="top" secondItem="pxt-yc-oYQ" secondAttribute="bottom" constant="40" id="4Ci-2O-JJv"/>
                                                 <constraint firstAttribute="trailing" secondItem="l8R-6q-H3n" secondAttribute="trailing" id="4jX-2D-3Mz"/>
                                                 <constraint firstAttribute="trailing" secondItem="uLH-da-15R" secondAttribute="trailing" id="5Ja-hQ-1Rh"/>
                                                 <constraint firstAttribute="trailing" secondItem="7hx-2g-1py" secondAttribute="trailing" id="6dE-Ng-Zc3"/>
@@ -1890,7 +1890,7 @@
                                                 <constraint firstItem="nCS-l4-Cjd" firstAttribute="leading" secondItem="g4L-Z1-T2k" secondAttribute="leading" id="b2y-V8-dWk"/>
                                                 <constraint firstItem="7oo-De-S4b" firstAttribute="top" secondItem="vAU-Yf-z7K" secondAttribute="bottom" id="bSh-PE-ISF"/>
                                                 <constraint firstItem="96K-Os-XMb" firstAttribute="leading" secondItem="g4L-Z1-T2k" secondAttribute="leading" id="e3P-hJ-sIv"/>
-                                                <constraint firstItem="pxt-yc-oYQ" firstAttribute="top" secondItem="g4L-Z1-T2k" secondAttribute="topMargin" constant="50" id="inu-JI-bzr"/>
+                                                <constraint firstItem="pxt-yc-oYQ" firstAttribute="top" secondItem="g4L-Z1-T2k" secondAttribute="topMargin" constant="60" id="inu-JI-bzr"/>
                                                 <constraint firstAttribute="trailing" secondItem="vAU-Yf-z7K" secondAttribute="trailing" id="k0P-Mu-uCw"/>
                                                 <constraint firstItem="vAU-Yf-z7K" firstAttribute="leading" secondItem="g4L-Z1-T2k" secondAttribute="leading" id="ki5-bS-K4Y"/>
                                                 <constraint firstAttribute="trailing" secondItem="7oo-De-S4b" secondAttribute="trailing" id="ndL-dm-24L"/>
@@ -1932,6 +1932,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="parentView" destination="lzX-wf-OjM" id="6hZ-IV-Do6"/>
                         <outlet property="ticketsMasterTableView" destination="8Or-N0-zxp" id="jTn-63-2pN"/>
                     </connections>
                 </viewController>
@@ -2386,6 +2387,7 @@
                         <outlet property="communityTitle" destination="Xyk-xB-Zi8" id="vZH-dB-x6a"/>
                         <outlet property="eventsCollectionView" destination="OOg-vb-y0v" id="LPd-Hc-WJ5"/>
                         <outlet property="heightConstraint" destination="BNk-dx-DC6" id="SIU-68-bSO"/>
+                        <outlet property="parentView" destination="hX7-zY-w7Y" id="HN9-Ml-6Rs"/>
                         <outlet property="vendorsSearchBar" destination="g5h-XQ-3I3" id="nzZ-dO-fqV"/>
                         <outlet property="vendorsTableView" destination="kJK-sg-GWY" id="EkM-6o-rxr"/>
                     </connections>
