@@ -20,6 +20,7 @@ internal class TicketCustomClass: UITableViewCell {
     @IBOutlet weak var location: UITextView!
     
     @IBOutlet weak var bottomRounded: UIImageView!
+    @IBOutlet weak var stackView: UIStackView!
 }
 
 extension NSLayoutConstraint {
@@ -151,7 +152,6 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
         
         if (indexPath.row < self.tickets.count){
             let cell = tableView.dequeueReusableCell(withIdentifier: "ticketCustomClass", for: indexPath) as! TicketCustomClass
-            
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             cell.layer.cornerRadius = 20
             
@@ -175,6 +175,11 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
             return UITableViewCell()
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+            return self.ticketsMasterTableView.bounds.height
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
