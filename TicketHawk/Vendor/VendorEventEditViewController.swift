@@ -392,7 +392,7 @@ class VendorEventEditViewController: UIViewController, UITableViewDelegate, UITa
                 
                 let value = snapshot.value as? NSDictionary ?? [:]
                 
-                if (value != nil  && value != [:]){
+                if (value != [:]){
                     
                     
                     

@@ -90,7 +90,7 @@ class VendorEventViewController: UIViewController {
     }
     
     @IBAction func closeOutPressed(_ sender: Any) {
-        let alertController = UIAlertController(title: "Close " + (self.eventTitle ?? "") + "?", message: "You will no longer be able to sell tickets on this event. Please re-enter the event title to confirm your event has ended.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Close " + (self.eventTitle ?? "") + "?", message: "You will no longer be able to sell tickets, nor scan tickets, on this event. Please re-enter the event title to confirm your event has ended.", preferredStyle: .alert)
         alertController.addTextField { textField in
             textField.placeholder = "Event Title"
             textField.isSecureTextEntry = false

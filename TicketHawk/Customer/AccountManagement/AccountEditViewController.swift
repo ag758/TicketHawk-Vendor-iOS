@@ -51,8 +51,18 @@ class AccountEditViewController: UIViewController {
     @IBAction func saveButtonPressed(_ sender: Any) {
         if (self.nameField.text != "" && self.emailField.text != ""){
             let uid = Auth.auth().currentUser?.uid
-            ref?.child("customers/\(uid ?? "")/contactEmail").setValue(self.emailField.text)
-            ref?.child("customers/\(uid ?? "")/contactName").setValue(self.nameField.text)
+            
+            
+            ref?.child("customers/\(uid ?? "")").observeSingleEvent(of: .value, with: {(dataSnapshot) in
+                
+                let value = dataSnapshot.value as? NSDictionary ?? [:]
+                
+                if value != [:] {
+                    self.ref?.child("customers/\(uid ?? "")/contactEmail").setValue(self.emailField.text)
+                    self.ref?.child("customers/\(uid ?? "")/contactName").setValue(self.nameField.text)
+                }
+            })
+           
             
             self.navigationController?.popViewController(animated: true)
         }

@@ -108,37 +108,46 @@ class VendorEditViewController: UIViewController, UITableViewDelegate, UITableVi
             let user = Auth.auth().currentUser
             
             let userID: String = (user?.uid) ?? ""
-            ref?.child("vendors/\(userID)/organizationName").setValue(orgNameTextView.text)
-            ref?.child("vendors/\(userID)/ticketCategory").setValue(categoryTextView.text)
-            ref?.child("vendors/\(userID)/custSuppPhoneNumber").setValue(customerSupportPhoneNumber.text)
-            ref?.child("vendors/\(userID)/custSupportEmail").setValue(customerSupportEmail.text)
             
-            ref?.child("vendors/\(userID)/organizationProfileImage").setValue(pictureURLTextField.text)
-            
-            
-            
-                ref?.child("vendors").child(vendorID ?? "").child("primaryCommunity").observeSingleEvent(of: .value, with: { (snapshot) in
-                // Get user value
-                let pC = snapshot.value as? String ?? ""
+            ref?.child("vendors").child(userID).observeSingleEvent(of: .value, with: {(dataSnapshot) in
                 
-                //remove from current community
-                self.ref?.child("communities").child(pC).child("vendors").child(self.vendorID ?? "").observeSingleEvent(of: .value, with: {(snapshot) in
-                    let value = snapshot.value as? NSDictionary ?? [:]
+                let value = dataSnapshot.value as? NSDictionary ?? [:]
+                
+                if value != [:] {
+                    
+                    self.ref?.child("vendors/\(userID)/organizationName").setValue(self.orgNameTextView.text)
+                    self.ref?.child("vendors/\(userID)/ticketCategory").setValue(self.categoryTextView.text)
+                    self.ref?.child("vendors/\(userID)/custSuppPhoneNumber").setValue(self.customerSupportPhoneNumber.text)
+                    self.ref?.child("vendors/\(userID)/custSupportEmail").setValue(self.customerSupportEmail.text)
+                    
+                    self.ref?.child("vendors/\(userID)/organizationProfileImage").setValue(self.pictureURLTextField.text)
                     
                     
                     
-                    self.ref?.child("communities").child(pC).child("vendors").child(self.vendorID ?? "").removeValue(){ (error, ref) -> Void in
-                        self.ref?.child("communities").child(self.intendedCommunity).child("vendors").child(self.vendorID ?? "").setValue(value)
+                    self.ref?.child("vendors").child(self.vendorID ?? "").child("primaryCommunity").observeSingleEvent(of: .value, with: { (snapshot) in
+                        // Get user value
+                        let pC = snapshot.value as? String ?? ""
+                        
+                        //remove from current community
+                        self.ref?.child("communities").child(pC).child("vendors").child(self.vendorID ?? "").observeSingleEvent(of: .value, with: {(snapshot) in
+                            let value = snapshot.value as? NSDictionary ?? [:]
+                            
+                            
+                            
+                            self.ref?.child("communities").child(pC).child("vendors").child(self.vendorID ?? "").removeValue(){ (error, ref) -> Void in
+                                self.ref?.child("communities").child(self.intendedCommunity).child("vendors").child(self.vendorID ?? "").setValue(value)
+                            }
+                            
+                            self.ref?.child("vendors").child(self.vendorID ?? "").child("primaryCommunity").setValue(self.intendedCommunity)
+                            
+                            
+                        })
+                        
+                    }) { (error) in
+                        print(error.localizedDescription)
                     }
-                    
-                    self.ref?.child("vendors").child(self.vendorID ?? "").child("primaryCommunity").setValue(self.intendedCommunity)
-                    
-                    
-                })
-                
-            }) { (error) in
-                print(error.localizedDescription)
-            }
+                }
+            })
             
             self.navigationController?.popViewController(animated: true)
             

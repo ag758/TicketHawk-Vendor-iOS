@@ -95,9 +95,20 @@ class CommunityEditViewController: UIViewController ,UITableViewDelegate, UITabl
         
         if (intendedCommunity != ""){
             let uid = Auth.auth().currentUser?.uid
-            ref?.child("customers/\(uid ?? "")/primaryCommunity").setValue(intendedCommunity)
             
-            SplitViewController.customerMainVC?.loadCommunity()
+            ref?.child("customers/\(uid ?? "")").observeSingleEvent(of: .value, with: {(dataSnapshot) in
+                
+                let value = dataSnapshot.value as? NSDictionary ?? [:]
+                
+                if value != [:] {
+                    self.ref?.child("customers/\(uid ?? "")/primaryCommunity").setValue(self.intendedCommunity)
+                    
+                    SplitViewController.customerMainVC?.loadCommunity()
+                }
+            })
+            
+            
+            
             self.navigationController?.popViewController(animated: true)
         }
         

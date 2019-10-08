@@ -36,57 +36,59 @@ class CustomerTicketGenerationViewController: UIViewController {
             self.ref?.child("vendors").child(self.vendorID!).child("events").child(self.eventID!).observeSingleEvent(of: .value, with:
                 {(snapshot) in
                     
-                    let value = snapshot.value as? NSDictionary
+                    let value = snapshot.value as? NSDictionary ?? [:]
                     
-                    let eventTitle = value?["eventTitle"] as? String ?? ""
+                    let eventTitle = value["eventTitle"] as? String ?? ""
                     
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
                     
-                    let d1: Date = dateFormatter.date(from: value?["startDateAndTime"] as? String ?? "") ?? Date()
+                    let d1: Date = dateFormatter.date(from: value["startDateAndTime"] as? String ?? "") ?? Date()
                     let dateFormatter2 = DateFormatter()
                     dateFormatter2.amSymbol = "AM"
                     dateFormatter2.pmSymbol = "PM"
                     dateFormatter2.dateFormat = "MMM d, h:mm a"
                     
                     let dateAndTime = dateFormatter2.string(from: d1)
-                    let location = (value?["location"] as? String ?? "")
-                    let dressCodeString = (value?["dressCode"] as? String ?? "")
+                    let location = (value["location"] as? String ?? "")
+                    let dressCodeString = (value["dressCode"] as? String ?? "")
                     
-                    for (t,i) in self.map {
+                    if value != [:]{
                         
-                        var countdown = i
+                        //write tickets to event
                         
-                        while countdown != 0 {
+                        for (t,i) in self.map {
                             
-                            let key = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("activeTickets").childByAutoId().key
+                            var countdown = i
                             
-                            let post = ["userName": userName,
-                                        "title": eventTitle,
-                                        "dateAndTime": dateAndTime,
-                                        "location": location,
-                                        "ticketType": t.name,
-                                        "key": key
+                            while countdown != 0 {
                                 
-                                ] as [String : Any]
+                                let key = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("activeTickets").childByAutoId().key
+                                
+                                let post = ["userName": userName,
+                                            "title": eventTitle,
+                                            "dateAndTime": dateAndTime,
+                                            "location": location,
+                                            "ticketType": t.name,
+                                            "key": key
+                                    
+                                    ] as [String : Any]
+                                
+                                let update1 = ["/vendors/\(self.vendorID ?? "")/events/\(self.eventID ?? "")/activeTickets/\(key ?? "")": post]
+                                self.ref?.updateChildValues(update1, withCompletionBlock: {error, ref in
+                                    addedTickets = addedTickets + 1
+                                    self.determineIfFinished(quantity: addedTickets)
+                                })
+                                let update2 = ["/customers/\(Auth.auth().currentUser?.uid ?? "")/activeTickets/\(key ?? "")": post]
+                                self.ref?.updateChildValues(update2, withCompletionBlock: {error, ref in
+                                    addedTickets = addedTickets + 1
+                                    self.determineIfFinished(quantity: addedTickets)
+                                })
+                                countdown = countdown - 1
+                            }
                             
-                            let update1 = ["/vendors/\(self.vendorID ?? "")/events/\(self.eventID ?? "")/activeTickets/\(key ?? "")": post]
-                            self.ref?.updateChildValues(update1, withCompletionBlock: {error, ref in
-                                addedTickets = addedTickets + 1
-                                self.determineIfFinished(quantity: addedTickets)
-                            })
-                            let update2 = ["/customers/\(Auth.auth().currentUser?.uid ?? "")/activeTickets/\(key ?? "")": post]
-                            self.ref?.updateChildValues(update2, withCompletionBlock: {error, ref in
-                                addedTickets = addedTickets + 1
-                                self.determineIfFinished(quantity: addedTickets)
-                            })
-                            countdown = countdown - 1
                         }
-                        
                     }
-                    
-                    
-                    
                     
                     
             })
@@ -123,7 +125,6 @@ class CustomerTicketGenerationViewController: UIViewController {
                 
                 self.navigationController?.popToRootViewController(animated: true)
             })
-            alert.view.tintColor = SplitViewController.greenColor
             self.present(alert, animated: true, completion: nil)
             
         }

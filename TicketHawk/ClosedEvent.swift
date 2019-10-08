@@ -21,14 +21,16 @@ class ClosedEvent: Equatable {
     var grossSales: Int = 0
     var netSales: Int = 0
     var closedDate: Date = Date()
+    var going: Int = 0
     
     init (key: String, eventTitle: String, grossSales: Int,
-          netSales: Int, closedDate: Date){
+          netSales: Int, closedDate: Date, going: Int){
         self.key = key
         self.eventTitle = eventTitle
         self.grossSales = grossSales
         self.netSales = netSales
         self.closedDate = closedDate
+        self.going = going
     }
     
 }

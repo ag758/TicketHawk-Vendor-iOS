@@ -10,6 +10,15 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
+class ClosedEventTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var title: UITextView!
+    @IBOutlet weak var going: UITextView!
+    @IBOutlet weak var grossRevenue: UITextView!
+    @IBOutlet weak var netRevenue: UITextView!
+    
+}
+
 class VendorClosedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     
@@ -28,6 +37,8 @@ class VendorClosedViewController: UIViewController, UITableViewDataSource, UITab
         
         self.closedEventsTableView.delegate = self
         self.closedEventsTableView.dataSource = self
+        
+        self.closedEventsTableView.rowHeight = 120
 
         // Do any additional setup after loading the view.
     }
@@ -37,23 +48,25 @@ class VendorClosedViewController: UIViewController, UITableViewDataSource, UITab
         
         query?.observe(.childAdded, with: { (snapshot) in
             
-            let event = snapshot.value as? NSDictionary
+            let event = snapshot.value as? NSDictionary ?? [:]
             
-            let title = event!["eventTitle"] as! String
-            let endDateAndTime = event!["endDateAndTime"] as? String ?? "No Date Found"
-            let pictureURL = event!["pictureURL"] as? String ?? ""
-            let tickets = event!["ticketTypes"] as? Dictionary ?? [:]
-            let id = event!["key"] as? String ?? ""
+            let title = event["eventTitle"] as! String
+            let endDateAndTime = event["endDateAndTime"] as? String ?? "No Date Found"
+            let pictureURL = event["pictureURL"] as? String ?? ""
+            let tickets = event["ticketTypes"] as? Dictionary ?? [:]
+            let id = event["key"] as? String ?? ""
             
-            let grossSales = event!["grossSales"] as? Int ?? 0
-            let netSales = event!["netSales"] as? Int ?? 0
+            let grossSales = event["grossSales"] as? Int ?? 0
+            let netSales = event["netSales"] as? Int ?? 0
+            
+            let going = event["going"] as? Int ?? 0
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             
             let d1: Date = dateFormatter.date(from: endDateAndTime)!
             
-            let closedEventInstance = ClosedEvent(key: id, eventTitle: title, grossSales: grossSales, netSales: netSales, closedDate: d1)
+            let closedEventInstance = ClosedEvent(key: id, eventTitle: title, grossSales: grossSales, netSales: netSales, closedDate: d1, going: going)
             
             self.closedEvents.append(closedEventInstance)
             self.closedEvents = self.sortTableViewByTime(events: self.closedEvents)
@@ -98,18 +111,25 @@ class VendorClosedViewController: UIViewController, UITableViewDataSource, UITab
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
         
+        let cell = self.closedEventsTableView
+            .dequeueReusableCell(withIdentifier: "closedCell") as! ClosedEventTableViewCell
         
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = self.closedEvents[indexPath.row].eventTitle
+        cell.title.text = self.closedEvents[indexPath.row].eventTitle
+            + " | " + dateFormatter.string(from: self.closedEvents[indexPath.row].closedDate)
+        cell.going.text = "Went: " + String(self.closedEvents[indexPath.row].going)
+        
+        
+        
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
+        
         if let n1 = formatter.string(from:  NSNumber(value: Float(self.closedEvents[indexPath.row].grossSales) / 100)) {
             
             if let n2 = formatter.string(from:  NSNumber(value: Float(self.closedEvents[indexPath.row].netSales) / 100)) {
                 
-                
-                cell.detailTextLabel?.text = "Gross: " + n1 + " | Net: " + n2 + " | " + dateFormatter.string(from: self.closedEvents[indexPath.row].closedDate)
+                cell.netRevenue.text = "Net: " + n2
+                cell.grossRevenue.text = "Gross: " + n1
             }
         }
         
