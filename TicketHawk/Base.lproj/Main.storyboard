@@ -2977,7 +2977,7 @@
         <!--Discover-->
         <scene sceneID="Ezf-ie-iQd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ErD-ok-Shg" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="ErD-ok-Shg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Discover" image="search" id="MRn-sG-15w"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="4mh-5A-KLR">
@@ -3001,7 +3001,7 @@
         <!--My Tickets-->
         <scene sceneID="UVc-YH-461">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UY1-AL-J9c" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="UY1-AL-J9c" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Tickets" image="tickets" id="cSe-aT-7Tg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ZJx-wV-SVz">
@@ -3021,7 +3021,7 @@
         <!--Account-->
         <scene sceneID="esn-vZ-T22">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w3y-qL-iV5" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="w3y-qL-iV5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Account" image="account" id="hcA-kj-fo9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="E06-VK-2P8">
