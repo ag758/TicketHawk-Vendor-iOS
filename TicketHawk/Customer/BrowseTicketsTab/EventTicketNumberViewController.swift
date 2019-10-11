@@ -39,7 +39,7 @@ class EventTicketNumberViewController: UIViewController
     var paymentTotalInt: Int?
     var paymentTotalWithoutTaxInt: Int?
     
-    var purchaseQuantity: Int?
+    var purchaseQuantity: Int = 0
     
     //TicketMap to be Added
     var map = [TicketType: Int]()
@@ -147,7 +147,7 @@ class EventTicketNumberViewController: UIViewController
             map[c.ticketType] = q
             
             
-            self.purchaseQuantity = (self.purchaseQuantity ?? 0) + (q ?? 0)
+            self.purchaseQuantity = (self.purchaseQuantity ) + (q ?? 0)
             
             total = total + (p ) * (q ?? 0)
         }
@@ -191,12 +191,11 @@ class EventTicketNumberViewController: UIViewController
             let going = event?["going"] as? Int ?? 0
             let maxTotalCapacity = event?["totalVenueCapacity"] as? Int ?? Int.max
             
-            print("maxIndivCapacity" + String(maxIndivCapacity))
-            print("going" + String(going))
-            print("maxTotalCapacity" + String(maxTotalCapacity))
-            print("purchaseQuantity" + String(self.purchaseQuantity ?? 0))
-            
-            if (self.purchaseQuantity ?? 0 > maxIndivCapacity) {
+            print("CONDITION")
+            print(self.purchaseQuantity)
+            print(maxIndivCapacity)
+            print(self.purchaseQuantity > maxIndivCapacity)
+            if (self.purchaseQuantity > maxIndivCapacity) {
                 let alertController = UIAlertController(title: "Exceeds Individual Order Amount",
                                                         message: "The vendor has set a limit of " + String(maxIndivCapacity) + " tickets.",
                                                         preferredStyle: .alert)
@@ -204,20 +203,7 @@ class EventTicketNumberViewController: UIViewController
                 alertController.addAction(alertAction)
                 self.present(alertController, animated: true)
                 return
-            }
-            
-            else if (self.purchaseQuantity ?? 0 + going > maxTotalCapacity){
-                let alertController = UIAlertController(title: "Exceeds Capacity of Venue",
-                                                        message: "There are " + String(maxTotalCapacity - going) + " tickets available for purchase remaining.",
-                                                        preferredStyle: .alert)
-                let alertAction = UIAlertAction(title: "OK", style: .default)
-                alertController.addAction(alertAction)
-                self.present(alertController, animated: true)
-                return
-            }
-            
-            else {
-                
+            } else {
                 //Send price to square
                 let theme = STPTheme()
                 
@@ -226,20 +212,16 @@ class EventTicketNumberViewController: UIViewController
                 addCardViewController.delegate = self
                 addCardViewController.title = "Enter Card Information"
                 self.navigationController?.pushViewController(addCardViewController, animated: true)
-                
-                //Upon success:
-                //add quantity to going
-                //add total sales price to total sales
-                //add tickets to customer's tickets
-                //copy tickets to vendor's tickets
             }
             
-            
-           
-            
         })
-       
         
+        
+        //Upon success:
+        //add quantity to going
+        //add total sales price to total sales
+        //add tickets to customer's tickets
+        //copy tickets to vendor's tickets
         
     }
     
@@ -255,60 +237,89 @@ extension EventTicketNumberViewController: STPAddCardViewControllerDelegate {
     func addCardViewController(_ addCardViewController: STPAddCardViewController,
                                didCreateToken token: STPToken,
                                completion: @escaping STPErrorBlock) {
-        StripeClient.shared.completeCharge(with: token, amount: paymentTotalInt ?? 0) { result in
-            switch result {
-            // 1
-            case .success:
-                completion(nil)
-                
-                //Update Going and Total Sales using Transactions
-                
-                let goingRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("going")
-                let grossSalesRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("grossSales")
-                let netSalesRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("netSales")
-                
-                goingRef?.runTransactionBlock { (currentData: MutableData) -> TransactionResult in
-                    var value = currentData.value as? Int
-                    if value == nil {
-                        value = 0
-                    }
-                    currentData.value = (value ?? 0) + (self.purchaseQuantity ?? 0)
-                    return TransactionResult.success(withValue: currentData)
-                }
-                
-                grossSalesRef?.runTransactionBlock { (currentData: MutableData) -> TransactionResult in
-                 
-                    let value = currentData.value as? Int ?? 0
-                    print("pT" + String(self.paymentTotalWithoutTaxInt ?? 0))
-                    currentData.value = value + (Int(self.paymentTotalInt ?? 0 ) )
-                    return TransactionResult.success(withValue: currentData)
-                }
-                netSalesRef?.runTransactionBlock { (currentData: MutableData) -> TransactionResult in
-                    
-                    let value = currentData.value as? Int ?? 0
-                    print("pT" + String(self.paymentTotalWithoutTaxInt ?? 0))
-                    currentData.value = value + (Int(self.paymentTotalWithoutTaxInt ?? 0 ) )
-                    return TransactionResult.success(withValue: currentData)
-                }
-                
-                
-                
-               
-                
-                
-                //Transition to Ticket Generation
-                let next = self.storyboard!.instantiateViewController(withIdentifier: "customerTicketGenerationViewController") as! CustomerTicketGenerationViewController
-                
-                next.map = self.map
-                next.vendorID = self.vendorID
-                next.eventID = self.eventID
-                
+        
+        //
+        
+        self.ref?.child("vendors").child(vendorID ?? "").child("events").child(eventID ?? "").observeSingleEvent(of: .value, with: {(snapshot) in
             
-                self.navigationController!.pushViewController(next, animated: true)
-            // 2
-            case .failure(let error):
-                completion(error)
+            let event = snapshot.value as? NSDictionary
+            
+            let maxIndivCapacity = event?["maxTickets"] as? Int ?? Int.max
+            let going = event?["going"] as? Int ?? 0
+            let maxTotalCapacity = event?["totalVenueCapacity"] as? Int ?? Int.max
+            
+            if (self.purchaseQuantity + going > maxTotalCapacity){
+                let alertController = UIAlertController(title: "Capacity Error",
+                                                        message: "There are " + String(maxTotalCapacity - going) + " tickets available for purchase remaining. Please change your order and try again.",
+                                                        preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK",
+                                                style: UIAlertAction.Style.default,
+                                                handler: {(alert: UIAlertAction!) in self.navigationController?.popViewController(animated: true)})
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true)
+                return
+            } else {
+                StripeClient.shared.completeCharge(with: token, amount: self.paymentTotalInt ?? 0) { result in
+                    switch result {
+                    // 1
+                    case .success:
+                        completion(nil)
+                        
+                        //Update Going and Total Sales using Transactions
+                        
+                        let goingRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("going")
+                        let grossSalesRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("grossSales")
+                        let netSalesRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("netSales")
+                        
+                        goingRef?.runTransactionBlock { (currentData: MutableData) -> TransactionResult in
+                            var value = currentData.value as? Int
+                            if value == nil {
+                                value = 0
+                            }
+                            currentData.value = (value ?? 0) + (self.purchaseQuantity )
+                            return TransactionResult.success(withValue: currentData)
+                        }
+                        
+                        grossSalesRef?.runTransactionBlock { (currentData: MutableData) -> TransactionResult in
+                            
+                            let value = currentData.value as? Int ?? 0
+                            print("pT" + String(self.paymentTotalWithoutTaxInt ?? 0))
+                            currentData.value = value + (Int(self.paymentTotalInt ?? 0 ) )
+                            return TransactionResult.success(withValue: currentData)
+                        }
+                        netSalesRef?.runTransactionBlock { (currentData: MutableData) -> TransactionResult in
+                            
+                            let value = currentData.value as? Int ?? 0
+                            print("pT" + String(self.paymentTotalWithoutTaxInt ?? 0))
+                            currentData.value = value + (Int(self.paymentTotalWithoutTaxInt ?? 0 ) )
+                            return TransactionResult.success(withValue: currentData)
+                        }
+                        
+                        
+                        
+                        
+                        
+                        
+                        //Transition to Ticket Generation
+                        let next = self.storyboard!.instantiateViewController(withIdentifier: "customerTicketGenerationViewController") as! CustomerTicketGenerationViewController
+                        
+                        next.map = self.map
+                        next.vendorID = self.vendorID
+                        next.eventID = self.eventID
+                        
+                        
+                        self.navigationController!.pushViewController(next, animated: true)
+                    // 2
+                    case .failure(let error):
+                        completion(error)
+                    }
+                }
             }
-        }
+            
+        })
+        
+        //
+        
+        
     }
 }

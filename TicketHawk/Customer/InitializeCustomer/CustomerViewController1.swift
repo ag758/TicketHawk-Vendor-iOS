@@ -113,7 +113,7 @@ class CustomerViewController1: UIViewController {
                 if (isBanned){
                     //don't allow
                     
-                    let alert = UIAlertController(title: "You have been banned.", message: "If you believe this is a mistake, please contact TicketHawk support.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Your account is under review.", message: "If you believe this is a mistake, please contact TicketHawk support.", preferredStyle: .alert)
                     
                     alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
                     self.present(alert, animated: true)

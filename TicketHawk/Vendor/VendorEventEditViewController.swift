@@ -107,9 +107,9 @@ class VendorEventEditViewController: UIViewController, UITableViewDelegate, UITa
                 self.downloadImage(from: url)
             }
         
-            self.maxTickets.text = value["maxTickets"] as? String ?? ""
+            self.maxTickets.text = String(value["maxTickets"] as? Int ?? 0)
             self.dressCodeTextField.text = value["dressCode"] as? String ?? ""
-            self.maxVenueCapacity.text = value["totalVenueCapacity"] as? String ?? ""
+            self.maxVenueCapacity.text = String(value["totalVenueCapacity"] as? Int ?? 0)
             self.eventDescription.text = value["description"] as? String ?? ""
             
             

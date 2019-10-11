@@ -485,6 +485,8 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     }
     
     @IBAction func communityButtonIsPressed(_ sender: Any) {
+        let next = self.storyboard!.instantiateViewController(withIdentifier: "communityEditViewController") as! CommunityEditViewController
+        self.navigationController!.pushViewController(next, animated: true)
     }
     
     
