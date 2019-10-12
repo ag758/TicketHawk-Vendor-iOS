@@ -130,6 +130,10 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
                 } else {
                     ticketTypeCost.layer.borderWidth = 1
                     ticketTypeCost.layer.borderColor = UIColor.red.cgColor
+                    
+                    let alert = UIAlertController(title: "Does not meet minimum price requirement.", message: "TicketHawk requires a minimum ticket price of $1.00", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    self.present(alert, animated: true)
                 }
             }
         }
@@ -345,7 +349,7 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
         
         //Check for correctness constraints
         
-        var shouldUpload: Bool = checkCorrectNess()
+        let shouldUpload: Bool = checkCorrectNess()
         
         if (shouldUpload){
             //Upload the event using required and optional fields
