@@ -19,6 +19,11 @@ class VendorEventQRViewController: UIViewController, QRScannerViewDelegate {
     
     @IBOutlet weak var qrScanner: QRScannerView!
     
+    var activeTickets: [String] = []
+    var scannedTickets: [String] = []
+    
+    var going: Int = 0
+    
     var vendorID: String?
     
     var eventID: String?
@@ -34,24 +39,41 @@ class VendorEventQRViewController: UIViewController, QRScannerViewDelegate {
         
         qrScanner.delegate = self
         
-        listenersForTotal()
+        trackActiveTickets()
+        
+        let goingRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("going")
+        goingRef?.observe(.value, with: { (snapshot) in
+            self.going = snapshot.value as? Int ?? 0
+            self.setScannedAndTotal()
+        })
+        
         
     }
     
-    func listenersForTotal(){
+    func trackActiveTickets(){
         
         let aT = ref?.child("vendors").child(vendorID ?? "").child("events").child(eventID ?? "").child("activeTickets")
         
         aT?.observe(.childAdded, with: { (snapshot) in
+            self.activeTickets.append(snapshot.key)
             self.setScannedAndTotal()
         })
         aT?.observe(.childRemoved, with: { (snapshot) in
+            for k in self.activeTickets{
+                if k == snapshot.key {
+                    let index = self.activeTickets.index(of: k)
+                    if let i = index {
+                        self.activeTickets.remove(at: i)
+                    }
+                }
+            }
             self.setScannedAndTotal()
         })
         
         let qT = ref?.child("vendors").child(vendorID ?? "").child("events").child(eventID ?? "").child("scannedTickets")
         
         qT?.observe(.childAdded, with: { (snapshot) in
+            self.scannedTickets.append(snapshot.key)
             self.setScannedAndTotal()
         })
         qT?.observe(.childRemoved, with: { (snapshot) in
@@ -65,20 +87,11 @@ class VendorEventQRViewController: UIViewController, QRScannerViewDelegate {
     }
     
     func qrScanningSucceededWithCode(_ str: String?) {
-        ref?.child("vendors").child(vendorID ?? "").child("events").child(eventID ?? "").child("activeTickets").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            
-            //print (str)
-            let value = snapshot.value as? NSDictionary
-            let keys = value?.allKeys
-            
-            //print(keys?.count)
-            
             var key: String = ""
             var existsKey: Bool = false
-            for k in keys ?? [] {
-                if k as? String == str{
-                    key = k as? String ?? ""
+            for k in self.activeTickets {
+                if k == str{
+                    key = k
                     existsKey = true
                 }
             }
@@ -97,11 +110,11 @@ class VendorEventQRViewController: UIViewController, QRScannerViewDelegate {
                 AudioServicesPlaySystemSound(1054);
                 self.setScannedAndTotal()
                     
-                    //DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // Change `2.0` to the desired number of seconds.
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { // Change `2.0` to the desired number of seconds.
                         // Code you want to be delayed
                         
                         self.qrScanner.startScanning()
-                    //}
+                    }
                 
                 }
                 }
@@ -148,31 +161,12 @@ class VendorEventQRViewController: UIViewController, QRScannerViewDelegate {
                 
                 
             }
-            
-        })
     }
     
     func setScannedAndTotal(){
-        let goingRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("going")
-        let scannedTicketsRef = self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").child("scannedTickets")
         
-        goingRef?.observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            let going = snapshot.value as? Int ?? 0
-            
-            scannedTicketsRef?.observeSingleEvent(of: .value, with: { (snapshot) in
-                
-                
-                let toBeScanned = snapshot.value as? Dictionary ?? [:]
-                
-                
-                DispatchQueue.main.async {
-                    print("This is run on the main queue, after the previous code in outer block")
-                    self.numberScannedView.text =  String(toBeScanned.count) + "/" + String(going) + " scanned"
-                }
-            })
-            
-         })
+        self.numberScannedView.text = String(self.scannedTickets.count) + " / " + String(self.going)
+            + " Scanned"
         
     }
     

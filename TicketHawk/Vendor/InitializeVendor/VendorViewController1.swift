@@ -75,8 +75,8 @@ class VendorViewController1: UIViewController {
         ref = Database.database().reference()
         let user = Auth.auth().currentUser
         
-        let userID: String = (user?.uid)!
-        let userName: String = (user?.displayName)!
+        let userID: String = (user?.uid) ?? ""
+        let userName: String = (user?.displayName) ?? ""
         
         //Values that will not change
         

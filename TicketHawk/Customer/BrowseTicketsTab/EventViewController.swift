@@ -101,13 +101,7 @@ class EventViewController: UIViewController {
                     
                     
                 }
-                
                 self.descriptionView.text = value?["description"] as? String ?? "No Description"
-                
-                
-                
-                
-                
             }
         
         )
