@@ -201,7 +201,7 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
             
         })
         
-        query?.observe(.childRemoved, with: { (snapshot) in
+        query?.child("events").observe(.childRemoved, with: { (snapshot) in
             let event = snapshot.value as? NSDictionary
             let id = event!["key"] as? String ?? "key not found"
             
