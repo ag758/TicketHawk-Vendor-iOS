@@ -200,21 +200,6 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
             }
             
         })
-        
-        query?.child("events").observe(.childRemoved, with: { (snapshot) in
-            let event = snapshot.value as? NSDictionary
-            let id = event!["key"] as? String ?? "key not found"
-            
-            var index = 0
-            for e in self.events{
-                if e.id == id{
-                    index = self.events.index(of: e) ?? 0
-                    self.events.remove(at: index)
-                }
-            }
-            
-            self.vendorTableView.reloadData()
-        })
     }
     
     func sortTableViewByTime(events: [Event]) -> [Event] {

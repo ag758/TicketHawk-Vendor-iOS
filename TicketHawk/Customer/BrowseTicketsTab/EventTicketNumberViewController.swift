@@ -89,6 +89,21 @@ class EventTicketNumberViewController: UIViewController
             }
         })
         
+        self.ref?.child("vendors").child(vendorID ?? "").child("events").child(eventID ?? "").child("ticketTypes").observe(.childRemoved, with: {(snapshot) in
+            
+            let ticket = snapshot.value as? NSDictionary ?? [:]
+            
+            for (ticketname, _) in ticket {
+                for t in self.ticketTypes {
+                    if t.name == (ticketname as! String) {
+                        let index = self.ticketTypes.index(of: t)
+                        self.ticketTypes.remove(at: index!)
+                    }
+                }
+            }
+            
+        })
+        
         
     }
     

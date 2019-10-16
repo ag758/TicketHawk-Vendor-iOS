@@ -112,6 +112,13 @@ class VendorEventEditViewController: UIViewController, UITableViewDelegate, UITa
             self.maxVenueCapacity.text = String(value["totalVenueCapacity"] as? Int ?? 0)
             self.eventDescription.text = value["description"] as? String ?? ""
             
+            if (self.maxTickets.text == "0"){
+                self.maxTickets.text = ""
+            }
+            if (self.maxVenueCapacity.text == "0"){
+                self.maxVenueCapacity.text = ""
+            }
+            
             
             
             let ticketTypes = value["ticketTypes"] as? NSDictionary ?? [:]
