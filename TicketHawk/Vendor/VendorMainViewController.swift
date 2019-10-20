@@ -156,6 +156,8 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             let tickets = event!["ticketTypes"] as? Dictionary ?? [:]
             let id = event!["key"] as? String ?? ""
             
+            let unformatted = startDateAndTime
+            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             
@@ -187,7 +189,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
                     let ownName = value!["organizationName"] as? String ?? ""
                     
                     let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: Auth.auth().currentUser!.uid,
-                                              creatorName: ownName
+                                              creatorName: ownName, unformatted: unformatted
                                               )
                     
                     self.events.append(eventInstance)
@@ -211,6 +213,8 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             let pictureURL = event!["pictureURL"] as? String ?? ""
             let tickets = event!["ticketTypes"] as? Dictionary ?? [:]
             let id = event!["key"] as? String ?? ""
+            
+            let unformatted = startDateAndTime
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
@@ -241,7 +245,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
                     let value = snapshot.value as? NSDictionary
                     let ownName = value!["organizationName"] as? String ?? ""
                     
-                    let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: Auth.auth().currentUser!.uid, creatorName: ownName)
+                    let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: Auth.auth().currentUser!.uid, creatorName: ownName, unformatted: unformatted)
                     var index = 0
                     for e in self.events{
                         if (e.id == id){
@@ -312,7 +316,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         while (x < events.count-1) {
             var closestInt = x
             for y in x+1...events.count-1 {
-                if compareDates(date1: events[x].dateAndTime!, date2: events[y].dateAndTime!) == true{
+                if compareDates(date1: events[x].unformattedDateAndTime!, date2: events[y].unformattedDateAndTime!) == true{
                     closestInt = y
                 }
             }
@@ -327,7 +331,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     func compareDates (date1: String, date2: String) -> Bool {
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM dd h:mm a"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         
         let d1: Date = dateFormatter.date(from: date1)!
         let d2: Date = dateFormatter.date(from: date2)!

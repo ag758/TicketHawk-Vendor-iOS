@@ -153,6 +153,8 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
                 let tickets = event["ticketTypes"] as? Dictionary ?? [:]
                 let id = event["key"] as? String ?? ""
                 
+                let unformatted = startDateAndTime
+                
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
                 
@@ -180,7 +182,7 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
                     print(number)
                     
                         let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: self.vendorID ?? "",
-                                                  creatorName: ownName
+                                                  creatorName: ownName, unformatted: unformatted
                         )
                         
                         //only if the date is greater than current
@@ -208,7 +210,7 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
         while (x < events.count-1) {
             var closestInt = x
             for y in x+1...events.count-1 {
-                if compareDates(date1: events[x].dateAndTime!, date2: events[y].dateAndTime!) == true{
+                if compareDates(date1: events[x].unformattedDateAndTime!, date2: events[y].unformattedDateAndTime!) == true{
                     closestInt = y
                 }
             }
@@ -223,7 +225,7 @@ class CustomerVendorListViewController: UIViewController, UITableViewDataSource,
     func compareDates (date1: String, date2: String) -> Bool {
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM dd h:mm a"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         
         let d1: Date = dateFormatter.date(from: date1)!
         let d2: Date = dateFormatter.date(from: date2)!

@@ -17,7 +17,9 @@ class Event: NSObject {
     var creatorId: String?
     var creatorName: String?
     
-    init (title: String, dateAndTime: String, lowestPrice: String, imageURL: String, id: String, creatorId: String, creatorName: String){
+    var unformattedDateAndTime: String?
+    
+    init (title: String, dateAndTime: String, lowestPrice: String, imageURL: String, id: String, creatorId: String, creatorName: String, unformatted: String){
         self.title = title
         self.dateAndTime = dateAndTime
         self.lowestPrice = lowestPrice
@@ -25,6 +27,8 @@ class Event: NSObject {
         self.id = id
         self.creatorId = creatorId
         self.creatorName = creatorName
+        
+        self.unformattedDateAndTime = unformatted
     }
     
     static func ==(lhs: Event, rhs: Event) -> Bool {

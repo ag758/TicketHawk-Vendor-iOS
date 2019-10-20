@@ -47,7 +47,8 @@ class CustomerTicketGenerationViewController: UIViewController {
                     let dateFormatter2 = DateFormatter()
                     dateFormatter2.amSymbol = "AM"
                     dateFormatter2.pmSymbol = "PM"
-                    dateFormatter2.dateFormat = "MMM d, h:mm a"
+                    
+                    dateFormatter2.dateFormat =  "MM-dd-yyyy h:mm a"
                     
                     let dateAndTime = dateFormatter2.string(from: d1)
                     let location = (value["location"] as? String ?? "")

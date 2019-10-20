@@ -230,7 +230,7 @@ class CustomerArchiveTicketViewController: UIViewController, UITableViewDelegate
         print("d2" + date2)
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, h:mm a"
+        dateFormatter.dateFormat = "MM-dd-yyyy h:mm a"
         
         let d1: Date = dateFormatter.date(from: date1)!
         let d2: Date = dateFormatter.date(from: date2)!

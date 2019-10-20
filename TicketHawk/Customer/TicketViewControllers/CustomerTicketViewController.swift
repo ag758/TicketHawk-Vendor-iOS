@@ -93,6 +93,8 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
             let userName = ticket!["userName"] as? String ?? ""
             let location = ticket!["location"] as? String ?? ""
             
+            print("ticket_date_debug" + dateAndTime)
+            
             
             let ticketInstance = Ticket(key: key, eventTitle: eventTitle, ticketType: ticketType, userName: userName, dateAndTime: dateAndTime, location: location)
             //self.tickets.append(ticketInstance)
@@ -353,7 +355,7 @@ class CustomerTicketViewController: UIViewController, UITableViewDelegate, UITab
         print("d2" + date2)
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, h:mm a"
+        dateFormatter.dateFormat = "MM-dd-yyyy h:mm a"
         
         let d1: Date = dateFormatter.date(from: date1)!
         let d2: Date = dateFormatter.date(from: date2)!

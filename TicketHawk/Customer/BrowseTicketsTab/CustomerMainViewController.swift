@@ -296,6 +296,8 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
             let pictureURL = event["pictureURL"] as? String ?? ""
             let tickets = event["ticketTypes"] as? Dictionary ?? [:]
             let id = event["key"] as? String ?? ""
+            
+            let unformatted = startDateAndTime
                 
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
@@ -322,7 +324,7 @@ UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
                 if let number = formatter.string(from: NSNumber(value: minimumprice)) {
                     print(number)
                     
-                    let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: vendorID, creatorName: vendorName)
+                    let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: vendorID, creatorName: vendorName, unformatted: unformatted)
                     
                     //only if date is after
                     
