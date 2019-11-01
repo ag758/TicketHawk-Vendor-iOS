@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:TicketHawk.xcodeproj">
+      location = "group:/Users/austingao/Documents/AppDev/TicketHawkVendor/TicketHawkVendor.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
