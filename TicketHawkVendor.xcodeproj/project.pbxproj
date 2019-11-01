@@ -82,16 +82,16 @@
 		5651F39222CEA73E009BEF73 /* CustomerViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController1.swift; sourceTree = "<group>"; };
 		5651F39422D144B3009BEF73 /* CustomerViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController2.swift; sourceTree = "<group>"; };
 		5651F39622D14BF2009BEF73 /* CustomerMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerMainViewController.swift; sourceTree = "<group>"; };
-		5656DA3522C060710079920C /* TicketHawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketHawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5656DA3522C060710079920C /* TIcketHawkVendor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TIcketHawkVendor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5656DA3822C060710079920C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5656DA3A22C060710079920C /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		5656DA3D22C060710079920C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5656DA3F22C060730079920C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5656DA4422C060730079920C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5656DA4922C060730079920C /* TicketHawkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketHawkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5656DA4922C060730079920C /* TIcketHawkVendorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TIcketHawkVendorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5656DA4D22C060730079920C /* TicketHawkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketHawkTests.swift; sourceTree = "<group>"; };
 		5656DA4F22C060730079920C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5656DA5422C060730079920C /* TicketHawkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketHawkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5656DA5422C060730079920C /* TIcketHawkVendorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TIcketHawkVendorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5656DA5822C060730079920C /* TicketHawkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketHawkUITests.swift; sourceTree = "<group>"; };
 		5656DA5A22C060730079920C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		566005F72338349B00846FDA /* VendorEventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorEventEditViewController.swift; sourceTree = "<group>"; };
@@ -166,9 +166,9 @@
 		5656DA2C22C060710079920C = {
 			isa = PBXGroup;
 			children = (
-				5656DA3722C060710079920C /* TicketHawk */,
-				5656DA4C22C060730079920C /* TicketHawkTests */,
-				5656DA5722C060730079920C /* TicketHawkUITests */,
+				5656DA3722C060710079920C /* TicketHawkVendor */,
+				5656DA4C22C060730079920C /* TicketHawkVendorTests */,
+				5656DA5722C060730079920C /* TicketHawkVendorUITests */,
 				5656DA3622C060710079920C /* Products */,
 				BC1877C1AC88E0D745AFE239 /* Pods */,
 				0E0093070AEBC110F6768AF3 /* Frameworks */,
@@ -178,14 +178,14 @@
 		5656DA3622C060710079920C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5656DA3522C060710079920C /* TicketHawk.app */,
-				5656DA4922C060730079920C /* TicketHawkTests.xctest */,
-				5656DA5422C060730079920C /* TicketHawkUITests.xctest */,
+				5656DA3522C060710079920C /* TIcketHawkVendor.app */,
+				5656DA4922C060730079920C /* TIcketHawkVendorTests.xctest */,
+				5656DA5422C060730079920C /* TIcketHawkVendorUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5656DA3722C060710079920C /* TicketHawk */ = {
+		5656DA3722C060710079920C /* TicketHawkVendor */ = {
 			isa = PBXGroup;
 			children = (
 				5656DA3822C060710079920C /* AppDelegate.swift */,
@@ -204,25 +204,25 @@
 				561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */,
 				56CFF16F22D1965E00459985 /* CustomUITextField.swift */,
 			);
-			path = TicketHawk;
+			path = TicketHawkVendor;
 			sourceTree = "<group>";
 		};
-		5656DA4C22C060730079920C /* TicketHawkTests */ = {
+		5656DA4C22C060730079920C /* TicketHawkVendorTests */ = {
 			isa = PBXGroup;
 			children = (
 				5656DA4D22C060730079920C /* TicketHawkTests.swift */,
 				5656DA4F22C060730079920C /* Info.plist */,
 			);
-			path = TicketHawkTests;
+			path = TicketHawkVendorTests;
 			sourceTree = "<group>";
 		};
-		5656DA5722C060730079920C /* TicketHawkUITests */ = {
+		5656DA5722C060730079920C /* TicketHawkVendorUITests */ = {
 			isa = PBXGroup;
 			children = (
 				5656DA5822C060730079920C /* TicketHawkUITests.swift */,
 				5656DA5A22C060730079920C /* Info.plist */,
 			);
-			path = TicketHawkUITests;
+			path = TicketHawkVendorUITests;
 			sourceTree = "<group>";
 		};
 		56A6FDB3230F9D7D00825DD4 /* Customer */ = {
@@ -344,9 +344,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5656DA3422C060710079920C /* TicketHawk */ = {
+		5656DA3422C060710079920C /* TIcketHawkVendor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5656DA5D22C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawk" */;
+			buildConfigurationList = 5656DA5D22C060730079920C /* Build configuration list for PBXNativeTarget "TIcketHawkVendor" */;
 			buildPhases = (
 				5996CBD2DA381E28541531C0 /* [CP] Check Pods Manifest.lock */,
 				5656DA3122C060710079920C /* Sources */,
@@ -359,14 +359,14 @@
 			);
 			dependencies = (
 			);
-			name = TicketHawk;
+			name = TIcketHawkVendor;
 			productName = TicketHawk;
-			productReference = 5656DA3522C060710079920C /* TicketHawk.app */;
+			productReference = 5656DA3522C060710079920C /* TIcketHawkVendor.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5656DA4822C060730079920C /* TicketHawkTests */ = {
+		5656DA4822C060730079920C /* TIcketHawkVendorTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5656DA6022C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawkTests" */;
+			buildConfigurationList = 5656DA6022C060730079920C /* Build configuration list for PBXNativeTarget "TIcketHawkVendorTests" */;
 			buildPhases = (
 				38416F6DF11E0AFDA2DDDF42 /* [CP] Check Pods Manifest.lock */,
 				5656DA4522C060730079920C /* Sources */,
@@ -378,14 +378,14 @@
 			dependencies = (
 				5656DA4B22C060730079920C /* PBXTargetDependency */,
 			);
-			name = TicketHawkTests;
+			name = TIcketHawkVendorTests;
 			productName = TicketHawkTests;
-			productReference = 5656DA4922C060730079920C /* TicketHawkTests.xctest */;
+			productReference = 5656DA4922C060730079920C /* TIcketHawkVendorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5656DA5322C060730079920C /* TicketHawkUITests */ = {
+		5656DA5322C060730079920C /* TIcketHawkVendorUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5656DA6322C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawkUITests" */;
+			buildConfigurationList = 5656DA6322C060730079920C /* Build configuration list for PBXNativeTarget "TIcketHawkVendorUITests" */;
 			buildPhases = (
 				D4A389C68EE6EC25C6459123 /* [CP] Check Pods Manifest.lock */,
 				5656DA5022C060730079920C /* Sources */,
@@ -397,9 +397,9 @@
 			dependencies = (
 				5656DA5622C060730079920C /* PBXTargetDependency */,
 			);
-			name = TicketHawkUITests;
+			name = TIcketHawkVendorUITests;
 			productName = TicketHawkUITests;
-			productReference = 5656DA5422C060730079920C /* TicketHawkUITests.xctest */;
+			productReference = 5656DA5422C060730079920C /* TIcketHawkVendorUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -425,7 +425,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5656DA3022C060710079920C /* Build configuration list for PBXProject "TicketHawk" */;
+			buildConfigurationList = 5656DA3022C060710079920C /* Build configuration list for PBXProject "TIcketHawkVendor" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -438,9 +438,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5656DA3422C060710079920C /* TicketHawk */,
-				5656DA4822C060730079920C /* TicketHawkTests */,
-				5656DA5322C060730079920C /* TicketHawkUITests */,
+				5656DA3422C060710079920C /* TIcketHawkVendor */,
+				5656DA4822C060730079920C /* TIcketHawkVendorTests */,
+				5656DA5322C060730079920C /* TIcketHawkVendorUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -678,12 +678,12 @@
 /* Begin PBXTargetDependency section */
 		5656DA4B22C060730079920C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5656DA3422C060710079920C /* TicketHawk */;
+			target = 5656DA3422C060710079920C /* TIcketHawkVendor */;
 			targetProxy = 5656DA4A22C060730079920C /* PBXContainerItemProxy */;
 		};
 		5656DA5622C060730079920C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5656DA3422C060710079920C /* TicketHawk */;
+			target = 5656DA3422C060710079920C /* TIcketHawkVendor */;
 			targetProxy = 5656DA5522C060730079920C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -823,7 +823,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XQ4BKPX7ME;
-				INFOPLIST_FILE = TicketHawk/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TicketHawkVendor/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -843,7 +843,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XQ4BKPX7ME;
-				INFOPLIST_FILE = TicketHawk/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TicketHawkVendor/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -874,7 +874,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TicketHawk.app/TicketHawk";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TIcketHawkVendor.app/TIcketHawkVendor";
 			};
 			name = Debug;
 		};
@@ -896,7 +896,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TicketHawk.app/TicketHawk";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TIcketHawkVendor.app/TIcketHawkVendor";
 			};
 			name = Release;
 		};
@@ -945,7 +945,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5656DA3022C060710079920C /* Build configuration list for PBXProject "TicketHawk" */ = {
+		5656DA3022C060710079920C /* Build configuration list for PBXProject "TIcketHawkVendor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5656DA5B22C060730079920C /* Debug */,
@@ -954,7 +954,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5656DA5D22C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawk" */ = {
+		5656DA5D22C060730079920C /* Build configuration list for PBXNativeTarget "TIcketHawkVendor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5656DA5E22C060730079920C /* Debug */,
@@ -963,7 +963,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5656DA6022C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawkTests" */ = {
+		5656DA6022C060730079920C /* Build configuration list for PBXNativeTarget "TIcketHawkVendorTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5656DA6122C060730079920C /* Debug */,
@@ -972,7 +972,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5656DA6322C060730079920C /* Build configuration list for PBXNativeTarget "TicketHawkUITests" */ = {
+		5656DA6322C060730079920C /* Build configuration list for PBXNativeTarget "TIcketHawkVendorUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5656DA6422C060730079920C /* Debug */,
