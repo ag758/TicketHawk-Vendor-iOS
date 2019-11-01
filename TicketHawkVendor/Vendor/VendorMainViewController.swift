@@ -51,6 +51,8 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref = Constants.ref
+        
         let currentUser = Auth.auth().currentUser
         
         if currentUser == nil{
@@ -59,7 +61,29 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             return
         }
         
-        ref = Constants.ref
+        let userID = Auth.auth().currentUser?.uid ?? ""
+        
+        let vendorRef : DatabaseReference? = ref?.child("vendors").child(userID)
+        
+        // Attach a listener to read the data at our posts reference
+        vendorRef?.observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            
+            ///If no value exists -- means false
+            let didFinishProfile = value?["didFinishSigningUp"] as? Bool ?? false
+            
+            
+            if didFinishProfile == false {
+                let next = self.storyboard!.instantiateViewController(withIdentifier: "splitViewController") as! SplitViewController
+                self.present(next, animated: false, completion: nil)
+                return
+            }
+        })
+        
+        
+        
+        
 
         // Do any additional setup after loading the view.
         
