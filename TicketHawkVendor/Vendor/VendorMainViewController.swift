@@ -65,6 +65,8 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let vendorRef : DatabaseReference? = ref?.child("vendors").child(userID)
         
+        self.onCreateRegardless()
+        
         // Attach a listener to read the data at our posts reference
         vendorRef?.observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
@@ -75,16 +77,20 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             
             
             if didFinishProfile == false {
+                do {try Auth.auth().signOut()}
+                catch {
+                
+                }
                 let next = self.storyboard!.instantiateViewController(withIdentifier: "splitViewController") as! SplitViewController
                 self.present(next, animated: false, completion: nil)
                 return
+            } else {
+                self.onCreateContinue()
             }
         })
-        
-        
-        
-        
-
+    }
+    
+    func onCreateRegardless(){
         // Do any additional setup after loading the view.
         
         let logo = UIImage(named: "thawk_transparent.png")
@@ -100,6 +106,10 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         eventsTableView.rowHeight = 200
         eventsTableView.reloadData()
         eventsTableView.backgroundColor = UIColor.black
+    }
+    
+    func onCreateContinue(){
+      
         
         loadEvents()
     }

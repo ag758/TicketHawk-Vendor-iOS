@@ -28,6 +28,8 @@ class VendorClosedViewController: UIViewController, UITableViewDataSource, UITab
     var closedEvents: [ClosedEvent] = []
 
     @IBOutlet weak var closedEventsTableView: UITableView!
+    @IBOutlet weak var uidTextView: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +41,8 @@ class VendorClosedViewController: UIViewController, UITableViewDataSource, UITab
         self.closedEventsTableView.dataSource = self
         
         self.closedEventsTableView.rowHeight = 120
+        
+        self.uidTextView.setTitle(Auth.auth().currentUser?.uid, for: .normal)
 
         // Do any additional setup after loading the view.
     }
@@ -150,14 +154,14 @@ class VendorClosedViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func uidTouched(_ sender: Any) {
+        
+        
+        UIPasteboard.general.string = Auth.auth().currentUser?.uid
+        
+        let alert = UIAlertController(title: "Vendor ID Copied to Clipboard", message: "Please use this in your payment request email.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
-    */
-
+    
 }
