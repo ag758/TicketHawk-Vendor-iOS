@@ -90,9 +90,15 @@ class VendorViewController1: UIViewController {
             let value = snapshot.value as? NSDictionary
             
             ///If no value exists -- means false
-            let didFinishProfile = value?["didFinishSigningUp"] as? Bool ?? false
             
-            if (!didFinishProfile){
+            
+            let didFinishBasicAccount = value?["didFinishBasicAccount"] as? Bool ?? false
+            let didFinishStripeAccount = value?["didFinishStripeAccount"] as? Bool ?? false
+            let didFinishStripeBank = value?["didFinishStripeBank"] as? Bool ?? false
+            
+            let didFinishSigningUp = value?["didFinishSigningUp"] as? Bool ?? false
+            
+            if (!didFinishSigningUp){
                 //Either they did not finish making their profile or this is their first time creating their profile
                 self.ref?.child("vendors/\(userID)/didFinishSigningUp").setValue(false)
                 
@@ -101,8 +107,30 @@ class VendorViewController1: UIViewController {
                 
                 //Continue editing their profile...
                 
-                let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorViewController2") as! VendorViewController2
-                self.present(next, animated: true, completion: nil)
+                //Check what stage in their profile they are
+                
+                //-->didFinishBasicAccount
+                
+                //-->didFinishStripeAccount
+                
+                //-->didFinishStripeBank
+                
+                //-->didFinishSigningUp
+                
+                if !didFinishBasicAccount {
+                    let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorViewController2") as! VendorViewController2
+                    self.present(next, animated: true, completion: nil)
+                } else if !didFinishStripeAccount{
+                    
+                } else if !didFinishStripeBank{
+                    
+                }
+                
+                //else if !didFinishSigningUp{
+                    
+                //}
+                
+                
                 
                 
             } else {

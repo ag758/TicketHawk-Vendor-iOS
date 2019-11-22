@@ -50,7 +50,7 @@ final class StripeClient {
     return url
   }()
     
-    func completeCharge(with token: STPToken, amount: Int, completion: @escaping (Result) -> Void) {
+    func completeCharge(with token: STPToken, amount: Int, completion: @escaping (String) -> Void) {
         // 1
         let url = baseURL.appendingPathComponent("charge")
         // 2
@@ -64,12 +64,9 @@ final class StripeClient {
         Alamofire.request(url, method: .post, parameters: params)
             .validate(statusCode: 200..<300)
             .responseString { response in
-                switch response.result {
-                case .success:
-                    completion(Result.success)
-                case .failure(let error):
-                    completion(Result.failure(error))
-                }
+                
+                let s = String(data: response.data ?? Data(), encoding: .utf8)
+                completion(s ?? "")
         }
     }
   

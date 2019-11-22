@@ -118,7 +118,7 @@ class VendorViewController3: UIViewController ,UITableViewDelegate, UITableViewD
             ref?.child("vendors/\(userID)/organizationProfileImage").setValue(pictureURLTextField.text)
             
             //set flag did finish setting up
-            ref?.child("vendors/\(userID)/didFinishSigningUp").setValue(true)
+            ref?.child("vendors/\(userID)/didFinishBasicAccount").setValue(true)
             
             //set banned to false
             ref?.child("vendors/\(userID)/banned").setValue(false)

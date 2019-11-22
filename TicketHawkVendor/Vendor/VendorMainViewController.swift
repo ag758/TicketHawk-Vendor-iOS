@@ -82,7 +82,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 }
                 let next = self.storyboard!.instantiateViewController(withIdentifier: "splitViewController") as! SplitViewController
-                self.present(next, animated: false, completion: nil)
+                self.present(next, animated: true, completion: nil)
                 return
             } else {
                 self.onCreateContinue()

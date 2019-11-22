@@ -32,7 +32,7 @@ import FirebaseDatabase
 
 enum Constants {
   static let publishableKey = "pk_test_fKyLqJd3qZN9L1aUlHCIobOi00PTyZP089"
-  static let baseURLString = "https://secure-coast-21802.herokuapp.com"
+  static let baseURLString = "https://secret-river-64641.herokuapp.com"
   static let defaultCurrency = "usd"
   static let defaultDescription = "Purchase from TicketHawk"
     
@@ -40,6 +40,10 @@ enum Constants {
   static let termsOfServiceURL = "http://www.google.com"
     static let howToGetPaidURL = "http://www.yahoo.com"
   static let howToReportURL = "http://www.facebook.com"
+    
+    static let stripeConnectedAccountAgreementURL = "https://stripe.com/connect-account/legal"
+    
+    static let stripeAccountCreateURL = "https://arcane-wildwood-28356.herokuapp.com"
     
     static let ref = Database.database().reference()
     static var greenColor: UIColor = hexStringToUIColor(hex: "#77FF73")
