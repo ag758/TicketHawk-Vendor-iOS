@@ -42,6 +42,8 @@ enum Constants {
   static let howToReportURL = "http://www.facebook.com"
     
     static let stripeConnectedAccountAgreementURL = "https://stripe.com/connect-account/legal"
+    static let stripe_success_url = ""
+    static let stripe_failure_url = ""
     
     static let stripeAccountCreateURL = "https://arcane-wildwood-28356.herokuapp.com"
     

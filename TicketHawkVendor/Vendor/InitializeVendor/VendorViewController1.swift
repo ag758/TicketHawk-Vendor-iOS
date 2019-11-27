@@ -98,6 +98,8 @@ class VendorViewController1: UIViewController {
             
             let didFinishSigningUp = value?["didFinishSigningUp"] as? Bool ?? false
             
+            let didFinishAdditionalDetails = value?["didFinishAdditionalDetails"] as? Bool ?? false
+            
             if (!didFinishSigningUp){
                 //Either they did not finish making their profile or this is their first time creating their profile
                 self.ref?.child("vendors/\(userID)/didFinishSigningUp").setValue(false)
@@ -121,8 +123,14 @@ class VendorViewController1: UIViewController {
                     let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorViewController2") as! VendorViewController2
                     self.present(next, animated: true, completion: nil)
                 } else if !didFinishStripeAccount{
+                    let next =
+                        self.storyboard!.instantiateViewController(withIdentifier:
+                    "vendorStripeAccountCreationController") as! VendorStripeAccountCreationController
+                    self.present(next, animated: true, completion: nil)
                     
                 } else if !didFinishStripeBank{
+                    
+                } else if !didFinishAdditionalDetails{
                     
                 }
                 

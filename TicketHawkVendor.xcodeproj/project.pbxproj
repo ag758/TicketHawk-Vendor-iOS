@@ -22,6 +22,7 @@
 		569D445B22C7FCC2001353CB /* VendorViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D445A22C7FCC2001353CB /* VendorViewController1.swift */; };
 		569D445D22C81F20001353CB /* VendorViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D445C22C81F20001353CB /* VendorViewController2.swift */; };
 		56B00EC922F10A6800D4FC26 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B00EC822F10A6800D4FC26 /* Vendor.swift */; };
+		56BEE940238E0E4D000F11BA /* VendorStripeAccountCreationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEE93F238E0E4D000F11BA /* VendorStripeAccountCreationController.swift */; };
 		56CFF16C22D18C6600459985 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CFF16B22D18C6600459985 /* CreateEventViewController.swift */; };
 		56CFF17022D1965E00459985 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CFF16F22D1965E00459985 /* CustomUITextField.swift */; };
 		56D7F2ED22CE6AA30086AA5C /* VendorViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */; };
@@ -82,6 +83,7 @@
 		569D445A22C7FCC2001353CB /* VendorViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController1.swift; sourceTree = "<group>"; };
 		569D445C22C81F20001353CB /* VendorViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController2.swift; sourceTree = "<group>"; };
 		56B00EC822F10A6800D4FC26 /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
+		56BEE93F238E0E4D000F11BA /* VendorStripeAccountCreationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorStripeAccountCreationController.swift; sourceTree = "<group>"; };
 		56CFF16B22D18C6600459985 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		56CFF16F22D1965E00459985 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController3.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				569D445A22C7FCC2001353CB /* VendorViewController1.swift */,
 				569D445C22C81F20001353CB /* VendorViewController2.swift */,
 				56D7F2EC22CE6AA30086AA5C /* VendorViewController3.swift */,
+				56BEE93F238E0E4D000F11BA /* VendorStripeAccountCreationController.swift */,
 			);
 			path = InitializeVendor;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				56E24FF3231DF1730084950C /* Ticket.swift in Sources */,
 				56CFF16C22D18C6600459985 /* CreateEventViewController.swift in Sources */,
 				5656DA3922C060710079920C /* AppDelegate.swift in Sources */,
+				56BEE940238E0E4D000F11BA /* VendorStripeAccountCreationController.swift in Sources */,
 				56F28D142332F98C005255D9 /* QRScannerView.swift in Sources */,
 				56CFF17022D1965E00459985 /* CustomUITextField.swift in Sources */,
 				566B6EA2233EDCD30023BC24 /* VendorClosedViewController.swift in Sources */,

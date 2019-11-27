@@ -43,30 +43,38 @@ final class StripeClient {
     // private
   }
   
-  private lazy var baseURL: URL = {
-    guard let url = URL(string: Constants.baseURLString) else {
+  private lazy var accountURL: URL = {
+    guard let url = URL(string: Constants.stripeAccountCreateURL) else {
       fatalError("Invalid URL")
     }
     return url
   }()
     
-    func completeCharge(with token: STPToken, amount: Int, completion: @escaping (String) -> Void) {
+    func createAccount(with firstName: String, lastName: String, dobDay: Int, dobMonth: Int, dobYear: Int, lastFourSSN: Int,  completion: @escaping (String) -> Void) {
         // 1
-        let url = baseURL.appendingPathComponent("charge")
+        let url = accountURL.appendingPathComponent("create")
         // 2
         let params: [String: Any] = [
-            "token": token.tokenId,
-            "amount": amount,
-            "currency": Constants.defaultCurrency,
-            "description": Constants.defaultDescription
+            "first_name": firstName,
+            "last_name": lastName,
+            "dob_day": dobDay,
+            "dob_month": dobMonth,
+            "dob_year": dobYear,
+            "ssn_last_4": lastFourSSN
         ]
         // 3
         Alamofire.request(url, method: .post, parameters: params)
             .validate(statusCode: 200..<300)
             .responseString { response in
                 
-                let s = String(data: response.data ?? Data(), encoding: .utf8)
-                completion(s ?? "")
+                let s = String(data: response.data ?? Data(), encoding: .utf8) ?? ""
+                
+                switch response.result {
+                case .success:
+                    completion(s)
+                case .failure( _):
+                    completion("Error")
+                }
         }
     }
   

@@ -117,9 +117,6 @@ class VendorViewController3: UIViewController ,UITableViewDelegate, UITableViewD
             
             ref?.child("vendors/\(userID)/organizationProfileImage").setValue(pictureURLTextField.text)
             
-            //set flag did finish setting up
-            ref?.child("vendors/\(userID)/didFinishBasicAccount").setValue(true)
-            
             //set banned to false
             ref?.child("vendors/\(userID)/banned").setValue(false)
             
@@ -128,9 +125,12 @@ class VendorViewController3: UIViewController ,UITableViewDelegate, UITableViewD
             
             ref?.child("vendors/\(userID)/primaryCommunity").setValue(intendedCommunity)
             
+            //set flag did finish setting up
+            ref?.child("vendors/\(userID)/didFinishBasicAccount").setValue(true)
+            
             //allow, transition to main vendor activity
             
-            let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorNavigationController") as! UINavigationController
+            let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorStripeAccountCreationController") as! VendorStripeAccountCreationController
             self.present(next, animated: true, completion: nil)
             
             
