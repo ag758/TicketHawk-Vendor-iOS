@@ -45,7 +45,7 @@ enum Constants {
     static let stripe_success_url = ""
     static let stripe_failure_url = ""
     
-    static let stripeAccountCreateURL = "https://arcane-wildwood-28356.herokuapp.com"
+    static let stripeAccountCreateURL = "https://infinite-brushlands-30316.herokuapp.com"
     
     static let ref = Database.database().reference()
     static var greenColor: UIColor = hexStringToUIColor(hex: "#77FF73")

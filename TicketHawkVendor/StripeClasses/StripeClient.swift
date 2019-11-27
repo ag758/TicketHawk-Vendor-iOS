@@ -50,17 +50,15 @@ final class StripeClient {
     return url
   }()
     
-    func createAccount(with firstName: String, lastName: String, dobDay: Int, dobMonth: Int, dobYear: Int, lastFourSSN: Int,  completion: @escaping (String) -> Void) {
+    func createAccount(with firstName: String, lastName: String, completion: @escaping (String) -> Void) {
         // 1
         let url = accountURL.appendingPathComponent("create")
+        
+        print(url)
         // 2
         let params: [String: Any] = [
             "first_name": firstName,
-            "last_name": lastName,
-            "dob_day": dobDay,
-            "dob_month": dobMonth,
-            "dob_year": dobYear,
-            "ssn_last_4": lastFourSSN
+            "last_name": lastName
         ]
         // 3
         Alamofire.request(url, method: .post, parameters: params)
@@ -69,10 +67,12 @@ final class StripeClient {
                 
                 let s = String(data: response.data ?? Data(), encoding: .utf8) ?? ""
                 
+                print(s)
                 switch response.result {
                 case .success:
                     completion(s)
                 case .failure( _):
+                    print(response.error)
                     completion("Error")
                 }
         }

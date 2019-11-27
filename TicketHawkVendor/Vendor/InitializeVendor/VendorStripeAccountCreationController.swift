@@ -16,13 +16,6 @@ class VendorStripeAccountCreationController: UIViewController {
     
     @IBOutlet weak var lastNameField: UITextField!
     
-    @IBOutlet weak var dobMonthField: UITextField!
-    
-    @IBOutlet weak var dobDayField: UITextField!
-    
-    @IBOutlet weak var dobYearField: UITextField!
-    
-    @IBOutlet weak var ssnField: UITextField!
     
     @IBOutlet weak var nextPressed: UIButton!
     
@@ -36,16 +29,13 @@ class VendorStripeAccountCreationController: UIViewController {
         
         ref = Constants.ref
 
+        loadingIndicator.isHidden = true
         
     }
     
     func checkConditions()->Bool{
         if firstNameField.text?.isEmpty == false
             && lastNameField.text?.isEmpty == false
-            && dobMonthField.text?.count ?? 0 > 0
-            && dobDayField.text?.count ?? 0 > 0
-            && dobYearField.text?.count == 4
-            && ssnField.text?.count == 4
         {
             //print("A")
             return true
@@ -58,17 +48,12 @@ class VendorStripeAccountCreationController: UIViewController {
     @IBAction func nextPressed(_ sender: Any) {
         
         loadingIndicator.startAnimating()
+        loadingIndicator.isHidden = false
         
         if(checkConditions()){
             
-            StripeClient.shared.createAccount(with: firstNameField.text ?? "", lastName: lastNameField.text ?? "", dobDay: Int(dobDayField.text ?? "") ?? 0, dobMonth: Int(dobMonthField.text ?? "") ?? 0, dobYear: Int(dobYearField.text ?? "") ?? 0, lastFourSSN: Int(ssnField.text ?? "") ?? 0) { result in
+            StripeClient.shared.createAccount(with: firstNameField.text ?? "", lastName: lastNameField.text ?? "") { result in
                 
-                print(self.firstNameField.text)
-                print(self.lastNameField.text)
-                print(Int(self.dobDayField.text ?? "") ?? 0)
-                print(Int(self.dobMonthField.text ?? "") ?? 0)
-                print(Int(self.dobYearField.text ?? "") ?? 0)
-                print(Int(self.ssnField.text ?? "") ?? 0)
                 
                 
                 if (result != "Error"){
@@ -83,12 +68,18 @@ class VendorStripeAccountCreationController: UIViewController {
                     //set flag did finish setting up
                     self.ref?.child("vendors/\(userID)/didFinishStripeAccount").setValue(true)
                     
+                    self.loadingIndicator.stopAnimating()
+                    self.loadingIndicator.isHidden = true
+                    
                     //next steps
                     
                 } else {
                     let alert = UIAlertController(title: "Verification did not succeed.", message: "Please verify your information and try again.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     self.present(alert, animated: true)
+                    
+                    self.loadingIndicator.stopAnimating()
+                    self.loadingIndicator.isHidden = true
                 }
             }
         
@@ -98,7 +89,7 @@ class VendorStripeAccountCreationController: UIViewController {
             
         }
         
-        loadingIndicator.stopAnimating()
+        
         
         
     }
@@ -112,6 +103,8 @@ class VendorStripeAccountCreationController: UIViewController {
         } else {
             UIApplication.shared.openURL(url)
         }
+        
+        
         
     
     }
