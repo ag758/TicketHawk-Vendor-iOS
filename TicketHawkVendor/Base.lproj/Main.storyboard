@@ -480,7 +480,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Identify Verification" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-No-GNd">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Identity Verification" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-No-GNd">
                                 <rect key="frame" x="20" y="20" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="d02-YN-UAh"/>
@@ -548,35 +548,13 @@
                                 </constraints>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="By registering for a Stripe Connect account, you agree to the" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcv-ny-r88">
-                                <rect key="frame" x="20" y="240" width="280" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="toZ-by-Be1"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gX5-qe-F7x">
-                                <rect key="frame" x="20" y="295" width="280" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="Stripe Connected Account Agreement"/>
-                                <connections>
-                                    <action selector="stripeConnectedPressed:" destination="jnk-Wt-9tg" eventType="touchUpInside" id="BIf-0L-rzg"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gX5-qe-F7x" firstAttribute="leading" secondItem="BCy-VK-tcg" secondAttribute="leading" constant="20" id="0dQ-jC-ed0"/>
-                            <constraint firstItem="Rcv-ny-r88" firstAttribute="top" secondItem="6gi-qc-gMu" secondAttribute="bottom" constant="20" id="36h-er-R8r"/>
-                            <constraint firstItem="BCy-VK-tcg" firstAttribute="trailing" secondItem="Rcv-ny-r88" secondAttribute="trailing" constant="20" id="5ec-Ze-ylV"/>
                             <constraint firstItem="V3z-LB-aZy" firstAttribute="top" secondItem="Eu9-No-GNd" secondAttribute="bottom" constant="10" id="6X1-VG-jmY"/>
                             <constraint firstItem="Eu9-No-GNd" firstAttribute="leading" secondItem="BCy-VK-tcg" secondAttribute="leading" constant="20" id="8RP-P9-vNo"/>
                             <constraint firstItem="BCy-VK-tcg" firstAttribute="trailing" secondItem="Eu9-No-GNd" secondAttribute="trailing" id="9f6-yw-C4b"/>
-                            <constraint firstItem="gX5-qe-F7x" firstAttribute="top" secondItem="Rcv-ny-r88" secondAttribute="bottom" constant="10" id="A7l-G7-a89"/>
                             <constraint firstItem="6gi-qc-gMu" firstAttribute="leading" secondItem="BCy-VK-tcg" secondAttribute="leading" constant="20" id="En4-rb-GqN"/>
-                            <constraint firstItem="Rcv-ny-r88" firstAttribute="leading" secondItem="BCy-VK-tcg" secondAttribute="leading" constant="20" id="Iqe-Pn-NM2"/>
                             <constraint firstItem="BCy-VK-tcg" firstAttribute="bottom" secondItem="veA-t8-g7s" secondAttribute="bottom" constant="30" id="MUa-2G-qfh"/>
                             <constraint firstItem="BCy-VK-tcg" firstAttribute="trailing" secondItem="9TI-mc-y64" secondAttribute="trailing" constant="20" id="N2d-FZ-Yjv"/>
                             <constraint firstItem="veA-t8-g7s" firstAttribute="leading" secondItem="FX6-Gv-q60" secondAttribute="trailing" constant="20" id="QOg-KC-dK5"/>
@@ -588,7 +566,6 @@
                             <constraint firstItem="BCy-VK-tcg" firstAttribute="trailing" secondItem="veA-t8-g7s" secondAttribute="trailing" constant="30" id="ZVL-Dq-8FL"/>
                             <constraint firstItem="Eu9-No-GNd" firstAttribute="top" secondItem="BCy-VK-tcg" secondAttribute="top" id="bSF-yh-jih"/>
                             <constraint firstItem="6gi-qc-gMu" firstAttribute="top" secondItem="yzm-IX-5ue" secondAttribute="bottom" id="dkd-xs-gRF"/>
-                            <constraint firstItem="BCy-VK-tcg" firstAttribute="trailing" secondItem="gX5-qe-F7x" secondAttribute="trailing" constant="20" id="i2n-k9-Rbe"/>
                             <constraint firstItem="yzm-IX-5ue" firstAttribute="leading" secondItem="csk-lr-zPL" secondAttribute="leading" constant="20" id="jX2-Ao-lEK"/>
                             <constraint firstItem="BCy-VK-tcg" firstAttribute="trailing" secondItem="yzm-IX-5ue" secondAttribute="trailing" constant="20" id="ndS-v1-XOH"/>
                             <constraint firstItem="9TI-mc-y64" firstAttribute="baseline" secondItem="6gi-qc-gMu" secondAttribute="baseline" id="q7q-G9-OqS"/>
@@ -607,10 +584,106 @@
             </objects>
             <point key="canvasLocation" x="1241.25" y="-320.07042253521126"/>
         </scene>
-        <!--View Controller-->
+        <!--Vendor Stripe Account Update Controller-->
+        <scene sceneID="kQa-Zv-uP1">
+            <objects>
+                <viewController storyboardIdentifier="vendorStripeAccountUpdateController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="toD-Qx-tr6" customClass="VendorStripeAccountUpdateController" customModule="TIcketHawkVendor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZG7-n5-hUD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Identity Verification" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnm-ur-hIS">
+                                <rect key="frame" x="20" y="20" width="280" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="r0o-aX-gA8"/>
+                                </constraints>
+                                <color key="textColor" red="0.46666666670000001" green="1" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vtb-bh-0kj">
+                                <rect key="frame" x="20" y="125" width="280" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="Stripe Connected Account Agreement"/>
+                                <connections>
+                                    <action selector="stripeConnectPressed:" destination="toD-Qx-tr6" eventType="touchUpInside" id="Cte-Xw-c16"/>
+                                    <action selector="stripeConnectedPressed:" destination="jnk-Wt-9tg" eventType="touchUpInside" id="cUz-Ru-Nmk"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="By registering for a Stripe Connect account, you agree to the" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F12-pv-dfi">
+                                <rect key="frame" x="20" y="70" width="280" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="OTI-Ob-gKZ"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln7-KJ-OrZ">
+                                <rect key="frame" x="250" y="498" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1KJ-Ze-OD1"/>
+                                    <constraint firstAttribute="width" constant="40" id="KTc-8e-tHx"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="button_next"/>
+                                <connections>
+                                    <action selector="goBack:" destination="dDG-LQ-Otd" eventType="touchUpInside" id="rU2-Pc-ssG"/>
+                                    <action selector="nextPressed:" destination="YJg-xl-M84" eventType="touchUpInside" id="J23-WD-gDY"/>
+                                    <action selector="nextPressed:" destination="toD-Qx-tr6" eventType="touchUpInside" id="RUt-lD-PjS"/>
+                                    <action selector="nextPressed:" destination="jnk-Wt-9tg" eventType="touchUpInside" id="flc-iq-fhI"/>
+                                    <action selector="nextTouched:" destination="bW6-40-EDh" eventType="touchUpInside" id="ldV-Tj-3ov"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cd-R9-FoE">
+                                <rect key="frame" x="20" y="161" width="280" height="317"/>
+                                <string key="text">In the next step, a URL will be opened in your web browser. Please provide all information to the best of your ability to ensure no future problems with payouts.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cIW-z2-4Lw">
+                                <rect key="frame" x="210" y="508" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="2Cx-xh-02b"/>
+                                    <constraint firstAttribute="height" constant="20" id="yvu-kx-b8S"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hzp-6j-N40" firstAttribute="trailing" secondItem="4Cd-R9-FoE" secondAttribute="trailing" constant="20" id="05a-H0-Jl2"/>
+                            <constraint firstItem="4Cd-R9-FoE" firstAttribute="top" secondItem="Vtb-bh-0kj" secondAttribute="bottom" constant="10" id="2qU-Ik-N0f"/>
+                            <constraint firstItem="Hzp-6j-N40" firstAttribute="trailing" secondItem="Ln7-KJ-OrZ" secondAttribute="trailing" constant="30" id="Ecq-4u-SNN"/>
+                            <constraint firstItem="Hzp-6j-N40" firstAttribute="trailing" secondItem="F12-pv-dfi" secondAttribute="trailing" constant="20" id="GV0-yn-sIJ"/>
+                            <constraint firstItem="cIW-z2-4Lw" firstAttribute="centerY" secondItem="Ln7-KJ-OrZ" secondAttribute="centerY" id="Hld-EY-UV6"/>
+                            <constraint firstItem="Hzp-6j-N40" firstAttribute="trailing" secondItem="Vtb-bh-0kj" secondAttribute="trailing" constant="20" id="JzD-Jj-rpU"/>
+                            <constraint firstItem="F12-pv-dfi" firstAttribute="top" secondItem="rnm-ur-hIS" secondAttribute="bottom" constant="10" id="K9y-pz-4PE"/>
+                            <constraint firstItem="Ln7-KJ-OrZ" firstAttribute="top" secondItem="4Cd-R9-FoE" secondAttribute="bottom" constant="20" id="MgD-5d-Mmh"/>
+                            <constraint firstItem="4Cd-R9-FoE" firstAttribute="leading" secondItem="Hzp-6j-N40" secondAttribute="leading" constant="20" id="NWa-RM-oaX"/>
+                            <constraint firstItem="Hzp-6j-N40" firstAttribute="bottom" secondItem="Ln7-KJ-OrZ" secondAttribute="bottom" constant="30" id="RQx-no-X1m"/>
+                            <constraint firstItem="Vtb-bh-0kj" firstAttribute="top" secondItem="F12-pv-dfi" secondAttribute="bottom" constant="10" id="RYq-8n-I9t"/>
+                            <constraint firstItem="rnm-ur-hIS" firstAttribute="top" secondItem="Hzp-6j-N40" secondAttribute="top" id="eAQ-Dr-3dN"/>
+                            <constraint firstItem="rnm-ur-hIS" firstAttribute="leading" secondItem="Hzp-6j-N40" secondAttribute="leading" constant="20" id="ej4-DS-cWl"/>
+                            <constraint firstItem="F12-pv-dfi" firstAttribute="leading" secondItem="ZG7-n5-hUD" secondAttribute="leading" constant="20" id="fWt-Sa-kiQ"/>
+                            <constraint firstItem="Hzp-6j-N40" firstAttribute="trailing" secondItem="rnm-ur-hIS" secondAttribute="trailing" constant="20" id="lvW-wy-Ysg"/>
+                            <constraint firstItem="Vtb-bh-0kj" firstAttribute="leading" secondItem="ZG7-n5-hUD" secondAttribute="leading" constant="20" id="mPH-by-zt5"/>
+                            <constraint firstItem="Ln7-KJ-OrZ" firstAttribute="leading" secondItem="cIW-z2-4Lw" secondAttribute="trailing" constant="20" id="tm8-dc-kNe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hzp-6j-N40"/>
+                    </view>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="cIW-z2-4Lw" id="viY-gD-l0C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k25-ay-OMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1995" y="-321"/>
+        </scene>
+        <!--Vendor Stripe Bank Controller-->
         <scene sceneID="ev2-r4-zZF">
             <objects>
-                <viewController id="QtJ-Me-hkr" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vendorStripeBankController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QtJ-Me-hkr" customClass="VendorStripeBankController" customModule="TIcketHawkVendor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eT9-BH-BbR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -723,7 +796,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9Q-gL-LTR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1958" y="-321"/>
+            <point key="canvasLocation" x="2835" y="-321"/>
         </scene>
         <!--Vendor Main View Controller-->
         <scene sceneID="yWC-gb-cQM">

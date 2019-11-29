@@ -42,10 +42,12 @@ enum Constants {
   static let howToReportURL = "http://www.facebook.com"
     
     static let stripeConnectedAccountAgreementURL = "https://stripe.com/connect-account/legal"
-    static let stripe_success_url = ""
-    static let stripe_failure_url = ""
+    static let stripe_success_url = "http://www.google.com"
+    static let stripe_failure_url = "http://www.google.com"
     
     static let stripeAccountCreateURL = "https://infinite-brushlands-30316.herokuapp.com"
+    static let stripeAccountUpdateURL =
+        "https://pacific-headland-27171.herokuapp.com"
     
     static let ref = Database.database().reference()
     static var greenColor: UIColor = hexStringToUIColor(hex: "#77FF73")

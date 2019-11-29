@@ -128,9 +128,13 @@ class VendorViewController1: UIViewController {
                     "vendorStripeAccountCreationController") as! VendorStripeAccountCreationController
                     self.present(next, animated: true, completion: nil)
                     
-                } else if !didFinishStripeBank{
-                    
                 } else if !didFinishAdditionalDetails{
+                    let next =
+                        self.storyboard!.instantiateViewController(withIdentifier:
+                            "vendorStripeAccountUpdateController") as! VendorStripeAccountUpdateController
+                    self.present(next, animated: true, completion: nil)
+                }
+                else if !didFinishStripeBank{
                     
                 }
                 

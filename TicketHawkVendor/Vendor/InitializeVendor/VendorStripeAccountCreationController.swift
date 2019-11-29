@@ -73,6 +73,9 @@ class VendorStripeAccountCreationController: UIViewController {
                     
                     //next steps
                     
+                    let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorStripeAccountUpdateController") as! VendorStripeAccountUpdateController
+                    self.present(next, animated: true, completion: nil)
+                    
                 } else {
                     let alert = UIAlertController(title: "Verification did not succeed.", message: "Please verify your information and try again.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -92,21 +95,6 @@ class VendorStripeAccountCreationController: UIViewController {
         
         
         
-    }
-    @IBAction func stripeConnectedPressed(_ sender: Any) {
-        guard let url = URL(string: Constants.stripeConnectedAccountAgreementURL) else {
-            return //be safe
-        }
-        
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
-        
-        
-        
-    
     }
     
 }
