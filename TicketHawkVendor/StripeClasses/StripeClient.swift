@@ -140,5 +140,66 @@ final class StripeClient {
                 }
         }
     }
+    
+    private lazy var bankTokenGenerate: URL = {
+        guard let url = URL(string: Constants.stripeBankTokenGenerateURL) else {
+            fatalError("Invalid URL")
+        }
+        return url
+    }()
+    
+    private lazy var bankUpdate: URL = {
+        guard let url = URL(string: Constants.stripeBankSetURL) else {
+            fatalError("Invalid URL")
+        }
+        return url
+    }()
+    
+    func setBankToken(accountName: String, accountNumber: String, routingNumber: String, accountID: String, completion: @escaping (String) -> Void) {
+        // 1
+        let url1 = bankTokenGenerate.appendingPathComponent("create")
+        let url2 = bankUpdate.appendingPathComponent("create")
+        
+        // 2
+        let params: [String: Any] = [
+            "account_holder_name": accountName,
+            "routing_number": routingNumber,
+            "account_number": accountNumber
+        ]
+        // 3
+        Alamofire.request(url1, method: .post, parameters: params)
+            .validate(statusCode: 200..<300)
+            .responseString { response in
+                
+                let s = String(data: response.data ?? Data(), encoding: .utf8) ?? ""
+                
+                print(s)
+                switch response.result {
+                case .success:
+                    
+                    let params: [String: Any] = [
+                        "bank_token": s,
+                        "account_id": accountID
+                    ]
+                    
+                
+                    Alamofire.request(url2, method: .post, parameters: params)
+                        .validate(statusCode: 200..<300)
+                        .responseString { response in
+                            
+                            switch response.result {
+                            case .success:
+                                completion(s)
+                            case .failure( _):
+                                print(response.error)
+                                completion("Error")
+                            }
+                    }
+                case .failure( _):
+                    print(response.error)
+                    completion("Error")
+                }
+        }
+    }
   
 }

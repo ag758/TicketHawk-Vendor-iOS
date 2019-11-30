@@ -11,6 +11,7 @@
 		561A643823909C3E001FFB2F /* VendorStripeAccountUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A643723909C3E001FFB2F /* VendorStripeAccountUpdateController.swift */; };
 		561A643A2390A7E7001FFB2F /* VendorStripeBankController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A64392390A7E7001FFB2F /* VendorStripeBankController.swift */; };
 		561B1F5722C06DD4001A0968 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */; };
+		5652370D23921E73003D85E3 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5652370C23921E73003D85E3 /* LoadingButton.swift */; };
 		5656DA3922C060710079920C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656DA3822C060710079920C /* AppDelegate.swift */; };
 		5656DA3E22C060710079920C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5656DA3C22C060710079920C /* Main.storyboard */; };
 		5656DA4022C060730079920C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5656DA3F22C060730079920C /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		561A643723909C3E001FFB2F /* VendorStripeAccountUpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorStripeAccountUpdateController.swift; sourceTree = "<group>"; };
 		561A64392390A7E7001FFB2F /* VendorStripeBankController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorStripeBankController.swift; sourceTree = "<group>"; };
 		561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		5652370C23921E73003D85E3 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		5656DA3522C060710079920C /* TIcketHawkVendor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TIcketHawkVendor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5656DA3822C060710079920C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5656DA3D22C060710079920C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				5665A2EE22C7F16B00148ADD /* GoogleService-Info.plist */,
 				56EE89D322DB8A2700A5267E /* Event.swift */,
 				56B00EC822F10A6800D4FC26 /* Vendor.swift */,
+				5652370C23921E73003D85E3 /* LoadingButton.swift */,
 				560CD18022D56CA600DCEA7C /* TicketType.swift */,
 				566B6E9F233EDB780023BC24 /* ClosedEvent.swift */,
 				56E24FF2231DF1730084950C /* Ticket.swift */,
@@ -556,6 +559,7 @@
 			files = (
 				561A643A2390A7E7001FFB2F /* VendorStripeBankController.swift in Sources */,
 				56F28D1923330703005255D9 /* VendorEventViewController.swift in Sources */,
+				5652370D23921E73003D85E3 /* LoadingButton.swift in Sources */,
 				56EAB8D82311C4FC0053A460 /* Constants.swift in Sources */,
 				56EAB8DB2311C6F80053A460 /* StripeClient.swift in Sources */,
 				569D445D22C81F20001353CB /* VendorViewController2.swift in Sources */,

@@ -760,10 +760,25 @@
                                 <state key="normal" backgroundImage="button_next"/>
                                 <connections>
                                     <action selector="goBack:" destination="dDG-LQ-Otd" eventType="touchUpInside" id="syg-xd-liY"/>
+                                    <action selector="nextPressed:" destination="QtJ-Me-hkr" eventType="touchUpInside" id="MyH-LQ-E5X"/>
                                     <action selector="nextPressed:" destination="YJg-xl-M84" eventType="touchUpInside" id="i5b-5z-534"/>
                                     <action selector="nextTouched:" destination="bW6-40-EDh" eventType="touchUpInside" id="Kgd-IW-giS"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Please provide a valid U.S. checking account. This will allow us to direct funds to your account." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YS-T3-6Zm">
+                                <rect key="frame" x="20" y="280" width="280" height="208"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="l2Q-Ub-N1e">
+                                <rect key="frame" x="210" y="508" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="NPU-uM-pkX"/>
+                                    <constraint firstAttribute="height" constant="20" id="Vx9-hM-l4k"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -774,13 +789,19 @@
                             <constraint firstItem="neF-7q-6Qg" firstAttribute="top" secondItem="ILe-IR-XIE" secondAttribute="bottom" constant="10" id="9tX-BF-aDe"/>
                             <constraint firstItem="M3h-lb-NSy" firstAttribute="trailing" secondItem="r3N-nO-9bF" secondAttribute="trailing" constant="20" id="BWY-eL-DsZ"/>
                             <constraint firstItem="M3h-lb-NSy" firstAttribute="trailing" secondItem="neF-7q-6Qg" secondAttribute="trailing" constant="20" id="DTc-o1-yBw"/>
+                            <constraint firstItem="4YS-T3-6Zm" firstAttribute="leading" secondItem="M3h-lb-NSy" secondAttribute="leading" constant="20" id="Ftf-Ov-Okt"/>
+                            <constraint firstItem="nH2-Nb-hQz" firstAttribute="top" secondItem="4YS-T3-6Zm" secondAttribute="bottom" constant="10" id="Gf1-WA-F1H"/>
+                            <constraint firstItem="4YS-T3-6Zm" firstAttribute="top" secondItem="y7I-YQ-bf2" secondAttribute="bottom" constant="10" id="PUy-JQ-QfD"/>
                             <constraint firstItem="M3h-lb-NSy" firstAttribute="trailing" secondItem="6C5-8x-AA2" secondAttribute="trailing" constant="20" id="Vr9-fv-eyQ"/>
                             <constraint firstItem="r3N-nO-9bF" firstAttribute="top" secondItem="6C5-8x-AA2" secondAttribute="bottom" constant="10" id="W2U-qr-bEY"/>
+                            <constraint firstItem="M3h-lb-NSy" firstAttribute="trailing" secondItem="4YS-T3-6Zm" secondAttribute="trailing" constant="20" id="Wzb-9a-4I3"/>
                             <constraint firstItem="ILe-IR-XIE" firstAttribute="leading" secondItem="eT9-BH-BbR" secondAttribute="leading" constant="20" id="bHm-WP-vM7"/>
+                            <constraint firstItem="nH2-Nb-hQz" firstAttribute="leading" secondItem="l2Q-Ub-N1e" secondAttribute="trailing" constant="20" id="flM-st-gaF"/>
                             <constraint firstItem="M3h-lb-NSy" firstAttribute="trailing" secondItem="ILe-IR-XIE" secondAttribute="trailing" constant="20" id="g6R-bs-vQb"/>
                             <constraint firstItem="ILe-IR-XIE" firstAttribute="top" secondItem="M3h-lb-NSy" secondAttribute="top" id="g6X-Tu-DtR"/>
                             <constraint firstItem="z0O-zt-KmM" firstAttribute="leading" secondItem="M3h-lb-NSy" secondAttribute="leading" constant="20" id="gL1-w8-aVz"/>
                             <constraint firstItem="z0O-zt-KmM" firstAttribute="top" secondItem="neF-7q-6Qg" secondAttribute="bottom" id="kke-JM-Zlj"/>
+                            <constraint firstItem="nH2-Nb-hQz" firstAttribute="centerY" secondItem="l2Q-Ub-N1e" secondAttribute="centerY" id="lHA-oA-wN4"/>
                             <constraint firstItem="M3h-lb-NSy" firstAttribute="trailing" secondItem="Gf0-YC-5mH" secondAttribute="trailing" constant="20" id="oGK-ef-S3t"/>
                             <constraint firstItem="M3h-lb-NSy" firstAttribute="trailing" secondItem="y7I-YQ-bf2" secondAttribute="trailing" constant="20" id="qGg-11-9o1"/>
                             <constraint firstItem="Gf0-YC-5mH" firstAttribute="top" secondItem="z0O-zt-KmM" secondAttribute="bottom" constant="10" id="s6C-az-6bX"/>
@@ -793,10 +814,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M3h-lb-NSy"/>
                     </view>
+                    <connections>
+                        <outlet property="accountNumberField" destination="6C5-8x-AA2" id="q4z-nR-SkC"/>
+                        <outlet property="firstLastField" destination="z0O-zt-KmM" id="EIs-83-jGz"/>
+                        <outlet property="loadingIndicator" destination="l2Q-Ub-N1e" id="0ea-kK-Xh3"/>
+                        <outlet property="routingNumberField" destination="y7I-YQ-bf2" id="5ii-vT-PVP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9Q-gL-LTR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2835" y="-321"/>
+            <point key="canvasLocation" x="2835" y="-321.12676056338029"/>
         </scene>
         <!--Vendor Main View Controller-->
         <scene sceneID="yWC-gb-cQM">
@@ -827,7 +854,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eVI-7n-3Dm">
-                                <rect key="frame" x="10" y="60" width="300" height="384"/>
+                                <rect key="frame" x="10" y="110" width="300" height="304"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="120" id="x17-wh-Pev" customClass="EventCustomClass" customModule="TIcketHawkVendor" customModuleProvider="target">
@@ -914,40 +941,80 @@
                                     <action selector="pastEventsPressed:" destination="ARG-Io-EVW" eventType="touchUpInside" id="eVF-SI-KE8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzL-lo-cB8" customClass="LoadingButton" customModule="TIcketHawkVendor" customModuleProvider="target">
+                                <rect key="frame" x="10" y="60" width="145" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="kCu-Zr-0Ze"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="verificationPressed:" destination="ARG-Io-EVW" eventType="touchUpInside" id="qN2-iw-huJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gye-e0-U7j">
+                                <rect key="frame" x="165" y="60" width="145" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Y1s-aC-B9O"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="bankUpdatePressed:" destination="ARG-Io-EVW" eventType="touchUpInside" id="XqF-4o-9AR"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Check Verification Frequently to Ensure On-Time Payouts" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQi-uM-jnh">
+                                <rect key="frame" x="10" y="424" width="300" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="6n9-Fm-YyO"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="sgr-xZ-5g0" firstAttribute="trailing" secondItem="gan-H5-OqZ" secondAttribute="trailing" constant="10" id="0cQ-Ds-kTN"/>
                             <constraint firstItem="gan-H5-OqZ" firstAttribute="width" secondItem="s2Q-Dd-0LR" secondAttribute="width" id="2CA-J6-o2Q"/>
                             <constraint firstItem="N4k-uL-d0F" firstAttribute="leading" secondItem="s2Q-Dd-0LR" secondAttribute="trailing" constant="10" id="2CY-oR-Boa"/>
+                            <constraint firstItem="H9B-kc-ziL" firstAttribute="top" secondItem="DQi-uM-jnh" secondAttribute="bottom" constant="10" id="3zO-mt-jHf"/>
                             <constraint firstItem="H9B-kc-ziL" firstAttribute="leading" secondItem="sgr-xZ-5g0" secondAttribute="leading" constant="10" id="4hv-3A-kim"/>
-                            <constraint firstItem="H9B-kc-ziL" firstAttribute="top" secondItem="eVI-7n-3Dm" secondAttribute="bottom" constant="10" id="7Na-He-PqO"/>
                             <constraint firstItem="N4k-uL-d0F" firstAttribute="width" secondItem="s2Q-Dd-0LR" secondAttribute="width" id="95M-xj-PCw"/>
                             <constraint firstItem="sgr-xZ-5g0" firstAttribute="trailing" secondItem="eVI-7n-3Dm" secondAttribute="trailing" constant="10" id="CUF-XQ-YIk"/>
-                            <constraint firstItem="eVI-7n-3Dm" firstAttribute="top" secondItem="s2Q-Dd-0LR" secondAttribute="bottom" constant="10" id="FVZ-zi-M0y"/>
+                            <constraint firstItem="YzL-lo-cB8" firstAttribute="leading" secondItem="sgr-xZ-5g0" secondAttribute="leading" constant="10" id="HhZ-oV-McO"/>
                             <constraint firstItem="sgr-xZ-5g0" firstAttribute="trailing" secondItem="H9B-kc-ziL" secondAttribute="trailing" constant="10" id="JZA-ab-ZK8"/>
                             <constraint firstItem="s2Q-Dd-0LR" firstAttribute="top" secondItem="sgr-xZ-5g0" secondAttribute="top" constant="10" id="Jya-Ic-Czq"/>
+                            <constraint firstItem="YzL-lo-cB8" firstAttribute="top" secondItem="s2Q-Dd-0LR" secondAttribute="bottom" constant="10" id="L64-3W-1Jk"/>
                             <constraint firstItem="N4k-uL-d0F" firstAttribute="top" secondItem="sgr-xZ-5g0" secondAttribute="top" constant="10" id="OdN-cl-zxx"/>
+                            <constraint firstItem="sgr-xZ-5g0" firstAttribute="trailing" secondItem="gye-e0-U7j" secondAttribute="trailing" constant="10" id="Pro-MN-xen"/>
                             <constraint firstItem="eVI-7n-3Dm" firstAttribute="leading" secondItem="sgr-xZ-5g0" secondAttribute="leading" constant="10" id="RMz-YV-9Gm"/>
+                            <constraint firstItem="gye-e0-U7j" firstAttribute="top" secondItem="gan-H5-OqZ" secondAttribute="bottom" constant="10" id="UZp-QB-DAT"/>
                             <constraint firstItem="s2Q-Dd-0LR" firstAttribute="leading" secondItem="sgr-xZ-5g0" secondAttribute="leading" constant="10" id="VZR-fc-nXw"/>
                             <constraint firstItem="gan-H5-OqZ" firstAttribute="leading" secondItem="N4k-uL-d0F" secondAttribute="trailing" constant="10" id="WHG-rz-RCL"/>
+                            <constraint firstItem="DQi-uM-jnh" firstAttribute="top" secondItem="eVI-7n-3Dm" secondAttribute="bottom" constant="10" id="Yh7-lg-PYA"/>
+                            <constraint firstItem="eVI-7n-3Dm" firstAttribute="top" secondItem="YzL-lo-cB8" secondAttribute="bottom" constant="10" id="aYW-cZ-1qc"/>
                             <constraint firstItem="sgr-xZ-5g0" firstAttribute="bottom" secondItem="H9B-kc-ziL" secondAttribute="bottom" constant="10" id="hzR-Xr-a6y"/>
+                            <constraint firstItem="sgr-xZ-5g0" firstAttribute="trailing" secondItem="DQi-uM-jnh" secondAttribute="trailing" constant="10" id="mPc-U7-H3Z"/>
                             <constraint firstItem="gan-H5-OqZ" firstAttribute="top" secondItem="sgr-xZ-5g0" secondAttribute="top" constant="10" id="shC-N2-BaP"/>
+                            <constraint firstItem="gye-e0-U7j" firstAttribute="width" secondItem="YzL-lo-cB8" secondAttribute="width" id="xrz-g7-x3B"/>
+                            <constraint firstItem="gye-e0-U7j" firstAttribute="leading" secondItem="YzL-lo-cB8" secondAttribute="trailing" constant="10" id="xwG-tf-gY5"/>
+                            <constraint firstItem="DQi-uM-jnh" firstAttribute="leading" secondItem="sgr-xZ-5g0" secondAttribute="leading" constant="10" id="yZL-V9-bxN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sgr-xZ-5g0"/>
                     </view>
                     <navigationItem key="navigationItem" id="78I-SA-VqZ"/>
                     <connections>
+                        <outlet property="BankEditButton" destination="gye-e0-U7j" id="gsm-6s-OKW"/>
                         <outlet property="createEventButton" destination="gan-H5-OqZ" id="a9s-DE-XcH"/>
                         <outlet property="editProfileButton" destination="N4k-uL-d0F" id="Z2M-yh-16t"/>
                         <outlet property="eventsTableView" destination="eVI-7n-3Dm" id="5oJ-yk-RwL"/>
                         <outlet property="logOutButton" destination="s2Q-Dd-0LR" id="DGV-Eh-hzZ"/>
                         <outlet property="pastEvents" destination="H9B-kc-ziL" id="VuS-RB-InH"/>
+                        <outlet property="verificationButton" destination="YzL-lo-cB8" id="gCh-z3-MOC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWn-zT-lwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4372" y="-842.42878560719646"/>
+            <point key="canvasLocation" x="4370.625" y="-842.95774647887322"/>
         </scene>
         <!--Vendor Event View Controller-->
         <scene sceneID="sxR-r3-04q">

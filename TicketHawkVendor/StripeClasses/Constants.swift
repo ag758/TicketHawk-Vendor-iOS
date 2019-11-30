@@ -49,6 +49,9 @@ enum Constants {
     static let stripeAccountUpdateURL =
         "https://pacific-headland-27171.herokuapp.com"
     
+    static let stripeBankTokenGenerateURL = "https://limitless-crag-73993.herokuapp.com"
+    static let stripeBankSetURL = "https://pure-mountain-40233.herokuapp.com"
+    
     static let ref = Database.database().reference()
     static var greenColor: UIColor = hexStringToUIColor(hex: "#77FF73")
     static var almostBlack: UIColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)

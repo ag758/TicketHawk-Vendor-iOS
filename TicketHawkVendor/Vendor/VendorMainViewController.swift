@@ -43,6 +43,12 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var pastEvents: UIButton!
     
+    
+    @IBOutlet weak var verificationButton: LoadingButton!
+    
+    @IBOutlet weak var BankEditButton: UIButton!
+    
+    
     var ref: DatabaseReference?
     
     var events: [Event] = []
@@ -395,7 +401,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             
         logOutButton.setTitleColor(UIColor.white, for: .normal)
         
-        logOutButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
+        logOutButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.semibold)
         logOutButton.setTitle("Log Out", for: .normal)
         
         editProfileButton.backgroundColor = .clear
@@ -405,7 +411,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         
         editProfileButton.setTitleColor(UIColor.white, for: .normal)
         
-        editProfileButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
+        editProfileButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.semibold)
         editProfileButton.setTitle("Edit Profile", for: .normal)
         
         createEventButton.backgroundColor = .clear
@@ -414,7 +420,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         createEventButton.layer.borderColor = Constants.greenColor.cgColor
     createEventButton.setTitleColor(Constants.greenColor, for: .normal)
         
-        createEventButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
+        createEventButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.semibold)
         createEventButton.setTitle("Create Event", for: .normal)
         
         pastEvents.backgroundColor = .clear
@@ -423,8 +429,28 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         pastEvents.layer.borderColor = UIColor.white.cgColor
         pastEvents.setTitleColor(UIColor.white, for: .normal)
         
-        pastEvents.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
+        pastEvents.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.semibold)
         pastEvents.setTitle("Past Events", for: .normal)
+        
+        verificationButton.backgroundColor = .clear
+        verificationButton.layer.cornerRadius = 20
+        verificationButton.layer.borderWidth = 2
+        verificationButton.layer.borderColor = UIColor.white.cgColor
+        
+        verificationButton.setTitleColor(UIColor.white, for: .normal)
+        
+        verificationButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.semibold)
+        verificationButton.setTitle("Verification", for: .normal)
+        
+        BankEditButton.backgroundColor = .clear
+        BankEditButton.layer.cornerRadius = 20
+        BankEditButton.layer.borderWidth = 2
+        BankEditButton.layer.borderColor = UIColor.white.cgColor
+        
+        BankEditButton.setTitleColor(UIColor.white, for: .normal)
+        
+        BankEditButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.semibold)
+        BankEditButton.setTitle("Edit Bank", for: .normal)
     }
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
@@ -433,9 +459,48 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     @IBAction func pastEventsPressed(_ sender: Any) {
+        
         let vc = storyboard!.instantiateViewController(withIdentifier: "vendorClosedViewController") as! VendorClosedViewController
         self.navigationController!.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func verificationPressed(_ sender: Any) {
+        
+        verificationButton.showLoading()
+        
+        let user = Auth.auth().currentUser
+        
+        let userID: String = (user?.uid)!
+        
+        let vendorRef = ref?.child("vendors").child(userID)
+        
+        vendorRef?.observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            
+            ///If no value exists -- means false
+            let accountID = value?["stripeAcctID"] as? String ?? ""
+            
+            StripeClient.shared.updateAccount(accountID: accountID, failureURL: Constants.stripe_failure_url, successURL: Constants.stripe_success_url) { result in
+                
+                
+                
+                if (result != "Error"){
+                    
+                    self.openURL(s: result)
+                }
+                self.verificationButton.hideLoading()
+            }
+        })
+        
+    }
+    
+    
+    @IBAction func bankUpdatePressed(_ sender: Any) {
+        let vc = storyboard!.instantiateViewController(withIdentifier: "vendorStripeBankController") as! VendorStripeBankController
+        self.navigationController!.pushViewController(vc, animated: true)
+    }
+    
     
     func downloadImage(from url: URL, iv: UIImageView) {
         print("Download Started")
@@ -456,5 +521,17 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         
+    }
+    
+    func openURL(s: String){
+        guard let url = URL(string: s) else {
+            return //be safe
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
 }

@@ -135,13 +135,9 @@ class VendorViewController1: UIViewController {
                     self.present(next, animated: true, completion: nil)
                 }
                 else if !didFinishStripeBank{
-                    
-                }
-                
-                //else if !didFinishSigningUp{
-                    
-                //}
-                
+                    let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorStripeBankController") as! VendorStripeBankController
+                    self.present(next, animated: true, completion: nil)
+                } 
                 
                 
                 
