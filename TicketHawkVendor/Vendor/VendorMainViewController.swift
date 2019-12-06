@@ -481,7 +481,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             ///If no value exists -- means false
             let accountID = value?["stripeAcctID"] as? String ?? ""
             
-            StripeClient.shared.updateAccount(accountID: accountID, failureURL: Constants.stripe_failure_url, successURL: Constants.stripe_success_url) { result in
+            StripeClient.shared.accountLinkOnly(accountID: accountID, failureURL: Constants.stripe_failure_url, successURL: Constants.stripe_success_url) { result in
                 
                 
                 

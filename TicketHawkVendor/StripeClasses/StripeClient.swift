@@ -85,6 +85,32 @@ final class StripeClient {
         return url
     }()
     
+    func accountLinkOnly(accountID: String, failureURL: String, successURL: String, completion: @escaping (String) -> Void) {
+        let url3 = accountUpdateURL.appendingPathComponent("createAccountLink")
+        
+        let params: [String: Any] = [
+            "account_id": accountID,
+            "failure_url": failureURL,
+            "success_url": successURL
+        ]
+        
+        Alamofire.request(url3, method: .post, parameters: params)
+            .validate(statusCode: 200..<300)
+            .responseString { response in
+                
+                let s = String(data: response.data ?? Data(), encoding: .utf8) ?? ""
+                
+                print(s)
+                switch response.result {
+                case .success:
+                    completion(s)
+                case .failure( _):
+                    print(response.error)
+                    completion("Error")
+                }
+        }
+    }
+    
     func updateAccount(accountID: String, failureURL: String, successURL: String, completion: @escaping (String) -> Void) {
         // 1
         let url1 = accountUpdateURL.appendingPathComponent("updateTOS")
