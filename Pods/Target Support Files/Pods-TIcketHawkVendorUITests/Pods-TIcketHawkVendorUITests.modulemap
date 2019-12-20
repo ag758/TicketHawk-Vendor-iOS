@@ -1,0 +1,6 @@
+framework module Pods_TIcketHawkVendorUITests {
+  umbrella header "Pods-TIcketHawkVendorUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
