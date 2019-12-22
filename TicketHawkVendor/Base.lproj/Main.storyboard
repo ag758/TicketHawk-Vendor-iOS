@@ -1237,7 +1237,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DCq-FA-PxX">
-                                <rect key="frame" x="30" y="30" width="260" height="418"/>
+                                <rect key="frame" x="30" y="30" width="260" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="closedCell" rowHeight="120" id="dWn-Nl-VjU" customClass="ClosedEventTableViewCell" customModule="TIcketHawkVendor" customModuleProvider="target">
@@ -1308,45 +1308,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sh6-Pr-MGd">
-                                <rect key="frame" x="30" y="518" width="260" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="jZW-px-ib0"/>
-                                </constraints>
-                                <state key="normal" title="How do I claim payment?"/>
-                                <connections>
-                                    <action selector="howToClaimPaymentClicked:" destination="eum-j4-Mh5" eventType="touchUpInside" id="mXd-TJ-U2D"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eV-vJ-SWx">
-                                <rect key="frame" x="30" y="468" width="260" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Zs2-SA-TCh"/>
-                                </constraints>
-                                <state key="normal" title="uid"/>
-                                <connections>
-                                    <action selector="uidTouched:" destination="eum-j4-Mh5" eventType="touchUpInside" id="M9U-TY-wBt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Y5I-EE-kOc" firstAttribute="trailing" secondItem="Sh6-Pr-MGd" secondAttribute="trailing" constant="30" id="29L-1d-d6t"/>
                             <constraint firstItem="Y5I-EE-kOc" firstAttribute="trailing" secondItem="DCq-FA-PxX" secondAttribute="trailing" constant="30" id="33b-7k-3PD"/>
-                            <constraint firstItem="Sh6-Pr-MGd" firstAttribute="top" secondItem="5eV-vJ-SWx" secondAttribute="bottom" constant="20" id="BNK-44-DJA"/>
-                            <constraint firstItem="5eV-vJ-SWx" firstAttribute="top" secondItem="DCq-FA-PxX" secondAttribute="bottom" constant="20" id="Kbb-IB-fBY"/>
-                            <constraint firstItem="Y5I-EE-kOc" firstAttribute="trailing" secondItem="5eV-vJ-SWx" secondAttribute="trailing" constant="30" id="OLU-ea-3TB"/>
-                            <constraint firstItem="5eV-vJ-SWx" firstAttribute="leading" secondItem="Y5I-EE-kOc" secondAttribute="leading" constant="30" id="YnB-S5-aRn"/>
-                            <constraint firstItem="Sh6-Pr-MGd" firstAttribute="leading" secondItem="Y5I-EE-kOc" secondAttribute="leading" constant="30" id="aOL-aX-0KI"/>
+                            <constraint firstItem="Y5I-EE-kOc" firstAttribute="bottom" secondItem="DCq-FA-PxX" secondAttribute="bottom" constant="30" id="BFf-A3-nJ8"/>
                             <constraint firstItem="DCq-FA-PxX" firstAttribute="leading" secondItem="Y5I-EE-kOc" secondAttribute="leading" constant="30" id="bJv-mI-mXe"/>
-                            <constraint firstItem="Y5I-EE-kOc" firstAttribute="bottom" secondItem="Sh6-Pr-MGd" secondAttribute="bottom" constant="20" id="fd0-hD-ai7"/>
                             <constraint firstItem="DCq-FA-PxX" firstAttribute="top" secondItem="Y5I-EE-kOc" secondAttribute="top" constant="30" id="vC3-sw-FV2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Y5I-EE-kOc"/>
                     </view>
                     <connections>
                         <outlet property="closedEventsTableView" destination="DCq-FA-PxX" id="VSn-WH-Pex"/>
-                        <outlet property="uidTextView" destination="5eV-vJ-SWx" id="n3q-C3-reg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSa-dO-OEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2021,7 +1994,7 @@
         <!--Navigation Controller-->
         <scene sceneID="YYJ-Mw-jjs">
             <objects>
-                <navigationController storyboardIdentifier="vendorNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hU0-e8-vKA" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="vendorNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hU0-e8-vKA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="22j-Ct-mWB">

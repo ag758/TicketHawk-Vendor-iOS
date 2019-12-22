@@ -99,9 +99,29 @@ class VendorEventViewController: UIViewController {
             guard let alertController = alertController, let textField = alertController.textFields?.first else { return }
             print("entered \(String(describing: textField.text))")
             
-            if (textField.text == self.eventTitle){
+            if (textField.text?.lowercased() == self.eventTitle?.lowercased()){
                 //
                 
+                self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
+                  if var event = currentData.value {
+                    
+                    self.ref?.child("vendors").child(self.vendorID ?? "").child("closedEvents").child(self.eventID ?? "").setValue(event){ (error, ref) -> Void in
+                        
+                         self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").removeValue()
+                        
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    
+                    return TransactionResult.success(withValue: currentData)
+                  }
+                  return TransactionResult.success(withValue: currentData)
+                }) { (error, committed, snapshot) in
+                  if let error = error {
+                    print(error.localizedDescription)
+                  }
+                }
+                
+                /**
                 self.ref?.child("vendors").child(self.vendorID ?? "").child("events").child(self.eventID ?? "").observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     let event = snapshot.value
@@ -114,6 +134,7 @@ class VendorEventViewController: UIViewController {
                         self.navigationController?.popViewController(animated: true)
                     }
                 })
+                **/
                 
                 //
             } else {

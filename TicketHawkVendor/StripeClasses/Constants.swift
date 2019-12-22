@@ -38,7 +38,6 @@ enum Constants {
     
   static let privacyPolicyURL = "http://www.apple.com"
   static let termsOfServiceURL = "http://www.google.com"
-    static let howToGetPaidURL = "http://www.yahoo.com"
   static let howToReportURL = "http://www.facebook.com"
     
     static let stripeConnectedAccountAgreementURL = "https://stripe.com/connect-account/legal"

@@ -76,6 +76,9 @@ class VendorStripeBankController: UIViewController {
                         self.ref?.child("vendors/\(userID)/didFinishSigningUp").setValue(true)
                         
                         let next = self.storyboard!.instantiateViewController(withIdentifier: "vendorNavigationController") as! UINavigationController
+                        
+                        
+                        //self.navigationController?.present(next, animated: true, completion: nil)
                         self.present(next, animated: true, completion: nil)
                         
                         self.loadingIndicator.stopAnimating()

@@ -28,7 +28,6 @@ class VendorClosedViewController: UIViewController, UITableViewDataSource, UITab
     var closedEvents: [ClosedEvent] = []
 
     @IBOutlet weak var closedEventsTableView: UITableView!
-    @IBOutlet weak var uidTextView: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +41,6 @@ class VendorClosedViewController: UIViewController, UITableViewDataSource, UITab
         
         self.closedEventsTableView.rowHeight = 120
         
-        self.uidTextView.setTitle(Auth.auth().currentUser?.uid, for: .normal)
 
         // Do any additional setup after loading the view.
     }
@@ -140,28 +138,6 @@ class VendorClosedViewController: UIViewController, UITableViewDataSource, UITab
         
         cell.selectionStyle = .none
         return cell
-    }
-    
-    @IBAction func howToClaimPaymentClicked(_ sender: Any) {
-        guard let url = URL(string: Constants.howToGetPaidURL) else {
-            return //be safe
-        }
-        
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
-    }
-    
-    @IBAction func uidTouched(_ sender: Any) {
-        
-        
-        UIPasteboard.general.string = Auth.auth().currentUser?.uid
-        
-        let alert = UIAlertController(title: "Vendor ID Copied to Clipboard", message: "Please use this in your payment request email.", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
     
 }

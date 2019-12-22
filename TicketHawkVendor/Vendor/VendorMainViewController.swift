@@ -73,6 +73,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         
         self.onCreateRegardless()
         
+        
         // Attach a listener to read the data at our posts reference
         vendorRef?.observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
@@ -88,7 +89,9 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 }
                 let next = self.storyboard!.instantiateViewController(withIdentifier: "splitViewController") as! SplitViewController
-                self.present(next, animated: true, completion: nil)
+                
+                self.navigationController?.present(next, animated: true, completion: nil)
+                //self.present(next, animated: true, completion: nil)
                 return
             } else {
                 self.onCreateContinue()
