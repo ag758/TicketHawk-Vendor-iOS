@@ -949,7 +949,7 @@
                                     <action selector="bankUpdatePressed:" destination="ARG-Io-EVW" eventType="touchUpInside" id="XqF-4o-9AR"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Check Verification Frequently to ensure Payouts" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQi-uM-jnh">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Check Verification to ensure Successful Payments" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQi-uM-jnh">
                                 <rect key="frame" x="10" y="444" width="300" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="6n9-Fm-YyO"/>
