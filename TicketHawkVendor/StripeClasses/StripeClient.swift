@@ -78,6 +78,32 @@ final class StripeClient {
         }
     }
     
+    func checkVerificationStatus( accountID: String, completion: @escaping (String) -> Void) {
+        
+        let url = accountUpdateURL.appendingPathComponent("getVerificationStatus")
+        
+        let params: [String: Any] = [
+            "account_id": accountID
+        ]
+        
+        Alamofire.request(url, method: .post, parameters: params)
+            .validate(statusCode: 200..<300)
+            .responseString { response in
+                
+                var s = String(data: response.data ?? Data(), encoding: .utf8) ?? ""
+                print(s)
+                switch response.result {
+                case .success:
+                    completion(s)
+                case .failure( _):
+                    print(response.error)
+                    completion("Error")
+                }
+        }
+        
+        
+    }
+    
     private lazy var accountUpdateURL: URL = {
         guard let url = URL(string: Constants.stripeAccountUpdateURL) else {
             fatalError("Invalid URL")

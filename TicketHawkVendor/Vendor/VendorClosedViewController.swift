@@ -52,7 +52,7 @@ class VendorClosedViewController: UIViewController, UITableViewDataSource, UITab
             
             let event = snapshot.value as? NSDictionary ?? [:]
             
-            let title = event["eventTitle"] as! String
+            let title = event["eventTitle"] as? String ?? ""
             let endDateAndTime = event["endDateAndTime"] as? String ?? "No Date Found"
             let pictureURL = event["pictureURL"] as? String ?? ""
             let tickets = event["ticketTypes"] as? Dictionary ?? [:]
@@ -66,13 +66,19 @@ class VendorClosedViewController: UIViewController, UITableViewDataSource, UITab
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             
-            let d1: Date = dateFormatter.date(from: endDateAndTime)!
+            let d1: Date = dateFormatter.date(from: endDateAndTime) ?? Date()
             
             let closedEventInstance = ClosedEvent(key: id, eventTitle: title, grossSales: grossSales, netSales: netSales, closedDate: d1, going: going)
             
-            self.closedEvents.append(closedEventInstance)
-            self.closedEvents = self.sortTableViewByTime(events: self.closedEvents)
-            self.closedEventsTableView.reloadData()
+            //If well-formed event
+            
+            if (title != ""){
+                self.closedEvents.append(closedEventInstance)
+                           self.closedEvents = self.sortTableViewByTime(events: self.closedEvents)
+                           self.closedEventsTableView.reloadData()
+            }
+            
+           
             
             print(self.closedEvents.count)
         })

@@ -38,7 +38,7 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var ticketTypeTableView: UITableView!
     
     @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var confirmButton: LoadingButton!
     
     
     var ticketTypes: [TicketType] = []
@@ -88,6 +88,14 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
         
         confirmButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
         confirmButton.setTitle("Confirm Event", for: .normal)
+        
+        /**
+        
+        let alert = UIAlertController(title: "Ensure Verification.", message: "Ticket purchases will not succeed if both your identity and business profile are not verified (two green check marks).", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+        
+            */
         
     }
     
@@ -345,6 +353,9 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func confirmPressed(_ sender: Any) {
         
+        confirmButton.showLoading()
+        confirmButton.isEnabled = false
+        
         //Write to Firebase Database
         
         //Check for correctness constraints
@@ -377,19 +388,48 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
                 
                 ] as [String : Any]
             
-            let update1 = ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/": post]
-            ref?.updateChildValues(update1)
+            ref?.child("vendors").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
             
-            var ticketDictionary: Dictionary = [:] as [String: Any]
-        
-            for t in ticketTypes {
-                ticketDictionary[t.name] = t.price
-            }
+            ///If no value exists -- means false
+            let accountID = value?["stripeAcctID"] as? String ?? ""
+                
+                StripeClient.shared.checkVerificationStatus(accountID: accountID) { result in
+                    
+                    print("result:" + result)
+                    
+                    if (result == "verified"){
+                        
+                        let update1 = ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/": post]
+                        self.ref?.updateChildValues(update1)
+                            
+                            var ticketDictionary: Dictionary = [:] as [String: Any]
+                        
+                        for t in self.ticketTypes {
+                                ticketDictionary[t.name] = t.price
+                            }
+                            
+                            let update2 =  ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/ticketTypes/": ticketDictionary]
+                        self.ref?.updateChildValues(update2)
+                            
+                            self.navigationController?.popViewController(animated: true)
+                       
+                        
+                    } else {
+                        let alert = UIAlertController(title: "Not Verified.", message: "Please ensure you are fully verified through the portal -- this is a requirement to create events.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        self.present(alert, animated: true)
+                        
+                        self.confirmButton.isEnabled = true
+                    }
+                }
+                
+            })
             
-            let update2 =  ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/ticketTypes/": ticketDictionary]
-            ref?.updateChildValues(update2)
             
-            self.navigationController?.popViewController(animated: true)
+            
+            
             
             
         }

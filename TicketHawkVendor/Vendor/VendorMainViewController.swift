@@ -67,11 +67,17 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             return
         }
         
+         print("b")
+        
         let userID = Auth.auth().currentUser?.uid ?? ""
+        
+         print("c")
         
         let vendorRef : DatabaseReference? = ref?.child("vendors").child(userID)
         
         self.onCreateRegardless()
+        
+        print("d")
         
         
         // Attach a listener to read the data at our posts reference
@@ -138,6 +144,8 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.titleView.text = events[indexPath.row].title
         cell.dateView.text = events[indexPath.row].dateAndTime
         
+        print("id" + (events[indexPath.row].id ?? ""))
+        
         
         
         self.ref?.child("vendors").child(Auth.auth().currentUser!.uid).child("events").child(events[indexPath.row].id ?? "").observeSingleEvent(of: .value, with: {(snapshot) in
@@ -199,20 +207,20 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         
         query?.observe(.childAdded, with: { (snapshot) in
             
-            let event = snapshot.value as? NSDictionary
+            let event = snapshot.value as? NSDictionary ?? [:]
             
-            let title = event!["eventTitle"] as! String
-            var startDateAndTime = event!["startDateAndTime"] as? String ?? "No Date Found"
-            let pictureURL = event!["pictureURL"] as? String ?? ""
-            let tickets = event!["ticketTypes"] as? Dictionary ?? [:]
-            let id = event!["key"] as? String ?? ""
+            let title = event["eventTitle"] as? String ?? ""
+            var startDateAndTime = event["startDateAndTime"] as? String ?? "No Date Found"
+            let pictureURL = event["pictureURL"] as? String ?? ""
+            let tickets = event["ticketTypes"] as? Dictionary ?? [:]
+            let id = event["key"] as? String ?? ""
             
             let unformatted = startDateAndTime
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             
-            let d1: Date = dateFormatter.date(from: startDateAndTime)!
+            let d1: Date = dateFormatter.date(from: startDateAndTime) ?? Date()
             
             let dateFormatter2 = DateFormatter()
             dateFormatter2.amSymbol = "AM"
@@ -221,12 +229,16 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
             
             startDateAndTime = dateFormatter2.string(from: d1)
             
+            print(1)
+            
             var minimumprice: Double = Double.greatestFiniteMagnitude
             for (_, ticketprice) in tickets {
                 if ((ticketprice as! Double) / 100 < minimumprice){
                     minimumprice = ticketprice as! Double / 100
                 }
             }
+            
+            print(2)
             
             let formatter = NumberFormatter()
             formatter.numberStyle = .currency
@@ -236,17 +248,26 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 self.ref?.child("vendors").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: {(snapshot) in
                     
-                    let value = snapshot.value as? NSDictionary
-                    let ownName = value!["organizationName"] as? String ?? ""
+                    
+                    print(3)
+                    
+                    
+                    let value = snapshot.value as? NSDictionary ?? [:]
+                    let ownName = value["organizationName"] as? String ?? ""
                     
                     let eventInstance = Event(title: title, dateAndTime: startDateAndTime, lowestPrice: number, imageURL: pictureURL, id: id, creatorId: Auth.auth().currentUser!.uid,
                                               creatorName: ownName, unformatted: unformatted
                                               )
                     
-                    self.events.append(eventInstance)
-                    self.events = self.sortTableViewByTime(events: self.events)
+                    //Check if well-formed
                     
-                    self.eventsTableView.reloadData()
+                    if (title != ""){
+                        self.events.append(eventInstance)
+                                           self.events = self.sortTableViewByTime(events: self.events)
+                                           
+                                           self.eventsTableView.reloadData()
+                    }
+                   
                     
                 })
                 
@@ -257,20 +278,20 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
         
         query?.observe(.childChanged, with: { (snapshot) in
             
-            let event = snapshot.value as? NSDictionary
+            let event = snapshot.value as? NSDictionary ?? [:]
             
-            let title = event!["eventTitle"] as! String
-            var startDateAndTime = event!["startDateAndTime"] as? String ?? "No Date Found"
-            let pictureURL = event!["pictureURL"] as? String ?? ""
-            let tickets = event!["ticketTypes"] as? Dictionary ?? [:]
-            let id = event!["key"] as? String ?? ""
+            let title = event["eventTitle"] as? String ?? ""
+            var startDateAndTime = event["startDateAndTime"] as? String ?? "No Date Found"
+            let pictureURL = event["pictureURL"] as? String ?? ""
+            let tickets = event["ticketTypes"] as? Dictionary ?? [:]
+            let id = event["key"] as? String ?? ""
             
             let unformatted = startDateAndTime
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             
-            let d1: Date = dateFormatter.date(from: startDateAndTime)!
+            let d1: Date = dateFormatter.date(from: startDateAndTime) ?? Date()
             
             let dateFormatter2 = DateFormatter()
             dateFormatter2.amSymbol = "AM"
@@ -357,6 +378,10 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func createPressed(_ sender: Any) {
+        
+        
+        
+        
         let vc = storyboard!.instantiateViewController(withIdentifier: "createEventViewController") as! CreateEventViewController
         self.navigationController!.pushViewController(vc, animated: true)
     }
