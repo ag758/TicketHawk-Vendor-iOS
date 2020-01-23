@@ -388,50 +388,20 @@ class CreateEventViewController: UIViewController, UITableViewDelegate, UITableV
                 
                 ] as [String : Any]
             
-            ref?.child("vendors").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            
-            ///If no value exists -- means false
-            let accountID = value?["stripeAcctID"] as? String ?? ""
+                        
+                let update1 = ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/": post]
+                self.ref?.updateChildValues(update1)
+                    
+                    var ticketDictionary: Dictionary = [:] as [String: Any]
                 
-                StripeClient.shared.checkVerificationStatus(accountID: accountID) { result in
-                    
-                    print("result:" + result)
-                    
-                    if (result == "verified"){
-                        
-                        let update1 = ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/": post]
-                        self.ref?.updateChildValues(update1)
-                            
-                            var ticketDictionary: Dictionary = [:] as [String: Any]
-                        
-                        for t in self.ticketTypes {
-                                ticketDictionary[t.name] = t.price
-                            }
-                            
-                            let update2 =  ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/ticketTypes/": ticketDictionary]
-                        self.ref?.updateChildValues(update2)
-                            
-                            self.navigationController?.popViewController(animated: true)
-                       
-                        
-                    } else {
-                        let alert = UIAlertController(title: "Not Verified.", message: "Please ensure you are fully verified through the portal -- this is a requirement to create events.", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                        self.present(alert, animated: true)
-                        
-                        self.confirmButton.isEnabled = true
+                for t in self.ticketTypes {
+                        ticketDictionary[t.name] = t.price
                     }
-                }
-                
-            })
-            
-            
-            
-            
-            
-            
+                    
+                    let update2 =  ["/vendors/\(Auth.auth().currentUser!.uid)/events/\(key!)/ticketTypes/": ticketDictionary]
+                self.ref?.updateChildValues(update2)
+                    
+                    self.navigationController?.popViewController(animated: true)
         }
         
         

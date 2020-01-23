@@ -1,52 +1,25 @@
-/// Copyright (c) 2017 Razeware LLC
-///
-/// Permission is hereby granted, free of charge, to any person obtaining a copy
-/// of this software and associated documentation files (the "Software"), to deal
-/// in the Software without restriction, including without limitation the rights
-/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-/// copies of the Software, and to permit persons to whom the Software is
-/// furnished to do so, subject to the following conditions:
-///
-/// The above copyright notice and this permission notice shall be included in
-/// all copies or substantial portions of the Software.
-///
-/// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
-/// distribute, sublicense, create a derivative work, and/or sell copies of the
-/// Software in any work that is designed, intended, or marketed for pedagogical or
-/// instructional purposes related to programming, coding, application development,
-/// or information technology.  Permission for such use, copying, modification,
-/// merger, publication, distribution, sublicensing, creation of derivative works,
-/// or sale is expressly withheld.
-///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-/// THE SOFTWARE.
+
 
 import Foundation
 import Firebase
 import FirebaseDatabase
 
 enum Constants {
-  static let publishableKey = "pk_test_fKyLqJd3qZN9L1aUlHCIobOi00PTyZP089"
+  static let publishableKey = "pk_live_Es4NfgnJnDuJpaz2IWEEY1N000Unj0FodD"
   static let baseURLString = "https://secret-river-64641.herokuapp.com"
   static let defaultCurrency = "usd"
   static let defaultDescription = "Purchase from TicketHawk"
     
-  static let privacyPolicyURL = "http://www.apple.com"
-  static let termsOfServiceURL = "http://www.google.com"
-  static let howToReportURL = "http://www.facebook.com"
+  static let privacyPolicyURL = "https://www.tickethawkapp.com/privacy-policy"
+  static let termsOfServiceURL = "https://www.tickethawkapp.com/terms-conditions"
+  static let howToReportURL = "https://www.tickethawkapp.com/report"
     
     static let stripeConnectedAccountAgreementURL = "https://stripe.com/connect-account/legal"
-    static let stripe_success_url = "http://www.google.com"
-    static let stripe_failure_url = "http://www.google.com"
+    static let stripe_success_url = "https://www.tickethawkapp.com/verification-success"
+    static let stripe_failure_url = "https://www.tickethawkapp.com/verification-failure"
     
     static let stripeAccountCreateURL = "https://infinite-brushlands-30316.herokuapp.com"
-    static let stripeAccountUpdateURL =
-        "https://pacific-headland-27171.herokuapp.com"
+    static let stripeAccountUpdateURL = "https://pacific-headland-27171.herokuapp.com"
     
     static let stripeBankTokenGenerateURL = "https://limitless-crag-73993.herokuapp.com"
     static let stripeBankSetURL = "https://pure-mountain-40233.herokuapp.com"

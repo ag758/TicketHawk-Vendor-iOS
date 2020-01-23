@@ -47,6 +47,8 @@ class VendorViewController1: UIViewController {
     
     func checkLoggedIn(){
         Auth.auth().addStateDidChangeListener { auth, user in
+            print("a")
+            print(user==nil)
             if user != nil {
                 self.vendorLogin()
             } else {
@@ -59,10 +61,20 @@ class VendorViewController1: UIViewController {
         let authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self as? FUIAuthDelegate
         
-        let providers: [FUIAuthProvider] = [
-            FUIGoogleAuth(),
-            FUIFacebookAuth(),
+        var providers: [FUIAuthProvider] = []
+        
+        if #available(iOS 13.0, *) {
+            providers = [
+                FUIGoogleAuth(),
+                FUIFacebookAuth(),
+                FUIOAuth.appleAuthProvider()
             ]
+        } else {
+           providers = [
+                FUIGoogleAuth(),
+                FUIFacebookAuth(),
+            ]
+        }
         authUI?.providers = providers
         let authViewController = authUI?.authViewController()
         
@@ -75,8 +87,8 @@ class VendorViewController1: UIViewController {
         ref = Database.database().reference()
         let user = Auth.auth().currentUser
         
-        let userID: String = (user?.uid) ?? ""
-        let userName: String = (user?.displayName) ?? ""
+        let userID: String = (user?.uid)!
+        let userName: String = (user?.displayName) ?? "Default"
         
         //Values that will not change
         

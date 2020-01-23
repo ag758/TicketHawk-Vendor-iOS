@@ -37,7 +37,7 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var editProfileButton: UIButton!
     
-    @IBOutlet weak var createEventButton: UIButton!
+    @IBOutlet weak var createEventButton: LoadingButton!
     
     @IBOutlet weak var eventsTableView: UITableView!
     
@@ -379,11 +379,46 @@ class VendorMainViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func createPressed(_ sender: Any) {
         
+        createEventButton.showLoading()
+        createEventButton.isEnabled = false
+        
+        ref?.child("vendors").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        // Get user value
+        let value = snapshot.value as? NSDictionary
+        
+        ///If no value exists -- means false
+        let accountID = value?["stripeAcctID"] as? String ?? ""
+        
+            StripeClient.shared.checkVerificationStatus(accountID: accountID) { result in
+            
+            print("result:" + result)
+            
+            if (result == "verified"){
+                
+                self.createEventButton.isEnabled = true
+                self.createEventButton.hideLoading()
+                
+                let vc = self.storyboard!.instantiateViewController(withIdentifier: "createEventViewController") as! CreateEventViewController
+                self.navigationController!.pushViewController(vc, animated: true)
+                
+                }
+            else {
+                let alert = UIAlertController(title: "Not Verified.", message: "Please ensure you are fully verified through the portal -- this is a requirement to create events.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+                
+                self.createEventButton.isEnabled = true
+                self.createEventButton.hideLoading()
+                
+                }
+            }
+            
+        })
         
         
         
-        let vc = storyboard!.instantiateViewController(withIdentifier: "createEventViewController") as! CreateEventViewController
-        self.navigationController!.pushViewController(vc, animated: true)
+        
+        
     }
     
     func sortTableViewByTime(events: [Event]) -> [Event] {

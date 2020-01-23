@@ -19,12 +19,10 @@
 		5656DA4E22C060730079920C /* TicketHawkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656DA4D22C060730079920C /* TicketHawkTests.swift */; };
 		5656DA5922C060730079920C /* TicketHawkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656DA5822C060730079920C /* TicketHawkUITests.swift */; };
 		566005F82338349B00846FDA /* VendorEventEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566005F72338349B00846FDA /* VendorEventEditViewController.swift */; };
-		5665A2EF22C7F16B00148ADD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5665A2EE22C7F16B00148ADD /* GoogleService-Info.plist */; };
 		566B6EA0233EDB780023BC24 /* ClosedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566B6E9F233EDB780023BC24 /* ClosedEvent.swift */; };
 		566B6EA2233EDCD30023BC24 /* VendorClosedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566B6EA1233EDCD30023BC24 /* VendorClosedViewController.swift */; };
 		5698D80A236CD3B60062F5A4 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698D809236CD3B60062F5A4 /* SplitViewController.swift */; };
 		569BD58A23AC9DC400E44DC6 /* Pods_TIcketHawkVendor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB609C2193D37B5B4DFBAE0E /* Pods_TIcketHawkVendor.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		569BD59123ACA08E00E44DC6 /* protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569BD58D23AC9E5A00E44DC6 /* protobuf.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		569D445B22C7FCC2001353CB /* VendorViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D445A22C7FCC2001353CB /* VendorViewController1.swift */; };
 		569D445D22C81F20001353CB /* VendorViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D445C22C81F20001353CB /* VendorViewController2.swift */; };
 		56B00EC922F10A6800D4FC26 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B00EC822F10A6800D4FC26 /* Vendor.swift */; };
@@ -72,6 +70,7 @@
 		561A643723909C3E001FFB2F /* VendorStripeAccountUpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorStripeAccountUpdateController.swift; sourceTree = "<group>"; };
 		561A64392390A7E7001FFB2F /* VendorStripeBankController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorStripeBankController.swift; sourceTree = "<group>"; };
 		561B1F5622C06DD4001A0968 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		564FE7B923C0BAE0003DBCFC /* TIcketHawkVendor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = TIcketHawkVendor.entitlements; path = TIcketHawkVendor/TIcketHawkVendor.entitlements; sourceTree = "<group>"; };
 		5652370C23921E73003D85E3 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		5656DA3522C060710079920C /* TIcketHawkVendor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TIcketHawkVendor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5656DA3822C060710079920C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,9 +84,9 @@
 		5656DA5822C060730079920C /* TicketHawkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketHawkUITests.swift; sourceTree = "<group>"; };
 		5656DA5A22C060730079920C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		566005F72338349B00846FDA /* VendorEventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorEventEditViewController.swift; sourceTree = "<group>"; };
-		5665A2EE22C7F16B00148ADD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		566B6E9F233EDB780023BC24 /* ClosedEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedEvent.swift; sourceTree = "<group>"; };
 		566B6EA1233EDCD30023BC24 /* VendorClosedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorClosedViewController.swift; sourceTree = "<group>"; };
+		567F648F23C0D32F0044F601 /* TIcketHawkVendorRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = TIcketHawkVendorRelease.entitlements; path = TIcketHawkVendor/TIcketHawkVendorRelease.entitlements; sourceTree = "<group>"; };
 		5698D809236CD3B60062F5A4 /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		569BD58D23AC9E5A00E44DC6 /* protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		569D445A22C7FCC2001353CB /* VendorViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController1.swift; sourceTree = "<group>"; };
@@ -123,7 +122,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				569BD58A23AC9DC400E44DC6 /* Pods_TIcketHawkVendor.framework in Frameworks */,
-				569BD59123ACA08E00E44DC6 /* protobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +158,8 @@
 		5656DA2C22C060710079920C = {
 			isa = PBXGroup;
 			children = (
+				567F648F23C0D32F0044F601 /* TIcketHawkVendorRelease.entitlements */,
+				564FE7B923C0BAE0003DBCFC /* TIcketHawkVendor.entitlements */,
 				5656DA3722C060710079920C /* TicketHawkVendor */,
 				5656DA4C22C060730079920C /* TicketHawkVendorTests */,
 				5656DA5722C060730079920C /* TicketHawkVendorUITests */,
@@ -186,7 +186,6 @@
 				5698D809236CD3B60062F5A4 /* SplitViewController.swift */,
 				56EAB8D92311C6650053A460 /* StripeClasses */,
 				56A6FDB4230F9DBF00825DD4 /* Vendor */,
-				5665A2EE22C7F16B00148ADD /* GoogleService-Info.plist */,
 				56EE89D322DB8A2700A5267E /* Event.swift */,
 				56B00EC822F10A6800D4FC26 /* Vendor.swift */,
 				5652370C23921E73003D85E3 /* LoadingButton.swift */,
@@ -404,7 +403,6 @@
 			files = (
 				561B1F5722C06DD4001A0968 /* Launch Screen.storyboard in Resources */,
 				5656DA4022C060730079920C /* Assets.xcassets in Resources */,
-				5665A2EF22C7F16B00148ADD /* GoogleService-Info.plist in Resources */,
 				5656DA3E22C060710079920C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,6 +711,7 @@
 			baseConfigurationReference = A0683E5954DAA4060330462F /* Pods-TIcketHawkVendor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TIcketHawkVendor/TIcketHawkVendor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XQ4BKPX7ME;
 				INFOPLIST_FILE = "$(SRCROOT)/TicketHawkVendor/Info.plist";
@@ -721,6 +720,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ap.TicketHawkVendor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -733,6 +733,7 @@
 			baseConfigurationReference = FF7770F77CAA8B1EED10DE62 /* Pods-TIcketHawkVendor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TIcketHawkVendor/TIcketHawkVendorRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XQ4BKPX7ME;
 				INFOPLIST_FILE = "$(SRCROOT)/TicketHawkVendor/Info.plist";
@@ -741,6 +742,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ap.TicketHawkVendor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
